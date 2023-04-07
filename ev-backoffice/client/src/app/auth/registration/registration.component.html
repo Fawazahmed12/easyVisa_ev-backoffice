@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row justify-content-center my-3" *ngIf="canShowFindAnAttorney">
+    <h3>{{ 'TEMPLATE.AUTH.REGISTRATION.SELECT_ONE' | translate }}</h3>
+  </div>
+  <div class="row variants-wrapper justify-content-center">
+    <div *ngFor="let variant of variants" class="col-md-6" [ngClass]="{'d-none': !variant.display, 'border-0': !canShowFindAnAttorney}" >
+      <div class="py-3 d-flex flex-column justify-content-between" *ngIf="variant.display">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-9">
+            <h5>{{ variant.title | translate }}</h5>
+            <h5 class="mt-3">{{ variant.text | translate }}</h5>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <a type="button"
+             [href]="variant.routerLink"
+             class="btn btn-primary px-4"
+          >{{ variant.btnLabel | translate}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5 justify-content-center">
+    <a routerLink="/auth/login">{{ 'TEMPLATE.AUTH.REGISTRATION.ALREADY_MEMBER' | translate }}</a>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+import com.easyvisa.Fee
+import groovy.transform.Field
+
+@Field
+List<Fee> feeSchedule = []
+
+json tmpl.'/attorney/feeBase'('fee', feeSchedule)

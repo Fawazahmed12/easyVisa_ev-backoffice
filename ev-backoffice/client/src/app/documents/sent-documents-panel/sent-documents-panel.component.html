@@ -1,0 +1,65 @@
+<div class="document-panel">
+  <ngb-accordion #sentDocumentsPanel="ngbAccordion">
+    <ngb-panel>
+      <ng-template ngbPanelHeader let-opened="opened">
+        <div class="document-panel-header">
+          <div class="d-flex align-items-center justify-content-between">
+            <button ngbPanelToggle class="btn">
+              <i class="fa toggle-icon" *ngIf="!opened">&#9656;</i>
+              <i class="fa toggle-icon" *ngIf="opened">&#9662;</i>
+              {{'TEMPLATE.SENT_DOCUMENTS.HEADER' | translate}}
+            </button>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <div class="document-panel-content">
+          <ul>
+            <li *ngFor="let applicantSentDocument of applicantSentDocumentList$ | async">
+
+              <div *ngIf="applicantSentDocument.sentDocuments.length==0">
+                <div class="applicant-details">
+                  <div class="row m-0">
+                    <div class="col-md-12 font-weight-bold">
+                      {{applicantSentDocument.applicantType}} - {{applicantSentDocument.applicantName}}
+                    </div>
+                  </div>
+                </div>
+                <div class="no-documents-text text-center pb-2 font-italic">
+                  {{'TEMPLATE.SENT_DOCUMENTS.NO_DOCUMENTS' | translate}}
+                </div>
+              </div>
+
+              <div class="applicant-details" *ngIf="applicantSentDocument.sentDocuments.length>0">
+                <div class="row m-0">
+                  <div class="col-md-2 text-left">
+                    <button  class="btn btn-link p-0" (click)="openAllPanels()" *ngIf="!(isOpenedAllPanels$ | async)">
+                      {{'TEMPLATE.SENT_DOCUMENTS.OPEN_ALL_PANELS' | translate}}
+                    </button>
+                    <button  class="btn btn-link p-0" (click)="closeAllPanels()" *ngIf="(isOpenedAllPanels$ | async)">
+                      {{'TEMPLATE.SENT_DOCUMENTS.CLOSE_ALL_PANELS' | translate}}
+                    </button>
+                  </div>
+                  <div class="col-md-4 font-weight-bold">
+                    {{applicantSentDocument.applicantType}} - {{applicantSentDocument.applicantName}}
+                  </div>
+                  <div class="col-md-2 text-info pr-0 pl-5 ml-2">
+                    <button  class="btn btn-link p-0" (click)="downloadAllAttachments(applicantSentDocument)">
+                      {{'TEMPLATE.SENT_DOCUMENTS.DOWNLOAD_ALL' | translate}}
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <app-sent-document
+                *ngIf="applicantSentDocument.sentDocuments.length>0"
+                [readOnlyAccess]="readOnlyAccess"
+                [applicantSentDocument]="applicantSentDocument"></app-sent-document>
+
+            </li>
+          </ul>
+        </div>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+</div>

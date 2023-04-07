@@ -1,0 +1,6 @@
+import com.easyvisa.Article
+
+model {
+    List<Article> articles = []
+}
+json tmpl.'/article/article'('article', articles)

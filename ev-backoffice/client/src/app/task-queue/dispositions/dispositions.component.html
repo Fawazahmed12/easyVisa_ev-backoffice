@@ -1,0 +1,140 @@
+<div>
+  <app-spinner *ngIf="(getDispositionsGetRequest$ | async).loading"></app-spinner>
+  <div
+    *ngIf="!(getDispositionsGetRequest$ | async).loading"
+    class="d-flex flex-column align-items-stretch"
+  >
+    <div>
+      <div class="text-right mb-2" *ngIf="!((activeOrganization$ | async)?.organizationType==soloPractitioner)">
+        {{'TEMPLATE.TASK_QUEUE.DISPOSITIONS.UNREAD_DISPOSITIONS_FOR_SELECTED_REPRESENTATIVE' | translate:
+          ({representativeType: (activeOrganization$ | async)?.organizationType | representativeType | translate})}}:
+        <span class="font-weight-bold pl-1">{{totalDispositions$ | async}}</span>
+      </div>
+      <div class="text-right mb-2" *ngIf="(activeOrganization$ | async)?.organizationType==soloPractitioner">
+        {{'TEMPLATE.TASK_QUEUE.DISPOSITIONS.UNREAD_DISPOSITIONS_FOR_SOLO_PRACTITIONER' | translate}}:
+        <span class="font-weight-bold pl-1">{{totalDispositions$ | async}}</span>
+      </div>
+      <app-table
+        noDataText="TEMPLATE.TASK_QUEUE.DISPOSITIONS.NO_DOCUMENTS_TO_DISPOSITION"
+        [header]="dispositionsTableHeader$ | async"
+        [tableData]="dispositionsTableData$ | async"
+        [tableSortCol]="sortFormControl.value"
+        [tableSortOrder]="orderFormControl.value"
+        [selectionStickyTable]="true"
+        [noDataCustomShowing]="true"
+        [smallCells]="true"
+        (sortParams)="sortBy($event)"
+        (rowClick)="viewDisposition($event)"
+        class="small"
+      ></app-table>
+    </div>
+    <div class="bg-white border border-gray-ccc p-2 preview-disposition-section-height">
+      <div
+        *ngIf="!(getDispositionDataGetRequest$ | async).loading && !(getDispositionPutRequest$ | async)?.loading"
+        class="d-flex flex-row no-gutters h-100 my-2">
+        <div class="col-10 preview-image-height mb-3">
+          <div [class.text-gray]="!(activeDisposition$ | async)">
+            <div class="d-flex flex-row small">
+              <div class="font-weight-bold col-2">
+                {{'TEMPLATE.TASK_QUEUE.DISPOSITIONS.CLIENT' | translate}}:
+              </div>
+              <div>
+                {{(activeDisposition$ | async)?.applicantName}}
+              </div>
+            </div>
+            <div class="d-flex flex-row small">
+              <div class="font-weight-bold col-2">
+                {{'TEMPLATE.TASK_QUEUE.DISPOSITIONS.FILE_NAME' | translate}}:
+              </div>
+              <div>
+                {{getFileNameWithoutExt((activeDisposition$ | async)?.fileName)}}
+              </div>
+            </div>
+            <div class="d-flex flex-row small">
+              <div class="font-weight-bold col-2">
+                {{'TEMPLATE.TASK_QUEUE.DISPOSITIONS.TYPE' | translate}}:
+              </div>
+              <div>
+                {{getFileExtension((activeDisposition$ | async)?.fileName)}}
+              </div>
+            </div>
+            <div class="d-flex flex-row small">
+              <div class="font-weight-bold col-2">
+                {{'TEMPLATE.TASK_QUEUE.DISPOSITIONS.DATE' | translate}}:
+              </div>
+              <div>
+                {{((activeDisposition$ | async)?.createdDate) | date:'M/d/yyyy, h:mm:ss a'}}
+              </div>
+            </div>
+          </div>
+          <div class="d-flex flex-row mt-3">
+            <div class="col-10 d-flex justify-content-center">
+              <div
+                class="text-center text-gray-ccc font-italic min-height-block-200 d-flex justify-content-center align-items-center"
+                *ngIf="!(activeDisposition$ | async)"
+              >
+                {{'TEMPLATE.TASK_QUEUE.DISPOSITIONS.NO_DISPOSITIONS_SELECTED' | translate}}
+              </div>
+              <div
+                class="file-preview"
+                *ngIf="!!(activeDisposition$ | async)"
+              >
+                <img
+                  class="image-with-source"
+                  *ngIf="hasImageSourceByFileType((activeDispositionData$ | async)?.fileType) && !!(activeDisposition$ | async)"
+                  [src]="(activeDispositionData$ | async)?.file | safeUrl">
+                <img
+                  class="image-icon"
+                  *ngIf="!hasImageSourceByFileType((activeDispositionData$ | async)?.fileType) && !!(activeDisposition$ | async)"
+                  [src]="getFileTypeIcon((activeDispositionData$ | async)?.fileType)"
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-2 d-flex flex-column justify-content-center px-4">
+          <button
+            type="button"
+            class="btn btn-primary px-4 my-3"
+            [disabled]="!hasImageSourceByFileType((activeDispositionData$ | async)?.fileType) || !(activeDisposition$ | async)"
+            (click)="openEnlargeModal()"
+          >{{ 'TEMPLATE.TASK_QUEUE.DISPOSITIONS.ENLARGE' | translate }}
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary px-4 my-3"
+            (click)="downloadFile()"
+            [disabled]="!(activeDisposition$ | async)"
+          >{{ 'TEMPLATE.TASK_QUEUE.DISPOSITIONS.DOWNLOAD' | translate }}
+          </button>
+          <button
+            *appHideByPosition="[EmployeePosition.TRAINEE]"
+            type="button"
+            class="btn btn-primary px-4 mt-5 mb-3"
+            (click)="openRejectModal()"
+            [disabled]="!(activeDisposition$ | async)"
+          >{{ 'TEMPLATE.TASK_QUEUE.DISPOSITIONS.REJECT' | translate }}
+          </button>
+          <button
+            *appHideByPosition="[EmployeePosition.TRAINEE]"
+            type="button"
+            class="btn btn-primary px-4 my-3"
+            (click)="approveActiveDisposition()"
+            [disabled]="!(activeDisposition$ | async)"
+          >{{ 'TEMPLATE.TASK_QUEUE.DISPOSITIONS.APPROVE' | translate }}
+          </button>
+        </div>
+      </div>
+      <app-spinner
+        *ngIf="(getDispositionDataGetRequest$ | async).loading || (getDispositionPutRequest$ | async)?.loading">
+      </app-spinner>
+    </div>
+    <app-pagination
+      [collectionSize]="totalDispositions$ | async"
+      [pageSize]="maxFormControl.value"
+      [page]="page"
+      [noOffset]="true"
+      (pageChange)="pageChange($event)"
+    ></app-pagination>
+  </div>
+</div>

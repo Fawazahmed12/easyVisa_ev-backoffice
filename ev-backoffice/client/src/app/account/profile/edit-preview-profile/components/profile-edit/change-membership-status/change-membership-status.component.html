@@ -1,0 +1,19 @@
+<div class="bg-white border border-gray-ccc border-top-0 mb-4">
+  <h3 class="text-center text-white bg-primary p-2 mb-0">
+    {{'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.HEADER' | translate}}
+  </h3>
+  <div class="text-center font-weight-bold my-4 px-3">
+    {{content$ | async | translate}}
+  </div>
+  <div class="row mb-4">
+    <div class="d-flex flex-row col justify-content-center">
+      <button
+        type="button"
+        class="btn btn-primary m-3 min-w-100"
+        (click)="openModal()"
+        >
+        {{btnLabel$ | async | translate}}
+      </button>
+    </div>
+  </div>
+</div>

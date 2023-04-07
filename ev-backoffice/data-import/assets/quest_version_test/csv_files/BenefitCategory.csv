@@ -1,0 +1,20 @@
+EasyVisaId,QuestVersion,Name,DisplayText,CategoryName
+BC_IR1,quest_version_test,IR-1,IR-1 Spouse of Citizen,Immediate Relative
+BC_IR2,quest_version_test,IR-2,IR-2 Unmarried Children (under 21) of a Nat. Citizen,Immediate Relative
+BC_IR5,quest_version_test,IR-5,IR-5 Parent of Citizen (age 21 and over),Immediate Relative
+BC_F1,quest_version_test,F1,F1 Unmarried (age 21 and over) Sons and Daughters of Citizens and Their Minor Children,Family Preference
+BC_F2,quest_version_test,F2,"F2 Spouse, Minor Children, and Unmarried Sons and Daughters (age 21 and over) of LPRs",Family Preference
+BC_F3,quest_version_test,F3,"F3 Married Sons and Daughters of Citizens, and Their Spouses and Their Minor Children",Family Preference
+BC_F4,quest_version_test,F4,"F4 Brothers & Sisters of Citizens (age 21 and over), & Their Spouses & Minor Children",Family Preference
+BC_K1K3,quest_version_test,K-1/K-3,K1/K3 Fianc$e$(e)/Spouse,Fiance Visa
+BC_K2K4,quest_version_test,K-2/K-4,K2/K4 Fianc$e$(e) Children/Spouse Children,Fiance Visa
+BC_Citizenship,quest_version_test,Citizenship ,Citizenship ,Naturalization
+BC_SpouseToLPR,quest_version_test,LPR,Spouse to LPR,Permanent Residence
+BC_SpouseChildrenToLPR,quest_version_test,LPR,Spouse$sq$s Children to LPR,Permanent Residence
+BC_601,quest_version_test,601,Application for Waiver of Grounds on Inadmissibility(Client is OUTSIDE U.S.),Miscellaneous
+BC_601A,quest_version_test,601A,Application for Provisional Unlawful Presence Waiver (Client is INSIDE U.S.),Miscellaneous
+BC_EAD,quest_version_test,EAD,Employment Authorization Document,Miscellaneous
+BC_648,quest_version_test,648,Medical Certification for Disability Exception,Miscellaneous
+BC_RemoveConditions,quest_version_test,Remove Conditions,Remove Conditions 2-Year to 10-Year LPR,Remove Conditions
+,,,,
+,,,,

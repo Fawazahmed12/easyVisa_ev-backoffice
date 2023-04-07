@@ -1,0 +1,89 @@
+<app-block [title]="'TEMPLATE.ACCOUNT.PROFILE.MY_REVIEW.HEADER' | translate">
+  <div class="d-flex flex-row mx-2 mb-1 no-gutters">
+    <div
+      class="col-4 offset-4 text-center"
+      [ngbTooltip]="(totalReviews$ | async) ? tipContent : ''"
+      placement="bottom"
+      tooltipClass="rating-tool-tip"
+      [closeDelay]="1500"
+    >
+      <h5 class="font-weight-bold">{{'TEMPLATE.ACCOUNT.PROFILE.MY_REVIEW.AVERAGE_CLIENT_RATING' | translate}}</h5>
+      <div
+        class="text-primary cursor-pointer"
+        (click)="changeFilterByRating()"
+      >
+        {{'TEMPLATE.ACCOUNT.PROFILE.MY_REVIEW.REVIEWS' | translate:({totalCount: !!(totalReviews$ | async) ? (totalReviews$ | async) : 0})}}
+      </div>
+      <app-stars-rating
+        [readonly]="true"
+        [rate]="(countRating$ | async)?.averageRate | numberHalfRound"
+      ></app-stars-rating>
+    </div>
+    <div
+      class="d-flex col justify-content-end text-right"
+      *ngIf="ratingFormControl.value && ratingFormControl.value !== 'all'"
+    >
+     <div class="align-self-end">
+      {{'TEMPLATE.ACCOUNT.PROFILE.MY_REVIEW.CURRENTLY_SHOWING' | translate:({star: ratingFormControl.value})}}
+       <div
+        class="cursor-pointer text-primary small"
+        (click)="changeFilterByRating()"
+      >
+      {{'TEMPLATE.ACCOUNT.PROFILE.MY_REVIEW.SHOW_ALL' | translate}}
+      </div>
+     </div>
+    </div>
+  </div>
+  <app-table
+    [header]="this.headers"
+    [tableData]="reviewsTableData$ | async"
+    [tableSortCol]="sortFormControl.value"
+    [tableSortOrder]="orderFormControl.value"
+    [scrolledTableBody]="false"
+    [disableSortingStarColumn]="disableSortingStarColumn"
+    (sortParams)="sortBy($event)"
+    (actionItem)="changeFilterByRating($event)"
+    (rowClick)="openWriteReply($event)"
+    class="mt-2"
+  ></app-table>
+  <div class="row">
+    <ngb-pagination
+      [collectionSize]="totalFilteredReviews$ | async"
+      [pageSize]="maxFormControl.value"
+      [page]="page"
+      [maxSize]="5"
+      [rotate]="true"
+      [boundaryLinks]="true"
+      (pageChange)="pageChange($event)"
+      class="col-6 offset-3 d-flex justify-content-center border-0"
+    >
+      <ng-template ngbPaginationFirst>{{'FORM.PAGINATION_LABELS.FIRST' | translate}}</ng-template>
+      <ng-template ngbPaginationLast>{{'FORM.PAGINATION_LABELS.LAST' | translate}}</ng-template>
+      <ng-template ngbPaginationPrevious>{{'FORM.PAGINATION_LABELS.PREVIOUS' | translate}}</ng-template>
+      <ng-template ngbPaginationNext>{{'FORM.PAGINATION_LABELS.NEXT' | translate}}</ng-template>
+    </ngb-pagination>
+  </div>
+</app-block>
+<ng-template #tipContent>
+  <div class="text-center mb-1">
+    {{'TEMPLATE.ACCOUNT.PROFILE.MY_REVIEW.TOOL_TIP_LABELS.TOP_LABEL' | translate:({totalRating: (countRating$ | async)?.averageRate | number:'1.0-1'})}}
+  </div>
+  <div>
+    <div
+      class="row mb-1"
+      *ngFor="let rating of (countRating$ | async).ratePercentage">
+      <span
+        class="text-primary col-4 p-0"
+        (click)="changeFilterByRating(rating.value)"
+      >
+        {{'TEMPLATE.ACCOUNT.PROFILE.MY_REVIEW.TOOL_TIP_LABELS.ROW_LABEL' | translate:({rating: rating.value})}}
+      </span>
+      <ngb-progressbar class="col-4 p-0" type="warning" [value]="rating.count"></ngb-progressbar>
+      <span class="col-4 p-0 text-left pl-3">{{rating.count | number:'1.0-0'}}%</span>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #writeReply>
+  <app-write-reply></app-write-reply>
+</ng-template>

@@ -1,0 +1,16 @@
+<div class="border-custom d-flex flex-column w-100 height-card">
+  <div class="max-height-block-300 background-bee1f9 text-center d-flex align-items-center justify-content-center">
+    <div>
+      <img class="w-150" [src]="card.img">
+    </div>
+  </div>
+  <h3 class="text-center d-flex align-items-center justify-content-center title mt-3">
+    {{card.title | translate}}
+  </h3>
+  <div class=" border-skyblue mx-4"></div>
+  <div class="p-2">
+    <ul *ngFor="let item of card.items" class="mb-1 pr-3">
+      <li>{{ item | translate }}</li>
+    </ul>
+  </div>
+</div>

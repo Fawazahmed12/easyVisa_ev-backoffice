@@ -1,0 +1,17 @@
+<div class="container-fluid p-0 border border-secondary">
+  <app-modal-header  [title]="'FORM.REQUEST_TRANSFER_CASE_SENT.HEADER'"></app-modal-header>
+  <div class="m-5">
+    <div>{{'FORM.REQUEST_TRANSFER_CASE_SENT.P_1' | translate}} {{request?.firstName}}, <span *ngIf="request?.middleName">{{request?.middleName}}, </span>{{request?.lastName}}.</div>
+    <div [innerHTML]="'FORM.REQUEST_TRANSFER_CASE_SENT.P_2' | translate"></div>
+    <div [innerHTML]="'FORM.REQUEST_TRANSFER_CASE_SENT.P_3' | translate"></div>
+  </div>
+  <div class="text-right m-4">
+    <button
+      (click)="closeModal()"
+      class="btn btn-primary px-4 min-w-100"
+      type="button"
+    >
+      {{ 'FORM.BUTTON.OK' | translate}}
+    </button>
+  </div>
+</div>

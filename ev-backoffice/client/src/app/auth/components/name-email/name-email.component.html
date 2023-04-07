@@ -1,0 +1,79 @@
+<div class="row justify-content-center mb-4">
+  <div class="col-md-1 justify-content-center d-flex p-0">
+    <div class="column-number bg-primary">1</div>
+  </div>
+  <div class="col-md-8 mt-2 mt-md-0">
+    <h4 class="text-center text-md-left">
+      {{ isAttorney ? ('TEMPLATE.AUTH.SIGN_UP.NAME_EMAIL' | translate) : ('TEMPLATE.AUTH.SIGN_UP.CURRENT_LEGAL_NAME' | translate) }}
+    </h4>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-10">
+    <app-auth-form-field
+      [control]="firstNameControl"
+      [submitted]="submitted"
+      label="TEMPLATE.AUTH.SIGN_UP.FIRST_NAME"
+      [required]="true"
+      [primaryTextStyle]="true"
+      [smallMarginStyle]="true"
+      [col4Label]="true"
+    ></app-auth-form-field>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-10">
+    <app-auth-form-field
+      [control]="middleNameControl"
+      [submitted]="submitted"
+      label="TEMPLATE.AUTH.SIGN_UP.MIDDLE_NAME"
+      [primaryTextStyle]="true"
+      [smallMarginStyle]="true"
+      [col4Label]="true"
+    ></app-auth-form-field>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-10">
+    <app-auth-form-field
+      [control]="lastNameControl"
+      [submitted]="submitted"
+      label="TEMPLATE.AUTH.SIGN_UP.LAST_NAME"
+      [required]="true"
+      [primaryTextStyle]="true"
+      [smallMarginStyle]="true"
+      [col4Label]="true"
+    ></app-auth-form-field>
+  </div>
+</div>
+<div class="row justify-content-center" *ngIf="isAttorney">
+  <div class="col-md-10">
+    <app-auth-form-field
+      [type]="'email'"
+      [control]="emailControl"
+      [submitted]="submitted"
+      label="TEMPLATE.AUTH.SIGN_UP.EMAIL_ADDRESS"
+      [required]="true"
+      [primaryTextStyle]="true"
+      [smallMarginStyle]="true"
+      [col4Label]="true"
+    ></app-auth-form-field>
+    <app-value-existence-messages
+      [control]="emailControl"
+      [controlLabel]="'TEMPLATE.AUTH.SIGN_UP.EMAIL_ADDRESS'">
+    </app-value-existence-messages>
+  </div>
+</div>
+<div class="row justify-content-center text-danger font-italic my-3" *ngIf="isAttorney">
+  <div class="col-md-10">
+    <div class="row m-0">
+      <div class="offset-md-3 col-md">
+        <p class="font-weight-bold text-center">
+          <span class="ml-1">*</span>
+          {{ 'FORM.TEMPLATE.MANDATORY' | translate }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,17 @@
+import com.easyvisa.User
+import groovy.transform.Field
+
+@Field User user
+@Field String profileTemplate
+@Field Map profileMap
+
+json {
+    id user.id
+    roles user.authorities*.authority
+    enabled user.enabled
+    lastLogin user.lastLogin
+    accountLocked user.accountLocked
+    paid user.paid
+    activeMembership user.activeMembership
+    profile(profileTemplate ? g.render(template: profileTemplate, model: profileMap) : null)
+}

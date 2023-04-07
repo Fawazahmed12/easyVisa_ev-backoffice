@@ -1,0 +1,124 @@
+<div class="offset-0">
+  <div
+    class="row justify-content-center mb-2"
+    *ngIf="attorneyPayment"
+  >
+    <div class="col mt-2 mt-md-0">
+      <h4 class="text-center">
+        {{ 'TEMPLATE.CREDIT_CARD_BILL_FORM.CREDIT_CARD_BILLING_ADDRESS' | translate }}
+      </h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 mt-1 mt-md-0">
+      <div class="form-check">
+        <label class="custom-text-size">
+          <input class="form-check-input" type="checkbox" value="" [formControl]="sameOfficeControl">
+          {{ checkBoxLabel | translate }}
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+
+      <div class="form-group mb-1">
+        <div class="row no-gutters">
+          <label
+            class="col-form-label col-form-label-sm col-md-2 pr-1 text-md-left"
+            [class.col-md-4]="col4Label"
+            [class.col-md-3]="col3Label"
+          >
+            {{ 'FORM.LABELS.COUNTRY' | translate }}
+          </label>
+          <div class="col-md d-flex">
+          <select
+            [formControl]="countryControl"
+            class="form-control form-control-sm"
+          >
+            <option [value]="country.value" *ngFor="let country of countries">
+              {{country.label}}
+            </option>
+          </select>
+          <span
+            class="text-danger asterisk-font-size pl-1 asterisk-position"
+            [class.invisible]="true"
+          >*</span>
+        </div>
+        </div>
+      </div>
+
+      <app-auth-form-field
+        [control]="billingAddressControl"
+        [showError]="false"
+        [smallMarginStyle]="true"
+        label="TEMPLATE.CREDIT_CARD_BILL_FORM.ADDRESS_1"
+        [col4Label]="col4Label"
+      ></app-auth-form-field>
+      <app-auth-form-field
+        [control]="billingAddress2Control"
+        [smallMarginStyle]="true"
+        label="TEMPLATE.CREDIT_CARD_BILL_FORM.ADDRESS_2"
+        [col4Label]="col4Label"
+      ></app-auth-form-field>
+      <app-auth-form-field
+        [control]="billingCityControl"
+        [showError]="false"
+        [smallMarginStyle]="true"
+        label="TEMPLATE.CREDIT_CARD_BILL_FORM.CITY"
+        [col4Label]="col4Label"
+      ></app-auth-form-field>
+      <div class="form-group mb-1" *ngIf="countryControl.value == UNITED_STATES">
+        <div class="row no-gutters">
+          <label
+            class="col-form-label col-form-label-sm col-md-2 pr-1 text-md-left"
+            [class.col-md-3]="col3Label"
+            [class.col-md-4]="col4Label"
+          >
+            {{ 'TEMPLATE.CREDIT_CARD_BILL_FORM.STATE' | translate }}
+          </label>
+          <div class="col-md d-flex">
+          <select
+            [formControl]="billingStateControl"
+            class="form-control form-control-sm">
+            <option [value]="state.code" *ngFor="let state of states">
+              {{state.label}}
+            </option>
+          </select>
+          <span
+            class="text-danger asterisk-font-size pl-1 asterisk-position"
+            [class.invisible]="true"
+          >*</span>
+        </div>
+        </div>
+      </div>
+      <app-auth-form-field
+        [control]="billingZipCodeControl"
+        *ngIf="countryControl.value == UNITED_STATES"
+        [showError]="false"
+        [smallMarginStyle]="true"
+        label="TEMPLATE.CREDIT_CARD_BILL_FORM.ZIP_CODE"
+        [col4Label]="col4Label"
+      ></app-auth-form-field>
+
+      <app-auth-form-field
+        *ngIf="countryControl.value !== UNITED_STATES"
+        [control]="billingProvinceControl"
+        [showError]="false"
+        [smallMarginStyle]="true"
+        label="TEMPLATE.CREDIT_CARD_BILL_FORM.PROVINCE"
+        [col4Label]="col4Label"
+      ></app-auth-form-field>
+
+
+      <app-auth-form-field
+        *ngIf="countryControl.value !== UNITED_STATES"
+        [control]="billingPostalCodeControl"
+        [showError]="false"
+        [smallMarginStyle]="true"
+        label="TEMPLATE.CREDIT_CARD_BILL_FORM.POSTAL_CODE"
+        [col4Label]="col4Label"
+      ></app-auth-form-field>
+    </div>
+  </div>
+</div>

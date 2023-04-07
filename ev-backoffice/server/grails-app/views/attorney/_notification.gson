@@ -1,0 +1,12 @@
+import com.easyvisa.EmailTemplate
+import groovy.transform.Field
+
+@Field EmailTemplate email
+
+json {
+    id email.id
+    content email.content
+    subject email.subject
+    repeatInterval email.preference.repeatInterval
+    templateType email.templateType
+}

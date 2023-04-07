@@ -1,0 +1,8 @@
+<select
+  [formControl]="selectedTimeFormControl"
+  (change)="updateValue()"
+  class="form-control form-control-sm">
+  <option [value]="time.value" *ngFor="let time of workingTime">
+    {{time.value}}
+  </option>
+</select>

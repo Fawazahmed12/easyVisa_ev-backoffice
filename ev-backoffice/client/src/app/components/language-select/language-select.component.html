@@ -1,0 +1,11 @@
+<div class="container-fluid">
+  <div class="row">
+    <ng-template ngFor [ngForOf]="languages" let-lang let-isLast="last">
+      <div
+        class="col px-2 text-center cursor-pointer text-uppercase small text-dark-gray"
+        [ngClass]="{'border-right border-secondary border-gray': !isLast}"
+        (click)="onLangChange(lang.value)"
+      >{{ lang.label }}</div>
+    </ng-template>
+  </div>
+</div>

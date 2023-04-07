@@ -1,0 +1,10 @@
+<a class="btn btn-link p-0 blue-link"
+   [placement]="['bottom', 'auto']"
+   [ngbTooltip]="tipContent"
+   container="body" tooltipClass="required-document-help" *ngIf="documentHelpText">
+  {{'TEMPLATE.ATTACHMENTS.HELP' | translate}}
+</a>
+
+<ng-template #tipContent>
+  <div [innerHtml]="documentHelpText"></div>
+</ng-template>

@@ -1,0 +1,57 @@
+[
+  {
+    "introQuestions": {
+      "petitionForOtherRelatives": {
+        "filledForOtherRelatives": "yes",
+        "filledForOtherRelativesQuestions": [
+          {
+            "firstName": "Sachin",
+            "familyName": "Tendulkar",
+            "middleName": "Ramesh",
+            "relationship": "relationship"
+          },
+          {
+            "firstName": "Shane",
+            "familyName": "Warne",
+            "middleName": "Keith",
+            "relationship": "relationship"
+          }
+        ]
+      },
+      "sponsorshipRelationship": {},
+      "previousImmigrationFilledForAnotherPerson": {
+        "everFilledPetition": "yes",
+        "filled2orMorePetitions": "no",
+        "everFilledPetitionQuestions": [
+          {
+            "firstName": "John",
+            "relationshipToYou": "Brother",
+            "dob": "Sun Mar 11 00:00:00 IST 3888",
+            "familyName": "Peer",
+            "alienNo": "",
+            "cityortown": "Seatle",
+            "issuedAlienNo": "no",
+            "dof": "Mon Jul 09 18:20:36 IST 2018",
+            "middleName": "Williams",
+            "state": "Washington",
+            "resultOfPetition": "Pending"
+          },
+          {
+            "firstName": "Stephen",
+            "relationshipToYou": "Cousin",
+            "dob": "Tue Dec 22 00:00:00 IST 3885",
+            "familyName": "Adityan",
+            "alienNo": "A1008",
+            "cityortown": "Brisbane",
+            "issuedAlienNo": "yes",
+            "dof": "Mon Jul 09 18:20:36 IST 2018",
+            "middleName": "Peterson",
+            "state": "Queensland",
+            "resultOfPetition": "Under Progress"
+          }
+        ],
+        "hadPetitionInPrev2Years": "yes"
+      }
+    }
+  }
+]

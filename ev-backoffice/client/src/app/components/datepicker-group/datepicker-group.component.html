@@ -1,0 +1,20 @@
+<div class="col-md d-flex input-group datepicker-group p-0 min-w-100">
+  <input class="col-md d-flex form-control date-control" placeholder="mm-dd-yyyy"
+    name="dp" ngbDatepicker #d="ngbDatepicker"
+    [formControl]="dateFormControl"
+    [maxDate]="maxDate"
+    [minDate]="minDate"
+    [container]="'body'"
+  >
+  <div class="input-group-append">
+    <button
+      class="btn text-secondary calendar fa fa-calendar border-gray border-left-0"
+      [class.bg-white]="dateFormControl.enabled"
+      [class.bg-light-gray]="dateFormControl.disabled"
+      (click)="d.toggle()"
+      type="button"
+      [disabled]="dateFormControl.disabled"
+    >
+    </button>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+import com.easyvisa.AdminConfig
+import groovy.transform.Field
+
+@Field AdminConfig feeConfig
+
+json {
+    i129f feeConfig.i129f
+    i130 feeConfig.i130
+    i360 feeConfig.i360
+    i485 feeConfig.i485
+    i485_14 feeConfig.i485_14
+    i600_600a feeConfig.i600_600a
+    i601 feeConfig.i601
+    i601a feeConfig.i601a
+    i751 feeConfig.i751
+    i765 feeConfig.i765
+    n400 feeConfig.n400
+    n600_n600k feeConfig.n600_n600k
+    biometricServiceFee feeConfig.biometricServiceFee
+}

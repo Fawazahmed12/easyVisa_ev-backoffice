@@ -1,0 +1,12 @@
+import com.easyvisa.EasyVisaFile
+import groovy.transform.Field
+
+@Field EasyVisaFile easyVisaFile
+
+json {
+
+    id easyVisaFile.id
+    name easyVisaFile.originalName
+    fileType easyVisaFile.fileType
+    uploadedOn easyVisaFile.dateCreated
+}

@@ -1,0 +1,99 @@
+<div class="container-fluid mt-4">
+  <div class="d-flex">
+    <div class="column-number bg-primary mr-2">1</div>
+    <h4>{{ 'TEMPLATE.TASK_QUEUE.SELECT_PACKAGE_TYPE' | translate }}</h4>
+  </div>
+  <div class="d-flex align-items-center ml-3 my-2">
+    <div class="column-number bg-primary mr-2">a</div>
+    <div>
+      <div class="form-check">
+        <input class="form-check-input"
+               [formControl]="packageType"
+               type="radio"
+               name="packageType"
+               id="packageType1"
+               [value]="packageTypeConstants.NEW">
+        <label class="form-check-label" for="packageType1">
+          {{ 'TEMPLATE.TASK_QUEUE.CREATE_NEW_PACKAGE' | translate }}
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input"
+               [formControl]="packageType"
+               type="radio"
+               name="packageType"
+               id="packageType2"
+               [value]="packageTypeConstants.EDIT">
+        <label class="form-check-label" for="packageType2">
+          {{ 'TEMPLATE.TASK_QUEUE.EDIT_EXISTING_PACKAGE' | translate }}
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex align-items-center ml-3 mt-2 position-relative" *ngIf="isEdit">
+    <div class="column-number bg-primary mr-2">b</div>
+    <div class="d-lg-flex w-100 justify-content-md-between align-items-center">
+      <div class="col-7 p-0">{{ 'TEMPLATE.TASK_QUEUE.ENTER_EV_ID' | translate }}</div>
+      <form class="d-md-flex justify-content-md-end col p-0"
+            #form="ngForm"
+            [formGroup]="searchPackageFormGroup"
+            (submit)="onSubmit()"
+      >
+        <div class=" ml-lg-3 mr-3 col p-0">
+          <input type="text"
+                 class="form-control form-control-sm h-100"
+                 formControlName="EVId"
+          >
+        </div>
+        <div class="text-center mt-2 mt-md-0">
+          <button
+            class="btn btn-primary px-4"
+            type="submit"
+            [disabled]="(getPackagesRequest$ | async).loading || !searchPackageFormGroup.get('EVId').value"
+          >
+            {{'TEMPLATE.TASK_QUEUE.SEARCH_FOR_PACKAGES' | translate }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col d-flex">
+    <div
+      class="offset-lg-5 col col-lg-6 text-danger error-message mt-2 mt-md-0 small p-0"
+      *ngIf="(isShowWarning$ | async)">
+      {{'TEMPLATE.TASK_QUEUE.ENTER_EV_ID_ERROR' | translate}}
+    </div>
+  </div>
+  <div
+    class="d-flex align-items-center ml-3 mt-2 "
+    *ngIf="isEdit && (packages$ | async) && (packages$ | async).length"
+  >
+    <div class="column-number bg-primary mr-2">c</div>
+    <div class="w-100 mt-3 mt-lg-0">
+      <label class="font-weight-bold">
+        {{'TEMPLATE.TASK_QUEUE.PACKAGES_THAT_INCLUDE_LABEL' | translate }}
+      </label>
+      <select
+        class="form-control form-control-sm"
+        [formControl]="packageFormControl"
+      >
+        <option value="" [disabled]="true">
+          {{'TEMPLATE.TASK_QUEUE.PACKAGE.SELECT_PACKAGE' | translate }}
+        </option>
+        <option [value]="package.id" *ngFor="let package of (packages$ | async)">
+          {{package.status | packageStatus | translate}} {{'TEMPLATE.PACKAGE_STATUS.CASE' | translate}}
+          - {{package.title}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-4 mb-4 mx-3">
+    <div class="col-12 my-2 border-top border-bottom border-secondary"></div>
+  </div>
+</div>
+
+<ng-template #contentAccessDeniedModal>
+  <app-access-denied-modal
+    [organisationType]="organizationType$ | async"
+  ></app-access-denied-modal>
+</ng-template>

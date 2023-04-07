@@ -1,0 +1,6 @@
+import com.easyvisa.AccountTransaction
+import groovy.transform.Field
+
+@Field List<AccountTransaction> accountTransactionsList = []
+
+json tmpl.'accountTransaction'('accountTransaction', accountTransactionsList)

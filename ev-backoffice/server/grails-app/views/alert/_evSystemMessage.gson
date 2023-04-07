@@ -1,0 +1,17 @@
+import com.easyvisa.AlertService
+import com.easyvisa.EvSystemMessage
+import grails.util.Holders
+import groovy.transform.Field
+
+@Field EvSystemMessage systemMessage
+
+json {
+    id systemMessage.id
+    createdOn systemMessage.dateCreated
+    read systemMessage.isRead
+    starred systemMessage.isStarred
+    subject systemMessage.subject
+    source systemMessage.source
+    AlertService alertService = Holders.grailsApplication.mainContext.getBean('alertService') as AlertService
+    content alertService.renderSystemMessageContent(systemMessage)
+}

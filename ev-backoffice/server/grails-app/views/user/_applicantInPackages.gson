@@ -1,0 +1,16 @@
+import com.easyvisa.Applicant
+import com.easyvisa.PackageService
+import com.easyvisa.enums.PackageStatus
+import grails.util.Holders
+
+//noinspection UnusedVariable
+model {
+    Applicant applicant
+    Package aPackage
+}
+json {
+    PackageService packageService = Holders.grailsApplication.mainContext.getBean('packageService') as PackageService
+    inBlockedPackage packageService.isApplicantInSpecificPackageStatus(PackageStatus.BLOCKED, applicant, aPackage)
+    inOpenPackage packageService.isApplicantInSpecificPackageStatus(PackageStatus.OPEN, applicant, aPackage)
+    profile g.render(template: '/user/applicantProfile', model: [applicant: applicant])
+}

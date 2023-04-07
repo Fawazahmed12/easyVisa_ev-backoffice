@@ -1,0 +1,62 @@
+<div class="d-md-flex align-items-center justify-content-center">
+  <div class="d-flex w-100">
+    <div class="column-number bg-primary mr-2">a</div>
+    <h5>{{ 'TEMPLATE.TASK_QUEUE.APPLICANT.EMAIL_ADDRESS' | translate }}</h5>
+  </div>
+  <div class="d-flex col col-md-4 position-relative">
+    <input
+      type="email"
+      class="d-inline form-control form-control-sm"
+      [class.border-danger]="(isFormSubmitted$ | async) && emailFormControl.invalid"
+      [formControl]="emailFormControl">
+  </div>
+  <div class="text-center text-md-right mb-2 mt-4 my-md-0 w-100"><button
+      [class.border]="isEmailVerifiedFormControl.invalid"
+      [class.border-danger]="isEmailVerifiedFormControl.invalid"
+      class="btn btn-primary px-4 mr-3"
+      type="button"
+      (click)="verifyEmail()"
+      [disabled]="!emailFormControl.value || emailFormControl.hasError('required') || (isApplicantRequestLoading$ | async) || inviteApplicantFormControl.value"
+    >
+      {{ 'TEMPLATE.TASK_QUEUE.APPLICANT.VERIFY_EMAIL' | translate }}
+    </button>
+  </div>
+  <div
+    *ngIf="applicantTypeFormControl.value !== 'PETITIONER'
+     && (packageStatus$ | async) !== PackageStatus.OPEN
+     && index !== 0" class="col col-md-4"
+  >
+    <label class="d-flex align-items-top">
+      <input
+        type="checkbox"
+        class="mt-1 mr-2"
+        [formControl]="inviteApplicantFormControl"
+      >
+      <div>{{'TEMPLATE.TASK_QUEUE.APPLICANT.INVITE_APPLICANT' | translate }}</div>
+    </label>
+  </div>
+</div>
+<div class="row justify-content-center min-w-100 m-3">
+  <div class="col border-bottom border-secondary"></div>
+</div>
+
+<ng-template #differentEmailRequiredModal>
+  <app-different-email-required-modal></app-different-email-required-modal>
+</ng-template>
+<ng-template #goodNewsModal>
+  <app-good-news-modal
+    [findApplicant]="(applicantProfile$ | async)"
+  ></app-good-news-modal>
+</ng-template>
+<ng-template #verifyWithClientModal>
+  <app-verify-with-client-modal></app-verify-with-client-modal>
+</ng-template>
+<ng-template #emailFormatInvalidModal>
+  <app-email-format-invalid-modal></app-email-format-invalid-modal>
+</ng-template>
+<ng-template #applicantMemberOfBlockedPackageModal>
+  <app-applicant-member-of-blocked-package-modal></app-applicant-member-of-blocked-package-modal>
+</ng-template>
+<ng-template #beneficiaryMemberOfOpenPackageModal>
+  <app-beneficiary-member-of-open-package-modal></app-beneficiary-member-of-open-package-modal>
+</ng-template>

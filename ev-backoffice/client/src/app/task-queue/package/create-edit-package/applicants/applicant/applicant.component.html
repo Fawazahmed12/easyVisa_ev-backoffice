@@ -1,0 +1,75 @@
+<div class="container-fluid border py-4 mt-3 position-relative"
+     [ngClass]="petitionerBgColor"
+     [class.border-danger]="index > 0 && (warningMessage$ | async)"
+>
+  <div *ngIf="index > 0"
+       class="text-danger warning-message">
+    {{ warningMessage$ | async | translate }}
+  </div>
+  <a
+    *ngIf="index !== 0"
+    type="button"
+    class="text-danger position-absolute close-btn p-2 cursor-pointer fa fa-close"
+    (click)="removeApplicant(applicantTypeFormControl.value)"
+  >
+  </a>
+  <app-email-address
+    [emailFormControl]="emailFormControl"
+    [inviteApplicantFormControl]="inviteApplicantFormControl"
+    [applicantTypeFormControl]="applicantTypeFormControl"
+    [EVIdFormControl]="EVIdFormControl"
+    [isEmailVerifiedFormControl]="isEmailVerifiedFormControl"
+    [index]=index
+    (applicantData)="fillApplicantData($event)"
+  ></app-email-address>
+  <app-petitioner-status
+    *ngIf="index === 0"
+    [citizenshipStatusFormControl]="citizenshipStatusFormControl"
+  >
+  </app-petitioner-status>
+  <div class="row align-items-center">
+    <app-benefit-category
+      [formControl]="benefitCategoryFormControl"
+      [citizenshipStatusForm]="citizenshipStatusFormControl"
+      [feeFormControl]="feeFormControl"
+      [applicantTypeFormValue]="applicantTypeFormControl.value"
+      [optInFormControl]="optInFromControl"
+      [registerFormControl]="registerFromControl"
+      [inOpenPackageFormControl]="inOpenPackageFromControl"
+      [inBlockedPackageFormControl]="inBlockedPackageFromControl"
+      [index]="index"
+      class="col d-flex align-items-md-center"
+    ></app-benefit-category>
+    <div class="row justify-content-center w-100 m-3 my-3">
+      <div class="col border-bottom border-secondary mx-3"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 d-flex">
+      <div class="column-number bg-primary mr-2">{{ index === 0 ? 'd' : 'c' }}</div>
+      <h5 class="m-0">{{ 'TEMPLATE.TASK_QUEUE.APPLICANT.APPLICANT_INFO' | translate }}</h5>
+    </div>
+  </div>
+  <app-applicant-info
+    [applicantTypeFormControl]="applicantTypeFormControl"
+    [benefitCategoryFormControl]="benefitCategoryFormControl"
+    [profileFormGroup]="profileFormGroup"
+    [index]="index"
+    [minAge]="minAge"
+    [maxAge]="maxAge"
+    [showResendButton]="packageTypeFormControl.value !== 'NEW' && index === 0"
+    (resendWelcome)="resendWelcomeApplicant($event)"
+    (resendInvite)="resendInviteApplicant($event)"
+  >
+  </app-applicant-info>
+</div>
+<ng-template #deleteBeneficiaryModal>
+  <app-delete-beneficiary-applicant-modal
+    [packageTypeFormControl]="packageTypeFormControl"
+  ></app-delete-beneficiary-applicant-modal>
+</ng-template>
+<ng-template #deleteDerivativeBeneficiaryModal>
+  <app-delete-derivative-beneficiary-modal
+    [packageTypeFormControl]="packageTypeFormControl"
+  ></app-delete-derivative-beneficiary-modal>
+</ng-template>

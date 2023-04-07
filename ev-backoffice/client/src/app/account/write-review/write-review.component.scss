@@ -1,0 +1,28 @@
+@import '../../../_variables';
+
+.position-words-count {
+  bottom: 0;
+  right: 1%;
+}
+
+.text-b2-gray {
+  color: $b2-gray;
+}
+input,
+textarea {
+  &:focus {
+    color: black !important;
+  }
+}
+
+.font-16{
+  font-size: 16px;
+}
+
+.font-13{
+  font-size: 13px;
+}
+
+.font-14{
+  font-size: 14px;
+}

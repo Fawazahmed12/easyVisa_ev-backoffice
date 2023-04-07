@@ -1,0 +1,19 @@
+import com.easyvisa.LegalRepresentative
+
+model {
+    LegalRepresentative representative
+}
+json {
+    id representative.id
+    contactInfo([office: representative.officePhone,
+                 mobile: representative.mobilePhone,
+                 email : representative.profile.email,
+                 fax   : representative.faxNumber
+    ])
+    socialMedia([facebook : representative.facebookUrl,
+                 twitter  : representative.twitterUrl,
+                 linkendin: representative.linkedinUrl,
+                 youtube  : representative.youtubeUrl
+    ])
+    websiteUrl representative.websiteUrl
+}

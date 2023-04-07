@@ -1,0 +1,34 @@
+import com.easyvisa.Package
+import com.easyvisa.enums.PackageStatus
+import groovy.transform.Field
+
+@Field Package aPackage
+
+json {
+    status aPackage.status.name()
+    questionnaireSyncStatus aPackage.questionnaireSyncStatus
+    applicants g.render(template: '/user/applicant', collection: aPackage.packageApplicantsUi, var: 'packageApplicant', model: [aPackage: aPackage])
+    representative g.render(template: '/user/attorney', model: [legalRepresentative: aPackage.attorney])
+    representativeId aPackage.attorney.id
+    id aPackage.id
+    easyVisaId aPackage.easyVisaId
+    organization g.render(template: '/organization', model: [organization: aPackage.organization])
+    lastActiveOn aPackage.lastActiveOn
+    owed aPackage.owed
+    welcomeEmailSentOn aPackage.welcomeEmailSentOn
+    retainerAgreement aPackage.retainerAgreement ? g.render(template: '/easyVisaFile', model: [easyVisaFile: aPackage.retainerAgreement]) : null
+    welcomeEmailId aPackage.welcomeEmail?.id
+    inviteApplicantEmailId aPackage.applicantInviteEmail?.id
+    title aPackage.title
+    categories aPackage.categories
+    assignees g.render(template: '/package/assignee', collection: aPackage.orderedAssignees ?: [], var: 'packageAssignee')
+    creationDate aPackage.dateCreated
+    documentCompletedPercentage Math.floor(aPackage.documentCompletedPercentage)?.round()
+    questionnaireCompletedPercentage Math.floor(aPackage.questionnaireCompletedPercentage)?.round()
+    if (aPackage.status == PackageStatus.TRANSFERRED) {
+        transferredOn aPackage.transferredOn
+        transferredBy g.render(template: '/user/profile', model: [profile: aPackage.transferredBy])
+        transferredAttorneyTo g.render(template: '/user/attorney', model: [legalRepresentative: aPackage.transferredAttorneyTo])
+        transferredOrganizationTo g.render(template: '/organization', model: [organization: aPackage.transferredTo.organization])
+    }
+}

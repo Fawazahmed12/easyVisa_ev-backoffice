@@ -1,0 +1,10 @@
+import com.easyvisa.EmailPreference
+
+model {
+    List<EmailPreference> taskQueue = []
+    List<EmailPreference> progress = []
+}
+json {
+    taskQueue tmpl.'/user/emailPreference'('emailPreference', taskQueue)
+    clientProgress tmpl.'/user/emailPreference'('emailPreference', progress)
+}

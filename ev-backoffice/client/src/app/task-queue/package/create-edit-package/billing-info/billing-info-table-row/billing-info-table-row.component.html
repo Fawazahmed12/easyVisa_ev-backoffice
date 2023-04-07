@@ -1,0 +1,42 @@
+<th scope="row" width="30%" class="text-center font-weight-normal">
+  {{ applicantFormGroup.getRawValue().profile.easyVisaId }}
+  <span
+    class="text-b2-gray font-italic"
+    *ngIf="!applicantFormGroup.getRawValue().profile.easyVisaId"
+  >
+    {{'TEMPLATE.TASK_QUEUE.ID_GENERATED' | translate}}
+  </span>
+</th>
+<td width="20%">
+  <span>{{ applicantFormGroup?.value.applicantType | applicantType | translate }}</span>
+  <span
+    *ngIf="applicantFormGroup.value.applicantType === 'DERIVATIVE_BENEFICIARY' && applicantsFormArray.length > 2"
+  >
+    {{index - 1}}
+  </span>
+</td>
+<td width="40%">
+  {{ applicantFormGroup.getRawValue()?.profile.firstName }} {{ applicantFormGroup.getRawValue()?.profile.lastName }}
+</td>
+<td width="10%" class="d-flex align-items-center justify-content-end">
+  <div
+    *ngIf="applicantFormGroup.value.applicantType === ApplicantType.PETITIONER"
+    class="text-center font-weight-bold small pr-1"
+  >
+    {{ 'TEMPLATE.TASK_QUEUE.WAIVED' | translate }}
+  </div>
+  <div
+    *ngIf="applicantFormGroup.value.applicantType !== ApplicantType.PETITIONER"
+    class="d-flex justify-content-center align-items-center"
+  >
+    <div class="dollar-symbol">
+    <input
+      currencyMask
+      [options]="{ prefix: '', thousands: ',', precision: 0 }"
+      type="text"
+      class="form-control form-control-sm text-right px-1"
+      [class.border-red]="applicantFormControl.invalid"
+      [formControl]="applicantFormControl">
+    </div>
+  </div>
+</td>

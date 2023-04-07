@@ -1,0 +1,16 @@
+EasyVisaId,QuestVersion,Name,DisplayText,ApplicantType,PdfForm,EditionDate,ExpirationDate
+Form_129F,quest_version_2,129F,I-129F Petition for Alien Fianc$e$(e),Petitioner,i_129f_20181107.pdf,11/07/2018,11/30/2020
+Form_130,quest_version_2,130,I-130 Petition for Alien Relative,Petitioner,i_130_20190213.pdf,02/13/2019,02/28/2021
+Form_130A,quest_version_2,130A,I-130A Supplemental Information for Spouse Beneficiary,Beneficiary,i_130a_20190213.pdf,02/13/2019,02/28/2021
+Form_134,quest_version_2,134,I-134 Affidavit of Support,Petitioner,i_134_20190213.pdf,02/13/2019,02/28/2021
+Form_485,quest_version_2,485,I-485 Application to Register Permanent Residence or Adjust Status,Beneficiary,i_485_20190715.pdf,07/15/2019,07/31/2021
+Form_601,quest_version_2,601,I-601 Application for Waiver on Grounds of Inadmissibility,Beneficiary,i_601_20191202.pdf,12/02/2019,07/31/2021
+Form_601A,quest_version_2,601A,I-601A Application for Provisional Unlawful Presence Waiver,Beneficiary,i_601a_20191020.pdf,10/20/2019,02/28/2021
+Form_693,quest_version_2,693,I-693 Report of Medical Examination and Vaccination Record,Beneficiary,i_693_20190715.pdf,07/15/2019,07/31/2022
+Form_751,quest_version_2,751,I-751 Petition to Remove Conditions on Residence,Beneficiary,i_751_20191202.pdf,12/02/2019,12/31/2019
+Form_765,quest_version_2,765,I-765 Application for Employment Authorization,Beneficiary,i_765_20191226.pdf,12/26/2019,05/31/2020
+Form_824,quest_version_2,824,I-824 Application for Action on an Approved Application or Petition,Beneficiary,i_824_20191108.pdf,11/08/2019,11/30/2021
+Form_864,quest_version_2,864,I-864 Affidavit of Support Under Section 213A of the INA,Petitioner,i_864_20191015.pdf,10/15/2019,10/31/2021
+Form_400,quest_version_2,400,N-400 Application for Naturalization,Petitioner,n_400_20190917.pdf,09/17/2019,09/30/2022
+,,,,,,,
+,,,,,,,

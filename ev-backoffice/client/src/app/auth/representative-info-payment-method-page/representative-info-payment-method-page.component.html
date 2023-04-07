@@ -1,0 +1,182 @@
+<div class="container-fluid">
+  <div class="row justify-content-center mt-3">
+    <h3 class="col text-center">
+      {{ 'TEMPLATE.AUTH.REP_INFO_AND_PAYMENT_METHOD.TITLE' | translate:
+      ({representativeType: (representativeType$ | async) | translate}) }}
+    </h3>
+  </div>
+  <div class="d-flex mt-4">
+    <form [formGroup]="formGroup" #form="ngForm" (submit)="formSubmit()">
+      <div class="d-flex flex-column flex-md-row">
+        <div class="row justify-content-center border-md-right border-md-secondary col col-md-6">
+          <div class="col-md-1 justify-content-center d-flex p-0">
+            <div class="column-number bg-primary">1</div>
+          </div>
+          <div class="col-md-10 pr-0">
+            <div class="row justify-content-center mb-2">
+              <div class="col-md-8 offset-md-4 mt-2 mt-md-0">
+                <h4 class="text-center">
+                  {{ 'TEMPLATE.AUTH.PAY_SIGN_UP_FEE.NAME' | translate:
+                  ({representativeType: (representativeType$ | async) | translate}) }}
+                </h4>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-md-12">
+                <app-auth-form-field
+                  [control]="firstNameControl"
+                  [submitted]="form.submitted"
+                  label="FORM.LABELS.FIRST"
+                  [primaryTextStyle]=false
+                  [required]="true"
+                  [smallMarginStyle]="true"
+                ></app-auth-form-field>
+                <app-auth-form-field
+                  [control]="middleNameControl"
+                  [submitted]="form.submitted"
+                  label="FORM.LABELS.MIDDLE"
+                  [smallMarginStyle]="true"
+                ></app-auth-form-field>
+                <app-auth-form-field
+                  [control]="lastNameControl"
+                  [submitted]="form.submitted"
+                  label="FORM.LABELS.LAST"
+                  [smallMarginStyle]="true"
+                  [required]="true"
+                ></app-auth-form-field>
+              </div>
+            </div>
+            <div class="row justify-content-center my-2">
+              <div class="col-md-8 offset-md-4">
+                <h4 class="text-center">
+                  {{ 'FORM.LABELS.OFFICE' | translate }}
+                  {{ 'FORM.LABELS.ADDRESS' | translate }}
+                </h4>
+              </div>
+            </div>
+            <app-address
+              [submitted]="form.submitted"
+              [formGroup]="officeAddressFormGroup"
+              [showCountrySelect]="showCountrySelect$ | async"
+              [primaryTextStyle]="false"
+              [smallMarginStyle]="true"
+              [col3Label]="true"
+            ></app-address>
+            <div class="row justify-content-center mb-2 mt-4">
+              <div class="col-md-8 offset-md-4">
+                <h4 class="text-center">{{ 'TEMPLATE.AUTH.PAY_SIGN_UP_FEE.CONTACT_INFO' | translate }}</h4>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col pr-1">
+                <app-phone-field
+                  [formControl]="officePhoneControl"
+                  [smallMarginStyle]="true"
+                  label="FORM.LABELS.OFFICE"
+                >
+                </app-phone-field>
+                <app-phone-field
+                  [formControl]="mobilePhoneControl"
+                  [smallMarginStyle]="true"
+                  label="FORM.LABELS.MOBILE"
+                >
+                </app-phone-field>
+                <app-phone-field
+                  [formControl]="faxNumberControl"
+                  [smallMarginStyle]="true"
+                  label="FORM.LABELS.FAX"
+                >
+                </app-phone-field>
+                <app-auth-form-field
+                  [control]="emailControl"
+                  [smallMarginStyle]="true"
+                  [noRequired]="true"
+                  [submitted]="form.submitted"
+                  label="FORM.LABELS.EMAIL"
+                ></app-auth-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="col justify-content-center">
+            <div class="col">
+              <div class="row justify-content-center mb-4">
+                <div class="col-md-1 justify-content-center d-flex p-0">
+                  <div class="column-number bg-primary">2</div>
+                </div>
+                <div class="col-md-11">
+                  <app-credit-card-info
+                    [formGroup]="infoFormGroup"
+                  ></app-credit-card-info>
+                </div>
+              </div>
+            </div>
+            <div class="col p-3">
+              <div class="row justify-content-center mb-4">
+                <div class="offset-md-1 col-md-11">
+                  <h4 class="text-center">
+                    {{ 'TEMPLATE.AUTH.PAY_SIGN_UP_FEE.CREDIT_CARD_BILLING_ADDRESS' | translate }}
+                  </h4>
+                  <app-credit-card-billing-address
+                    [formGroup]="billingAddressFormGroup"
+                    [officeAddressFormGroup]="officeAddressFormGroup"
+                    [checkBoxLabel]="'TEMPLATE.CREDIT_CARD_BILL_FORM.SAME_AS_PROFILE'"
+                    [attorneyPayment]="false"
+                    [col4Label] = "true"
+                  ></app-credit-card-billing-address>
+                </div>
+
+                <div class="col offset-md-1 mt-4" *ngIf="fee$ | async">
+                  <div class="mb-4">
+                    <app-taxes-info
+                      [tax]="fee$ | async"
+                      feeLabel="TEMPLATE.AUTH.PAY_SIGN_UP_FEE.ONE_TIME_SET_UP_FEE"
+                    ></app-taxes-info>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label text-justify font-weight-bold">
+                      <input class="form-check-input" type="checkbox" value="" [formControl]="agreeTermsControl">
+                      {{ 'TEMPLATE.AUTH.PAY_SIGN_UP_FEE.AGREE_TERMS_AND_CONDITIONS_1' | translate:
+                      ({setUpFee: (feeDetails$ | async)?.signupFee | currency: 'USD' : 'symbol' : '1.0'})}}
+                      <a href="#" target="_blank"
+                         class="text-blue">{{ 'TEMPLATE.AUTH.PAY_SIGN_UP_FEE.TERMS_AND_CONDITIONS' | translate}}
+                      </a>
+                      {{ 'TEMPLATE.AUTH.PAY_SIGN_UP_FEE.AGREE_TERMS_AND_CONDITIONS_2' | translate }}
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="offset-md-6 col-md-6">
+          <div class="d-flex justify-content-center">
+            <button class="btn btn-primary px-4 mr-4 min-w-100" type="button" (click)="goToProfile()">
+              {{'FORM.BUTTON.PREVIOUS' | translate }}
+            </button>
+            <button
+              class="btn btn-primary px-4 ml-4 min-w-100"
+              type="button"
+              *ngIf="((fee$ | async) === null) && addressSnapshotForTax !== billingAddressFormGroup.value || (isFeeLoading$ | async)"
+              [disabled]="(isFeeLoading$ | async) || formGroup.invalid"
+              (click)="getTaxes()"
+            >
+              {{'FORM.BUTTON.NEXT' | translate }}
+            </button>
+            <button
+              class="btn btn-primary px-4 ml-4 min-w-100"
+              type="submit"
+              *ngIf="(fee$ | async) && addressSnapshotForTax === billingAddressFormGroup.value"
+              [disabled]="paymentMethodFormGroup.invalid || formGroup.invalid || !agreeTermsControl.value"
+            >
+              {{'FORM.BUTTON.REGISTER' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

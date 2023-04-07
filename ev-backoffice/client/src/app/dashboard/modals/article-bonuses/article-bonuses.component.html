@@ -1,0 +1,45 @@
+<div class="container-fluid medium">
+  <div class="mb-2">{{'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_BONUSES_MODAL.P_1' | translate}}</div>
+  <div class="mb-2">{{'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_BONUSES_MODAL.P_2' | translate: (
+      {articleBonus: (articleBonus$ | async) | currency:'USD' : 'symbol' : '1.0'})}}
+  </div>
+  <div class="mb-2" [innerHTML]="'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_BONUSES_MODAL.P_3' | translate"></div>
+  <div class="mb-2">{{'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_BONUSES_MODAL.P_4' | translate}}</div>
+  <div class="mb-2">{{'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_BONUSES_MODAL.P_5' | translate}}</div>
+  <h6 class="mb-2 font-weight-bold">{{'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_BONUSES_MODAL.TITLE_1' | translate}}</h6>
+  <ul class="small">
+    <li>{{'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_BONUSES_MODAL.TIP_1' | translate}}</li>
+    <li>{{'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_BONUSES_MODAL.TIP_2' | translate}}</li>
+    <li>{{'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_BONUSES_MODAL.TIP_3' | translate}}</li>
+    <li>{{'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_BONUSES_MODAL.TIP_4' | translate}}</li>
+  </ul>
+  <div class="mb-2">
+    {{'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_BONUSES_MODAL.A' | translate}}
+    <a
+      class="text-blue cursor-pointer"
+      (click)="openMiniProfileModal()"
+    >
+      {{'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_BONUSES_MODAL.MINI_PROFILE' | translate}}
+    </a>
+    {{'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_BONUSES_MODAL.P_6' | translate}}
+  </div>
+  <div class="mb-3">
+    {{'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_BONUSES_MODAL.SUBMIT_ARTICLE' | translate}}
+    <a
+      class="text-blue cursor-pointer"
+      routerLink="/dashboard/articles"
+      (click)="closeAllModals()"
+    >
+      {{'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_BONUSES_MODAL.DASHBOARD_ARTICLES' | translate}}
+    </a>
+  </div>
+  <div class="pl-5 d-flex flex-row small">
+    <div class="text-danger mr-1">*</div>
+    {{'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_BONUSES_MODAL.P_8' | translate}}
+  </div>
+</div>
+
+<ng-template #miniProfile>
+  <app-mini-profile></app-mini-profile>
+</ng-template>
+

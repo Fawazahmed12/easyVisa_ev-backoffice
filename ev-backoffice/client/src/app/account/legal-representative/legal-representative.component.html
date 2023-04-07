@@ -1,0 +1,203 @@
+<div class="container-fluid col">
+  <div class="row">
+    <div class="column-number bg-primary">1</div>
+    <h5 class="col">{{ 'TEMPLATE.ACCOUNT.LEGAL_REPRESENTATIVE.SELECT_PACKAGE_WITH_STATUS' | translate }}
+    </h5>
+  </div>
+  <div class="row">
+    <app-select-package
+      class="col mx-4"
+      [withBlockedPackages]="true"
+      [showPackageStatus]="true"
+      [formControl]="packageIdFormControl"
+    >
+    </app-select-package>
+  </div>
+  <div class="border-top border-dark my-4"></div>
+  <div *ngIf="packageIdFormControl.value">
+    <div class="row">
+      <div class="column-number bg-primary">2</div>
+      <h5
+        class="col">{{ 'TEMPLATE.ACCOUNT.LEGAL_REPRESENTATIVE.CURRENT_LEGAL_REPRESENTATIVE' | translate }}
+      </h5>
+    </div>
+    <div class="row ml-md-1 mt-2">
+      <div
+        class="col col-md-6 d-flex flex-column-reverse flex-md-row align-items-center align-items-md-start justify-content-start">
+        <div
+          class="position-relative photo-frame border border-gray mx-lg-2 my-2 mr-md-2 min-w-100">
+          <div class="photo position-absolute w-100 h-100 bg-size-cover"
+               [style.backgroundImage]="(currentRepresentative$ | async)?.profilePhoto ? 'url('+(currentRepresentative$ | async)?.profilePhoto+')': null">
+          </div>
+          <div class="text-gray text-center">
+            {{('TEMPLATE.ACCOUNT.PROFILE.PHOTO_GOES_HERE') | translate}}
+          </div>
+        </div>
+        <div class="my-2 px-2 text-center text-md-left">
+          <div class="font-weight-bold">
+            {{(currentRepresentative$ | async).firstName}} {{(currentRepresentative$ | async).lastName}}
+          </div>
+          <div>
+            <span
+              *ngIf="(currentRepresentative$ | async)?.officeAddress?.line1"
+            >
+                {{(currentRepresentative$ | async)?.officeAddress?.line1}} <span>&#8226;</span> </span>
+            <span
+              *ngIf="(currentRepresentative$ | async)?.officeAddress?.line2"
+            >
+                {{(currentRepresentative$ | async)?.officeAddress?.line2}} <span>&#8226;</span> </span>
+            <span>
+                {{(currentRepresentative$ | async)?.officeAddress?.city}}
+              , {{(currentRepresentative$ | async)?.officeAddress?.country | findLabel: countries}} {{(currentRepresentative$ | async)?.officeAddress?.zipCode}}</span>
+          </div>
+          <div>
+            <span
+              *ngIf="(currentRepresentative$ | async)?.officePhone"
+            >
+                {{'FORM.LABELS.OFFICE' | translate}}: {{(currentRepresentative$ | async).officePhone}} | </span>
+            <span
+              *ngIf="(currentRepresentative$ | async)?.mobilePhone"
+            >
+                {{'FORM.LABELS.MOBILE' | translate}}: {{(currentRepresentative$ | async)?.mobilePhone}} | </span>
+            <span
+              *ngIf="(currentRepresentative$ | async)?.faxNumber"
+            >
+                {{'FORM.LABELS.FAX' | translate}}: {{(currentRepresentative$ | async)?.faxNumber}}</span>
+          </div>
+          <div>
+            <span>{{(currentRepresentative$ | async)?.email}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="min-h-100 d-none d-md-block border-right border-dark my-3"></div>
+      <div class="col d-flex flex-column justify-content-center">
+        <div class="d-flex flex-column flex-sm-row justify-content-start align-items-center mb-1">
+            <span
+              class="text-center text-sm-right small font-weight-bolder pr-sm-1 col-sm-6">
+               {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.USCIS_PACKAGE_TYPE' | translate}}:
+            </span>
+          <span class="small">{{benefitCategory$ | async | findLabel: benefitCategories | translate}}</span>
+        </div>
+        <div class="d-flex flex-column flex-sm-row justify-content-start align-items-center mb-1">
+            <span class="text-center text-sm-right small font-weight-bolder pr-sm-1 col-sm-6">
+              {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.PACKAGE_ID' | translate}}:
+            </span>
+          <span class="small">{{(package$ | async)?.id}}</span>
+        </div>
+        <div class="d-flex flex-column flex-sm-row justify-content-start align-items-center mb-1">
+            <span
+              class="text-center text-sm-right small font-weight-bolder pr-sm-1 col-sm-6">
+               {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.PACKAGE_CREATION_DATE' | translate}}:
+            </span>
+          <span class="small">{{(package$ | async)?.creationDate | date: 'MM/dd/yyyy' }}</span>
+        </div>
+        <div class="d-flex flex-column flex-sm-row justify-content-start align-items-center">
+          <div class="text-center text-sm-right small font-weight-bolder pr-sm-1 col-sm-6">
+            {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.PACKAGE_APPLICANTS' | translate}}:
+          </div>
+          <div class="col-6 row">
+            <ng-template class="small" ngFor [ngForOf]="(package$ | async)?.applicants" let-applicant let-isLast="last">
+            <div
+              class="d-flex small text-nowrap">{{applicant.profile.firstName}} {{applicant.profile.middleName}} {{applicant.profile.lastName}}</div>
+              <span class="small pr-1" *ngIf="!isLast">,</span>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="border-top border-dark my-4"></div>
+    <div class="row">
+      <div class="column-number bg-primary">3</div>
+      <h5
+        class="col">{{ 'TEMPLATE.ACCOUNT.LEGAL_REPRESENTATIVE.TRANSFER_PACKAGE' | translate }}
+      </h5>
+    </div>
+    <form [formGroup]="verifyRecipientFormGroup"
+          class="justify-content-center align-items-center"
+    >
+      <div class="mr-3 mb-5 flex-grow-1 col-8 offset-1"  [ngClass]="{'read-only-package':(isReadOnlyPackage$ | async)}">
+        <div class="row my-2">
+          <div class="col-md-6 text-center text-md-right">
+            {{'TEMPLATE.ACCOUNT.LEGAL_REPRESENTATIVE.REP_EASY_VISA_ID' | translate}}
+          </div>
+          <div class="col-md-6">
+            <input class="form-control form-control-sm" formControlName="easyVisaId">
+          </div>
+        </div>
+        <div class="row my-2">
+          <div class="col-md-6 text-center text-md-right">
+            {{'TEMPLATE.ACCOUNT.LEGAL_REPRESENTATIVE.REP_EMAIL' | translate}}
+          </div>
+          <div class="col-md-6">
+            <input class="form-control form-control-sm" formControlName="email">
+          </div>
+        </div>
+        <div class="text-center small position-absolute text-danger w-100">
+            <span *ngIf="emailFormControl.hasError('email') || easyVisaIdFormControl.hasError('pattern')">
+               {{'FORM.ERROR.EVID_OR_EMAIL_FORMAT_INVALID' | translate}}
+            </span>
+          <span *ngIf="!representativeIdFormControl.value && (verifyAttorneyRequestState$ | async).status === 'fail'">
+              {{'TEMPLATE.ACCOUNT.LEGAL_REPRESENTATIVE.INFORMATION_DOES_NOT_MATCH' | translate}}
+            </span>
+          <span *ngIf="representativeIdFormControl.value">
+              {{'TEMPLATE.ACCOUNT.LEGAL_REPRESENTATIVE.NEW_REPRESENTATIVE_CONFIRMED' | translate}}
+            </span>
+        </div>
+        <div *ngIf="(transfereeOrganizations$ | async)?.length > 1 && (isShowOrganizations$ | async)">
+          <div class="row mb-2 mt-4 text-center offset-2">
+            {{'TEMPLATE.ACCOUNT.LEGAL_REPRESENTATIVE.NEW_REPRESENTATIVE_ORGANIZATIONS_WARNING' | translate}}
+          </div>
+          <div>
+            <div class="row my-2">
+              <div class="col-md-6 text-center text-md-right">
+                {{'TEMPLATE.ACCOUNT.LEGAL_REPRESENTATIVE.REP_ORGANIZATION' | translate}}
+              </div>
+              <div class="col-md-6">
+                <select
+                  class="form-control form-control-sm col"
+                  [formControl]="organizationIdFormControl"
+                >
+                  <option [ngValue]="null">
+                    {{'TEMPLATE.ACCOUNT.LEGAL_REPRESENTATIVE.SELECT_ORGANIZATION' | translate}}
+                  </option>
+                  <option [ngValue]="organization.id" *ngFor="let organization of (transfereeOrganizations$ | async)">
+                    {{organization.name}}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="offset-1 col-9">
+        <div class="mb-2">
+          {{'TEMPLATE.ACCOUNT.LEGAL_REPRESENTATIVE.P_1' | translate}}
+        </div>
+        <div class="mb-2">
+          {{'TEMPLATE.ACCOUNT.LEGAL_REPRESENTATIVE.P_2' | translate}}
+        </div>
+        <div class="mb-2">
+          {{'TEMPLATE.ACCOUNT.LEGAL_REPRESENTATIVE.P_3' | translate}}
+        </div>
+        <div
+          class="mb-2 text-danger"
+          *ngIf="(nonValidPackage$ | async)"
+        >
+          {{'TEMPLATE.ACCOUNT.LEGAL_REPRESENTATIVE.TRANSFER_WARNING' | translate}}
+        </div>
+      </div>
+      <div class="text-center text-lg-right m-4">
+        <button
+          class="btn btn-primary px-4 min-w-100"
+          type="button"
+          [disabled]="formGroup.invalid || (nonValidPackage$ | async) || (packagesTransferRequestLoading$ | async)"
+          (click)="packagesTransfer()"
+        >
+          <span>
+            {{'TEMPLATE.ACCOUNT.LEGAL_REPRESENTATIVE.TRANSFER_BUTTON' | translate}}
+          </span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

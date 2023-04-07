@@ -1,0 +1,60 @@
+<div class="container-fluid p-0 border border-secondary">
+  <app-modal-header
+    [title]="'TEMPLATE.HEADER.ENTRY.LOGIN'"
+    [showCloseIcon]="false"
+  ></app-modal-header>
+  <form
+    [formGroup]="loginInModalGroup"
+    (ngSubmit)="onSubmit()"
+    #form="ngForm">
+    <div class="modal-body text-center position-relative">
+      <div class="text-center text-danger mb-3">
+        <p class="mb-0">{{'FORM.ERROR.YOU_WAS_LOGOUT_P1' | translate}}</p>
+        <p>{{'FORM.ERROR.YOU_WAS_LOGOUT_P2' | translate}}</p>
+      </div>
+      <div class="w-60 mx-auto">
+        <app-auth-form-field
+          [control]="usernameControl"
+          [submitted]="form.submitted"
+          [smallMarginStyle]="true"
+          [col3Label]="true"
+          [showError]="false"
+          [extraMarginBottom]="true"
+          [placeHolder]="'FORM.ERROR.REQUIRED_WITH_PARAM' | translate: ({field: 'FORM.LABELS.USERNAME' | translate})"
+          label="FORM.LABELS.USERNAME"
+        ></app-auth-form-field>
+        <app-auth-form-field
+          [control]="passwordControl"
+          [submitted]="form.submitted"
+          [type]="'password'"
+          [smallMarginStyle]="true"
+          [showError]="false"
+          [extraMarginBottom]="true"
+          [col3Label]="true"
+          [placeHolder]="'FORM.ERROR.REQUIRED_WITH_PARAM' | translate: ({field: 'FORM.LABELS.PASSWORD' | translate})"
+          label="FORM.LABELS.PASSWORD"
+        ></app-auth-form-field>
+      </div>
+      <div
+        class="small text-danger text-center position-btm--1 position-absolute w-100"
+        [ngStyle]="{left: 0}"
+        *ngFor="let err of (submitRequest$ | async)?.error?.error.errors">
+        {{err.message}}
+      </div>
+      <div class="mt-3">
+        <a class="small cursor-pointer text-blue"
+          (click)="retrieveCredential()"
+        >{{ 'TEMPLATE.HEADER.NAV.FORGOT_USERNAME_PASSWORD' | translate }}</a>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end">
+      <button
+        class="btn btn-primary mx-4 mb-4 min-w-100"
+        type="submit"
+        [disabled]="loginInModalGroup.invalid || (submitRequest$ | async)?.loading"
+      >
+        {{ 'FORM.BUTTON.SIGN_IN' | translate }}
+      </button>
+    </div>
+  </form>
+</div>

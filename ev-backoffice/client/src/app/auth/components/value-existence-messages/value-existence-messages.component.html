@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-9 offset-md-3">
+    <div *ngIf="control.status === 'PENDING'" class="text-center small">
+      {{ 'TEMPLATE.AUTH.SIGN_UP.CHECKING' | translate }}
+    </div>
+    <div *ngIf="control.status === 'VALID'" class="text-center small">
+      {{ 'TEMPLATE.AUTH.SIGN_UP.VALUE_AVAILABLE' | translate:({controlName: controlLabel | translate}) }}
+    </div>
+    <div
+      *ngIf="control.hasError('valueTaken')"
+      class="text-center text-danger small">
+      {{ 'TEMPLATE.AUTH.SIGN_UP.VALUE_TAKEN' | translate:({controlName: controlLabel | translate}) }}
+    </div>
+  </div>
+</div>

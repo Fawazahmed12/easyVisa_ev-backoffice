@@ -1,0 +1,28 @@
+<app-auth-wrapper [header]="'TEMPLATE.AUTH.SUCCESS.SIGN_UP_SUCCESS.HEADER' | translate" class="success">
+  <h5 class="text-center my-3">
+    {{ 'TEMPLATE.AUTH.SUCCESS.SIGN_UP_SUCCESS.TEXT_1' | translate:({email: (signUpInfo$ | async)?.email}) }}
+  </h5>
+  <h5 class="text-center my-3">
+    {{ 'TEMPLATE.AUTH.SUCCESS.SIGN_UP_SUCCESS.TEXT_2' | translate }}
+  </h5>
+  <h5 class="text-center my-3">
+    {{ 'TEMPLATE.AUTH.SUCCESS.SIGN_UP_SUCCESS.TEXT_3' | translate }}
+  </h5>
+  <h5 class="text-center mt-3">{{ 'TEMPLATE.AUTH.SUCCESS.SIGN_UP_SUCCESS.CLICK_PREVIOUS' | translate }}</h5>
+  <div class="row justify-content-around mt-4">
+    <button
+      class="btn btn-primary col-3"
+      type="button"
+      (click)="redirectToSignUp()"
+    >
+      {{ 'FORM.BUTTON.PREVIOUS' | translate}}
+    </button>
+    <button
+      class="btn btn-primary col-3"
+      type="button"
+      (click)="redirectToLoginPage()"
+    >
+      {{ 'FORM.BUTTON.CLOSE' | translate}}
+    </button>
+  </div>
+</app-auth-wrapper>

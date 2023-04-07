@@ -1,0 +1,100 @@
+<form class="container-fluid" [formGroup]="form" (submit)="formSubmit()">
+  <div class="row my-5">
+    <div class="col-12 text-center">
+      <h2>{{ 'TEMPLATE.AUTH.SELECT_REPRESENTATIVE_TYPE.TITLE' | translate }}</h2>
+    </div>
+  </div>
+  <div class="row mt-2 w-75 mx-auto justify-content-left">
+    <div class="radio-group">
+      <div
+        class="form-check"
+        *ngFor="let option of options; let i = index"
+      >
+        <input type="radio"
+          id="representativeType{{i}}"
+          formControlName="representativeType"
+          [value]="option.value"
+          [attr.disabled]="option.isDisabled"
+          class="form-check-input"
+        >
+        <label for="representativeType{{i}}" class="form-check-label">
+          {{ option.label | translate }}
+        </label>
+      </div>
+    </div>
+  </div>
+  <ng-template [ngIf]="showLinkForm$ | async">
+    <div class="row mt-5">
+      <div class="col-12 text-center">
+        <h2>{{ 'TEMPLATE.AUTH.SELECT_REPRESENTATIVE_TYPE.LINK_TO_PROFILE_TITLE' | translate }}</h2>
+      </div>
+    </div>
+    <div class="row mt-2 w-75 mx-auto justify-content-left">
+      <div class="col">
+        <div
+          class="form-group row"
+          *ngFor="let control of controlsList; let i=index"
+        >
+          <div class="col-md-6 d-flex align-items-center mb-2 mb-md-0">
+            <div class="bg-number flex-shrink-0">{{i + 1}}</div>
+            <label class="col-form-label  px-2 py-0 col-form-label-md">
+              {{ control.label | translate }}
+            </label>
+          </div>
+          <div class="col-md-6 d-flex align-items-center">
+            <select
+              class="form-control form-control-sm"
+              [formControlName]="control.controlName">
+              <option value="">
+                {{ control.placeholder | translate}}
+              </option>
+              <option [value]="option" *ngFor="let option of control.options">
+                {{ option | translate }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template [ngIf]="showSelectAttorney$ | async">
+    <div class="row mt-5 pt-2">
+      <div class="col-12 text-center">
+        <h2>{{ 'TEMPLATE.AUTH.SELECT_REPRESENTATIVE_TYPE.SELECT_ATTORNEY_TYPE' | translate }}</h2>
+      </div>
+    </div>
+    <div class="row mt-2 w-75 mx-auto justify-content-left">
+      <div class="radio-group">
+        <div
+          class="form-check"
+          *ngFor="let attorneyType of attorneyTypes; let i = index"
+        >
+          <input type="radio"
+            id="attorneyType{{i}}"
+            formControlName="attorneyType"
+            [value]="attorneyType.value"
+            class="form-check-input"
+          >
+          <label for="attorneyType{{i}}" class="form-check-label">
+            {{ attorneyType.label | translate }}
+          </label>
+        </div>
+      </div>
+      <div
+        class="m-3"
+        *ngIf="showMemberFirmDescription$ | async"
+        [innerHTML]="'TEMPLATE.AUTH.SELECT_REPRESENTATIVE_TYPE.MEMBER_LAW_FIRM_DESCRIPTION' | translate"
+      ></div>
+    </div>
+  </ng-template>
+  <div class="row justify-content-center mt-5 mb-5">
+    <div class="col-md-10 text-right">
+      <button class="btn btn-primary px-4" type="submit">
+        {{'FORM.BUTTON.NEXT' | translate }}
+      </button>
+    </div>
+  </div>
+</form>
+<ng-template #profileNotLinked>
+  <app-profile-not-linked></app-profile-not-linked>
+</ng-template>

@@ -1,0 +1,6 @@
+import com.easyvisa.dto.AttorneySearchResponseDto
+import groovy.transform.Field
+
+@Field List<AttorneySearchResponseDto> results = []
+
+json tmpl.'/attorney/searchResult'('result', results)

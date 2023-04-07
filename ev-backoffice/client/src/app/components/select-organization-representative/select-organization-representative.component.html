@@ -1,0 +1,8 @@
+<div class="col p-0" *ngIf="organizationIdFormControl.value">
+    <app-select-active-organization
+      [formControl]="organizationIdFormControl">
+    </app-select-active-organization>
+  <app-select-representative-header
+    [representativeIdFormControl]="representativeIdFormControl">
+  </app-select-representative-header>
+</div>

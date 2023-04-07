@@ -1,0 +1,5 @@
+export enum HonorValues {
+  SUMMA_CUM_LAUDE = 'SUMMA_CUM_LAUDE',
+  MAGNA_CUM_LAUDE = 'MAGNA_CUM_LAUDE',
+  CUM_LAUDE = 'CUM_LAUDE',
+}

@@ -1,0 +1,9 @@
+import com.easyvisa.dto.MessageResponseDto
+import groovy.transform.Field
+
+@Field MessageResponseDto message
+
+json {
+    type message.errorMessageType
+    text message.message
+}

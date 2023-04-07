@@ -1,0 +1,77 @@
+<div class="container-fluid">
+  <div class="d-flex">
+    <div class="column-number bg-primary mr-2">5</div>
+    <h4>{{ 'TEMPLATE.TASK_QUEUE.PACKAGE.DISPOSITION_PACKAGE.TITLE' | translate }}</h4>
+  </div>
+  <div
+    *ngIf="editedPackage$ | async"
+    class="d-flex flex-column justify-content-around mt-3 mb-5"
+  >
+    <div class="d-flex justify-content-around mt-3 mb-5">
+      <button
+        class="btn btn-primary px-4 mr-4 min-w-100"
+        type="button"
+        (click)="cancelModification()">
+        {{'TEMPLATE.TASK_QUEUE.PACKAGE.DISPOSITION_PACKAGE.CANCEL_MODIFICATION' | translate }}
+      </button>
+      <button
+        class="btn btn-primary px-4 mr-4 min-w-100"
+        type="button"
+        (click)="reSendEmail()"
+        [disabled]="(postPackageWelcomeEmailRequest$ | async)?.loading
+         || !(package$ | async)?.welcomeEmailId"
+      >
+        {{'TEMPLATE.TASK_QUEUE.PACKAGE.DISPOSITION_PACKAGE.RE_SEND_WELCOME_EMAIL' | translate }}
+      </button>
+      <button
+        class="btn btn-primary px-4 mr-4 min-w-100"
+        [disabled]="(packageTypeFormControl.value !== 'EDIT' &&
+        ((isSaveButtonDisabled$ | async) ||
+        (patchPackageRequest$ | async).loading))
+        || ((patchPackageRequest$ | async).loading)
+        || applicantsFormArray.invalid
+        || hasAnyApplicantDoesNotHaveBenefitCategory()"
+        (click)="saveChanges()"
+      >
+        {{'TEMPLATE.TASK_QUEUE.PACKAGE.DISPOSITION_PACKAGE.SAVE_CHANGES' | translate }}
+      </button>
+    </div>
+  </div>
+  <div
+    *ngIf="!(editedPackage$ | async)"
+    class="d-flex justify-content-around mt-3 mb-5"
+  >
+    <button
+      class="btn btn-primary px-4 mr-4 min-w-100"
+      type="button"
+      (click)="deleteNewPackage()"
+    >
+      {{'TEMPLATE.TASK_QUEUE.PACKAGE.DISPOSITION_PACKAGE.DELETE_PACKAGE' | translate }}
+    </button>
+    <button
+      class="btn btn-primary px-4 mr-4 min-w-100"
+      [disabled]="!(isCreateButtonEnabled$ | async)
+      || (postPackageRequest$ | async).loading
+      || applicantsFormArray.invalid
+      || hasAnyApplicantDoesNotHaveBenefitCategory()"
+      (click)="saveChanges()"
+    >
+      {{'TEMPLATE.TASK_QUEUE.PACKAGE.DISPOSITION_PACKAGE.CREATE_NEW_WELCOME_EMAIL' | translate }}
+    </button>
+  </div>
+</div>
+<ng-template #deleteNewPackageModal>
+  <app-delete-new-package-modal></app-delete-new-package-modal>
+</ng-template>
+<ng-template #cancelModificationsModal>
+  <app-cancel-modifications-modal></app-cancel-modifications-modal>
+</ng-template>
+<ng-template #informationMissingModal>
+  <app-information-missing-modal></app-information-missing-modal>
+</ng-template>
+<ng-template #confirmNoConflictModal>
+  <app-confirm-no-conflict-modal></app-confirm-no-conflict-modal>
+</ng-template>
+<ng-template #additionalFeeInfo>
+  <app-additional-applicant-fee-info></app-additional-applicant-fee-info>
+</ng-template>

@@ -1,0 +1,18 @@
+CREATE (Form_form_129f:Form{easyVisaId:"Form_129F",questVersion:"quest_version_test",name:"#129F",displayText:"I-129F Petition for Alien Fiancé(e)",applicantType:"Petitioner",pdfForm:"i_129f_20170410.pdf",order:1});
+CREATE (Form_form_130:Form{easyVisaId:"Form_130",questVersion:"quest_version_test",name:"#130",displayText:"I-130 Petition for Alien Relative",applicantType:"Petitioner",pdfForm:"i_130_20170227.pdf",order:2});
+CREATE (Form_form_130a:Form{easyVisaId:"Form_130A",questVersion:"quest_version_test",name:"#130A",displayText:"I-130A Supplemental Information for Spouse Beneficiary",applicantType:"Beneficiary",pdfForm:"i_130a_20170227.pdf",order:3});
+CREATE (Form_form_134:Form{easyVisaId:"Form_134",questVersion:"quest_version_test",name:"#134",displayText:"I-134 Affidavit of Support",applicantType:"Petitioner",pdfForm:"i_134_20161130.pdf",order:4});
+CREATE (Form_form_485:Form{easyVisaId:"Form_485",questVersion:"quest_version_test",name:"#485",displayText:"I-485 Application to Register Permanent Residence or Adjust Status",applicantType:"Beneficiary",pdfForm:"i_485_20171213.pdf",order:5});
+CREATE (Form_form_601:Form{easyVisaId:"Form_601",questVersion:"quest_version_test",name:"#601",displayText:"I-601 Application for Waiver on Grounds of Inadmissibility",applicantType:"Beneficiary",pdfForm:"i_601_20170821.pdf",order:6});
+CREATE (Form_form_601a:Form{easyVisaId:"Form_601A",questVersion:"quest_version_test",name:"#601A",displayText:"I-601A Application for Provisional Unlawful Presence Waiver",applicantType:"Beneficiary",pdfForm:"i_601a_20171215.pdf",order:7});
+CREATE (Form_form_693:Form{easyVisaId:"Form_693",questVersion:"quest_version_test",name:"#693",displayText:"I-693 Report of Medical Examination and Vaccination Record",applicantType:"Beneficiary",pdfForm:"i_693_20171019.pdf",order:8});
+CREATE (Form_form_751:Form{easyVisaId:"Form_751",questVersion:"quest_version_test",name:"#751",displayText:"I-751 Petition to Remove Conditions on Residence",applicantType:"Beneficiary",pdfForm:"i_751_20171205.pdf",order:9});
+CREATE (Form_form_765:Form{easyVisaId:"Form_765",questVersion:"quest_version_test",name:"#765",displayText:"I-765 Application for Employment Authorization",applicantType:"Beneficiary",pdfForm:"i_765_20170717.pdf",order:10});
+CREATE (Form_form_824:Form{easyVisaId:"Form_824",questVersion:"quest_version_test",name:"#824",displayText:"I-824 Application for Action on an Approved Application or Petition",applicantType:"Beneficiary",pdfForm:"i_824_20171101.pdf",order:11});
+CREATE (Form_form_864:Form{easyVisaId:"Form_864",questVersion:"quest_version_test",name:"#864",displayText:"I-864 Affidavit of Support Under Section 213A of the INA",applicantType:"Petitioner",pdfForm:"i_864_20180306.pdf",order:12});
+CREATE (Form_form_400:Form{easyVisaId:"Form_400",questVersion:"quest_version_test",name:"#400",displayText:"N-400 Application for Naturalization",applicantType:"Petitioner",pdfForm:"n_400_20161223.pdf",order:13});
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,42 @@
+{
+  "Section": {
+    "style": {
+      "header": "h2",
+      "styleClassName": "section-label"
+    }
+  },
+  "SubSection": {
+    "style": {
+      "header": "h3",
+      "styleClassName": "sub-section-label"
+    }
+  },
+  "Question": {
+    "style": {
+      "header": "h4",
+      "styleClassName": "question-label"
+    },
+    "wrappers": [
+      "request",
+      "form-field-horizontal"
+    ]
+  },
+  "RepeatingQuestionGroup": {
+    "style": {
+      "header": "h4",
+      "styleClassName": "repeating-question-group-label",
+      "fieldGroupClassName": "row my-3"
+    }
+  },
+  "Expression": {
+    "style": {
+      "fieldGroupClassName": "row"
+    }
+  },
+  "Label":{
+    "style": {
+      "header": "h6",
+      "styleClassName": "sub-section-info"
+    }
+  }
+}

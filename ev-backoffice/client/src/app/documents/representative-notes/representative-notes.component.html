@@ -1,0 +1,51 @@
+<app-block
+  class="bg-light-gray"
+  [title]="'TEMPLATE.REPRESENTATIVE_NOTES.TITLE' | translate:
+  ({representativeType: (activeOrganization$ | async)?.organizationType | representativeType | translate})"
+  [customPadding]="true"
+>
+  <div class="d-flex flex-row align-items-center mt-4 pr-4">
+    <button
+      *ngIf="!(isClient$ | async)"
+      class="btn btn-primary col-3 my-2"
+      (click)="newNote(NoteTypes.PUBLIC_NOTE)"
+      [disabled]="readOnlyAccess"
+    >
+      {{'TEMPLATE.REPRESENTATIVE_NOTES.NEW_PUBLIC_NOTE_BTN' | translate}}
+    </button>
+    <div class="font-weight-bold ml-3">
+      {{'TEMPLATE.REPRESENTATIVE_NOTES.P_1' | translate}}
+      <span *ngIf="(activeOrganization$ | async)?.organizationType">
+        & {{(activeOrganization$ | async)?.organizationType | organizationType | translate}}
+      </span>
+    </div>
+  </div>
+  <app-notes
+    [notes]="(publicNotes$ | async)"
+    [disableRemove]="!(isClient$ | async) || (deleteNoteRequestState$ | async)?.loading"
+    [readOnlyAccess]="readOnlyAccess"
+    (removeNoteRow)="removeNote($event)"
+  ></app-notes>
+  <div *ngIf="!(isClient$ | async)">
+    <div class="d-flex flex-row align-items-center mt-4 pr-4">
+      <button
+        class="btn btn-primary col-3 my-2"
+        (click)="newNote(NoteTypes.REPRESENTATIVE_NOTE)"
+        [disabled]="readOnlyAccess"
+      >
+        {{'TEMPLATE.REPRESENTATIVE_NOTES.NEW_REPRESENTATIVE_NOTE_BTN' | translate}}
+      </button>
+      <div class="font-weight-bold ml-3">
+        {{'TEMPLATE.REPRESENTATIVE_NOTES.P_2' | translate: ({
+          organizationType: (activeOrganization$ | async)?.organizationType | organizationType | translate
+      }) }}
+      </div>
+    </div>
+    <app-notes
+      [notes]="(representativeNotes$ | async)"
+      [disableRemove]="!(isClient$ | async) || (deleteNoteRequestState$ | async).loading"
+      [readOnlyAccess]="readOnlyAccess"
+      (removeNoteRow)="removeNote($event)"
+    ></app-notes>
+  </div>
+</app-block>

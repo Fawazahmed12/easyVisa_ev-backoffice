@@ -1,0 +1,153 @@
+<div class="mb-3 mb-lg-0 logo-container mt-3 mx-auto">
+  <img class="w-100 h-100" src="../../../assets/images/banner.png">
+</div>
+<div class="container-fluid">
+  <div class="row justify-content-center my-4">
+    <div class="col-7 border-top border-bottom border-secondary"></div>
+  </div>
+  <div class="row justify-content-center mb-4">
+    <div class="col-10">
+      <h3 class="text-center">{{ 'TEMPLATE.AUTH.ATTORNEY_LANDING_PAGE.SUBSCRIPTION' | translate }}!</h3>
+    </div>
+  </div>
+  <div class="row justify-content-center mb-3">
+    <div class="col-10">
+      <h2 class="text-center">{{ 'TEMPLATE.AUTH.ATTORNEY_LANDING_PAGE.EASYVISA_CAN_DO_FOR_YOU.TITLE' | translate }}</h2>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-11">
+      <div class="row">
+        <div class="col my-2" *ngFor="let card of forYouCards">
+          <app-card [card]="card" class="d-flex align-items-stretch h-100"></app-card>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center my-4 mt-5">
+    <div class="col-7 border-top border-bottom border-secondary"></div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <h2 class="text-center">{{ 'TEMPLATE.AUTH.ATTORNEY_LANDING_PAGE.EASYVISA_HELP_ME.TITLE' | translate }}</h2>
+    </div>
+  </div>
+  <div class="row my-4 justify-content-center">
+    <img src="../.././../assets/images/insteadVideo.jpg" class="mb-2">
+  </div>
+  <div class="row justify-content-center my-4 mt-5">
+    <div class="col-7 border-top border-bottom border-secondary"></div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <h2 class="text-center">
+        {{ 'TEMPLATE.AUTH.ATTORNEY_LANDING_PAGE.EASYVISA_CAN_DO_FOR_CLIENTS.TITLE' | translate }}
+        <span *ngIf="(referringUser$|async)">...</span>
+      </h2>
+    </div>
+  </div>
+  <div class="row justify-content-center my-4">
+    <div class="col-10">
+      <h3 class="text-center">{{ 'TEMPLATE.AUTH.ATTORNEY_LANDING_PAGE.EASYVISA_CAN_DO_FOR_CLIENTS.DESCRIPTION' |
+        translate }}!</h3>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-11">
+      <div class="row justify-content-center">
+        <div class="col-md-4 col-sm-12 my-2" *ngFor="let card of cards">
+          <app-card [card]="card" class="d-flex align-items-stretch h-100"></app-card>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center my-2">
+    <div class="col-10 small">
+      <span class="text-danger">*</span>
+      {{ 'TEMPLATE.AUTH.ATTORNEY_LANDING_PAGE.EASYVISA_CAN_DO_FOR_YOU.NOTE' | translate }}
+    </div>
+  </div>
+  <div class="row justify-content-center my-4">
+    <div class="col-7 border-top border-bottom border-secondary"></div>
+  </div>
+  <div class="row justify-content-center my-2">
+    <div class="col-10">
+      <h2 class="text-center">{{ 'TEMPLATE.AUTH.ATTORNEY_LANDING_PAGE.TESTIMONIALS' | translate }}</h2>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <blockquote class="col-md-3 col-sm-11" *ngFor="let testimonial of testimonials">
+      <p *ngFor="let p of testimonial.text; let i = index">
+        <span *ngIf="i === 0">"</span>
+        {{ p | translate }}
+        <span *ngIf="i === testimonial.text.length - 1">"</span>
+      </p>
+    </blockquote>
+  </div>
+  <div class="row justify-content-center mt-3 mb-5">
+    <div class="col-7 border-top border-bottom border-secondary"></div>
+  </div>
+  <div class="row justify-content-center my-4">
+    <div class="col-10">
+      <h5 class="text-center">
+        {{ 'TEMPLATE.AUTH.ATTORNEY_LANDING_PAGE.ONE_TIME_FEE' | translate }}
+        <span class="position-relative" [class.crossed-text]="(referringUser$|async)">
+          {{(feeDetails$ | async).signupFee | currency:'USD' : 'symbol' : '1.0'}}
+        </span>
+        <span *ngIf="(referringUser$|async)">
+          ,
+          {{(feeDetails$ | async).signupFee - (feeDetails$ | async).signupDiscount | currency:'USD' : 'symbol' : '1.0'}}
+          {{ 'TEMPLATE.AUTH.ATTORNEY_LANDING_PAGE.DISCOUNT_FROM' | translate:
+          ({name: (referringUser$|async), signupDiscount: (feeDetails$ | async).signupDiscount | currency:'USD' : 'symbol' : '1.0'})
+          }}
+        </span>
+      </h5>
+    </div>
+  </div>
+  <div class="row justify-content-center my-4">
+    <div class="col-10">
+      <h5 class="text-center">
+        {{ 'TEMPLATE.AUTH.ATTORNEY_LANDING_PAGE.MONTHLY_FEE' | translate:
+        ({maintenanceFee: (feeDetails$ | async).maintenanceFee | currency:'USD' : 'symbol' : '1.0'})}}
+      </h5>
+    </div>
+  </div>
+  <div class="row justify-content-center my-4">
+    <div class="col-10">
+      <h5 class="text-center">
+        {{ 'TEMPLATE.AUTH.ATTORNEY_LANDING_PAGE.PER_CLIENT_CHARGE' | translate}}
+      </h5>
+    </div>
+  </div>
+  <div class="row justify-content-center my-4">
+    <div class="col-10">
+      <h5 class="text-center mb-0">
+        {{ 'TEMPLATE.AUTH.ATTORNEY_LANDING_PAGE.LOW_CLOUD_STORAGE_FEE' | translate:
+        ({cloudStorageFee:
+        (feeDetails$ | async).cloudStorageFee ? ((feeDetails$ | async).cloudStorageFee | currency:'USD' : 'symbol' : '1.2') :
+        ('TEMPLATE.AUTH.STANDARD_CHARGES.FREE'| translate)})
+        }}
+        <span *ngIf="!(feeDetails$ | async).cloudStorageFee">!</span>
+        <span class="text-danger">*</span>
+      </h5>
+      <p class="text-left mb-0 mt-2"><span class="text-danger pr-2">*</span>{{ 'TEMPLATE.AUTH.ATTORNEY_LANDING_PAGE.PACKAGE_CONTAINES_NOTE' | translate }}</p>
+    </div>
+  </div>
+  <div class="row justify-content-center my-4">
+    <div class="col-7 border-top border-bottom border-secondary"></div>
+  </div>
+  <div class="row justify-content-center mt-4 mb-5">
+    <div class="col-12 text-center px-4">
+      <button
+        type="submit"
+        class="btn btn-primary px-4"
+        (click)="signUpClick()"
+      >{{ 'TEMPLATE.AUTH.ATTORNEY_LANDING_PAGE.SIGN_ME_UP' | translate }}
+      </button>
+      <div class="small my-4">
+        <span class="text-danger">*</span>
+        {{ 'TEMPLATE.AUTH.ATTORNEY_LANDING_PAGE.FOOTNOTE' | translate }}
+      </div>
+    </div>
+  </div>
+</div>

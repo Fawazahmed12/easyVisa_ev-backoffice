@@ -1,0 +1,89 @@
+<div>
+  <app-spinner
+    *ngIf="(getWarningsGetRequest$ | async).loading"
+  ></app-spinner>
+  <div
+    class="d-flex flex-column align-items-stretch"
+    *ngIf="!(getWarningsGetRequest$ | async).loading"
+  >
+    <div>
+      <div class="text-right">
+        {{'TEMPLATE.TASK_QUEUE.WARNINGS.UNREAD_WARNINGS_FOR_SELECTED_REPRESENTATIVE' | translate}}:<span
+        class="font-weight-bold pl-1">{{(taskQueueNotifications$ | async)?.warnings.unread}}</span>
+      </div>
+      <button class="btn btn-link pb-0" (click)="removeWarnings()"
+              [disabled]="(getWarningsDeleteRequest$ | async).loading">
+        {{'FORM.BUTTON.DELETE' | translate}}
+      </button>
+      <app-table
+        noDataText="TEMPLATE.TASK_QUEUE.WARNINGS.NO_WARNINGS"
+        [header]="warningsTableHeader$ | async"
+        [tableData]="warningsTableData$ | async"
+        [tableSortCol]="sortFormControl.value"
+        [tableSortOrder]="orderFormControl.value"
+        [selectedItemsFormControl]="selectedWarningsIds"
+        [selectionStickyTable]="true"
+        [smallCells]="true"
+        [noDataCustomShowing]="true"
+        (sortParams)="sortBy($event)"
+        (actionItem)="starWarning($event)"
+        (rowClick)="viewWarning($event)"
+        class="small"
+      ></app-table>
+    </div>
+    <div
+      class="bg-white border border-gray-ccc p-2 preview-warnings-section-height"
+    >
+      <div [class.text-gray]="!(activeWarning$ | async)">
+        <div
+          class="d-flex flex-column"
+        >
+          <div class="d-flex flex-column small">
+            <div class="row">
+              <div class="col-1 font-weight-bold">
+                {{'TEMPLATE.TASK_QUEUE.FROM' | translate}}:
+              </div>
+              <div>
+                {{(activeWarning$ | async)?.source}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-1 font-weight-bold">
+                {{'TEMPLATE.TASK_QUEUE.SUBJECT' | translate}}:
+              </div>
+              <div>
+                {{(activeWarning$ | async)?.subject}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-1 font-weight-bold">
+                {{'TEMPLATE.TASK_QUEUE.DATE' | translate}}:
+              </div>
+              <div>
+                {{(activeWarning$ | async)?.createdOn | date:'MM/dd/yyyy h:mm aaa'}}
+              </div>
+            </div>
+          </div>
+          <div
+            class="text-center text-gray-ccc font-italic min-height-block-200 d-flex justify-content-center align-items-center"
+            *ngIf="!(activeWarning$ | async)"
+          >
+            {{'TEMPLATE.TASK_QUEUE.WARNINGS.NO_WARNINGS_SELECTED' | translate}}
+          </div>
+        </div>
+      </div>
+      <div
+        *ngIf="activeWarning$ | async"
+        [innerHTML]="(activeWarning$ | async)?.content"
+        class="p-4 flex-grow-1">
+      </div>
+    </div>
+    <app-pagination
+      [collectionSize]="totalWarnings$ | async"
+      [pageSize]="maxFormControl.value"
+      [page]="page"
+      [noOffset]="true"
+      (pageChange)="pageChange($event)"
+    ></app-pagination>
+  </div>
+</div>

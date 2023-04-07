@@ -1,0 +1,68 @@
+@import '../../../variables';
+
+.document-attachments-wrapper{
+  .dts-select-container{
+    display: flex;
+    flex-wrap: wrap;
+    .thumbnail-container{
+      display: inline-block;
+      border: 2px solid transparent;
+      margin: 3px 6px 3px 7px;
+      position: relative;
+      width: 90px;
+      min-height: 135px;
+      max-height: 135px;
+      padding: 3px 0;
+      cursor: pointer;
+      box-sizing: content-box;
+      &:hover{
+        border: 2px solid #a0c3e7;
+      }
+      &.selected{
+        border: 2px solid $blue;
+      }
+      .img-container {
+        width: 90px;
+        height: 60px; /* 3:2 Aspect Ratio */
+        position: relative;
+        img {
+          overflow: hidden;
+          max-width: 90px;
+          max-height: 60px;
+          margin: auto;
+          &.image-thumbnail{
+            box-shadow: 2px 2px 2px lightgrey;
+          }
+        }
+        .approved-mark{
+          position: absolute;
+          width: 32px;
+          height: 32px;
+          z-index: 1;
+          top: 20%;
+          left: 32%;
+          border-radius: 50%;
+          background-color: rgba(0,0,0,0.5);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          i{
+            color: white;
+            font-size: 30px;
+          }
+        }
+      }
+      .filename-text{
+        text-align: center;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        line-height: 1.2;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+

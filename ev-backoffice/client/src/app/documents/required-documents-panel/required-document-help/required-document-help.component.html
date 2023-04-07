@@ -1,0 +1,20 @@
+<div class="container-fluid p-0 border border-secondary">
+  <div class="modal-header align-items-center bg-primary text-white">
+    <h5 class="modal-title w-100 text-center">{{ requiredDocument.name }}</h5>
+    <button
+      type="button"
+      class="btn btn-secondary close-btn p-0"
+      aria-label="Close"
+      (click)="activeModal.dismiss('Cross click')"
+    ><span aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="modal-body">
+    <div class="d-flex justify-content-center">
+      <div [innerHtml]="requiredDocument.helpText" class="help-container p-2"></div>
+    </div>
+    <div class="text-right pt-3 pb-0">
+      <button type="button" class="btn btn-primary min-w-100" (click)="activeModal.dismiss('Cross click')">Ok</button>
+    </div>
+  </div>
+</div>
+

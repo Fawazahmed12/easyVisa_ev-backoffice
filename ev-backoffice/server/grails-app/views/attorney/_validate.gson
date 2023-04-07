@@ -1,0 +1,13 @@
+import com.easyvisa.LegalRepresentative
+import groovy.transform.Field
+
+@Field
+LegalRepresentative attorney
+
+json {
+    representativeId attorney.id
+    firstName attorney.profile.firstName
+    lastName attorney.profile.lastName
+    middleName attorney.profile.middleName
+    organizations tmpl.'/organizationEmployee'('organizationEmployee', attorney.organizationEmployees)
+}

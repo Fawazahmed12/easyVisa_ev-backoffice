@@ -1,0 +1,9 @@
+import com.easyvisa.dto.PackageResponseDto
+import groovy.transform.Field
+
+@Field PackageResponseDto packageResponse
+
+json {
+    'package' g.render(template:'/package', model:[aPackage:packageResponse.aPackage])
+    messages packageResponse.messages.empty ? null : tmpl.'/message'('message', packageResponse.messages)
+}

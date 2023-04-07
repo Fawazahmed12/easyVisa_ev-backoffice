@@ -1,0 +1,1 @@
+ALTER TABLE immigration_benefit ADD opt_in boolean NULL;

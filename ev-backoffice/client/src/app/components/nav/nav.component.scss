@@ -1,0 +1,85 @@
+@import '../../../variables';
+
+.navbar {
+  list-style: none;
+  padding: 0 15px;
+  font-size: 14px;
+  a {
+    color: #b7bec5;
+    &:hover {
+      color: #e0e3e6 !important;
+    }
+    &.dimmed {
+      color: #cccccc;
+      &:hover {
+        color: #cccccc !important;
+      }
+    }
+    &.active {
+      color: #6e7276;
+      &:hover {
+        color: #6e7276 !important;
+      }
+    }
+    &.disable {
+      color: #cccccc;
+      &:hover {
+        color: #cccccc !important;
+      }
+      cursor: not-allowed;
+      pointer-events: none;
+      opacity: 0.5;
+      text-decoration: none;
+    }
+  }
+  li {
+    &:hover {
+      background: #e8f7ff;
+    }
+  }
+}
+
+a:hover, a:active {
+  text-decoration: none;
+  opacity: 1;
+}
+
+.nav-link {
+  padding: 0.5rem 1rem;
+  .fa{
+    font-size: 21px;
+    vertical-align: bottom;
+  }
+}
+
+.dropdown-menu .sub-menu {
+  left: 100%;
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+  margin-top: -1px;
+}
+.dropdown-menu {
+  border: none;
+  background: #e8f7ff;
+  margin-top: 0;
+  min-width: 15em;
+  & li {
+    padding: 0 15px;
+    & a {
+      text-wrap: none;
+      color: #4c4c4c !important;
+
+      &:hover {
+        color: #b2b2b2 !important;
+      }
+    }
+  }
+}
+.dropdown-menu li:hover .sub-menu {
+  visibility: visible;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}

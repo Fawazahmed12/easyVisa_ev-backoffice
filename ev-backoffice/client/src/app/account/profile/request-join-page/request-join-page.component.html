@@ -1,0 +1,97 @@
+<app-block [title]="'TEMPLATE.ACCOUNT.REQUEST_TO_JOIN.HEADER' | translate: (
+    {organizationType: 'TEMPLATE.ORGANIZATION_TYPES.LAW_FIRM' | translate})">
+  <h4
+    class="font-weight-bolder text-center mb-0"
+    [innerHTML]="'TEMPLATE.ACCOUNT.REQUEST_TO_JOIN.TITLE' | translate: (
+    {organizationType: 'TEMPLATE.ORGANIZATION_TYPES.LAW_FIRM' | translate})"
+  ></h4>
+  <div class="text-center">
+    {{'TEMPLATE.ACCOUNT.REQUEST_TO_JOIN.TITLE_TIP' | translate}}
+  </div>
+  <form
+      #form="ngForm"
+      [formGroup]="formGroup"
+      (ngSubmit)="sendRequest()"
+      class="d-flex flex-column justify-content-center align-items-center col-lg-12 mt-4"
+  >
+    <div class="col-8 d-flex position-relative px-0 mt-4">
+      <div
+        class="col-6 pr-0"
+        [innerHTML]="'TEMPLATE.ACCOUNT.REQUEST_TO_JOIN.EASY_VISA_ID_LABEL' | translate"
+      >
+      </div>
+      <div class="col">
+        <input
+          class="form-control form-control-sm"
+          [formControl]="easyVisaIdFormControl"
+        >
+      </div>
+    </div>
+    <div class="col-8 d-flex position-relative mt-5 px-0">
+      <div
+        class="col-6 pr-0"
+        [innerHTML]="'TEMPLATE.ACCOUNT.REQUEST_TO_JOIN.EMAIL_LABEL' | translate"
+      >
+      </div>
+      <div class="col">
+        <input
+          class="form-control form-control-sm"
+          [formControl]="emailFormControl"
+        >
+      </div>
+    </div>
+    <div class="col small text-danger">
+      <div
+        class="col col-md-4 offset-md-4 p-0 pr-5 position-absolute text-center"
+        *ngIf="(showWarningSubject$|async) && ((emailFormControl.hasError('email') || easyVisaIdFormControl.hasError('pattern')) && form.submitted)">
+
+        {{'FORM.ERROR.EVID_OR_EMAIL_FORMAT_INVALID' | translate}}
+      </div>
+      <div
+        class="col col-md-4 offset-md-4 p-0 pr-5 position-absolute text-center"
+      >
+        {{(messageSubject$ | async)}}
+      </div>
+    </div>
+    <div
+      class="col-md-8 mt-5"
+      *ngIf="(isEmployee$ | async)"
+    >
+      <div class="mb-2">
+        {{'TEMPLATE.ACCOUNT.REQUEST_TO_JOIN.DESCRIPTION_P1' | translate: (
+          {organizationType: 'TEMPLATE.ORGANIZATION_TYPES.LAW_FIRM' | translate})}}
+      </div>
+      <div>
+        {{'TEMPLATE.ACCOUNT.REQUEST_TO_JOIN.DESCRIPTION_P2' | translate: (
+          {organizationType: 'TEMPLATE.ORGANIZATION_TYPES.LAW_FIRM' | translate})}}
+      </div>
+    </div>
+    <div
+      class="col-md-8 mt-5"
+      *ngIf="(isAttorney$ | async)"
+    >
+      <div class="mb-2">
+        {{'TEMPLATE.ACCOUNT.REQUEST_TO_JOIN.DESCRIPTION_P3' | translate}}
+      </div>
+      <div
+        [innerHTML]="'TEMPLATE.ACCOUNT.REQUEST_TO_JOIN.DESCRIPTION_P4' | translate"
+      ></div>
+    </div>
+    <div class="text-center text-md-right m-md-4 align-self-end">
+      <button
+        class="btn btn-primary px-4 mr-sm-4 mr-3 min-w-100"
+        type="button"
+        routerLink="/account/profile"
+      >
+        {{ 'FORM.BUTTON.CANCEL' | translate }}
+      </button>
+      <button
+        class="btn btn-primary px-4 min-w-100"
+        type="submit"
+        [disabled]="(requestPutState$ | async).loading"
+      >
+        {{'TEMPLATE.ACCOUNT.REQUEST_TO_JOIN.BUTTON_REQUEST' | translate}}
+      </button>
+    </div>
+  </form>
+</app-block>

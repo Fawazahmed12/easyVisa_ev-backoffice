@@ -1,0 +1,16 @@
+:host::ng-deep {
+  .progress {
+    overflow: visible!important;
+    margin: 0 5px;
+  }
+  .progress-bar {
+    position: relative!important;
+    border-radius: 2px;
+    overflow: visible!important;
+  }
+  .position-percent{
+    top: -65%;
+    right: -15px;
+  }
+}
+

@@ -1,0 +1,22 @@
+.terms-conditions {
+  .terms-conditions-ol {
+    padding: 10px 25px;
+    font-size: 16px;
+    color: #212529;
+  }
+  ul {
+    &.alpha {
+      list-style-type: lower-alpha;
+      li {
+        margin: 12px 0;
+      }
+    }
+    &.roman {
+      list-style-type: upper-roman;
+      li {
+        margin: 12px 0;
+      }
+    }
+  }
+}
+

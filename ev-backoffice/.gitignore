@@ -1,0 +1,10 @@
+.idea/
+.gradle/
+build/
+build.gradle
+out/*
+mysnippets/*
+data-import/node_modules/
+.DS_Store
+*.iml
+~$EasyVisaData_Ver_2.xlsx

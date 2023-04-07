@@ -1,0 +1,92 @@
+<ngb-accordion #sentDocumentAccordion="ngbAccordion" >
+  <ngb-panel *ngFor="let sentDocument of applicantSentDocument.sentDocuments; let idx = index"
+             [id]="getPanelId(sentDocument, idx)">
+    <ng-template ngbPanelHeader let-opened="opened">
+      <app-drag-drop-document [panelData]="getPanelData(sentDocument, idx)"
+                              [accordionRef]="sentDocumentAccordion"
+                              [readOnlyAccess]="readOnlyAccess"
+                              (documentDropEmitter)="onDocumentUpload(sentDocument)">
+
+      </app-drag-drop-document>
+      <div class="toggle-header-container">
+        <button class="btn p-0 m-0" ngbPanelToggle (click)="onRequireDocumentClick(sentDocument)">
+          <i class="fa toggle-icon" *ngIf="!opened">&#9656;</i>
+          <i class="fa toggle-icon" *ngIf="opened">&#9662;</i>
+          <span class="mx-2">{{sentDocument.name}} {{'TEMPLATE.SENT_DOCUMENTS.SUBMITTED' | translate}}</span>
+        </button>
+        <span class="header-btn-container">
+            <app-upload-document [panelData]="getPanelData(sentDocument, idx)"
+                                 [readOnlyAccess]="readOnlyAccess"
+                                 (documentUploadEmitter)="onDocumentUpload(sentDocument)"></app-upload-document>
+            <button  class="btn btn-link p-0 blue-link"
+                     (click)="onSentDocumentDelete(sentDocument)"
+                     [disabled]="!hasSelectedAttachments(sentDocument) || readOnlyAccess">
+              {{'TEMPLATE.ATTACHMENTS.DELETE' | translate}}
+            </button>
+            <button  class="btn btn-link p-0 icon-btn download-icon"
+                     (click)="onSentDocumentDownload(sentDocument)"
+                     [disabled]="!hasSelectedAttachments(sentDocument)">
+              <i class="fa fa-download"></i>
+            </button>
+            <button  class="btn btn-link p-0 folder-icon icon-btn" >
+              <i class="fa fa-folder"></i>
+              <span class="attachment-count" *ngIf="sentDocument.attachments.length==0">-</span>
+              <span class="attachment-count"  *ngIf="sentDocument.attachments.length>0">{{sentDocument.attachments.length}}</span>
+              <span class="paper-tick"  *ngIf="sentDocument.attachments.length>0"></span>
+            </button>
+
+            <button  class="btn p-0 ml-4" >
+              <form class="form-inline">
+                <label>{{'TEMPLATE.SENT_DOCUMENTS.DATE_SENT' | translate}}:</label>
+                <div class="form-group mx-2">
+                  <div class="input-group">
+                    <input class="form-control" placeholder="mm-dd-yyyy"
+                           name="dp" [ngModel]="sentDocument.actionDate"
+                           [container]="'body'"
+                           ngbDatepicker #d="ngbDatepicker" (dateSelect)="onDateSelection($event, sentDocument)" [disabled]="readOnlyAccess">
+                    <div class="input-group-append">
+                      <button class="btn text-secondary calendar fa fa-calendar border-gray border-left-0 bg-white" (click)="d.toggle()" type="button" [disabled]="readOnlyAccess">
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </button>
+
+            <button  class="btn btn-link p-0 icon-btn" *ngIf="isAttorney$ | async"
+                     [disabled]="dispositionSubmitted || sentDocument.attachments.length==0 || readOnlyAccess">
+                <i class="fa tick-icon" *ngIf="sentDocument.isApproved"
+                   (click)="onDispositionRejectEntirePanel(sentDocument)">
+                  &#10003;
+                </i>
+                <i class="fa minus-icon" *ngIf="!sentDocument.isApproved"
+                   (click)="onDispositionApprovedEntirePanel(sentDocument)">
+                  &#8722;
+                </i>
+              </button>
+          </span>
+      </div>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <app-document-attachments
+        [document]="sentDocument"
+        [documentType]="documentType"
+        [applicantId]="applicantSentDocument.applicantId"
+        [readOnlyAccess]="readOnlyAccess">
+      </app-document-attachments>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
+
+
+<ng-template #removeDocumentAttachmentsModalTemplate>
+  <div class="row">
+    <div class="col-md-3">
+      <img src="../../../../assets/images/warn-icon.png"/>
+    </div>
+    <div class="col-md-9">
+      <p>Are you sure that you want to permanently delete the selected document(s)?</p>
+      <p>This cannot be undone.</p>
+    </div>
+  </div>
+</ng-template>

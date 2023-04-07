@@ -1,0 +1,93 @@
+<div class="d-flex flex-column align-items-stretch">
+  <div>
+    <div class="text-right">
+      {{'FORM.ALERTS.UNREAD_ALERT' | translate}}
+      <span class="font-weight-bold pl-1">{{(taskQueueNotifications$ | async)?.alerts.unread}}</span>
+    </div>
+    <button class="btn btn-link small pb-0" (click)="removeAlerts()" [disabled]="(getAlertsDeleteRequest$ | async).loading">
+      {{'FORM.BUTTON.DELETE' | translate}}
+    </button>
+    <app-table
+      noDataText="FORM.ALERTS.NO_ALERTS"
+      [header]="tableHeader"
+      [tableData]="tableData$ | async"
+      [tableSortCol]="sortFormControl.value"
+      [tableSortOrder]="orderFormControl.value"
+      [selectedItemsFormControl]="selectedAlertsIds"
+      [selectionStickyTable]="true"
+      [noDataCustomShowing]="true"
+      [smallCells]="true"
+      (sortParams)="sortBy($event)"
+      (actionItem)="starAlert($event)"
+      (rowClick)="viewAlert($event)"
+      class="small"
+    ></app-table>
+
+  </div>
+  <div class="bg-white border border-gray-ccc p-2 preview-alerts-section-height">
+    <div
+      class="d-flex flex-column"
+    >
+      <div class="d-flex flex-column" >
+        <div
+          class="d-flex flex-column small"
+          [class.text-gray-ccc]="!(activeAlertId$ | async)"
+        >
+          <div class="row">
+            <div class="col-1 font-weight-bold">
+              {{'FORM.ALERTS.FROM' | translate}}:
+            </div>
+            <div>
+              {{(activeAlert$ | async)?.source}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-1 font-weight-bold">
+              {{'FORM.ALERTS.TO' | translate}}:
+            </div>
+            <div>
+              {{(activeAlert$ | async)?.recipientName}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-1 font-weight-bold">
+              {{'FORM.ALERTS.SUBJECT' | translate}}:
+            </div>
+            <div>
+              {{(activeAlert$ | async)?.subject}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-1 font-weight-bold">
+              {{'FORM.ALERTS.DATE' | translate}}:
+            </div>
+            <div>
+              {{(activeAlert$ | async)?.createdOn | date:'MM/dd/yyyy h:mm aaa'}}
+            </div>
+          </div>
+        </div>
+
+        <div
+          *ngIf="activeAlert$ | async"
+          [innerHTML]="(activeAlert$ | async)?.content"
+          class="p-4 flex-grow-1">
+        </div>
+      </div>
+    </div>
+      <div class="d-flex align-items-center justify-content-center min-height-block-200 text-gray-ccc font-italic"
+           *ngIf="!(activeAlert$ | async)?.content"
+      >
+        {{'FORM.ALERTS.NO_ALERTS_SELECTED' | translate}}
+      </div>
+  </div>
+  <app-pagination
+    [collectionSize]="totalAlerts$ | async"
+    [pageSize]="maxFormControl.value"
+    [page]="page"
+    [noOffset]="true"
+    (pageChange)="pageChange($event)"
+  ></app-pagination>
+  <app-create-alert *appHasRole="[ROLE_OWNER]"></app-create-alert>
+</div>
+<app-warning-personal-page></app-warning-personal-page>
+

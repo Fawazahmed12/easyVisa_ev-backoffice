@@ -1,0 +1,87 @@
+<form class="container-fluid" [formGroup]="formGroup" (submit)="formSubmit()">
+  <div class="d-flex flex-column flex-md-row align-items-center mb-2">
+    <div class="col col-md-3 text-center text-md-right font-weight-bold align-self-start">
+      {{'TEMPLATE.ACCOUNT.PROFILE.MY_REVIEW.STAR_RATING' | translate}}
+    </div>
+    <div class="d-flex flex-column flex-md-row align-items-center justify-content-start">
+      <app-stars-rating
+        [readonly]="true"
+        [rate]="(activeReview$ | async)?.rating">
+      </app-stars-rating>
+    </div>
+  </div>
+  <div class="d-flex flex-column flex-md-row align-items-center mb-md-2">
+    <div class="col col-md-3 text-center text-md-right font-weight-bold align-self-start">
+      {{ 'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.TITLE_OF_REVIEW' | translate }}
+    </div>
+    <div class="col p-0">
+      <input
+        type="text"
+        class="form-control form-control-sm font-weight-bolder"
+        [value]="(activeReview$ | async)?.title"
+        [disabled]="true"
+      >
+    </div>
+  </div>
+  <div class="d-flex flex-column flex-md-row align-items-center mb-md-2">
+    <div class="col col-md-3 text-center text-md-right font-weight-bold align-self-start">
+      {{ 'TEMPLATE.ACCOUNT.PROFILE.MY_REVIEW.CLIENT_REVIEW' | translate }}
+    </div>
+    <div class="col p-0">
+    <textarea
+      rows="7"
+      type="text"
+      class="form-control form-control-sm"
+      [disabled]="true"
+      [innerHTML]="(activeReview$ | async)?.review">
+    </textarea>
+    </div>
+  </div>
+  <div class="d-flex flex-column flex-md-row align-items-center position-relative">
+    <div class="col col-md-3 text-center text-md-right font-weight-bold align-self-start">
+      {{ 'TEMPLATE.ACCOUNT.PROFILE.MY_REVIEW.REPLY' | translate }}
+    </div>
+    <div class="col p-0">
+    <textarea
+      rows="7"
+      type="text"
+      class="form-control form-control-sm"
+      [maxlength]="(maxLength$ | async)"
+      [formControl]="replyFormControl">
+    </textarea>
+    </div>
+  </div>
+  <div
+    class="text-right small text-gray mb-3 offset-md-3 position-relative"
+    [class.mb-0]="(this.charactersCountSubject$ | async)"
+  >
+    <span
+      class="position-absolute position-words-count"
+      [class.text-danger]="(this.charactersCountSubject$ | async)<0"
+      [class.text-gray]="(this.charactersCountSubject$ | async)>0"
+      *ngIf="(this.charactersCountSubject$ | async)"
+    >
+        {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.CHARACTERS_REMAINING' | translate:({characters: (this.charactersCountSubject$ | async)}) }}
+      </span>
+  </div>
+  <div class="text-center small text-danger mb-3 offset-md-3">
+      {{'TEMPLATE.ACCOUNT.PROFILE.MY_REVIEW.REPLY_WARNING' | translate}}
+    </div>
+  <div class="row justify-content-end">
+    <button
+      type="button"
+      class="btn btn-primary submit mr-4"
+      (click)="closeModal()"
+    >
+      {{ 'FORM.BUTTON.CANCEL' | translate }}
+    </button>
+    <button
+      type="submit"
+      class="btn btn-primary submit"
+      [disabled]="(isCancelButtonDisabled$ | async) || formGroup.invalid"
+    >
+      {{ 'FORM.BUTTON.SUBMIT' | translate }}
+    </button>
+  </div>
+</form>
+

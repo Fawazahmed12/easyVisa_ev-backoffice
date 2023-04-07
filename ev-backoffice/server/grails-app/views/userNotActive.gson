@@ -1,0 +1,9 @@
+import org.apache.http.HttpStatus
+
+response.status HttpStatus.SC_PAYMENT_REQUIRED
+
+json {
+    errors([[message    : g.message(code: 'User does not have active membership'),
+             code       : HttpStatus.SC_PAYMENT_REQUIRED,
+             'errorCode': 'INACTIVE']])
+}

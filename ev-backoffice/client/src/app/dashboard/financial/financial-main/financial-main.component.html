@@ -1,0 +1,155 @@
+<div *appIfNoRepresentativeSelected="selectRep">
+  <div class="row justify-content-end mb-3">
+    <app-select-affiliation
+      class="col-md-6 mb-2 mb-md-0"
+      [formControl]="organizationIdFormControl"
+      [toolTipTemplate]="tipContent"
+    >
+    </app-select-affiliation>
+  </div>
+  <div class="d-flex flex-column flex-md-row justify-content-center cards-space">
+    <app-time-frame
+      [title]="'TEMPLATE.DASHBOARD.FINANCIAL.CLIENT_REVENUE' | translate"
+      [isFinancial]="true"
+      [indicators]="(financialDetails$ | async)?.clientRevenue"
+      class="p-0 mt-3 mt-md-0 flex-1"
+    >
+      <div class="position-relative px-3 mx-4 ">
+        <span class="position-absolute asterisk-position asterisk-font-size text-danger">*</span>
+        {{'TEMPLATE.DASHBOARD.FINANCIAL.DESCRIPTION_1' | translate}}
+        <a
+          class="text-primary cursor-pointer"
+          (click)=openClientRevenueModal()
+        >
+          {{'TEMPLATE.DASHBOARD.ARTICLES.MARKETING.LEARN_MORE' | translate}}
+        </a>
+      </div>
+    </app-time-frame>
+    <app-time-frame
+      [title]="'TEMPLATE.DASHBOARD.FINANCIAL.ARTICLE_BONUSES' | translate"
+      [isFinancial]="true"
+      [indicators]="(financialDetails$ | async)?.articleBonuses"
+      class="p-0 mt-3 mt-md-0 flex-1"
+    >
+      <div class="position-relative px-3 mx-4">
+        <span class="position-absolute asterisk-position asterisk-font-size text-danger">*</span>
+        {{'TEMPLATE.DASHBOARD.FINANCIAL.DESCRIPTION_2' | translate}}
+        <a
+          class="text-primary cursor-pointer"
+          (click)=openArticleBonusesModal()
+        >
+          {{'TEMPLATE.DASHBOARD.ARTICLES.MARKETING.LEARN_MORE' | translate}}
+        </a>
+      </div>
+      <div class="row justify-content-center mt-5">
+        <button
+          class="btn btn-primary px-4"
+          type="button"
+          [routerLink]="['/','dashboard','articles','submit-article']"
+        >
+          {{ 'TEMPLATE.DASHBOARD.FINANCIAL.SUBMIT_NEW_ARTICLE' | translate }}
+        </button>
+      </div>
+    </app-time-frame>
+<!--TODO: uncomment when it ready(EV-2209)-->
+    <app-time-frame
+      [title]="'TEMPLATE.DASHBOARD.FINANCIAL.REFERRAL_BONUSES' | translate"
+      [isFinancial]="true"
+      [indicators]="(financialDetails$ | async)?.referralBonuses"
+      class="p-0 mt-3 mt-md-0 flex-1"
+      *ngIf="canShowReferralBonuses"
+    >
+      <div class="position-relative px-3 mx-4">
+        <span class="position-absolute asterisk-position asterisk-font-size text-danger">*</span>
+        {{'TEMPLATE.DASHBOARD.FINANCIAL.DESCRIPTION_3' | translate}}
+        <a
+          class="text-primary cursor-pointer"
+          (click)=openReferralBonusModal()
+        >
+          {{'TEMPLATE.DASHBOARD.ARTICLES.MARKETING.LEARN_MORE' | translate}}
+        </a>
+      </div>
+      <div class="row justify-content-center mt-5">
+        <button
+          class="btn btn-primary px-4" type="button"
+          routerLink="/dashboard/financial/invite-colleagues"
+        >
+          {{ 'TEMPLATE.DASHBOARD.FINANCIAL.REFER_COLLEAGUES' | translate }}
+        </button>
+      </div>
+    </app-time-frame>
+  </div>
+  <div *appHasRole=ROLE_EV class="mt-3">
+    <app-account-adjustment-refunds
+    ></app-account-adjustment-refunds>
+    <div *ngIf="findUserId$ | async">
+      <app-create-credit></app-create-credit>
+      <div class="bg-white border">
+        <app-billing-history-table
+          [inMyAccount]="false"
+        ></app-billing-history-table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #clientRevenue>
+  <div class="container-fluid my-4">
+    <div class="mb-2">
+      {{'TEMPLATE.DASHBOARD.FINANCIAL.CLIENT_REVENUE_MODAL.DESCRIPTION_1' | translate }}
+    </div>
+    <div class="mb-2">
+      {{'TEMPLATE.DASHBOARD.FINANCIAL.CLIENT_REVENUE_MODAL.DESCRIPTION_2' | translate }}
+    </div>
+    <div class="mb-5">
+      {{'TEMPLATE.DASHBOARD.FINANCIAL.CLIENT_REVENUE_MODAL.DESCRIPTION_3' | translate }}
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #referralBonus>
+  <div class="container-fluid my-4">
+    <div class="mb-2 font-weight-bold">
+      {{'TEMPLATE.DASHBOARD.FINANCIAL.REFERRAL_BONUSES_MODAL.DESCRIPTION_1_TITLE' | translate }}
+    </div>
+    <div class="mb-2">
+      {{'TEMPLATE.DASHBOARD.FINANCIAL.REFERRAL_BONUSES_MODAL.DESCRIPTION_1' | translate : (
+        {referralBonus: (feeDetails$ | async)?.referralBonus | currency:'USD' : 'symbol' : '1.0'})}}
+    </div>
+    <div class="mb-2 font-weight-bold">
+      {{'TEMPLATE.DASHBOARD.FINANCIAL.REFERRAL_BONUSES_MODAL.DESCRIPTION_2_TITLE' | translate: (
+        {signUpDiscount: (feeDetails$ | async)?.signupDiscount | currency:'USD' : 'symbol' : '1.0'})}}
+    </div>
+    <div class="mb-2">
+      {{'TEMPLATE.DASHBOARD.FINANCIAL.REFERRAL_BONUSES_MODAL.DESCRIPTION_2' | translate }}
+    </div>
+    <div class="mb-2 font-weight-bold">
+      {{'TEMPLATE.DASHBOARD.FINANCIAL.REFERRAL_BONUSES_MODAL.DESCRIPTION_3_TITLE' | translate }}
+    </div>
+    <div class="mb-5">
+      <a class="cursor-pointer text-primary" (click)="gotoInviteColleagues()">
+        {{'TEMPLATE.DASHBOARD.FINANCIAL.REFERRAL_BONUSES_MODAL.CLICK_HERE' | translate}}
+      </a>
+      {{'TEMPLATE.DASHBOARD.FINANCIAL.REFERRAL_BONUSES_MODAL.DESCRIPTION_3' | translate }}
+    </div>
+  </div>
+</ng-template>
+
+
+<ng-template #articleBonuses>
+  <app-article-bonuses></app-article-bonuses>
+</ng-template>
+
+<ng-template #selectRep>
+  <div class="d-flex align-items-center">
+    {{'TEMPLATE.DASHBOARD.FINANCIAL.SELECT_REPRESENTATIVE_FINANCIAL' | translate}}
+  </div>
+</ng-template>
+
+<ng-template #tipContent>
+  <div class="text-left">
+    <p [innerHTML]="'TEMPLATE.DASHBOARD.FINANCIAL.SELECT_BY_AFF_DESCRIPTION.ATTORNEY_P_1' | translate"></p>
+    <p [innerHTML]="'TEMPLATE.DASHBOARD.FINANCIAL.SELECT_BY_AFF_DESCRIPTION.ATTORNEY_P_2' | translate"></p>
+    <p [innerHTML]="'TEMPLATE.DASHBOARD.FINANCIAL.SELECT_BY_AFF_DESCRIPTION.ATTORNEY_P_3' | translate"></p>
+  </div>
+</ng-template>

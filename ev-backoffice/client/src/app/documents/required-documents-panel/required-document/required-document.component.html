@@ -1,0 +1,76 @@
+<ngb-accordion [closeOthers]="true" #requiredDocumentAccordion="ngbAccordion">
+  <ngb-panel *ngFor="let requiredDocument of applicantRequiredDocument.requiredDocuments; let idx = index"
+             [id]="getPanelId(requiredDocument, idx)">
+      <ng-template ngbPanelHeader let-opened="opened">
+        <app-drag-drop-document [panelData]="getPanelData(requiredDocument, idx)"
+                                [accordionRef]="requiredDocumentAccordion"
+                                [readOnlyAccess]="readOnlyAccess"
+                                (documentDropEmitter)="onDocumentUpload(requiredDocument)">
+
+        </app-drag-drop-document>
+        <div class="toggle-header-container">
+          <button class="btn p-0 m-0" ngbPanelToggle (click)="onRequireDocumentClick(requiredDocument)">
+            <i class="fa toggle-icon" *ngIf="!opened">&#9656;</i>
+            <i class="fa toggle-icon" *ngIf="opened">&#9662;</i>
+            <span class="mx-2">{{requiredDocument.name}}</span>
+          </button>
+          <a class="btn btn-link p-0 blue-link" *ngIf="requiredDocument.helpText"
+             (click)="openRequireDocumentHelp(requiredDocument)">
+            {{'TEMPLATE.ATTACHMENTS.HELP' | translate}}
+          </a>
+          <span class="header-btn-container">
+            <app-upload-document [panelData]="getPanelData(requiredDocument, idx)"
+                                 (documentUploadEmitter)="onDocumentUpload(requiredDocument)"
+            [readOnlyAccess]="readOnlyAccess"></app-upload-document>
+            <button  class="btn btn-link p-0 blue-link"
+                     (click)="onRequiredDocumentDelete(requiredDocument)"
+                     [disabled]="!hasSelectedAttachments(requiredDocument) || readOnlyAccess">
+              {{'TEMPLATE.ATTACHMENTS.DELETE' | translate}}
+            </button>
+            <button  class="btn btn-link p-0 icon-btn download-icon"
+                     (click)="onRequiredDocumentDownload(requiredDocument)"
+                     [disabled]="!hasSelectedAttachments(requiredDocument)">
+              <i class="fa fa-download"></i>
+            </button>
+            <button  class="btn btn-link p-0 folder-icon icon-btn" >
+              <i class="fa fa-folder"></i>
+              <span class="attachment-count" *ngIf="requiredDocument.attachments.length==0">-</span>
+              <span class="attachment-count"  *ngIf="requiredDocument.attachments.length>0">{{requiredDocument.attachments.length}}</span>
+              <span class="paper-tick"  *ngIf="requiredDocument.attachments.length>0"></span>
+            </button>
+            <button  class="btn btn-link p-0 icon-btn" *ngIf="isAttorney$ | async" [disabled]="dispositionSubmitted || readOnlyAccess">
+              <i class="fa tick-icon" *ngIf="requiredDocument.isApproved"
+                 (click)="onDispositionRejectEntirePanel(requiredDocument)">
+                &#10003;
+              </i>
+              <i class="fa minus-icon" *ngIf="!requiredDocument.isApproved"
+                 (click)="onDispositionApprovedEntirePanel(requiredDocument)">
+                &#8722;
+              </i>
+            </button>
+          </span>
+        </div>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <app-document-attachments
+          [document]="requiredDocument"
+          [documentType]="documentType"
+          [applicantId]="applicantRequiredDocument.applicantId"
+          [readOnlyAccess]="readOnlyAccess">
+        </app-document-attachments>
+      </ng-template>
+  </ngb-panel>
+</ngb-accordion>
+
+
+<ng-template #removeDocumentAttachmentsModalTemplate>
+  <div class="row">
+    <div class="col-md-3">
+      <img src="../../../../assets/images/warn-icon.png"/>
+    </div>
+    <div class="col-md-9">
+      <p>Are you sure that you want to permanently delete the selected document(s)?</p>
+      <p>This cannot be undone.</p>
+    </div>
+  </div>
+</ng-template>

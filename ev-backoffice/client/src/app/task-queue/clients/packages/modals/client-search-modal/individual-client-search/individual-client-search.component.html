@@ -1,0 +1,47 @@
+<h4 class="font-weight-bold text-center">
+  {{ 'TEMPLATE.TASK_QUEUE.CLIENTS.CLIENT_SEARCH_MODAL.INDIVIDUAL_SEARCH' | translate }}
+</h4>
+<form [formGroup]="form" (ngSubmit)="submit()" class="d-flex justify-content-between align-items-center">
+  <div class="column-number bg-primary mr-2">1</div>
+  <div class="d-flex align-items-center position-relative">
+    <label class="text-nowrap mx-1 my-0 font-weight-bold">
+      {{ 'FORM.LABELS.EV_ID' | translate }}
+    </label>
+    <input
+      type="text"
+      class="form-control form-control-sm"
+      [formControl]="evIdFormControl"
+    >
+    <div *ngIf="evIdFormControl.hasError('pattern')"
+      class="position-absolute text-danger small position-top-2 w-100 text-center">
+      {{ 'FORM.ERROR.INVALID' | translate: ({field: 'FORM.LABELS.EV_ID' | translate})}}
+    </div>
+  </div>
+  <div>- {{ 'TEMPLATE.TASK_QUEUE.CLIENTS.CLIENT_SEARCH_MODAL.OR' | translate }} -</div>
+  <div class="d-flex align-items-center">
+    <label class="text-nowrap mx-1 my-0 font-weight-bold">
+      {{ 'FORM.LABELS.PHONE_ANY' | translate }}
+    </label>
+    <input
+      type="text"
+      class="form-control form-control-sm"
+      [formControl]="mobileFormControl"
+    >
+  </div>
+  <div>- {{ 'TEMPLATE.TASK_QUEUE.CLIENTS.CLIENT_SEARCH_MODAL.OR' | translate }} -</div>
+  <div class="d-flex align-items-center">
+    <label class="text-nowrap mx-1 my-0 font-weight-bold">
+      {{ 'FORM.LABELS.LAST_NAME' | translate }}
+    </label>
+    <input
+      type="text"
+      class="form-control form-control-sm"
+      [formControl]="lastNameFormControl"
+    >
+  </div>
+  <div>
+    <button class="btn btn-primary px-4" type="submit" [disabled]="form.invalid">
+      {{ 'FORM.BUTTON.SEARCH' | translate }}
+    </button>
+  </div>
+</form>

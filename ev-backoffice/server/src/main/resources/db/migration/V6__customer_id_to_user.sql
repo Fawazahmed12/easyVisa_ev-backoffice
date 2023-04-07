@@ -1,0 +1,1 @@
+ALTER TABLE ev_user ADD fm_customer_id varchar(255) NULL;

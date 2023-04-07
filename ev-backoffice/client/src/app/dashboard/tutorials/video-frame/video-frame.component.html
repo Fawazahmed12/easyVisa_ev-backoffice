@@ -1,0 +1,10 @@
+<div class="mt-2 text-center font-weight-bold">
+  {{videoConfig.title | translate}}
+</div>
+<video
+  class="col mt-1"
+  controls
+>
+  <source [src]="videoConfig.source" type="video/mp4">
+</video>
+

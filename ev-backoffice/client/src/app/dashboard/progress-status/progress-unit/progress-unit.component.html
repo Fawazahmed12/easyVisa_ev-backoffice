@@ -1,0 +1,79 @@
+<div class="my-2">
+  <h5 class="text-left mb-3">
+    {{progress.name}} <span *ngIf="progress.applicantType">({{progress.applicantType}})</span>
+  </h5>
+  <div class="row align-items-top">
+    <div class="d-flex flex-column col-9">
+      <ngb-progressbar
+        class="mt-2 position-relative mx-2"
+        type="primary"
+        [value]="progress.percentComplete">
+      <span class="text-primary position-absolute position-percent">
+        {{getPercentComplete(progress)}}{{'%'}}
+      </span>
+      </ngb-progressbar>
+      <div class="d-flex flex-row justify-content-between">
+        <div class="d-flex flex-column small text-center col-3">
+          <div class="">
+            {{'TEMPLATE.DASHBOARD.PROGRESS_STATUS.STARTED' | translate}}
+          </div>
+          <ng-container *ngIf="progress.dateStarted; else noData">
+            <div class="font-weight-bold">
+              {{progress.dateStarted}}
+            </div>
+          </ng-container>
+        </div>
+        <div
+          class="col-6 text-center text-danger font-weight-bold"
+          *ngIf="progress.packageStatus === 'Blocked'"
+        >
+          {{progress.packageStatus}}
+        </div>
+        <div class="d-flex flex-column small text-center col-3">
+          <div *ngIf="!(progress && progress.dateCompleted)">
+            <div>
+              {{'TEMPLATE.DASHBOARD.PROGRESS_STATUS.INCOMPLETE' | translate}}
+            </div>
+            <div class="font-weight-bold">
+              --/--/--
+            </div>
+          </div>
+          <div *ngIf="(progress && progress.dateCompleted)">
+            <div>
+              {{'TEMPLATE.DASHBOARD.PROGRESS_STATUS.COMPLETED' | translate}}
+            </div>
+            <div class="font-weight-bold">
+              {{progress.dateCompleted}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="d-flex flex-column col p-0 align-items-start small text-center"
+      *ngIf="progress && progress.elapsedDays">
+      <div class="col text-center">
+        {{'TEMPLATE.DASHBOARD.PROGRESS_STATUS.ELAPSED_DAYS' | translate}}
+      </div>
+      <div class="col text-center font-weight-bold">
+        {{progress.elapsedDays}}
+      </div>
+    </div>
+    <div
+      class="d-flex flex-column col p-0 align-items-start small text-center"
+      *ngIf="progress && !(progress.elapsedDays) && progress.dateCompleted">
+      <div class="col text-center">
+        {{'TEMPLATE.DASHBOARD.PROGRESS_STATUS.TOTAL_DAYS' | translate}}
+      </div>
+      <div class="col text-center font-weight-bold">
+        {{progress.totalDays }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noData>
+  <div>
+    --/--/--
+  </div>
+</ng-template>

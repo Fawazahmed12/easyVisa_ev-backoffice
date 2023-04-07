@@ -1,0 +1,6 @@
+import com.easyvisa.Employee
+import groovy.transform.Field
+
+@Field List<Employee> employeeList = []
+
+json tmpl.'/user/orgEmployee'('employee', employeeList)

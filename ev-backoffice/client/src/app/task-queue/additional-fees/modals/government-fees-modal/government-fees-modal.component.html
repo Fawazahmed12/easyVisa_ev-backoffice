@@ -1,0 +1,29 @@
+<div class="container-fluid d-flex flex-column justify-content-center mt-5">
+  <div
+    class="d-flex flex-row mb-2"
+    *ngFor="let governmentFee of (governmentFee | keyvalue: originalOrder)">
+    <div class="col-2">
+      {{governmentFee.key | findLabel: governmentFeesConst | translate}}
+    </div>
+    <div class="col-9">
+      {{governmentFee.key | findLabel: governmentFeesConst: true | translate}}
+    </div>
+    <div class="col font-weight-bold p-0">
+      <div class="row">
+        <span class="col-1 p-0">$</span>
+        <span class="col-4 text-right p-0">{{governmentFee.value | currency:'' : '' : '1.0'}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="position-relative px-2 mt-5 mx-4 font-18">
+    <span class="position-absolute asterisk-position-left">*</span>
+    {{'TEMPLATE.TASK_QUEUE.GOVERNMENT_FEES_MODAL.P_1' | translate}}
+    <a class="text-primary cursor-pointer mt-4 pb-4"
+      [href]="uscisGovLink" target="_blank">
+      {{uscisGovLink}}
+    </a>
+  </div>
+  <div class="position-relative px-2 mt-5 mx-4 font-18"
+       [innerHTML]="'TEMPLATE.TASK_QUEUE.GOVERNMENT_FEES_MODAL.P_2' | translate" >
+  </div>
+</div>

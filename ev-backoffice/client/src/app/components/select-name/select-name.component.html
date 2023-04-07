@@ -1,0 +1,26 @@
+<div class="d-md-flex align-items-center justify-content-start">
+  <label class="col-form-label text-nowrap p-0 mr-2 col col-md-3 text-md-right select-label" [class.text-gray]="isDimmed">
+    {{ 'TEMPLATE.SELECT_NAME.SELECT_LABEL' | translate:
+    ({representativeType: (activeOrganization$ | async)?.organizationType | representativeType | translate}) }}
+  </label>
+  <select
+    class="form-control form-control-sm col pr-2 py-0"
+    [formControl]="representativeIdFormControl"
+    (select)="onTouched()"
+    [class.text-danger]="changeColor && representativeIdFormControl.value"
+  >
+    <option *ngIf="!selectRepOption" [ngValue]="null">
+      {{ 'TEMPLATE.SELECT_NAME.SELECT_ALL_ATTORNEYS' | translate }}    </option>
+    <option *ngIf="selectRepOption" [ngValue]="null">
+      {{ 'TEMPLATE.SELECT_NAME.SELECT_LABEL' | translate:
+        ({representativeType: (activeOrganization$ | async)?.organizationType | representativeType | translate}) }}
+    </option>
+    <option [ngValue]="item.id" *ngFor="let item of (representativesMenu$ | async)">
+      {{item?.firstName}} {{item?.lastName}}
+      <span
+        *ngIf="item.status === EmployeeStatusValues.INACTIVE">
+        ({{'TEMPLATE.SELECT_NAME.INACTIVE' | translate}})
+      </span>
+    </option>
+  </select>
+</div>

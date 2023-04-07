@@ -1,0 +1,49 @@
+<div *ngIf="isLoggedIn$ | async" class="bg-dark-blue-header">
+  <nav class="navbar navbar-full global-page-wrapper col">
+    <ng-template ngFor let-item [ngForOf]="navbarMenu$ | async" let-isFirst="first" ngIf=item.display>
+      <li
+        class="nav-item text-center mx-0 dropdown"
+        *ngIf="item.display"
+        #rla="routerLinkActive"
+        routerLinkActive="active cursor-default"
+        [routerLinkActiveOptions]="{ exact: false }"
+        (mouseout)="closeDropdownMenu($event)"
+        (mouseover)="openDropdownMenu($event)"
+      >
+        <a
+          *ngIf="item.display"
+          class="cursor-pointer nav-link text-uppercase font-weight-bold"
+          [routerLink]="item.link"
+          routerLinkActive="active cursor-default"
+          [routerLinkActiveOptions]="{ exact: false }"
+          [ngClass]="{dimmed: item?.cssClasses?.dimmed}"
+          [class.dropdown-toggle]="!!item.menu"
+          data-toggle="dropdown"
+        >
+          <span
+            class="font-weight-bold"
+            [ngClass]="item.icon"
+            *ngIf="!!item.icon"
+          ></span>
+          {{ item.title | translate}} <span
+          *ngIf="item.taskQueueCount && (taskQueueCount$ | async)">({{taskQueueCount$ | async}})</span>
+          <span
+            class="font-weight-bold text-danger"
+            *ngIf="item.showExclamation"
+          >!</span>
+        </a>
+        <ul class="dropdown-menu mt-0 " *ngIf="!!item.menu" [class.d-none]="hasCloseDropdown">
+          <li *ngFor="let menuItem of item.menu">
+            <a
+              class="font-weight-bolder"
+              [class.d-none]="!menuItem.display"
+              [routerLink]="[item.link+menuItem.link]"
+              [ngClass]="{'disable': menuItem.cssClasses?.disable}"
+              (click)="closeDropdownMenu($event)"
+            >{{menuItem.title | translate}}</a>
+          </li>
+        </ul>
+      </li>
+    </ng-template>
+  </nav>
+</div>

@@ -1,0 +1,24 @@
+<nav class="nav nav-tabs justify-content-between">
+  <li
+    class="nav-item flex-fill text-center bg-light mx-0 custom-min-tab-width-140"
+    *ngFor="let tab of tabs; first as isFirst; last as isLast"
+    #rla="routerLinkActive"
+    routerLinkActive="active text-secondary"
+    [ngClass]="{'bg-gray': !rla.isActive}" [class]="tab.class"
+    [class.d-none]= tab.hide
+  >
+    <a
+      class="nav-link border-dark-gray"
+      [routerLink]="tab.link"
+      routerLinkActive="border-bottom-0 cursor-default"
+      [class.disabled]="tab.disabled || rla.isActive"
+    >
+      {{ tab.title | translate }} <span *ngIf="tab.count" class="text-danger font-weight-bold">({{getAbsoluteCount(tab.count)}})</span>
+      <span *ngIf="tab.packagesCount && rla.isActive" class="text-primary font-weight-bold">({{tab.packagesCount}})</span>
+      <span *ngIf="tab.showExclamation" class="text-danger font-weight-bold">!</span>
+    </a>
+  </li>
+</nav>
+<div class="container-fluid bg-light py-3 border-dark-gray border border-top-0">
+  <ng-content></ng-content>
+</div>

@@ -1,0 +1,18 @@
+import com.easyvisa.InviteToCreateOrganizationRequest
+import com.easyvisa.Organization
+import com.easyvisa.Profile
+import groovy.transform.Field
+
+@Field Long id
+@Field Organization organization
+@Field Profile profile
+
+json {
+    requestId id
+    organizationName organization.name
+    organizationId organization.easyVisaId
+    middleName profile.middleName
+    lastName profile.lastName
+    easyVisaId profile.easyVisaId
+    firstName profile.firstName
+}

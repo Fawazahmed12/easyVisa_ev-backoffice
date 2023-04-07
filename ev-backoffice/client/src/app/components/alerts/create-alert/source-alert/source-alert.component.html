@@ -1,0 +1,25 @@
+<div class="d-flex flex-column flex-md-row align-items-start align-md-center justify-content-between px-2 mt-2">
+    <label *ngFor="let item of sourceAlertConst">
+      <input
+        type="radio"
+        name="source"
+        [value]="item.value"
+        [formControl]="radioFieldsControl">
+      {{item.label | translate}}
+    </label>
+    <label class="d-flex col col-md-3 flex-row align-items-center justify-content-start p-0">
+      <input
+        type="radio"
+        name="source"
+        class="mr-1 mb-1"
+        [value]="customRadioValue"
+        [formControl]="radioFieldsControl">
+      <input
+        class="form-control form-control-sm col"
+        (focus)="radioFieldsControl.patchValue(customRadioValue)"
+        [formControl]="customFieldControl"
+      >
+    </label>
+
+</div>
+

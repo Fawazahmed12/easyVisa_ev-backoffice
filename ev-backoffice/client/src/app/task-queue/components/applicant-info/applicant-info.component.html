@@ -1,0 +1,214 @@
+<div class="row">
+  <div class="col-lg-5 mb-md-3 mb-lg-0">
+    <div class="row no-gutters" style="min-height: 100%">
+      <div
+        class="col-md-6 col-lg-4 d-flex flex-column justify-content-start pr-md-2 border-right border-secondary border-md-0 my-3">
+        <div class=" d-flex align-items-end justify-content-center  py-1" style="flex-basis: 50%">
+          <div class="position-relative col px-0">
+              <span
+                class="fa fa-question-circle position-absolute text-primary position-t-0-r-0"
+                tooltipClass="custom-tool-tip custom-tool-tip-create-edit-package"
+                [ngbTooltip]="getTemplate(applicantTypeFormControl?.value, index)"
+              >
+          </span>
+            <h5 class="text-center font-weight-bold mb-0">
+              {{ applicantTypeFormControl?.value | applicantType | translate }}
+              <span *ngIf="!applicantTypeFormControl">{{'TEMPLATE.APPLICANTS.PETITIONER' | translate}}</span>
+              <span *ngIf="applicantTypeFormControl && applicantTypeFormControl.value === 'DERIVATIVE_BENEFICIARY' ">
+              {{index - 1}}
+            </span>
+            </h5>
+          </div>
+        </div>
+        <div *ngIf="showFee">
+          <h6 class="text-center font-weight-bold">
+            {{applicantTypeFormControl ? (benefitCategoryFormControl.value | findLabel: benefitCategories | translate) : 'TEMPLATE.TASK_QUEUE.PACKAGE.SPONSOR' |
+              translate}}
+          </h6>
+          <h6 class="text-center">
+            <span class="font-weight-bold">{{'TEMPLATE.TABLES.FEE' | translate}} </span>
+            <span *ngIf="!applicantTypeFormControl">{{ 'TEMPLATE.TASK_QUEUE.WAIVED' | translate }}</span>
+            <span *ngIf="applicantTypeFormControl">{{applicantFee || 0 | currency: 'USD' : 'symbol' : '1.0'}}</span>
+          </h6>
+        </div>
+        <div *ngIf="EVIdFormControl.value" class="py-1" style="flex-basis: 50%">
+          <div class="text-center font-weight-bold">{{ 'TEMPLATE.TASK_QUEUE.EV_ID' | translate }}</div>
+          <div class="text-center">{{EVIdFormControl.value}}</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-8 pl-md-2">
+        <div class="row">
+          <h5 class="offset-md-3 col-md-9 mb-1 text-center">
+            {{ 'FORM.LABELS.NAME' | translate }}
+          </h5>
+        </div>
+        <app-name-form-group
+          [firstFormControl]="firstFormControl"
+          [middleFormControl]="middleFormControl"
+          [lastFormControl]="lastFormControl"
+          [submitted]="submittedFormSubject$ | async"
+        ></app-name-form-group>
+        <div class="form-group row no-gutters mb-2">
+          <label
+            class="col-md-2 col-form-label col-form-label-sm text-md-left d-flex align-items-md-end justify-content-md-end pr-2">
+            {{ 'FORM.LABELS.D_O_B' | translate }}
+          </label>
+          <div class="d-flex col min-w-100 p-0">
+            <app-datepicker-group
+              [dateFormControl]="dateOfBirthFormControl"
+              [maxDate]="minAge"
+              [minDate]="maxAge"
+              class="col d-flex p-0"
+            >
+            </app-datepicker-group>
+            <span class="text-danger invisible">*</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small text-danger pt-1 pl-md-5 pr-md-5 ml-md-5 pr-lg-0 pl-lg-2 pl-xl-4 text-center">
+            <div class="position-absolute"
+                 *ngIf="dateOfBirthFormControl.hasError('invalidDOB') && !dateOfBirthFormControl.hasError('pattern')">
+              <div *ngIf="applicantTypeFormControl; else petitioner">
+                {{ 'TEMPLATE.TASK_QUEUE.APPLICANT.BENEFICIARY_DOB_ERROR' | translate }}
+              </div>
+              <ng-template #petitioner>
+                {{ 'TEMPLATE.TASK_QUEUE.APPLICANT.PETITIONER_DOB_ERROR' | translate }}
+              </ng-template>
+            </div>
+            <div class="position-absolute-md"
+                 *ngIf="dateOfBirthFormControl.hasError('pattern')||
+              dateOfBirthFormControl.hasError('ngbDate') &&
+              dateOfBirthFormControl?.errors['ngbDate']?.invalid"
+            >
+              {{ 'FORM.ERROR.INVALID_DATE_FORMAT' | translate }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-7 pl-0">
+    <div class="row no-gutters">
+      <div class="col-md-7">
+        <div class="row no-gutters">
+          <h5 class="offset-md-3 col-md-9 mb-1 text-center">
+            {{ 'FORM.LABELS.ADDRESS' | translate }}
+          </h5>
+          <app-address
+            [formGroup]="homeAddressFormGroup"
+            [smallMarginStyle]="true"
+            [disabled]="EVIdFormControl.value"
+            [showToolTips]="showToolTips"
+            [col4Label]="true"
+          ></app-address>
+        </div>
+      </div>
+      <div class="col-md ml-2">
+        <div class="row">
+          <h5 class="offset-md-3 col-md-9 mb-1 text-center">
+            {{ 'FORM.LABELS.CONTACT_INFO' | translate }}
+          </h5>
+        </div>
+        <app-phone-field
+          [formControl]="mobileNumberFormControl"
+          label="FORM.LABELS.MOBILE"
+          [smallMarginStyle]="true"
+          [packageScreen]="true"
+        ></app-phone-field>
+        <app-phone-field
+          [formControl]="homeNumberFormControl"
+          label="FORM.LABELS.HOME"
+          [smallMarginStyle]="true"
+          [packageScreen]="true"
+        ></app-phone-field>
+        <app-phone-field
+          [formControl]="workNumberFormControl"
+          label="FORM.LABELS.WORK"
+          [smallMarginStyle]="true"
+          [packageScreen]="true"
+        ></app-phone-field>
+        <div class="row form-group no-gutters" *ngIf="showEmail">
+          <label class="col-md-2 text-left pr-2 col-form-label col-form-label-sm">
+            {{"FORM.LABELS.EMAIL" | translate}}
+          </label>
+          <div class="col-md mr-3">
+            <input class="form-control form-control-sm" type="email" [formControl]="emailFormControl">
+          </div>
+        </div>
+        <div
+          class="text-center mt-4"
+          *ngIf="showResendButton
+            && EVIdFormControl.value
+            && (packageStatus$ | async) === PackageStatus.LEAD">
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="resendWelcomeApplicant()"
+            [disabled]="(applicantInvitePostRequest$ | async).loading || !emailFormControl.value"
+          >
+            {{ resendWelcomeTitle$ | async | translate }}
+          </button>
+        </div>
+        <div
+          class="text-center mt-4"
+          *ngIf="showResendButton
+          && EVIdFormControl.value
+          && (packageStatus$ | async) !== PackageStatus.LEAD">
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="resendInviteApplicant()"
+            [disabled]="(applicantInvitePostRequest$ | async).loading || !emailFormControl.value"
+          >
+            {{ 'TEMPLATE.TASK_QUEUE.APPLICANT.RESEND_INVITE_TO_REGISTER' | translate }}
+          </button>
+        </div>
+        <div class="row form-group no-gutters offset-2"
+             *ngIf="showInviteResendCheckbox && (isValidPackageStatus$ | async)">
+          <label
+            class="d-flex align-items-center justify-content-center"
+            [class.text-b2-gray]="!emailFormControl.value || index === 0"
+          >
+            <input
+              type="checkbox"
+              class="mr-1"
+              [attr.disabled]="!!profileFormGroup.getRawValue().email && index !== 0 ? null : true"
+              [formControl]="inviteApplicantFormControl"
+            >
+            {{ resendTitle$ | async | translate }}
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #petitionerTips>
+  <div class="mb-2 text-left">
+    {{'TEMPLATE.TASK_QUEUE.PACKAGE_TIPS.PETITIONER.P_1' | translate}}
+  </div>
+  <div class="text-left">
+    {{'TEMPLATE.TASK_QUEUE.PACKAGE_TIPS.PETITIONER.P_2' | translate}}
+  </div>
+</ng-template>
+<ng-template #beneficiaryTips>
+  <div class="mb-2 text-left">
+    {{'TEMPLATE.TASK_QUEUE.PACKAGE_TIPS.PRINCIPAL_BENEFICIARY.P_1' | translate}}
+  </div>
+  <div class="text-left">
+    {{'TEMPLATE.TASK_QUEUE.PACKAGE_TIPS.PRINCIPAL_BENEFICIARY.P_2' | translate}}
+  </div>
+</ng-template>
+<ng-template #derivativeBeneficiaryTips>
+  <div class="mb-2 text-left">
+    {{'TEMPLATE.TASK_QUEUE.PACKAGE_TIPS.DERIVATIVE_BENEFICIARY.P_1' | translate}}
+  </div>
+</ng-template>
+<ng-template #selfPackageBeneficiaryTips>
+  <div class="mb-2 text-left">
+    {{'TEMPLATE.TASK_QUEUE.PACKAGE_TIPS.SELF_PACKAGE.P_1' | translate}}
+  </div>
+  <div class="text-left">
+    {{'TEMPLATE.TASK_QUEUE.PACKAGE_TIPS.SELF_PACKAGE.P_2' | translate}}
+  </div>
+</ng-template>

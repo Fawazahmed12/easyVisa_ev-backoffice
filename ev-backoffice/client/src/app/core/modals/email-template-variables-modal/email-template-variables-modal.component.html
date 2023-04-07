@@ -1,0 +1,19 @@
+<div class="container-fluid p-0">
+  <app-modal-header [title]="'TEMPLATE.EMAIL_TEMPLATE_VARIABLES_MODAL.TITLE'"></app-modal-header>
+  <div class="modal-body small modal-body-wrapper">
+    <div class = "template-variable-description font-weight-bold pb-2">
+      {{'TEMPLATE.EMAIL_TEMPLATE_VARIABLES_MODAL.EMAIL_TEMPLATE_DESCRIPTION' | translate}}
+    </div>
+    <app-spinner *ngIf="(getEmailTemplateVariablesRequest$ | async).loading"></app-spinner>
+    <div class="mx-4" *ngIf="!(getEmailTemplateVariablesRequest$ | async).loading">
+      <div *ngFor="let variable of (emailTemplateVariables$ | async)">
+        |{{variable.variable}}| - {{variable.description | translate}}
+      </div>
+    </div>
+  </div>
+  <div class="text-right">
+    <button class="btn btn-primary mx-4 my-3 min-w-100" type="button" (click)="modalDismiss()">
+      {{ 'FORM.BUTTON.OK' | translate }}
+    </button>
+  </div>
+</div>

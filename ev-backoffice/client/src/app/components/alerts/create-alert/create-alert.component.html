@@ -1,0 +1,55 @@
+<div class="border border-gray mt-3 mx-5"></div>
+<h4 class="text-center mt-3">{{'FORM.ALERTS.CREATE_NEW_ALERT' | translate}}</h4>
+<form>
+  <div class="d-flex flex-column flex-md-row mt-3">
+    <div class="col col-md-5 pl-0">
+      <div>
+        {{'FORM.ALERTS.SUBJECT' | translate}}
+      </div>
+      <input
+        class="form-control form-control-sm mt-2"
+        [formControl]="subjectFormControl"
+      >
+    </div>
+    <div class="col col-md-7 mt-2 mt-md-0 p-0 ">
+      <div>
+        {{'FORM.ALERTS.SEND_TO' | translate}}
+      </div>
+      <app-send-to
+        [formControl]="sendToFormControl"
+      ></app-send-to>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      <div>
+        {{'FORM.ALERTS.SOURCE' | translate}}
+      </div>
+      <app-source-alert
+        [formControl]="sourceFormControl"
+      ></app-source-alert>
+    </div>
+  </div>
+  <div class="col mt-3 p-0">
+    <div class="col p-0">
+      {{'FORM.ALERTS.ALERT_MESSAGE_BODY' | translate}}
+    </div>
+    <textarea
+      class="col scrolled-list p-1 mt-2 form-control form-control-sm" rows="5"
+      [formControl]="bodyFormControl"
+    >
+  </textarea>
+  </div>
+  <div class="text-center m-4">
+    <button
+      class="btn btn-primary px-4 min-w-100"
+      type="button"
+      [disabled]="formGroup.invalid || (getSendAlertPostRequest$ | async).loading"
+      (click)="sendAlert()"
+    >
+      <span>
+        {{'FORM.BUTTON.SEND' | translate}}
+      </span>
+    </button>
+  </div>
+</form>

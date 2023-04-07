@@ -1,0 +1,18 @@
+import com.easyvisa.Package
+import groovy.transform.Field
+
+@Field Package aPackage
+
+json {
+    status aPackage.status.name()
+    applicants g.render(template:'/user/shrunkApplicant', collection:aPackage.packageApplicantsUi, var:'packageApplicant', model:[aPackage:aPackage])
+    representative g.render(template:'/user/shrunkAttorney', model:[legalRepresentative:aPackage.attorney])
+    representativeId aPackage.attorney.id
+    id aPackage.id
+    owed aPackage.owed
+    lastActiveOn aPackage.lastActiveOn
+    assignees g.render(template:'/package/shrunkAssignee', collection:aPackage.orderedAssignees ?: [], var:'packageAssignee')
+    creationDate aPackage.dateCreated
+    documentCompletedPercentage Math.floor(aPackage.documentCompletedPercentage)?.round()
+    questionnaireCompletedPercentage Math.floor(aPackage.questionnaireCompletedPercentage)?.round()
+}

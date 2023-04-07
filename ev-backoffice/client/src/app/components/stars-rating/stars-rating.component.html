@@ -1,0 +1,19 @@
+<ngb-rating
+  [max]="max"
+  [readonly]="readonly"
+  [formControl]=formControl
+  [rate]="rate"
+  [starTemplate]="readonly ? view : set"
+>
+  <ng-template #set let-fill="fill" let-index="index">
+    <span
+      class="star small-star"
+      [class.filled]="fill === 100"
+    >&#9733;</span>
+  </ng-template>
+  <ng-template #view let-fill="fill">
+      <span class="star small-star" [class.full]="fill === 100">
+        <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+      </span>
+  </ng-template>
+</ngb-rating>

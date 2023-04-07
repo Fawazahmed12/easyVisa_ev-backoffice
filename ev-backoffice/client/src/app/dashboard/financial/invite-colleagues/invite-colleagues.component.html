@@ -1,0 +1,68 @@
+<form [formGroup]="formGroup"
+      #form="ngForm"
+      (submit)="sendEmail()">
+  <div
+    class="bg-white border border-top-0"
+  >
+    <h3 class="text-center text-white bg-primary p-2 mb-0">
+      {{'TEMPLATE.DASHBOARD.FINANCIAL.INVITE_COLLEAGUES.HEADER' | translate}}
+    </h3>
+    <app-spinner *ngIf="(getEmailTemplateRequest$ | async).loading"></app-spinner>
+    <div *ngIf="(getEmailTemplateRequest$ | async).loaded">
+      <div class="m-5">
+        <div class="offset-2 d-flex justify-content-start align-items-end mt-3">
+          <h6 class="col-10 text-center font-weight-bold font-16">{{'TEMPLATE.DASHBOARD.FINANCIAL.INVITE_COLLEAGUES.LABEL_1' | translate }}</h6>
+          <span
+            class="col-2 small text-danger text-right"
+            *ngIf="!emailsFormControl.value.length && form.submitted"
+          >
+            {{'TEMPLATE.DASHBOARD.FINANCIAL.INVITE_COLLEAGUES.WARNING_1' | translate }}
+          </span>
+        </div>
+        <textarea class="form-control form-control-sm" rows="4" formControlName="emails"></textarea>
+        <div class="d-flex justify-content-start align-items-end mt-3">
+          <h6 class="offset-2 col-8 text-center font-weight-bold font-16">{{'TEMPLATE.DASHBOARD.FINANCIAL.INVITE_COLLEAGUES.LABEL_2' | translate }}</h6>
+          <span
+            class="col-2 small text-danger text-right"
+            *ngIf="!subjectFormControl.value.length && form.submitted"
+          >
+            {{'TEMPLATE.DASHBOARD.FINANCIAL.INVITE_COLLEAGUES.WARNING_2' | translate }}
+          </span>
+        </div>
+        <input
+          class="form-control form-control-sm mb-2"
+          formControlName="subject"
+        >
+        <div class="offset-2 d-flex justify-content-start align-items-end mt-3">
+          <h6 class="col-10 text-center font-weight-bold font-16">
+            {{'TEMPLATE.DASHBOARD.FINANCIAL.INVITE_COLLEAGUES.LABEL_3' | translate }}
+            <a class="fa fa-info-circle text-primary cursor-pointer" (click)="openEmailTemplateVariablesModal()"></a>
+          </h6>
+          <span
+            class="col-2 small text-danger text-right"
+            *ngIf="!contentFormControl.value.length && form.submitted"
+          >
+            {{'TEMPLATE.DASHBOARD.FINANCIAL.INVITE_COLLEAGUES.WARNING_3' | translate }}
+          </span>
+        </div>
+        <textarea class="form-control form-control-sm" rows="20" formControlName="content"></textarea>
+      </div>
+      <div class="d-flex flex-column m-5">
+        <div class="d-flex justify-content-end mt-3 mb-1">
+          <a
+            class="btn btn-primary min-w-100 ml-4"
+            routerLink="/dashboard/financial"
+          >
+            {{ 'FORM.BUTTON.CANCEL' | translate }}
+          </a>
+          <button
+            class="btn btn-primary min-w-100 ml-4"
+            type="submit"
+          >
+            {{ 'TEMPLATE.DASHBOARD.FINANCIAL.INVITE_COLLEAGUES.LABEL_BTN' | translate}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

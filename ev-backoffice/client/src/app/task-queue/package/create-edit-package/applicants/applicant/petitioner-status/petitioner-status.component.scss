@@ -1,0 +1,13 @@
+.custom-input {
+  &::before {
+    content: 'A-';
+    position: absolute;
+    top: 5px;
+    left: 22px;
+    color: #b2b2b2;
+    font-size: 0.875rem;
+  }
+}
+
+
+

@@ -1,0 +1,129 @@
+<div class="container-fluid p-0 border border-secondary">
+  <app-modal-header
+    [title]="'TEMPLATE.TASK_QUEUE.PETITIONER_BENEFIT_CATEGORY_MODAL.PETITIONER_TITLE'"
+  >
+  </app-modal-header>
+  <div class="d-flex flex-wrap m-2">
+    <div class="col-6 border-right">
+      <div class="m-3">
+        <div class="col">
+          <h5 class="text-center font-weight-bold my-4">
+            {{'TEMPLATE.TASK_QUEUE.PETITIONER_BENEFIT_CATEGORY_MODAL.PETITIONER_TIPS_1' | translate}}
+          </h5>
+          <h5
+            class="text-center my-3 font-weight-normal"
+          >
+            {{'TEMPLATE.TASK_QUEUE.PETITIONER_BENEFIT_CATEGORY_MODAL.PETITIONER_TIPS_2' | translate}}
+          </h5>
+          <div class="d-flex">
+            <div class="pr-0">
+              <input
+                class="form-check-input"
+                type="radio"
+                [name]="'benefitCategory'"
+                [id]="ApplicantType.PETITIONER"
+                [value]="null"
+                [formControl]="benefitCategoryControl"
+                [attr.disabled]="isPetitionerOptionDisabled ? 'disabled' : null"
+              >
+            </div>
+            <div
+              class="col-9 pl-0"
+              [class.text-gray]="isPetitionerOptionDisabled"
+            >
+              <label class="d-flex" [for]="ApplicantType.PETITIONER">
+                <div class="font-weight-bold pl-0 pr-2">
+                  {{'TEMPLATE.TASK_QUEUE.APPLICANT.PETITIONER' | translate}}
+                </div>
+                <div>
+                  {{'TEMPLATE.TASK_QUEUE.PETITIONER_BENEFIT_CATEGORY_MODAL.PETITIONER_TIPS_2' | translate}}
+                </div>
+              </label>
+            </div>
+            <div class="col-3 text-right">$ {{'TEMPLATE.TASK_QUEUE.PETITIONER_BENEFIT_CATEGORY_MODAL.FREE' | translate}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 pr-0">
+      <div class="m-2">
+        <h5 class="text-center my-4 font-weight-bold"
+            [innerHTML]="'TEMPLATE.TASK_QUEUE.PETITIONER_BENEFIT_CATEGORY_MODAL.BENEFICIARY_TIPS' | translate">
+        </h5>
+        <div *ngFor="let group of (selfPetitionerBenefitGroups$ | async); let i = index; let even = even;">
+          <div *ngIf="i !== 0 && i !== 1" class="border-bottom"></div>
+          <div class="m-3">
+            <h5
+              class="text-center my-3 font-weight-normal"
+              [class.text-gray]="group.group.value === 'NATURALIZATION'"
+            >
+              {{group.group.label | translate}}
+            </h5>
+            <div
+              *ngFor="let category of group.categories"
+              class="d-flex"
+              [ngClass]="category.value === 'DISABILITY' ? 'ml-4' : ''"
+            >
+              <div *ngIf="category.value !== 'DISABILITY'" class="pr-0">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  [id]="category.value"
+                  [name]="'benefitCategory'"
+                  [formControl]="benefitCategoryControl"
+                  [value]="category.value"
+                  [attr.disabled]="category.disabled ? 'disabled' : null"
+                >
+              </div>
+              <div *ngIf="category.value === 'DISABILITY'" class="pr-0 offset-1">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  [id]="category.value"
+                  [name]="'benefitCategory'"
+                  [attr.disabled]="true"
+                >
+              </div>
+              <div
+                class="pl-0"
+                [class.text-gray]="category.disabled"
+                [class.px-0] = "category.value === 'NATURALIZATION'"
+                [class.offset-1] = "category.value === 'NATURALIZATION'"
+                [ngClass] = "category.value === 'NATURALIZATION' || category.value === 'DISABILITY'? 'col-9' : 'col-10'"
+              >
+                <label [for]="category.value" class="d-flex">
+                  <div
+                    class="font-weight-bold pl-0 pr-0"
+                    [ngClass]="category.value === 'NATURALIZATION' ? 'pr-2' : 'pr-5 col-1'"
+                    [class.ml-1] = "category.value === 'NATURALIZATION'"
+                  >
+                    {{category.label}}
+                  </div>
+                  <div>{{category.fullLabel}}</div>
+                </label>
+              </div>
+              <div
+                class="col-2 pr-0"
+                [class.text-gray]="category.disabled"
+                [ngClass]="category.value === 'DISABILITY' ? 'pl-2 ml-1' : ''"
+              >
+                {{category.price || 0 | currency:'USD' : 'symbol' : '1.0'}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex border-bottom mt-1 mx-4"></div>
+
+  <div class="text-right m-3">
+    <button class="btn btn-primary px-4 mr-4 min-w-100" type="button" (click)="modalDismiss()">
+      {{ 'FORM.BUTTON.CANCEL' | translate }}
+    </button>
+    <button class="btn btn-primary px-4 min-w-100" (click)="modalClose()">
+      {{ 'FORM.BUTTON.OK' | translate }}
+    </button>
+  </div>
+</div>

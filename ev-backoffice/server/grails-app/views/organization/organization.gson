@@ -1,0 +1,33 @@
+import com.easyvisa.Organization
+import groovy.transform.Field
+
+@Field Organization organization
+
+json {
+    id organization.id
+    name organization.name
+    organizationType organization?.organizationType?.name()
+    summary organization.profileSummary
+    awards organization.awards
+    experience organization.experience
+    officeAddress organization.address ? g.render(template: '/address', model: [address: organization.address]) : null
+    officePhone organization.officePhone
+    mobilePhone organization.mobilePhone
+    faxNumber organization.faxNumber
+    email organization.email
+    facebookUrl organization.facebookUrl
+    linkedinUrl organization.linkedinUrl
+    twitterUrl organization.twitterUrl
+    youtubeUrl organization.youtubeUrl
+    websiteUrl organization.websiteUrl
+    yearFounded organization.yearFounded
+    easyVisaId organization.easyVisaId
+    languages organization.spokenLanguages*.name()
+    practiceAreas organization.practiceAreas*.name()
+    profilePhoto organization.profilePhotoUrl
+    workingHours organization.workingHours.collect {
+        [dayOfWeek: it.dayOfWeek,
+         start    : [hour: it.startHour, minutes: it.startMinutes],
+         end      : [hour: it.endHour, minutes: it.endMinutes]]
+    }
+}

@@ -1,0 +1,40 @@
+<div class="container-fluid extra-padding">
+  <h3 class="text-center m-4">{{'TEMPLATE.AUTH.WELCOME.TITLE' | translate}}</h3>
+  <div class="d-md-flex">
+    <div class="d-flex mr-md-4 mt-md-5 justify-content-center mb-2">
+      <h5 class="mr-2">{{'TEMPLATE.AUTH.CLIENT_WELCOME.STEP' | translate}}</h5>
+      <div class="column-number bg-primary">1</div>
+    </div>
+    <div>
+      <h5>{{'TEMPLATE.AUTH.CLIENT_WELCOME.SUBTITLE_1' | translate}}</h5>
+      <ul class="mb-0">
+        <li>{{'TEMPLATE.AUTH.CLIENT_WELCOME.STEP_1_DESCRIPTION' | translate}}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="row justify-content-center m-5">
+    <div class="col-12 border-top border-secondary"></div>
+  </div>
+  <div class="d-md-flex">
+    <div class="d-flex mr-md-4 mt-md-5 justify-content-center mb-2">
+      <h5 class="mr-2">{{'TEMPLATE.AUTH.CLIENT_WELCOME.STEP' | translate}}</h5>
+      <div class="column-number bg-primary">2</div>
+    </div>
+    <div>
+      <h5>{{'TEMPLATE.AUTH.CLIENT_WELCOME.SUBTITLE_2' | translate}}</h5>
+      <ul>
+        <li [innerHTML]="'TEMPLATE.AUTH.CLIENT_WELCOME.STEP_2_DESCRIPTION_1' | translate" class="mb-3"></li>
+        <li class="my-3">{{'TEMPLATE.AUTH.CLIENT_WELCOME.STEP_2_DESCRIPTION_2' | translate}}</li>
+      </ul>
+    </div>
+  </div>
+  <h6 class="text-center mt-3">{{'TEMPLATE.AUTH.CLIENT_WELCOME.RECOMMENDATION' | translate}}</h6>
+  <div class="row justify-content-center m-5">
+    <div class="col-12 border-top border-secondary"></div>
+  </div>
+  <div class="text-center text-lg-right mt-3 mb-5">
+    <button type="button" class="btn btn-primary px-4" (click)="goToProfile()">
+      {{'TEMPLATE.AUTH.WELCOME.LETS_GET_STARTED' | translate}}
+    </button>
+  </div>
+</div>

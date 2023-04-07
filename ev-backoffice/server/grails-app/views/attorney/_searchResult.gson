@@ -1,0 +1,20 @@
+import com.easyvisa.dto.AttorneySearchResponseDto
+
+model {
+    AttorneySearchResponseDto result
+}
+json {
+    id result.legalRepresentative.id
+    name result.legalRepresentative.profile.fullName
+    photoUrl result.legalRepresentative.profile.profilePhotoUrl
+    representativeType result.legalRepresentative.representativeType
+    representativeTypeName result.legalRepresentative.representativeType?.displayName
+    languagesSpoken result.legalRepresentative.spokenLanguages.collect { it.displayName }
+    numberOfReviews result.legalRepresentative.publicNoOfReviews
+    averageReviewRating result.legalRepresentative.publicAvgReviewRating
+    numberOfApprovedArticles result.legalRepresentative.publicNoOfApprovedArticles
+    maxYearsLicensed result.legalRepresentative.publicMaxYearsLicensed
+    licensedRegions result.legalRepresentative.licensedRegions.collect {
+        [dateLicensed: it.dateLicensed.format('MM-dd-yyyy'), state: it.state, barNumber: it.barNumber, id: it.id]
+    }
+}

@@ -1,0 +1,62 @@
+void sendBuildFailedEmail(send_notification){
+if(send_notification){
+    String emailSubject  = "Easyvisa Production deploy build #${BUILD_NUMBER} Failed"
+    emailext to: 'philip.yurchuk@madeupname.com, ashrafthahir@gmail.com, abhayweb@gmail.com, marzooka@provility.com, rizwanspeaks@gmail.com',
+    subject: emailSubject,
+    body: "See build log here - ${BUILD_URL}"
+    }
+}
+
+void sendBuildStatusChangedEmail(send_notification){
+    if(send_notification && currentBuild.currentResult=="SUCCESS"){
+        String emailSubject  = "Easyvisa Production deploy build #${BUILD_NUMBER} is now passing"
+        emailext to: 'philip.yurchuk@madeupname.com, ashrafthahir@gmail.com, abhayweb@gmail.com, marzooka@provility.com, rizwanspeaks@gmail.com',
+        subject: emailSubject,
+        body: "See build log here - ${BUILD_URL}"
+    }
+}
+
+pipeline {
+    agent any
+    options { disableConcurrentBuilds() }
+     environment{
+                CLOUDFRONT_DIST_ID =  credentials("prod-cloudfront-distribution-id")
+            }
+    stages {
+        stage('Push War to S3') {
+           steps {
+                  s3Upload(file:"/opt/easyvisa/backend/prod/easyvisa-${build_no}.war", bucket:"elasticbeanstalk-easyvisa-prod", path:'easyvisa.war')
+                 }
+        }
+         stage("Trigger Beanstalk deploy"){
+                    steps{
+
+                                           build (job: 'ebsdeploy', parameters:[
+                                               [$class: 'StringParameterValue', name: 'NEWVER', value: "${build_no}"],
+                                               [$class: 'StringParameterValue', name: 'FILENAME', value: "easyvisa.war"],
+                                               [$class: 'StringParameterValue', name: 'S3BKT', value: "elasticbeanstalk-easyvisa-prod"],
+                                               [$class: 'StringParameterValue', name: 'DEPLOYENV', value: "prod"]
+                                               ],propagate:true)
+                         }
+                }
+          stage("Push Frontend build to Cloudfront"){
+                 steps{
+                     s3Upload(bucket:"easyvisa-cloudfront-prod", includePathPattern:'**/*', workingDir:"/opt/easyvisa/frontend/${build_no}")
+                 }
+             }
+
+              stage("Refresh Cloudfront cache"){
+                                 steps{
+                                     sh "/usr/local/bin/aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DIST_ID} --paths '/*'"
+                                 }
+                             }
+    }
+    post{
+        failure{
+            sendBuildFailedEmail(params.send_notification)
+        }
+        changed{
+            sendBuildStatusChangedEmail(params.send_notification)
+        }
+    }
+}

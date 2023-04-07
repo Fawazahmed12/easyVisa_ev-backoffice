@@ -1,0 +1,14 @@
+<div class="d-md-flex align-items-center">
+  <label class="col-form-label col-3 text-nowrap p-0 mr-2 text-right select-label">
+    {{ 'TEMPLATE.ORGANIZATION_TYPES.LAW_PRACTICE' | translate }}
+  </label>
+  <select
+    class="form-control form-control-sm py-0 col"
+    [formControl]="organizationIdFormControl"
+    (select)="onTouched()"
+  >
+    <option [ngValue]="organization.id" *ngFor="let organization of (organizations$ | async)">
+      {{organization?.name}}
+    </option>
+  </select>
+</div>

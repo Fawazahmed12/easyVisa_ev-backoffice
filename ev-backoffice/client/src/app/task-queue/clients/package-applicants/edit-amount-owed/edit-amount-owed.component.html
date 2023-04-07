@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+  <p class="col-12 text-center">{{ 'TEMPLATE.TASK_QUEUE.CLIENTS.EDIT_AMOUNT_OWED.DESCRIPTION' | translate }}</p>
+</div>
+<div class="row justify-content-center">
+  <div class="col-8 mb-4">
+    <div class="row">
+      <div
+        class="col px-1 border border-grey overflow-auto"
+        [ngStyle]="{'max-height': '7em'}"
+      >
+        <div>
+          {{ petitioner?.profile?.firstName }} {{ petitioner?.profile?.lastName }}
+        </div>
+        <div *ngFor="let applicant of applicants">
+          {{ applicant?.profile?.firstName }} {{ applicant?.profile?.lastName }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-5">
+    <p>{{ 'TEMPLATE.TASK_QUEUE.CLIENTS.EDIT_AMOUNT_OWED.PREVIOUS_AMOUNT' | translate }}</p>
+  </div>
+  <div class="col-3">
+    {{ (owed || 0) | currency: 'USD' : 'symbol' : '1.0'}}
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-5">
+    <p>{{ 'TEMPLATE.TASK_QUEUE.CLIENTS.EDIT_AMOUNT_OWED.NEW_AMOUNT' | translate }}</p>
+  </div>
+  <div class="col-3">
+    <input
+      class="w-100"
+      type="number"
+      min="0"
+      [(ngModel)]="value"
+      (ngModelChange)="onChange($event)"
+      (focus)="onTouched()"
+    >
+  </div>
+</div>
+<div class="row justify-content-center" *ngIf="value<0">
+  <p class="col-8 text-center text-danger">
+    {{ 'TEMPLATE.TASK_QUEUE.CLIENTS.EDIT_AMOUNT_OWED.POSITIVE_VALUE' | translate }}
+  </p>
+</div>

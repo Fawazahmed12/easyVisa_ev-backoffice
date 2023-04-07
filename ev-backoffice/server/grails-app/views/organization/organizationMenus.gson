@@ -1,0 +1,6 @@
+import com.easyvisa.OrganizationEmployee
+
+model {
+    List<OrganizationEmployee> organizationEmployeeList = []
+}
+json tmpl.'/organization/organizationMenu'('organizationEmployee', organizationEmployeeList)

@@ -1,0 +1,16 @@
+import com.easyvisa.AdminConfig
+import groovy.transform.Field
+
+@Field AdminConfig feeConfig
+
+json {
+    signupFee feeConfig.signupFee
+    maintenanceFee feeConfig.maintenanceFee
+    cloudStorageFee feeConfig.cloudStorageFee
+    membershipReactivationFee feeConfig.membershipReactivationFee
+    referralBonus feeConfig.referralBonus
+    signupDiscount feeConfig.signupDiscount
+    articleBonus feeConfig.articleBonus
+    contactPhone feeConfig.contactPhone
+    supportEmail feeConfig.supportEmail
+}

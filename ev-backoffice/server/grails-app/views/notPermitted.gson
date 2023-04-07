@@ -1,0 +1,8 @@
+import org.apache.http.HttpStatus
+
+response.status HttpStatus.SC_FORBIDDEN
+
+json {
+    errors([[message: g.message(code: 'notpermitted.error'),
+             code   : HttpStatus.SC_FORBIDDEN,]])
+}

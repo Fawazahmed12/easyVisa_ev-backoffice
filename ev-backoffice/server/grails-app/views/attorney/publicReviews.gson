@@ -1,0 +1,6 @@
+import com.easyvisa.Review
+
+model {
+    List<Review> reviews = []
+}
+json tmpl.'/attorney/publicReview'('reviewRecord', reviews)

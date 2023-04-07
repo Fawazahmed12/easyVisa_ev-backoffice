@@ -1,0 +1,50 @@
+<div class="container-fluid p-0 border border-secondary">
+  <app-modal-header [title]="title"></app-modal-header>
+  <h5 *ngIf="isSelectedStatusOpen" class="text-center my-4">
+    {{'TEMPLATE.TASK_QUEUE.CLIENTS.RE_OPEN_MODAL.DESCRIPTION' | translate}}
+  </h5>
+  <h5 *ngIf="isSelectedStatusClosed" class="text-center my-4">
+    {{'TEMPLATE.TASK_QUEUE.CLIENTS.CLOSE_PACKAGE_MODAL.SUBTITLE' | translate}}
+  </h5>
+  <div *ngIf="isSelectedStatusOpen || isSelectedStatusClosed">
+    <app-applicants-list [currentPackage]="item"></app-applicants-list>
+  </div>
+  <div class="d-lg-flex mx-3">
+    <div class="m-4 text-center">
+      <img src="../assets/images/warn-icon.png">
+    </div>
+    <div class="m-4" *ngIf="isSelectedStatusOpen">
+      <p>{{'TEMPLATE.TASK_QUEUE.CLIENTS.RE_OPEN_MODAL.WARNING_P_1' | translate}}</p>
+      <p>{{'TEMPLATE.TASK_QUEUE.CLIENTS.RE_OPEN_MODAL.WARNING_P_2' | translate}}</p>
+    </div>
+    <div class="m-4" *ngIf="isSelectedStatusBlocked">
+      <p>{{'TEMPLATE.TASK_QUEUE.CLIENTS.BLOCK_PACKAGE_MODAL.DESCRIPTION_P_1' | translate}}</p>
+      <p>
+        {{'TEMPLATE.TASK_QUEUE.CLIENTS.BLOCK_PACKAGE_MODAL.DESCRIPTION_P_2' | translate:
+        ({representativeType: organizationType$ | async | representativeType | translate})}}
+      </p>
+      <p>{{'TEMPLATE.TASK_QUEUE.CLIENTS.BLOCK_PACKAGE_MODAL.DESCRIPTION_P_3' | translate}}</p>
+      <p [innerHTML]="'TEMPLATE.TASK_QUEUE.CLIENTS.BLOCK_PACKAGE_MODAL.DESCRIPTION_P_4' | translate"></p>
+      <p>{{'TEMPLATE.TASK_QUEUE.CLIENTS.BLOCK_PACKAGE_MODAL.DESCRIPTION_P_5' | translate}}</p>
+      <p [innerHTML]="'TEMPLATE.TASK_QUEUE.CLIENTS.BLOCK_PACKAGE_MODAL.DESCRIPTION_P_6' | translate" class="small mx-4"></p>
+    </div>
+    <div *ngIf="isSelectedStatusClosed">
+      <p [innerHTML]="'TEMPLATE.TASK_QUEUE.CLIENTS.CLOSE_PACKAGE_MODAL.DESCRIPTION_P_1' | translate"></p>
+      <ul>
+        <li>{{'TEMPLATE.TASK_QUEUE.CLIENTS.CLOSE_PACKAGE_MODAL.DESCRIPTION_LI_1' | translate}}</li>
+        <li>{{'TEMPLATE.TASK_QUEUE.CLIENTS.CLOSE_PACKAGE_MODAL.DESCRIPTION_LI_2' | translate}}</li>
+      </ul>
+      <p >{{'TEMPLATE.TASK_QUEUE.CLIENTS.CLOSE_PACKAGE_MODAL.DESCRIPTION_P_2' | translate}}</p>
+    </div>
+  </div>
+  <div class="text-right m-4">
+    <button class="btn btn-primary px-4 mr-4 min-w-100" type="button" (click)="modalDismiss()">
+      {{ 'FORM.BUTTON.CANCEL' | translate }}
+    </button>
+    <button class="btn btn-primary px-4 min-w-100" type="button" (click)="updateStatus()">
+      <span *ngIf="isSelectedStatusBlocked">{{ 'FORM.BUTTON.CONFIRM' | translate }}</span>
+      <span *ngIf="isSelectedStatusOpen">{{ 'TEMPLATE.TASK_QUEUE.CLIENTS.RE_OPEN_MODAL.OPEN_CASE' | translate }}</span>
+      <span *ngIf="isSelectedStatusClosed">{{ 'TEMPLATE.TASK_QUEUE.CLIENTS.CLOSE_PACKAGE_MODAL.CLOSE_CASE' | translate }}</span>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,245 @@
+---
+grails:
+  exceptionresolver:
+    params:
+      exclude:
+        - password
+  profile: angular
+  codegen:
+    defaultPackage: com.easyvisa
+  spring:
+    transactionManagement:
+      proxies: false
+  gorm:
+    # Whether to autowire entities.
+    # Disabled by default for performance reasons.
+    autowire: true
+    reactor:
+      # Whether to translate GORM events into Reactor events
+      # Disabled by default for performance reasons
+      events: false
+  cors:
+    enabled: true
+    allowCredentials: true
+    allowedOrigins:
+      - https://app.easyvisa.com
+      - http://localhost:4200
+      - https://dev-app.easyvisa.com
+      - https://qa-app.easyvisa.com
+
+  mail:
+    props:
+      mail.smtp.auth: true
+      mail.smtp.socketFactory.port: 465
+      mail.smtp.socketFactory.class: javax.net.ssl.SSLSocketFactory
+      mail.smtp.socketFactory.fallback: false
+  mime:
+    disable:
+      accept:
+        header:
+          userAgents:
+            - Gecko
+            - WebKit
+            - Presto
+            - Trident
+    types:
+      json:
+        - application/json
+        - text/json
+      hal:
+        - application/hal+json
+        - application/hal+xml
+      xml:
+        - text/xml
+        - application/xml
+      atom: application/atom+xml
+      css: text/css
+      csv: text/csv
+      js: text/javascript
+      rss: application/rss+xml
+      text: text/plain
+      all: '*/*'
+  urlmapping:
+    cache:
+      maxsize: 1000
+  controllers:
+    defaultScope: singleton
+    upload:
+      maxFileSize: 2097152000
+      maxRequestSize: 2202009600
+
+  converters:
+    encoding: UTF-8
+---
+info:
+  app:
+    name: '@info.app.name@'
+    version: '@info.app.version@'
+    grailsVersion: '@info.app.grailsVersion@'
+spring:
+  main:
+    banner-mode: "off"
+  groovy:
+    template:
+      check-template-location: false
+  data:
+    neo4j:
+      uri: bolt://localhost
+      username: neo4j
+      password: easyvisa
+  jpa:
+    hibernate.ddl-auto: validate
+#  flyway:
+#    enabled: true
+#    table: schema_version
+#    locations: classpath:/db/migration
+#    sql-migration-prefix: V
+#    sql-migration-suffixes:
+#    baselineOnMigrate: true
+#    baseline-on-migrate: true
+
+flyway:
+  enabled: true
+  table: schema_version
+  locations: classpath:/db/migration
+  sqlMigrationPrefix: V
+  #  sql-migration-suffixes:
+  #  baseline-on-migrate: true
+  baselineOnMigrate: true
+
+# Spring Actuator Endpoints are Disabled by Default
+#endpoints:
+#  enabled: false
+#  jmx:
+#    enabled: true
+
+#spring:
+#  jmx:
+#    unique-names: true
+management:
+  endpoints:
+    enabled-by-default: false
+
+---
+server:
+  development:
+    port: 8080
+---
+hibernate:
+  format_sql: true
+  cache:
+    queries: false
+    use_second_level_cache: true
+    use_query_cache: false
+    provider_class: net.sf.ehcache.hibernate.EhCacheProvider
+    region:
+      factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
+#    region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
+
+dataSource:
+  pooled: true
+  jmxExport: true
+  driverClassName: org.postgresql.Driver
+  dialect: org.hibernate.dialect.PostgreSQLDialect
+  ssl: true
+
+environments:
+  production:
+    dataSource:
+      properties:
+        jmxEnabled: true
+        initialSize: 5
+        maxActive: 50
+        minIdle: 5
+        maxIdle: 25
+        maxWait: 10000
+        maxAge: 600000
+        timeBetweenEvictionRunsMillis: 5000
+        minEvictableIdleTimeMillis: 60000
+        validationQuery: SELECT 1
+        validationQueryTimeout: 3
+        validationInterval: 15000
+        testOnBorrow: true
+        testWhileIdle: true
+        testOnReturn: false
+        jdbcInterceptors: ConnectionState
+        defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
+---
+environments:
+  development:
+    grails:
+      mail:
+        disabled: true
+      plugin:
+        console:
+          enabled: true
+  test:
+    grails:
+      mail:
+        disabled: true
+    quartz.pluginEnabled: false
+  aws_development:
+    grails:
+      plugin:
+        console:
+          enabled: true
+  qa:
+    dataSource:
+      properties:
+        jmxEnabled: true
+        initialSize: 5
+        maxActive: 50
+        minIdle: 5
+        maxIdle: 25
+        maxWait: 10000
+        maxAge: 600000
+        timeBetweenEvictionRunsMillis: 5000
+        minEvictableIdleTimeMillis: 60000
+        validationQuery: SELECT 1
+        validationQueryTimeout: 3
+        validationInterval: 15000
+        testOnBorrow: true
+        testWhileIdle: true
+        testOnReturn: false
+        jdbcInterceptors: ConnectionState
+        defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
+    grails:
+      plugin:
+        console:
+          enabled: true
+
+---
+quartz:
+  autoStartup: true
+  jdbcStore: true
+  waitForJobsToCompleteOnShutdown: true
+  overwriteExistingJobs: true
+  scheduler:
+    instanceName: EasyVisaScheduler
+    instanceId: AUTO
+    instanceIdGenerator:
+      class: com.easyvisa.quartz.EvQuartzInstanceIdGenerator
+  threadPool:
+    class: org.quartz.simpl.SimpleThreadPool
+    threadCount: 5
+    threadPriority: 5
+  jobStore:
+    misfireThreshold: 60000
+    class: org.quartz.impl.jdbcjobstore.JobStoreTX
+    driverDelegateClass: org.quartz.impl.jdbcjobstore.PostgreSQLDelegate
+    useProperties: false
+    tablePrefix: ev_scheduler_
+    isClustered: true
+    clusterCheckinInterval: 20000
+  plugin:
+    shutdownhook:
+      class: org.quartz.plugins.management.ShutdownHookPlugin
+      cleanShutdown: true
+    triggerHistory:
+      class: org.quartz.plugins.history.LoggingTriggerHistoryPlugin
+    jobHistory:
+      class: org.quartz.plugins.history.LoggingJobHistoryPlugin
+---
+logging:
+  level:
+    org.neo4j.ogm.drivers.bolt: WARN

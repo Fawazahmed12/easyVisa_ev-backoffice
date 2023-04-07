@@ -1,0 +1,6 @@
+import com.easyvisa.EmailTemplate
+
+model {
+    List<EmailTemplate> emails = []
+}
+json tmpl.'/attorney/notification'('email', emails)

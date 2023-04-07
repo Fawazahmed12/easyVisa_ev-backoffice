@@ -1,0 +1,31 @@
+<div class="container-fluid p-0 border border-secondary">
+  <app-modal-header *ngIf="!isRequest" [title]="'TEMPLATE.ACCOUNT.PROFILE.MODALS.INVITATION_REQUEST_SENT.HEADER_INVITATION'"></app-modal-header>
+  <app-modal-header *ngIf="isRequest" [title]="'TEMPLATE.ACCOUNT.PROFILE.MODALS.INVITATION_REQUEST_SENT.HEADER_REQUEST'"></app-modal-header>
+  <div
+    class="m-5"
+    *ngIf="!isRequest"
+  >
+    <div class="mb-1">
+      {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.INVITATION_REQUEST_SENT.DESCRIPTION_INVITATION_P1' | translate}}
+      {{(invite | async).firstName}} {{(invite | async).middleName}} {{(invite | async).lastName}}
+    </div>
+    <div class="mb-1">{{'TEMPLATE.ACCOUNT.PROFILE.MODALS.INVITATION_REQUEST_SENT.DESCRIPTION_INVITATION_P2' | translate}}</div>
+    <div class="mb-1" [innerHTML]="'TEMPLATE.ACCOUNT.PROFILE.MODALS.INVITATION_REQUEST_SENT.DESCRIPTION_INVITATION_P3' | translate"></div>
+  </div>
+  <div
+    class="m-5"
+    *ngIf="isRequest">
+    <div class="mb-1">{{'TEMPLATE.ACCOUNT.PROFILE.MODALS.INVITATION_REQUEST_SENT.DESCRIPTION_REQUEST_P1' | translate}}</div>
+    <div class="mb-1">{{'TEMPLATE.ACCOUNT.PROFILE.MODALS.INVITATION_REQUEST_SENT.DESCRIPTION_REQUEST_P2' | translate}}</div>
+    <div class="mb-1" [innerHTML]="'TEMPLATE.ACCOUNT.PROFILE.MODALS.INVITATION_REQUEST_SENT.DESCRIPTION_REQUEST_P3' | translate"></div>
+  </div>
+  <div class="text-right m-4">
+    <button
+      (click)="closeModal()"
+      class="btn btn-primary px-4 min-w-100"
+      type="button"
+    >
+      {{ 'FORM.BUTTON.OK' | translate}}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+.width-14 {
+  width: 14%;
+}
+
+.width-90 {
+  width: 90%;
+}
+
+tr > td,
+thead > tr > th {
+  border-right: 1px solid black;
+  &:first-child {
+    border-left: 1px solid black;
+  }
+}
+
+tbody {
+  border-bottom: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  box-sizing: border-box;
+}
+:host::ng-deep {
+  .scroll-table-body {
+    max-height: 600px;
+    overflow-y: scroll;
+  }
+}

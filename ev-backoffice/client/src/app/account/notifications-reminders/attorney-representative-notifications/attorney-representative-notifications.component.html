@@ -1,0 +1,94 @@
+<app-block [title]="'TEMPLATE.ACCOUNT.NOTIFICATIONS_REMINDERS.ATTORNEY_REPRESENTATIVE_NOTIFICATION.TITLE' | translate">
+  <app-spinner *ngIf="(notificationsConfigGetState$ | async).loading"></app-spinner>
+  <div *ngIf="!(notificationsConfigGetState$ | async).loading">
+    <div
+      class="d-flex flex-column flex-lg-row no-gutters"
+    >
+      <div class="col col-lg-7 border-right">
+        <h5 class="text-center font-weight-bold">
+          {{'TEMPLATE.ACCOUNT.NOTIFICATIONS_REMINDERS.ATTORNEY_REPRESENTATIVE_NOTIFICATION.TASK_QUEUE_SECTION.TITLE' | translate}}
+        </h5>
+        <div class="d-flex flex-column flex-lg-row justify-content-lg-between no-gutters">
+          <div class="col col-lg-7">
+            <div
+              [innerHTML]="'TEMPLATE.ACCOUNT.NOTIFICATIONS_REMINDERS.ATTORNEY_REPRESENTATIVE_NOTIFICATION.TASK_QUEUE_SECTION.P_1' | translate"></div>
+            <div
+              class="mt-2">{{'TEMPLATE.ACCOUNT.NOTIFICATIONS_REMINDERS.ATTORNEY_REPRESENTATIVE_NOTIFICATION.TASK_QUEUE_SECTION.P_2' | translate}}</div>
+          </div>
+          <div class="col col-lg-5 mt-3 mt-lg-0">
+            <div
+              class="ml-lg-4"
+              *ngFor="let taskQueueSetting of taskQueueSettingsFormGroups.controls"
+            >
+              <label class="mb-0">
+                <input
+                  type="checkbox"
+                  [formControl]="taskQueueSetting.get('preference')"
+                >
+                <span
+                  class="ml-2"
+                  [innerHTML]="taskQueueSetting.get('type').value | findLabel: notificationConfig | translate">
+              </span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col col-lg-5">
+        <h5 class="text-center font-weight-bold">
+          {{'TEMPLATE.ACCOUNT.NOTIFICATIONS_REMINDERS.ATTORNEY_REPRESENTATIVE_NOTIFICATION.CLIENT_PROGRESS.TITLE' | translate}}
+        </h5>
+        <div class="d-flex flex-column flex-lg-row justify-content-lg-between">
+          <div class="col col-lg-6">
+            <div
+              [innerHTML]="'TEMPLATE.ACCOUNT.NOTIFICATIONS_REMINDERS.ATTORNEY_REPRESENTATIVE_NOTIFICATION.CLIENT_PROGRESS.P_1' | translate"></div>
+          </div>
+          <div class="col mt-3 mt-lg-0 p-0">
+            <div
+              class="ml-lg-4"
+              *ngFor="let clientProgress of clientProgressSettingsFormGroups.controls"
+            >
+              <label class="mb-0">
+                <input
+                  type="checkbox"
+                  [formControl]="clientProgress.get('preference')"
+                >
+                <span
+                  class="ml-2"
+                  [innerHTML]="clientProgress.get('type').value | findLabel: notificationConfig | translate">
+              </span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="border-top mx-5 my-4"></div>
+    <div class="row justify-content-center">
+      <div class="offset-lg-7 col-lg-5">
+        <div class="row justify-content-center">
+          <div class="col-6 text-right">
+            <button
+              class="btn btn-primary px-4 mr-4 min-w-100"
+              type="button"
+              [disabled]="(isEqual$ | async)"
+
+              (click)="cancelChanges()"
+            >
+              {{'FORM.BUTTON.CANCEL' | translate }}
+            </button>
+          </div>
+          <div class="col-6">
+            <button
+              class="btn btn-primary px-4 ml-4 min-w-100"
+              [disabled]="isEqual$ | async"
+              (click)="saveChanges()"
+            >
+              {{'FORM.BUTTON.SAVE_CHANGES' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-block>

@@ -1,0 +1,43 @@
+.welcome-container {
+  margin: auto 1rem auto 10rem;
+}
+.attention {
+  left: -150px;
+}
+.arrow {
+  position: absolute;
+  width: 70px;
+  height: 20px;
+  left: 55px;
+}
+.arrow-btm {
+  top: 60px;
+  -webkit-transform: rotate(54deg) scaleX(1.7);
+  transform: rotate(54deg) scaleX(1.7);
+}
+
+.arrow-btm-small {
+  top: 30px;
+  -webkit-transform: rotate(25deg);
+  transform: rotate(25deg);
+}
+.arrow-top {
+  top: -60px;
+  -webkit-transform: rotate(-54deg) scaleX(1.7);
+  transform: rotate(-54deg) scaleX(1.7);
+}
+
+@media (min-width: 767px) {
+  .welcome-container, .extra-margin {
+    margin: auto 10rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .attention {
+    display: none !important;
+  }
+  .welcome-container {
+    margin: auto 1rem;
+  }
+}

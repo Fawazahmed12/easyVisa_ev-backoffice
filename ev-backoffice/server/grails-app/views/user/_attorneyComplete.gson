@@ -1,0 +1,32 @@
+import com.easyvisa.LegalRepresentative
+import groovy.transform.Field
+
+@Field LegalRepresentative legalRepresentative
+inherits template: '/user/attorney', model: [legalRepresentative: legalRepresentative]
+
+json {
+    licensedRegions legalRepresentative.licensedRegions.collect {
+        [dateLicensed: it.dateLicensed.format('MM-dd-yyyy'), state: it.state, barNumber: it.barNumber, id: it.id]
+    }
+    summary legalRepresentative.profileSummary
+    awards legalRepresentative.awards
+    experience legalRepresentative.experience
+    workingHours legalRepresentative.workingHours?.collect {
+        [dayOfWeek: it.dayOfWeek,
+         id       : it.id,
+         start    : [hour: it.startHour, minutes: it.startMinutes],
+         end      : [hour: it.endHour, minutes: it.endMinutes]]
+    }
+    languages legalRepresentative.spokenLanguages*.name()
+    stateBarNumber legalRepresentative.stateBarNumber
+    uscisOnlineAccountNo legalRepresentative.uscisOnlineAccountNo
+    practiceAreas legalRepresentative.practiceAreas*.name()
+    education legalRepresentative.degrees?.sort{it.year}.collect {
+        [school: it.school,
+        degree: it.degree?.name(),
+         year: it.year,
+          honors: it.honors,
+           id: it.id]
+    }
+
+}

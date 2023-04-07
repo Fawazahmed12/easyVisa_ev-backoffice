@@ -1,0 +1,26 @@
+.file-preview {
+  margin: 15px auto;
+  width: 600px;
+  height: 400px;
+}
+
+.image-with-source {
+  max-width: 100%;
+  margin: auto;
+}
+
+.image-icon {
+  max-width: 50px;
+}
+
+.preview-disposition-section-height {
+  flex-grow: 1;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.preview-image-height {
+  flex-grow: 1;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}

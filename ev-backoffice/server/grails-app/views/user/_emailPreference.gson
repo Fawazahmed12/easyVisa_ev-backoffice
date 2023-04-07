@@ -1,0 +1,10 @@
+import com.easyvisa.EmailPreference
+import groovy.transform.Field
+
+@Field EmailPreference emailPreference
+
+json {
+    id emailPreference.id
+    type emailPreference.type
+    preference emailPreference.preference
+}

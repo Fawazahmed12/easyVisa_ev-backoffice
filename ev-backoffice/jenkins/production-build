@@ -1,0 +1,115 @@
+void sendBuildFailedEmail(send_notification){
+if(send_notification){
+    String emailSubject  = "Easyvisa Production build #${BUILD_NUMBER} Failed"
+    emailext to: 'philip.yurchuk@madeupname.com, ashrafthahir@gmail.com, abhayweb@gmail.com, marzooka@provility.com, rizwanspeaks@gmail.com',
+    subject: emailSubject,
+    body: "See build log here - ${BUILD_URL}"
+    }
+}
+
+void sendBuildStatusChangedEmail(send_notification){
+    if(send_notification && currentBuild.currentResult=="SUCCESS"){
+        String emailSubject  = "Easyvisa Production build #${BUILD_NUMBER} is now passing"
+        emailext to: 'philip.yurchuk@madeupname.com, ashrafthahir@gmail.com, abhayweb@gmail.com, marzooka@provility.com, rizwanspeaks@gmail.com',
+        subject: emailSubject,
+        body: "See build log here - ${BUILD_URL}"
+    }
+}
+
+pipeline {
+    agent any
+     tools {nodejs 'node-default'}
+    options { disableConcurrentBuilds() }
+    environment{
+        DB_PASSWORD=credentials('ev-test-db-password')
+        NEO4J_URL = credentials("prod-neo4j-url")
+        NEO4J_CRED =  credentials("prod-neo4j-user-password")
+
+    }
+    stages {
+        stage('Pull latest code') {
+            steps{
+                git url: 'git@bitbucket.org:Michael_Andrew/easyvisa.git',
+                credentialsId: 'ev-git-ssh',
+                 branch: 'master'
+            }
+        }
+
+        stage("Run API tests"){
+             when {
+                     expression { return !(params.fast_build) }
+                  }
+                  steps{
+                sh """export DB_PASSWORD=${DB_PASSWORD};
+                export DB_USER=easyvisa;
+                export ROOT_DIR="./server";
+                server/bin/setup-test-db.sh;"""
+                sh "cat data-import/output/questionnaire-shell-data.cql | cypher-shell -u ${NEO4J_CRED_USR} -p ${NEO4J_CRED_PSW} --address ${NEO4J_URL} --format plain >> /dev/null"
+                 sh "./gradlew -PjvmArgs='-Dlocal.config.location=/var/lib/jenkins/prod_test-config.yml -Dgrails.env=test -Xms512m -Xmx1024m' server:clean server:test server:integrationTest --rerun-tasks --no-daemon --tests 'com.easyvisa.test.api.*' --tests 'com.easyvisa.test.jobs.*'"
+               }
+              post {
+                  always {
+                   junit 'server/build/test*/**/*.xml'
+
+                  }
+              }
+        }
+
+          stage("Run Questionnaire tests"){
+            when {
+                     expression { return !(params.fast_build) }
+                 }
+            steps{
+              sh """export DB_PASSWORD=${DB_PASSWORD};
+                export DB_USER=easyvisa;
+                export ROOT_DIR="./server";
+                server/bin/setup-test-db.sh;"""
+
+                sh "./gradlew -PjvmArgs='-Dlocal.config.location=/var/lib/jenkins/prod_test-config.yml -Dgrails.env=test -Xms512m -Xmx1024m' server:test server:integrationTest --rerun-tasks --no-daemon --tests 'com.easyvisa.test.questionnaire.*'"
+
+            }
+            post {
+                always {
+                  junit 'server/build/test*/**/*.xml'
+
+                }
+            }
+        }
+
+         stage("Run Frontend tests"){
+            when {
+                                 expression { return !(params.fast_build) }
+                 }
+                    steps{
+                         wrap([$class: 'Xvfb']) {
+                        sh 'rm -rf client/node_modules'
+                        sh './gradlew client:test --rerun-tasks --no-daemon --max-workers 2'
+                        }
+                    }
+            }
+
+         stage("Build war"){
+                    steps{
+                        sh "./gradlew --no-daemon  --rerun-tasks --max-workers 2 -Dgrails.env=production -Dorg.gradle.project.envName=prod server:clean server:assemble"
+                        sh "mv server/build/libs/easyvisa.war /opt/easyvisa/backend/prod/easyvisa-${BUILD_NUMBER}.war"
+
+                    }
+                }
+
+          stage("Build Front end Package"){
+                 steps{
+                     sh 'rm -rf client/node_modules'
+                     sh "./gradlew --no-daemon --max-workers 2 client:build_prod --rerun-tasks"
+                     sh "cp -R client/dist /opt/easyvisa/frontend/prod/${BUILD_NUMBER}"
+                 }
+             }
+    }
+    post{
+        failure{
+            sendBuildFailedEmail(params.send_notification)
+        }
+        changed{
+            sendBuildStatusChangedEmail(params.send_notification)
+        }
+    }
+}

@@ -1,0 +1,157 @@
+<div class="row justify-content-center align-items-center mb-3">
+  <div class="column-number bg-primary mr-3" *ngIf="colHeadNumber">1</div>
+  <h4 class="text-center mb-0">
+    {{ 'TEMPLATE.CREDIT_CARD_INFO_FORM.CREDIT_CARD_INFO' | translate }}
+  </h4>
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-12">
+    <div class="form-group">
+      <div class="row mb-1">
+        <label
+          class="col-form-label col-form-label-sm text-md-left col-md-7 pr-0">
+          {{ 'TEMPLATE.CREDIT_CARD_INFO_FORM.FIRST_NAME' | translate }}
+          <span
+            class="text-info cursor-pointer"
+            [ngbTooltip]="helpMiddleNameToolTip"
+            tooltipClass="custom-tool-tip-middle-name"
+          >
+            {{'TEMPLATE.CREDIT_CARD_INFO_FORM.HELP' | translate}}
+          </span>
+        </label>
+        <div class="col-md d-flex col-5 pr-0">
+          <input
+            [formControl]="firstNameControl"
+            class="form-control form-control-sm"
+          >
+
+        </div>
+      </div>
+      <div class="row mb-1">
+        <label
+          class="col-form-label col-form-label-sm text-md-left col-md-7 ">
+          {{ 'TEMPLATE.CREDIT_CARD_INFO_FORM.LAST_NAME' | translate }}
+        </label>
+        <div class="col-md d-flex col-5 pr-0">
+          <input
+            [formControl]="lastNameControl"
+            class="form-control form-control-sm"
+          >
+        </div>
+      </div>
+      <div class="form-group row mb-1">
+        <div class="col-form-label col-form-label-sm text-md-left col-md-7 ">
+          {{'TEMPLATE.CREDIT_CARD_INFO_FORM.CARD_NUMBER' | translate}}
+        </div>
+        <div class="col-md d-flex col-5 pr-0">
+          <div id="card-number" class="form-control form-control-sm ng-untouched ng-pristine ng-valid"></div>
+        </div>
+      </div>
+      <div class="form-group row mb-1">
+        <label
+          class="col-md-7  col-form-label col-form-label-sm text-md-left"
+        >
+          {{ 'TEMPLATE.CREDIT_CARD_INFO_FORM.EXPIRATION' | translate }}
+        </label>
+        <div class="col-md-5 pr-0">
+          <div class="row justify-content-center">
+            <div class="col-7 d-flex pr-2">
+              <select
+                [formControl]="expirationMonthControl"
+                class="form-control form-control-sm px-0"
+              >
+                <option [value]="month.value" *ngFor="let month of months">
+                  {{month.label}}
+                </option>
+              </select>
+            </div>
+            <div class="col-5 pl-0">
+              <div class="d-flex justify-content-between">
+                <select
+                  [formControl]="expirationYearControl"
+                  class="form-control form-control-sm px-0">
+                  <option [value]="year" *ngFor="let year of years">
+                    {{year}}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-start">
+        <div class="col-md-12">
+          <div class="form-group row">
+            <label
+              class="col-md-7  col-form-label col-form-label-sm text-md-left"
+            >
+              {{ 'TEMPLATE.CREDIT_CARD_INFO_FORM.CVV_CODE' | translate }}
+            </label>
+            <div class="col-md d-flex pr-0">
+              <div class="row">
+                <div class="col-5 d-flex">
+                  <div id="card-cvv" class="form-control form-control-sm col"></div>
+                </div>
+                <div class="col p-0 d-flex align-items-center" *ngIf="!(fattIsValidSubject$ | async)">
+                  <a
+                    class="text-info cursor-pointer font-italic"
+                    (click)="openCvvModal()">
+                    {{ 'TEMPLATE.CREDIT_CARD_INFO_FORM.WHAT_IS_THIS' | translate }}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #cvvModal>
+  <div class="mx-md-5">
+    <div class="text-center mb-4">
+      {{'TEMPLATE.CVV_MODAL.DESCRIPTION_1' | translate}}
+    </div>
+    <div class="d-lg-flex mb-3">
+      <div class="big-logo big-logo--back mx-auto mb-3 mb-lg-0">
+      </div>
+      <div class="col ml-lg-3">
+        <div class="d-flex justify-content-center justify-content-lg-start mb-3">
+          <div class="small-logo mr-3">
+            <img class="img-fluid" src="../../../assets/images/mastercard_logo.png"/>
+          </div>
+          <div class="small-logo mr-3">
+            <img class="img-fluid" src="../../../assets/images/visa_logo.png"/>
+          </div>
+          <div class="small-logo">
+            <img class="img-fluid" src="../../../assets/images/discover_logo.png"/>
+          </div>
+        </div>
+        <div class="row">
+          <h5 class="text-danger">{{'TEMPLATE.CVV_MODAL.TITLE_1' | translate}}</h5>
+          <span>{{'TEMPLATE.CVV_MODAL.DESCRIPTION_1_1' | translate}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="d-lg-flex">
+      <div class="big-logo big-logo--face mx-auto mb-3 mb-lg-0">
+      </div>
+      <div class="col ml-lg-3">
+        <div class="d-flex justify-content-center justify-content-lg-start mb-3">
+          <div class="small-logo">
+            <img class="img-fluid" src="../../../assets/images/amex_logo.png"/>
+          </div>
+        </div>
+        <div class="row">
+          <h5 class="text-danger">{{'TEMPLATE.CVV_MODAL.TITLE_2' | translate}}</h5>
+          <span>{{'TEMPLATE.CVV_MODAL.DESCRIPTION_1_2' | translate}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #helpMiddleNameToolTip>
+  {{'TEMPLATE.CREDIT_CARD_INFO_FORM.HELP_MIDDLE_NAME_TOOLTIP' | translate}}
+</ng-template>

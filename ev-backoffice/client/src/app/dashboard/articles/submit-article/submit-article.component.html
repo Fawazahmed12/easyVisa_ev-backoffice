@@ -1,0 +1,223 @@
+<app-spinner
+  *ngIf="(getArticleCategoriesGetRequest$ | async)?.loading"
+></app-spinner>
+<div
+  *ngIf="(getArticleCategoriesGetRequest$ | async)?.loaded"
+  class="bg-white border border-top-0">
+  <h3 class="text-center text-white bg-primary p-2 mb-0">
+    {{ 'TEMPLATE.DASHBOARD.ARTICLES.SUBMIT_AN_ARTICLE' | translate }}
+  </h3>
+  <div class="container-fluid">
+    <form
+      class="mt-4"
+      #form="ngForm"
+      [formGroup]="newArticleForm"
+    >
+      <div class="d-flex flex-column mt-3 mb-2">
+        <div class="d-flex mx-0 mt-4 row no-gutters mr-3">
+          <div class="col-10 d-flex flex-row">
+            <div class="d-flex col-lg-5">
+              <div class="column-number bg-primary mr-2">1</div>
+              <span>{{ 'TEMPLATE.DASHBOARD.ARTICLES.CHOOSE_THE_APPROPRIATE_CATEGORY' | translate }}</span>
+            </div>
+            <select class="form-control form-control-sm pt-1 col-lg-6 m-3 m-lg-0"
+                    [formControl]="locationIdControl" [ngClass]="{'text-center text-b2-gray':locationIdControl?.value==null}">
+              <option selected [ngValue]=null>
+                --{{ 'TEMPLATE.DASHBOARD.ARTICLES.SELECT_IMMIGRATION_CATEGORY' | translate }}--
+              </option>
+              <ng-template
+                [ngIf]="!!(parsedCategoryList$ | async)?.length"
+                [ngTemplateOutlet]="optionGroup"
+                [ngTemplateOutletContext]="{ $implicit: (parsedCategoryList$ | async) }"
+              >
+              </ng-template>
+            </select>
+          </div>
+          <div
+            *ngIf="form.submitted && locationIdControl.invalid"
+            class="col-2 text-danger text-right">
+            {{'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_BONUSES_MODAL.STEP_INCOMPLETE' | translate: ({stepCount: 1})}}
+          </div>
+        </div>
+
+        <div class="d-flex mx-0 mt-4 row no-gutters mr-3">
+          <div class="col-10 d-flex">
+            <div class="d-flex col-lg-3">
+              <div class="column-number bg-primary mr-2">2</div>
+              <span>{{ 'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_TITLE' | translate }}</span>
+            </div>
+            <div class="col-lg-6 my-3 m-lg-0">
+              <input class="form-control form-control-sm pt-1" maxlength="100" formControlName="title" type="text">
+            </div>
+            <div class="col px-0 text-right text-b2-gray" [class.text-danger]="titleControl.hasError('maxlength')">
+              {{'TEMPLATE.DASHBOARD.ARTICLES.REMAINING_CHARACTERS' | translate}} {{100 - (remainedCharacters$ | async)}}
+            </div>
+          </div>
+          <div
+            *ngIf="form.submitted && titleControl.invalid"
+            class="text-danger text-right col-2">
+            {{'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_BONUSES_MODAL.STEP_INCOMPLETE' | translate: ({stepCount: 2})}}
+          </div>
+        </div>
+
+        <div class="d-flex flex-column mt-4 ml-3 no-gutters">
+          <div class="d-flex flex-column flex-md-row justify-content-between no-gutters mr-3">
+            <div class="d-flex mb-2 col-4">
+              <div class="column-number bg-primary mr-2">3</div>
+              <span>{{ 'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_BODY_TEXT' | translate }}</span>
+            </div>
+            <div
+              *ngIf="form.submitted && contentControl.invalid"
+              class="text-danger col-2 text-right">{{'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_BONUSES_MODAL.STEP_INCOMPLETE' | translate: ({stepCount: 3})}}</div>
+          </div>
+
+          <div class="d-flex flex-column mt-3">
+            <quill-editor
+                #editor
+                class="min-height-editor-height"
+                [formControl]="contentControl"
+                [formats]="formats"
+            >
+              <div class="d-flex no-gutters" quill-editor-toolbar>
+                <div class="col-9">
+                <span class="ql-formats">
+                  <select class="ql-font">
+                    <option selected></option>
+                    <option value="serif"></option>
+                    <option value="monospace"></option>
+                  </select>
+                  <select class="ql-size">
+                    <option value="small"></option>
+                    <option selected></option>
+                    <option value="large"></option>
+                    <option value="huge"></option>
+                  </select>
+                </span>
+                  <span class="ql-formats">
+                  <span class="ql-header ql-picker">
+                    <select class="ql-header">
+                      <option value="1"></option>
+                      <option value="2"></option>
+                      <option value="3"></option>
+                      <option value="4"></option>
+                      <option value="5"></option>
+                      <option value="6"></option>
+                      <option selected></option>
+                    </select>
+                  </span>
+                </span>
+                  <span class="ql-formats">
+                  <button class="ql-bold"></button>
+                  <button class="ql-italic"></button>
+                  <button class="ql-underline"></button>
+                  <button class="ql-strike"></button>
+                </span>
+                  <span class="ql-formats">
+                  <select class="ql-color"></select>
+                  <select class="ql-background"></select>
+                </span>
+                  <span class="ql-formats">
+                  <button class="ql-blockquote"></button>
+                  <button class="ql-code-block"></button>
+                </span>
+                  <span class="ql-formats">
+                  <button class="ql-list" value="ordered"></button>
+                  <button class="ql-list" value="bullet"></button>
+                  <select class="ql-align">
+                    <option selected></option>
+                    <option value="center"></option>
+                    <option value="right"></option>
+                    <option value="justify"></option>
+                  </select>
+                </span>
+                  <span class="ql-formats">
+                  <button class="ql-link"></button>
+                </span>
+                  <span class="ql-formats">
+                  <button type="button" class="ql-header" value="1"></button>
+                  <button type="button" class="ql-header" value="2"></button>
+                </span>
+                  <span class="ql-formats">
+                  <button type="button" class="ql-indent" value="-1"></button>
+                  <button type="button" class="ql-indent" value="+1"></button>
+                </span>
+                  <span class="ql-formats">
+                  <button type="button" class="ql-script" value="sub"></button>
+                  <button type="button" class="ql-script" value="super"></button>
+                </span>
+                  <span class="ql-formats">
+                  <button type="button" class="ql-direction" value="rtl"></button>
+                </span>
+                  <span class="ql-formats">
+                  <button type="button" class="ql-clean" value="rtl"></button>
+                </span>
+
+                </div>
+                <div class="d-flex flex-column col text-right pr-2">
+              <span>
+                {{'TEMPLATE.DASHBOARD.ARTICLES.MINIMUM_WORDS_REQUIRED' | translate}} 600
+              </span>
+                  <span
+                    [class.text-danger]="contentControl.hasError('invalidLength')">{{'TEMPLATE.DASHBOARD.ARTICLES.WORDS_ENTERED' | translate}} {{wordsCounter$ | async}}</span>
+                </div>
+              </div>
+            </quill-editor>
+          </div>
+        </div>
+      </div>
+
+      <div class="row m-0 mb-3 justify-content-end">
+        <a
+          class="offset-4 col-4 text-blue cursor-pointer text-center"
+          (click)="openArticleBonuses()"
+        >
+          {{'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_GUIDELINES' | translate}}
+        </a>
+
+
+        <div class="row justify-content-end col-4">
+          <button
+            class="btn btn-primary px-4 mr-2 cursor-pointer"
+            [disabled]="!(isMe$ | async)" (click)="goBackToArticle()"
+          >{{'FORM.BUTTON.CANCEL' | translate}}
+          </button>
+          <button
+            class="btn btn-primary px-4 cursor-pointer"
+            [disabled]="!(isMe$ | async)" (click)="formSubmit()"
+          >{{'FORM.BUTTON.SUBMIT' | translate}}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<app-warning-personal-page></app-warning-personal-page>
+
+
+<ng-template #articleBonuses>
+  <app-article-bonuses></app-article-bonuses>
+</ng-template>
+
+<ng-template #optionGroup let-item>
+  <ng-container *ngFor="let group of item">
+    <option
+      [innerHTML]="group | articleCategoryPipe"
+      [value]="group.tid">
+    </option>
+    <ng-template
+      *ngIf="!!group.children?.length"
+      [ngTemplateOutlet]="optionGroup"
+      [ngTemplateOutletContext]="{ $implicit: group.children }"
+    >
+    </ng-template>
+  </ng-container>
+</ng-template>
+
+<ng-template #articleWarning>
+  <div *ngIf="locationIdControl.invalid" class="mb-2"
+  >{{'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_BONUSES_MODAL.ARTICLES_WARNING_1' | translate}}</div>
+  <div *ngIf="titleControl.invalid" class="mb-2"
+  >{{'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_BONUSES_MODAL.ARTICLES_WARNING_2' | translate}}</div>
+  <div *ngIf="contentControl.invalid" class="mb-2"
+  >{{'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_BONUSES_MODAL.ARTICLES_WARNING_3' | translate}}</div>
+</ng-template>

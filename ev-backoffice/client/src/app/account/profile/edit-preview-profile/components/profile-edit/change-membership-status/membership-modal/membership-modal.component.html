@@ -1,0 +1,127 @@
+<div class="container-fluid p-0 border border-secondary">
+  <app-modal-header [title]="title$ | async"></app-modal-header>
+  <div class="mx-4 my-3">
+    <div class="mx-4" *appIfActiveUser="true">
+      <h4 class="text-center mx-3">
+        {{'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.CANCEL_MEMBERSHIP.P_1' | translate}}
+      </h4>
+      <div class="font-weight-bold">
+        {{'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.CANCEL_MEMBERSHIP.DESCRIPTION_1' | translate}}
+      </div>
+      <div class="font-weight-bold">
+        {{'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.CANCEL_MEMBERSHIP.DESCRIPTION_2' | translate}}
+      </div>
+      <div class="font-weight-bold">
+        {{'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.CANCEL_MEMBERSHIP.DESCRIPTION_3' | translate}}
+      </div>
+      <div class="font-weight-bold">
+        {{'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.CANCEL_MEMBERSHIP.DESCRIPTION_4' | translate}}
+      </div>
+      <p class="text-indent mx-4 mb-0"
+         [innerHTML]="'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.CANCEL_MEMBERSHIP.DESCRIPTION_5' | translate: ({membershipReactivationFee: (reActivationFee$ | async | currency:'USD' : 'symbol' : '1.0')})">
+      </p>
+
+      <p class="text-indent mx-4 mb-0"
+         [innerHTML]="'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.CANCEL_MEMBERSHIP.DESCRIPTION_6' | translate">
+      </p>
+      <p class="text-indent mx-4 mb-0">
+      <span class="font-weight-bold">
+        {{'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.CANCEL_MEMBERSHIP.DESCRIPTION_7_1' | translate}}
+      </span>
+        {{'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.CANCEL_MEMBERSHIP.DESCRIPTION_7_2' | translate}}
+        <a class="cursor-pointer text-primary pl-1"
+           (click)="clickToRoute()"
+        >{{'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.CANCEL_MEMBERSHIP.DESCRIPTION_LINK_1' | translate}}
+        </a>
+      </p>
+      <p class="text-indent mx-4 mb-0"
+         [innerHTML]="'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.CANCEL_MEMBERSHIP.DESCRIPTION_8' | translate">
+      </p>
+      <p class="font-weight-bold mb-0">
+        {{'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.CANCEL_MEMBERSHIP.DESCRIPTION_9' | translate}}
+      </p>
+      <div class="font-weight-bold mb-3">
+        {{'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.CANCEL_MEMBERSHIP.DESCRIPTION_10' | translate}}
+      </div>
+      <label class="font-weight-bold text-danger d-flex flex-row">
+        <input
+          class="mt-1 mr-2"
+          type="checkbox"
+          [formControl]="confirmFormControl"
+        >
+        {{'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.CANCEL_MEMBERSHIP.WARNING' | translate}}
+      </label>
+    </div>
+    <div *appIfActiveUser="false">
+      <h4 class="text-center mx-3">
+        {{'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.REACTIVATE_MEMBERSHIP.P_1' | translate}}
+      </h4>
+      <div class="mx-4 mt-4">
+        <div class="font-weight-bold">
+          {{'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.REACTIVATE_MEMBERSHIP.DESCRIPTION_1' | translate}}
+        </div>
+        <div class="font-weight-bold">
+          {{'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.REACTIVATE_MEMBERSHIP.DESCRIPTION_2' | translate}}
+        </div>
+        <p class="text-indent font-weight-bold mx-4 mb-0">
+          {{'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.REACTIVATE_MEMBERSHIP.DESCRIPTION_3' | translate}}
+        </p>
+        <p class="text-indent mx-4 mb-0"
+           [innerHTML]="'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.REACTIVATE_MEMBERSHIP.DESCRIPTION_4' | translate: ({membershipReactivationFee: (reActivationFee$ | async | currency:'USD' : 'symbol' : '1.0')})">
+        </p>
+        <h4 class="text-center mx-3 mt-4">
+          {{'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.REACTIVATE_MEMBERSHIP.P_2' | translate}}
+        </h4>
+        <div
+          [innerHTML]="'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.REACTIVATE_MEMBERSHIP.DESCRIPTION_5' | translate">
+        </div>
+        <div class="font-weight-bold">
+          {{'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.REACTIVATE_MEMBERSHIP.DESCRIPTION_6' | translate}}
+        </div>
+        <div class="font-weight-bold">
+          {{'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.REACTIVATE_MEMBERSHIP.DESCRIPTION_7' | translate}}
+          <a
+            class="cursor-pointer text-primary font-weight-normal"
+            (click)="clickToRoute()"
+          >{{'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.REACTIVATE_MEMBERSHIP.DESCRIPTION_LINK_1' | translate}}
+          </a>
+        </div>
+        <p class="text-indent mx-4 mb-0">
+          <span class="font-weight-bold">
+            {{'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.REACTIVATE_MEMBERSHIP.DESCRIPTION_8' | translate}}
+          </span>
+          <a
+            class="cursor-pointer text-primary"
+            (click)="clickToRoute()"
+          >{{'TEMPLATE.ACCOUNT.PROFILE.EASY_VISA_MEMBERSHIP_STATUS.MODALS.REACTIVATE_MEMBERSHIP.DESCRIPTION_LINK_1' | translate}}
+          </a>
+        </p>
+      </div>
+      <div class="d-flex justify-content-end mr-4 no-gutters">
+        <div class="col-3">
+          <app-taxes-info
+            [tax]="reactivationFeeWithTax$ | async"
+            [feeLabel]="'TAXES_INFO.REACTIVATION_FEE'"
+            class="mr-4"
+          ></app-taxes-info>
+        </div>
+      </div>
+    </div>
+    <div class="text-right mx-4 mb-4">
+      <button
+        (click)="closeModal()"
+        class="btn btn-primary px-4 mr-4 min-w-100"
+        type="button"
+      >
+        {{ 'FORM.BUTTON.CANCEL' | translate}}
+      </button>
+      <button
+        (click)="confirmModal()"
+        class="btn btn-primary px-4 min-w-100"
+        type="button"
+      >
+        {{ 'FORM.BUTTON.CONFIRM' | translate}}
+      </button>
+    </div>
+  </div>
+</div>

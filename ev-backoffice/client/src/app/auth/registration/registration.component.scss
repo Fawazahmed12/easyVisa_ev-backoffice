@@ -1,0 +1,34 @@
+h2 {
+  font-size: 3em;
+}
+
+h3 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.variants-wrapper > div {
+  border-right: 1px solid #6c757d;
+  border-left: 1px solid #6c757d;
+}
+.variants-wrapper > div:last-child {
+  border-right: none;
+}
+.variants-wrapper > div:first-child {
+  border-left: none;
+}
+
+@media (max-width: 768px) {
+  .variants-wrapper > div {
+    border-right: none;
+    border-left: none;
+    border-top: 1px solid #6c757d;
+    border-bottom: 1px solid #6c757d;
+  }
+  .variants-wrapper > div:last-child {
+    border-bottom: none;
+  }
+  .variants-wrapper > div:first-child {
+    border-top: none;
+  }
+}

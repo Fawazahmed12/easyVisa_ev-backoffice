@@ -1,0 +1,433 @@
+{
+  "TEMPLATE": {
+    "AUTH": {
+      "LOGIN": {
+        "TITLE": "Login",
+        "USERNAME": "Username",
+        "PASSWORD": "Password",
+        "WRONG_USERNAME_ERROR": "Wrong username or password. Please retry",
+        "INVALID_PASSWORD": "Your password no more valid. Please click Forgot Username/Password",
+        "SIGN_IN": "Sign In",
+        "CLICK_TO_REGISTER": "Haven't Registered Yet? Click Here to Register"
+      },
+      "FORGOT": {
+        "TITLE": "Forgot Username/Password",
+        "USERNAME": "Forgot Username",
+        "PASSWORD": "Forgot Password",
+        "ENTER_EMAIL": "Please enter your email address:",
+        "INSTRUCTIONS_FIRST": "Check your email. EasyVisa will send your username or instructions to reset your password.",
+        "INSTRUCTIONS_SECOND": "If the email does not arrive within a few minutes, please check your spam folder.",
+        "PLEASE_LOGIN": "Please make a note of it and",
+        "LOG_IN": "log in",
+        "YOUR_USERNAME_IS": "Your username is:"
+      },
+      "RESET": {
+        "TITLE": "Reset Password",
+        "NEW_PASSWORD": "Enter new password"
+      },
+      "REGISTRATION": {
+        "SELECT_ONE": "Select One",
+        "PETITIONER_TITLE": "I Need Family Immigration Help to Bring Family Members to the U.S. or Help Them Adjust Status, Now That They are in the U.S.!",
+        "PETITIONER_TEXT": "Click the button below to get started.",
+        "ATTORNEY_TITLE": "I’m an Attorney and I’m interested in learning more about how EasyVisa can help me to run my immigration practice!!!",
+        "ATTORNEY_TEXT": "Click the button below to get started.",
+        "ALREADY_MEMBER": "Already a member? Log in by clicking here.",
+        "FIND_ATTORNEY_BTN": "Find an Attorney",
+        "ATTORNEY_REGISTRATION_BTN": "Attorney Registration"
+      },
+      "SIGN_UP": {
+        "TITLE": "Register/Sign Up",
+        "NAME_EMAIL": "Name & email Address",
+        "FIRST_NAME": "First Name",
+        "MIDDLE_NAME": "Middle Name",
+        "LAST_NAME": "Last Name",
+        "EMAIL_ADDRESS": "Email Address",
+        "USER_NAME_PASSWORD": "Create UserName and Password",
+        "USERNAME": "Username",
+        "USERNAME_DESCRIPTION": "Username must have a minimum of 8 characters.",
+        "PASSWORD": "Password",
+        "PASSWORD_RECOMMENDATION": "Use a combination of upper & lower case letters, numbers, and special characters.",
+        "RETYPE_PASSWORD": "Re-Type Password",
+        "CHECKING": "Checking...",
+        "VALUE_AVAILABLE": "This {{controlName}} is available.",
+        "VALUE_TAKEN": "This {{controlName}} is already taken.",
+        "CURRENT_LEGAL_NAME": "Your Current Legal Name",
+        "FORM_INVALID": "Register/Sign Up form is invalid",
+        "FORM_INVALID_DESC": "Check the form for errors",
+        "INVITATION_RESCINDED": "The attorney rescinded your invitation to join EasyVisa. If you think this was in error, please contact them."
+      },
+      "SELECT_REPRESENTATIVE_TYPE": {
+        "TITLE": "Select Your Representative Type",
+        "ATTORNEY": "Attorney",
+        "SOLO_PRACTITIONER": "Solo Practitioner",
+        "MEMBER_ORG": "Accredited Representative - Member of a Recognized Organization",
+        "MEMBER_LAW_FIRM": "Member  of  a  Practice  (Law  Firm)",
+        "MEMBER_LAW_FIRM_DESCRIPTION": "<p>When  an  attorney  who  is  a  member  of  a  law  firm  joins  EasyVisa,  they  are  initially  designated  as  a  Solo  Practioner  within  their  Profile</p><p>However,  if  their  firm  is  already  on  EasyVisa,  then  they  can  simply  submit  a  request  to  join  their  firm  by  clicking  on  the  ‘Request  to  Join  a  Practice’  button  within  their  Profile</p><p>If  their  firm  is  not  already  on  EasyVisa,  then  the  member  can  also  create  a  new  law  firm  on  EasyVisa  by  clicking  the  ‘Create  a  New  Law  Firm’  button,  also  within  their  Profile.</p>",
+        "LINK_TO_PROFILE_TITLE": "Link Your Profile to Your Recognized Organization’s Profile",
+        "SELECT_ATTORNEY_TYPE": "Select  Attorney  Type",
+        "SELECT_STATE": "Select the State where your Recognized Organization is Located in",
+        "SELECT_CITY": "Select the City where your Recognized Organization is Located in",
+        "SELECT_ORG": "Select Your Recognized Organization’s Name",
+        "SELECT_NAME": "Select Your Name",
+        "SELECT_STATE_PLACEHOLDER": "Select State",
+        "SELECT_CITY_PLACEHOLDER": "Select City",
+        "SELECT_ORG_PLACEHOLDER": "Select Your Recognized Organization’s Name",
+        "SELECT_NAME_PLACEHOLDER": "Select Your Name",
+        "REPRESENTATIVE_TYPE_NOT_SELECTED": "Representative  Type  Not  Selected",
+        "REPRESENTATIVE_TYPE_NOT_SELECTED_TEXT": "You  must  select  which  type  of  legal  representative  applies  to  you.",
+        "PROFILE_NOT_LINKED": "Profile  Not  Linked",
+        "PROFILE_NOT_LINKED_P_1": "Only  Recognized  Organizations  and  Accredited  Representatives  whose  status  is  ‘Active’  are  listed  in  the  DOJ  (Department  of  Justice)  Database  of  Authorized  Providers  (in  the  below  link).  It  is  the  responsibility  of  the  Recognized  Organization  to  update  the  Office  of  Legal  Access  Programs  with  any  changes  such  as  name,  address,  and  telephone  number.  Check  with  the  Office  of  Legal  Access  Programs  (or  the  administrator  of  your  Recognized  Organization)  if  you,  or  your  Recognized  Organization,  is  not  listed  here.",
+        "PROFILE_NOT_LINKED_P_2": "You  can  check  the  Database  of  Authorized  Providers  (Immigration  Representatives)  to  verify  the  status  of  both  yourself  and  your  Recognized  Organization  here  (this  database  is  updated  daily):",
+        "PROFILE_NOT_LINKED_P_3": "EasyVisa  will  not  allow  you  to  register  on  this  site  until  you  can  find  (and  select)  both  your  Recognized  Organization  and  your  name  within  these  drop  down  lists.  The  database  is  updated  daily,  so  as  soon  as  you  know  that  your  Recognized  Organization  and/or  your  name  is  listed  as  ‘Active’  in  the  database,  then  log  back  in.  When  you  log  back  in,  you  will  be  taken  back  to  the  ‘Select  Representative  Type’  page  to  complete  the  registration  process."
+      },
+      "METER": {
+        "TITLE": "Password Strength",
+        "WEAK": "Weak",
+        "STRONG": "Strong",
+        "STRENGTH_ERROR": "Password not strong enough"
+      },
+      "ATTORNEY_LANDING_PAGE": {
+        "SUBSCRIPTION": "EasyVisa is the ONLY immigration web site that offers all these features in a simple, yet extremely powerful, online platform",
+        "EASYVISA_CAN_DO_FOR_YOU": {
+          "TITLE": "This is What EasyVisa Can Do For You",
+          "SUB_TITLE_QUESTIONNAIRE": "Super Easy OnlineQuestionnaire",
+          "QUESTIONNAIRE_POINT_1": "No Confusing Governmental Forms to Fill Out",
+          "QUESTIONNAIRE_POINT_2": "Super Easy Step-by-Step Online Questionnaire",
+          "QUESTIONNAIRE_POINT_3": "Start and Stop the Online Questionnaire at Your Convenience",
+          "QUESTIONNAIRE_POINT_4": "All Digital, Online Cloud Storage of Your Entire Application",
+          "QUESTIONNAIRE_POINT_5": "No Time-Wasting Repitition when Completing Forms",
+          "SUB_TITLE_DOC_PORTAL": "Extremely Powerful Document Portal",
+          "DOC_PORTAL_POINT_1": "Upload Virtually All Your Documents* Directly to the Document Portal",
+          "DOC_PORTAL_POINT_2": "Digital Photo Files can be Uploaded to the Portal",
+          "DOC_PORTAL_POINT_3": "Upload Virtually any Common File Format to the Portal",
+          "DOC_PORTAL_POINT_4": "Hundreds of Tips, Hints, Help, and Examples Throughout the EasyVisa Website",
+          "SUB_TITLE_PROGRESS_TRACKING": "Automatic Application Progress Tracking",
+          "PROGRESS_TRACKING_POINT_1": "Questionnaire Progress",
+          "PROGRESS_TRACKING_POINT_2": "Document Upload Progress",
+          "PROGRESS_TRACKING_POINT_3": "Automatic email Reminders",
+          "PROGRESS_TRACKING_POINT_4": "Original Document Checklists",
+          "PROGRESS_TRACKING_POINT_5": "Milestone Dates And Much More!!!",
+          "NOTE": "The USCIS, State Department, DHS (Department of Homeland Security) requires original versions of paperwork for some types of documentation in your application, however the majority of documentation that gets submitted to the U.S. government does not require orginals.",
+          "TITLE_FOR_YOU": "Run Your Family Immigration Practice on EasyVisa",
+          "FOR_YOU_POINT_1": "Monitor Progress of Hundreds Or Even Thousands of Clients",
+          "FOR_YOU_POINT_2": "Organize Paperwork and Documents For All Your Clients",
+          "FOR_YOU_POINT_3": "100% FREE Cloud Storage for All your Clients’ Data and Documents",
+          "FOR_YOU_POINT_4": "FREE Marketing Leads From People Seeking Immigration Help",
+          "FOR_YOU_POINT_5": "Eliminate Data Transposition Errors",
+          "FOR_YOU_POINT_6": "Eliminate Sending Documents Back and Forth Between You and Your Clients for Review",
+          "FOR_YOU_POINT_7": "Virtually Eliminates Calls From Your Clients Because There are NO Forms To Fill Out As The Questionnaire Has Hundreds of Plain-English Help Tips",
+          "FOR_YOU_POINT_8": "Customizable, Online Notifications When Each Client Meets Certain Milestones In Their Immigration Application Progress",
+          "FOR_YOU_POINT_9": "Eliminate or Reduce Staff Due to The Efficiency of the Platform"
+        },
+        "EASYVISA_HELP_ME": {
+          "TITLE": "How Can EasyVisa Help Me Run My Practice?",
+          "FIND_ATTORNEY": "Find an Attorney!"
+        },
+        "EASYVISA_CAN_DO_FOR_CLIENTS": {
+          "TITLE": "This is what EasyVisa Can Do For Your Clients",
+          "DESCRIPTION": "EasyVisa is the ONLY immigration web site that offers all these features in a simple, yet extremely powerful, online platform"
+        },
+        "TESTIMONIALS": "Testimonials",
+        "TESTIMONIAL_1_1": "EasyVisa truly saved my practice!",
+        "TESTIMONIAL_1_2": "I was almost ready to give up on immigration work because it is such a slow, inefficient, error-prone and paperwork driven process and I couldn’t make any money doing what I love.",
+        "TESTIMONIAL_1_3": "Now, I have 4 to 5 hours extra time, every day that I never had before, due to the hyper-efficiency systems in how EasyVisa functions. An immigration lawyer is one of the founders, so they REALLY thought of EVERYTHING that causes pain in my practice!",
+        "TESTIMONIAL_2_1": "My immigration practice was an absolute nightmare of paperwork, lost files, and records storage issues...not to mention the fact that my staff made countless errors while tranposing data onto USCIS forms that were hand-written by clients.",
+        "TESTIMONIAL_2_2": "EasyVisa is a god-send! I only wish EasyVisa was around when I began my practice because maybe I wouild be driving a Ferrari now instead of an old Buick!",
+        "TESTIMONIAL_3_1": "Law school taught me about the law, but I didn’t learn anything about business systems, organization methodologies, and how to actually run my practice on a day to day basis.",
+        "TESTIMONIAL_3_2": "Every law school in the country should talk about how EasyVisa is truly revolutionzling the practice of immigration law.",
+        "ONE_TIME_FEE": "A one-time, account set up fee of only",
+        "MONTHLY_FEE": "A monthly maintenance fee of {{maintenanceFee}}",
+        "DISCOUNT_FROM": "(reflects {{signupDiscount}} discount from {{name}})!",
+        "PER_CLIENT_CHARGE": "A per client charge applicant fee for each applicant that uses the EasyVisa platform",
+        "LOW_CLOUD_STORAGE_FEE": "Cloud storage fee for all USCIS packages of just {{cloudStorageFee}}",
+        "PACKAGE_CONTAINES_NOTE": "A package contains all of your clients’ answers from the questionnaire as well as all of the documents that they uploaded for the smallest allowed group of applicants for an immigration benefit category.",
+        "SIGN_ME_UP": "Sign Me Up!",
+        "FOOTNOTE": "While your EasyVisa membership remains active"
+      },
+      "REP_BASIC_INFO": {
+        "TITLE": "{{representativeType}} Basic Information"
+      },
+      "REP_INFO_AND_PAYMENT_METHOD": {
+        "TITLE": "{{representativeType}} Information and Payment Method"
+      },
+      "PAY_SIGN_UP_FEE": {
+        "TITLE": "Payment Method",
+        "NAME": "{{representativeType}} Name",
+        "CONTACT_INFO": "Contact Info",
+        "CREDIT_CARD_BILLING_ADDRESS": "Credit Card Billing Address",
+        "OFFICE": "Office",
+        "ADDRESS": "Address",
+        "BILLING": "Billing",
+        "SAME_AS_OFFICE_ADDRESS": "Same as Office Address",
+        "ONE_TIME_SET_UP_FEE": "One-time set-up fee",
+        "AGREE_TERMS_AND_CONDITIONS_1": "I agree to the one-time account set-up fee of {{setUpFee}}. Additionally, I have read, reviewed, and agree to the",
+        "TERMS_AND_CONDITIONS": "Terms & Conditions",
+        "AGREE_TERMS_AND_CONDITIONS_2": "posted in this website and realize that these are subject to change.",
+        "TERMS_CONDITIONALS_CONFIRMATION_MODAL": {
+          "TITLE": "Terms & Conditions",
+          "P_1": "You must check the box agreeing to the Terms and Conditions of using the EasyVisa platform before you can proceed."
+        }
+      },
+      "SUCCESS": {
+        "SIGN_UP_SUCCESS": {
+          "HEADER": "Sign-Up Was Successful",
+          "TEXT_1": "We have sent you an email to: {{email}}",
+          "TEXT_2": "Please click on the link in your email to confirm your",
+          "TEXT_3": "email address and continue the registration process.",
+          "CLICK_PREVIOUS": "If you entered the wrong email address, click the 'Previous' button and enter the correct email address."
+        },
+        "RETRIEVE_CREDENTIAL_SUCCESS": {
+          "HEADER": "Email has been sent",
+          "TEXT": "Check your email. EasyVisa has sent your username or instructions to reset your password."
+        },
+        "CHECK_SPAM": "If the email does not arrive within a few minutes, please check your spam folder."
+      },
+      "SIGN_UP_VERIFICATION": "Your account is verified now, please Log in to continue registration",
+      "PASSWORD_RECOMMENDED": {
+        "WARNING_1": "Straight rows of keys are easy to guess.",
+        "WARNING_2": "Short keyboard patterns are easy to guess.",
+        "WARNING_3": "Repeats like \"aaa\" are easy to guess.",
+        "WARNING_4": "Repeats like \"abcabcabc\" are only slightly harder to guess than \"abc\".",
+        "WARNING_5": "Sequences like abc or 6543 are easy to guess.",
+        "WARNING_6": "Recent years are easy to guess.",
+        "WARNING_7": "Dates are often easy to guess.",
+        "WARNING_8": "This is a top-10 common password.",
+        "WARNING_9": "This is a top-100 common password.",
+        "WARNING_10": "This is a very common password.",
+        "WARNING_11": "This is similar to a commonly used password.",
+        "WARNING_12": "A word by itself is easy to guess.",
+        "WARNING_13": "Names and surnames by themselves are easy to guess.",
+        "WARNING_14": "Common names and surnames are easy to guess.",
+        "SUGGESTION_1": "Use a few words, avoid common phrases.",
+        "SUGGESTION_2": "No need for symbols, digits, or uppercase letters.",
+        "SUGGESTION_3": "Add another word or two. Uncommon words are better.",
+        "SUGGESTION_4": "Use a longer keyboard pattern with more turns.",
+        "SUGGESTION_5": "Avoid repeated words and characters.",
+        "SUGGESTION_6": "Avoid sequences.",
+        "SUGGESTION_7": "Avoid recent years.",
+        "SUGGESTION_8": "Avoid years that are associated with you.",
+        "SUGGESTION_9": "Avoid dates and years that are associated with you.",
+        "SUGGESTION_10": "Capitalization doesn't help very much.",
+        "SUGGESTION_11": "All-uppercase is almost as easy to guess as all-lowercase.",
+        "SUGGESTION_12": "Reversed words aren't much harder to guess.",
+        "SUGGESTION_13": "Predictable substitutions like '@' instead of 'a' don't help very much."
+      },
+      "WELCOME": {
+        "TITLE": "Welcome!",
+        "TITLE_DESCRIPTION_P_1": "Congratulations  on  taking  the  first  step  toward  revolutionizing  your  practice  with  the  platform!!!",
+        "TITLE_DESCRIPTION_P_2": "You  can  get  started  processing  applications  in  just  a  few  minutes  after  you  answer  a  few  brief  questions  designed  to  help  you  to  showcase  your  work,  get  free  client  leads,  and  build  your  practice!",
+        "SUBTITLE": "The  first  5  sections  are  the  settings  (tabs)  in  the  <span class='font-weight-bold'>‘My  Account’</span>  menu.",
+        "ITEM_TITLE_1": "Create  your  <span class='font-weight-bold'>Profile</span>",
+        "ITEM_DESCRIPTION_1_1": "In  this  section  you  will  provide  basic  information  about  your  practice  like  your  office  location,  hours,    languages  you  speak,  practice  areas,  educational  experience,  social  media  links,  your  contact  information  and  much  more.  You  can  even  upload  your  photo  to  personalize  your  profile  even  further,  or  you  can  even  create  a  law  firm  and  invite  other  EasyVisa  members  to  join  your  law  firm.",
+        "ITEM_TITLE_2": "Set  your  <span class='font-weight-bold'>Payment  &  Fee  Schedule</span>",
+        "ITEM_DESCRIPTION_2_1": "Here  you  will  set  your  client  fee  schedule  for  all  of  the  various  types  of  family  immigration  work,  including  fees  for:  preparing  visas  (Fiancé(e),  Immediate  Relative,  &  Family),  Green  Card  applications,  Naturalization,  and  other  immigration  work  you  might  do  like  Inadmissibility  Waivers.",
+        "ITEM_DESCRIPTION_2_2": "You  will  also  set  your  preferred  method  of  payment  for  client  work  you  process  through  the  EasyVisa  platform.",
+        "ITEM_TITLE_3": "Set  your  preferred  timetables  for  automated  <span class='font-weight-bold'>Notifications  &  Reminders</span>  to  your  clients",
+        "ITEM_DESCRIPTION_3_1": "Although  you  will  rarely  go  to  this  setting,  it  is  an  incredible  feature  of  the  EasyVisa  platform  because  it  streamlines,  automates,  and  virtually  elminates  the  otherwise  time-consuming  and  complicated  client  tracking  work  (client  applicaton  progress,  documentation  upload  progress,  etc),  so  that  you  and  your  clients  can  stay  on  top  of  things  without  having  to  organize  and  pull  countless  client  files  out  of  file  cabinets  on  a  daily  basis.  Here  you  can  set  the  timing,  frequency,  and  content  of  all  automated  alerts,  notifications,  messages  and  warnings  for  both  you  and  your  clients.  You  can  also  set  payment  reminders  to  clients  who  have  outstanding  balances,  determine  when  and  how  you  receive  messages  about  critical  milestones  and  deadlines  on  the  platform  for  things  like  client  inactivity,  client  progress  in  completing  the  application  process.",
+        "ITEM_TITLE_4": "Build,  review,  and  edit  automated  <span class='font-weight-bold'>email  Templates</span>  that  you  will  use  in  your  daily  practice",
+        "ITEM_DESCRIPTION_4_1": "In  this  tab  of  the  My  Account  section  you  can  edit  the  email  copy  that  goes  to  clients  when  you  send  them  the  initial  package  through  the  EasyVisa  platform.  You  can  customize  the  email  copy  that  goes  to  your  clients  from  a  variety  of  pre-filled  templates  that  are  already  provided.  For  example,  you  can  immediately  send  an  automated  ‘thank  you’  email  to  a  client  you  have  just  spoken  to  by  just  clicking  a  button;  or  send  that  same  email  with  a  bill  and/or  a  retainer  if  you  and  a  client  have  already  agreed  to  work  together.    If  the  scope  of  the  work  changes  or  increases  in  the  future,  you  can  include  language  that  describes  that  work,  sets  the  fee,  and  sends  the  client  your  new  (or  modified)  retainer  agreement.  EasyVisa  will  not  create  your  retainer  agreement,  but  you  can  easily  upload  your  own  at  any  time.",
+        "ITEM_TITLE_5": "Set  <span class='font-weight-bold'>Permissions</span>  levels  for  you,  partners,  associates,  and  your  staff  for  accessing  client  files",
+        "ITEM_DESCRIPTION_5_1": "The  Permissions  section  allows  you  to  control  who  in  your  office  has  access  to  information  about  your  clients  and  sensitive  business  information  about  your  practice",
+        "ITEM_TITLE_6": " Contributing  Article  Credits  &  Referral  Fee  Credits",
+        "ITEM_DESCRIPTION_6_1": "You  can  easily  earn  credits  (toward  any  future  charges  on  EasyVisa)  by  simply  referring  colleagues  to  the  EasyVisa  or  by  writing  articles  about  the  immigration  process  that  will  help  people  seeking  immigration  information.  Learn  more  about  this  at  your:  Task  Queue  menu  button  >  Financial  tab",
+        "CONCLUSION": "The  EasyVisa  platform  will  streamline  virtually  every  facet  of  your  practice,  saving  you  up  to  75%  of  your  workload,  as  well  as  significantly  reducing  and/or  eliminating  overhead!  The  most  important  sections  for  you  to  complete  in  order  for  you  to  get  up  and  running  in  just  a  few  minutes  are  the  <span class='font-weight-bold'>Profile</span>  and  <span class='font-weight-bold'>Payment  &  Fee  Schedule</span>  sections.",
+        "LETS_GET_STARTED": "Let’s  Get  Started!",
+        "DO_THESE_FIRST": "Do these first!!!",
+        "CHECK_THIS_OUT": "Check this out!!!",
+        "CREATE_LAW_PRACTICE_DESC_1": "You can even Create a Law Practice from within your Profile:",
+        "CREATE_LAW_PRACTICE_DESC_2": "<div class='ml-4'>When an attorney who is a member of a law firm joins EasyVisa, they are initially designed as a Solo Practioner within their Profile.</div>",
+        "CREATE_LAW_PRACTICE_DESC_3": "<div class='ml-4'>However, if their firm is ready on EasyVisa, then they can simply submit a request to join their firm by clicking on the 'Request to Join a Practice' button within their Profile</div>",
+        "CREATE_LAW_PRACTICE_DESC_4": "<div class='ml-4'>If their firm is not already on EasyVisa, then the member can also create a new law firm on EasyVisa by clicking the 'Create a New Law Firm' button, also within their Profile.</div>"
+      },
+      "CLIENT_WELCOME": {
+        "SUBTITLE_1": "Create Your Profile (in the ‘My Account’ menu tab)",
+        "STEP": "Step",
+        "STEP_1_DESCRIPTION": "In this section you will provide basic information about your yourself including Name, Address, and Contact Information.",
+        "SUBTITLE_2": "Begin Your Immigration Application",
+        "STEP_2_DESCRIPTION_1": "First, answer simple questions in the Questionnaire. Unlike in the complicated and confusing USCIS (United States Customs and Immigration Service) government forms, the questions here are written in clear and easy to understand language. Additionally, helpful pop ups appear throughout the questionnaire for your convenience and look like this: <span class='text-blue'>Help</span>",
+        "STEP_2_DESCRIPTION_2": "Second, upload documents that must be included with your application(s) to the USCIS. These are uploaded into your own document portal and can be uploaded at any point in the process. For most people going through the immigration process the old-fashioned slow, manual way, gathering the required documentation takes weeks, months or even longer. EasyVisa shortens this time to just a few weeks with a Document portal list that keeps track of all the documents that you have already uploaded and lets you know which ones are still missing! During this process, you can always jump to the Questionnaire at any time to keep your immigration process moving along quickly.",
+        "RECOMMENDATION": "We recommend that you complete your profile, and then begin by answering a few questions in the Questionnaire section before you begin uploading documents. You can jump back and forth between the Questionnaire and the Document portal at any time."
+      },
+      "REPRESENTATIVE_MESSAGES": {
+        "WARNING_TITLE": "Warning it is IMPORTANT that you read this entire message!!!",
+        "WARNING_MESSAGE": "<span class='text-danger'>*</span> NOTE: The referral credit of $100 only applies to your colleagues who are legal representatives and will be automatically credited to your account after the colleague that you referred completes the registration process with EasyVisa. The credit will be used to offset future charges you incur on EasyVisa, but has no cash value. Additionally, you must send out the referral invitations from EasyVisa in order to receive your bonus(es) and your colleagues must sign up with EasyVisa from the link in your referral email in order to receive their sign up discount. After you complete your profile, go to the Dashboard > Financial to learn more details about how the discount and referral bonuses work and where to send the referral email from.",
+        "LAW_FIRM": {
+          "TITLE": "Initial Representative Type Assignment",
+          "TEXT_1": "In the previous page, you selected the option that says you are a member of a Legal Practice.",
+          "TEXT_2": "Initially, all attorneys on EasyVisa are assigned to be Solo Practitioners. However, after you finish registration, you will be taken to your\nProfile (in the My Account menu) where you can easily join an existing Law Practice on EasyVisa or you can choose to create a new Law\nPractice on EasyVisa (of which you will be the first member).",
+          "TEXT_3": "By default, the person who creates a new law practice is assigned to be the the admin of the law firm’s profile on EasyVisa. Each legal representative on EasyVisa has his/her own personal profile on EasyVisa, which shows up in the Search Results. Your law firm will also have its own profile, which also shows up in the Search Results. The law firm’s profile appears below the admin’s personal profile in the My Account > Profile tab. The admin can edit the Law Firm’s profile, assign permissions to other attorneys (of that Law Firm), and onboard new employees of the organization. The admin can easily transfer admin privileges to another attorney (or employee) at that same Law Firm."
+        },
+        "ACCREDITED_REPRESENTATIVE": {
+          "TITLE": "Accredited Representative - Member of a Recognized Organization",
+          "WARNING_SUBTITLE": "You are the first person in your Recognized Organization to Join EasyVisa...",
+          "TEXT_1_TITLE": "Recognized Organization Profile and the Admin",
+          "TEXT_2_TITLE": "Referral Bonuses Paid by EasyVisa",
+          "TEXT_1": "By default, the first person from a Recognized Organization to register on EasyVisa is assigned to be the the admin of the Recognized Organization’s profile on EasyVisa. Each of the Accredited Representatives who are members of a Recognized Organization has his/her own personal profile on EasyVisa, which shows up in the Search Results. Your Recognized Organizationalso has its own profile, which also shows up in the Search Results. The Recognized Organization’s profile appears below the admin’s personal profile in the My Account > Profile tab. The admin can edit the Recognized Organization’s profile, assign permissions to other Accredited Representatives (of that Recognized Organization), and onboard other employees of the organization. The admin can easily transfer admin privileges to another Accredited Representative (or employee) at that same Recognized Organization.",
+          "TEXT_2": "Commonly all members of a Recognized Organization join EasyVisa, after the first person discovers the amazing platform that we have built. EasyVisa has a terrific referral program that gives you bonuses for any people that you refer to EasyVisa through the platform. These people could include other Accredited Representatives of your Recognized Organization, Accredited Representatives of another Recognized Organization, or immigration attorneys. EasyVisa gives you a $100 credit<span class='text-danger'>*</span> for each colleagues that you refer to EasyVisa AND the people that you refer also each get a $200 sign up discount<span class='text-danger'>*</span>!"
+        }
+      },
+      "STANDARD_CHARGES": {
+        "TITLE": "Standard EasyVisa Charges for Legal Representatives",
+        "FOLLOWING_CHARGES": "By clicking the ‘I Agree’ button below, you are agreeing to the following charges:",
+        "SIGN_UP_FEE": "Sign Up Fee",
+        "SIGN_UP_FEE_DESCRIPTION": "- A one-time, account set up fee (which will be charged on the next page)",
+        "SUBTITLE": "Below, are the Recurring Charges:",
+        "PER_APPLICANT_FEE": "Per Applicant<span class='text-danger'>*</span> Fee",
+        "PER_APPLICANT_FEE_DESCRIPTION": "- This is a one time charge when a legal representative (Attorney/Accredited Representative) converts a package from ‘Lead’ status to ‘Open’ status (in Task Queue > Clients tab) which allows the representative’s clients to begin using EasyVisa.",
+        "MAINTENANCE_FEE": "Maintenance Fee",
+        "MAINTENANCE_FEE_DESCRIPTION": "- This is a monthly fee charged to each legal representative on the 1st day of each calendar month (for the entire caseload). This fee will be prorated for the first month after sign-up.",
+        "CLOUD_STORAGE_FEE": "Cloud Storage Fee",
+        "CLOUD_STORAGE_FEE_DESCRIPTION": "- There is no charge for cloud storage fees<span class='text-danger'>**</span>. EasyVisa defines a package as the minimum group of applicants (a Beneficiary and any Derivative Beneficiaries related to that SAME Beneficiary) that must appear within a single application that is submitted to the U.S. government. A package contains all of the applicant’s answers from the Questionnaire section as well as all of the documents that the applicants in the package may have uploaded into the Document Portal.",
+        "FREE": "FREE!",
+        "FOOTNOTE_1": "An applicant is defined as a Beneficiary or Derivative Beneficiary in an immigration package. There is no charge for Petitioners, except in the case of an application for citizenship where the Petitioner is also the Beneficiary. The per applicant fee ranges between {{minApplicantFee}} to {{maxApplicantFee}} depending upon the Immigration Benefit Category selected.",
+        "FOOTNOTE_2": "There are no cloud storage fees while your membership is active. However, if you cancel your membership on EasyVisa and then later re-activate it, there is a one-time reactivation fee which covers the cost of setting up your account again, as well as the cost of storing your cases while your account was inactive",
+        "ADD_REFERRAL_TITLE": "Enter Promo Code and then click ‘Apply’:",
+        "APPLY": "Apply",
+        "REFERRAL_ADDED": "Referral Added",
+        "REFERRAL_ADDED_SUCCESS": "Referral has been added successfully",
+        "CLICK_HERE": "Click here",
+        "FEES_FOR_EACH_CATEGORY": " to see the fees for each category.",
+        "PER_APPLICANT_CHARGES": {
+          "TITLE": "Per Applicant Charges By Immigration Benefit Category",
+          "ABBREVIATION": "Abbreviation",
+          "CATEGORY": "Category",
+          "DESCRIPTION": "Description",
+          "COST": "Cost"
+        }
+      },
+      "COMMON": {
+        "FOOTNOTE_EMAIL": "This email is for sign up purposes only and is mandatory. In your Profile, you can (it is optional) designate a different (work-type) email, which is displayed publicly (within search results).",
+        "FOOTNOTE_EMAIL_BASIC_INFO_1": "This email is for sign up purposes only.",
+        "FOOTNOTE_EMAIL_BASIC_INFO_2": "In your Profile, you can also designate a separate (work-type) email, which is displayed publically (within search results)."
+      },
+      "TERMS_CONDITIONALS_MODAL": {
+        "TITLE": "Terms & Conditions",
+        "LEGAL_REPRESENTATIVE":{
+          "TITLE": "Legal Representatives",
+
+          "P1": "Limitations of the EasyVisa platform",
+          "P2": "We do not edit nor modify any of your clients’ specific data on their Questionnaire or within their Document Portal. EasyVisa may access some of your client(s) data (by your request) to assist troubleshooting the EasyVisa platform you and client problems for your client(s). Additionally, in the course of upgrades, maintenance, and troubleshooting the EasyVisa platform, EasyVisa may, at times, access your clients’ data however, EasyVisa will endeavor to never modify your clients’ data.",
+          "P3": "We do not support applicants who need to select ‘Other’ for the marital status question in the K-1 fiancée visa category.",
+          "P4": "Fees",
+
+          "P4_1": "Sign Up Fee - This is a ONE TIME fee only. Discounts may be given when referring colleagues to the EasyVisa platform. Discounts may also be given from time to time based on current marketing campaigns.",
+          "P4_2": "Maintenance Fee - This is a monthly fee charged to each legal representative, charged on the 1st day of each calendar month (this fee will be prorated for the first month after sign-up).",
+          "P4_3": "Per Applicant Fee - This is a one-time charge when a legal representative (Legal representative (Attorney/Accredited Representative)/Accredited Representative) converts a package from ‘Lead’ status to ‘Open’ status (in Task Queue > Clients tab) which allows the representative’s clients to begin using EasyVisa. No refunds will be given if a package is converted from Lead status to Open status (or if an applicant was added to an already Open package) as there is adequate warning of the consequences of clicking through the buttons after the user has seen the warnings. Any refunds granted to users are at the sole discretion of EasyVisa and will only be issued in the form of credits to be used to offset future EasyVisa charges.",
+          "P4_4": "Cloud Storage Fee - This is a per package monthly fee charged on the 1st day of each calendar month (this fee will be prorated for the first month after sign-up). EasyVisa defines a package as the minimum group of applicants (a Beneficiary and any Derivative Benficiaries related to that SAME Beneficiary) that must appear within a single application that is submitted to the U.S. government. This recurring fee is charged while the legal representative’s account is active on the EasyVisa platform.",
+          "P4_5": "Re-activation Fee - As mentioned when you cancelled your membership, you will charged a reactivation fee which covers the cost of setting up your account again, as well as the cloud storage fees for all of your client cases while your account was inactive.",
+          "P4_6": "Changes in Fees – User agrees that pricing/charges are subject to change at any time. All paid users on the site will be notified of any changes to pricing/charges via an alert in their Alerts tab.",
+          "P4_7": "You agree to pay charges incurred by anyone in your practice or organization who has accessed the EasyVisa platform, either because you gave them your login information, you set up an account for them (trainee, employee, etc.), or for any other reason. It is the user’s responsibility to complete registration after paying the initial sign-up fee, so that they can log in to the system and check for Alerts for any changes to the Terms and Conditions of the website.",
+
+          "P5": "Statement of Representative Type – By joining this platform as a legal representative, you are stating that you are legally authorized to represent clients seeking immigration assistance under one of the two following categories.",
+          "P5_1": "You are an Legal representative (Attorney/Accredited Representative), and therefore you have a currently active (non-revoked) law license in a United States jurisdiction that allows you to represent clients in federal cases of immigration",
+          "P5_2": "You are an accredited representative who has been approved by the United States Department of Justice and currently work under a Recognized Organization also approved by the Department of Justice.",
+
+          "P6": "Reviews – EasyVisa does not write, edit, nor approve reviews written by your clients and is not involved in the review process, whatsoever. However, if there is a misunderstanding about the quality of your service, you may contact your client and ask that they edit your review. However, EasyVisa does not force your clients to edit a negative review, as we are not involved in the review process.",
+          "P7": "Credits towards future charges (For article bonuses and colleague referrals) – These ‘monies’ are actually in the form of credits to offset future charges on the EasyVisa platform and have NO cash value. If a representative on EasyVisa stops using the platform, then they are NOT entitled to receive the dollar value refund of any unused credits linked to their account.",
+          "P8": "If an legal representative (Attorney/Accredited Representative) is a member of a law firm, then each legal representative (Attorney/Accredited Representative) in the firm must register on the EasyVisa website so that everyone comes up properly in the search results and your profile does not get blocked due to duplication issues. Furthermore, if a member of a firm quits, gets terminated or dies, then the firm needs to be able to remove that firm link from that member’s profile and only an Admin can do that.",
+          "P9": "Articles – If an article is approved, then it may, or may not, be posted on the EasyVisa website. If it is posted on the EasyVisa website, then there is no guarantee that it will always remain posted on the EasyVisa website. Any credits you may have received for your initial posting will not be changed nor rescinded.",
+          "P10": "Legal representative (Attorney/Accredited Representative)s and Accredited Representatives are NOT allowed to share a profile, even if they are members of the same law firm or recognized organization. Each person using the site must have their own, separate, profile including legal representatives and employees or organizations.",
+          "P11": "Previous EasyVisa Clients - If a legal representative is importing information into a package about an adult family member (18 years or older) applicant who has previously used EasyVisa, it is the legal representative’s responsibility to get consent from that adult family member prior to importing that data. It is highly recommended that the legal representative require that adult applicant (who had previously been an applicant in another package on EasyVisa) register on EasyVisa separately (if they had not already done so with their previous package) even if they will not be logging into the Questionnaire to answer questions nor uploading documents into the Document portal. If the data for an adult applicant, who had previously been an applicant in previous package on EasyVisa, will be imported into a new package and that adult applicant had also previously registered with EasyVisa, it is highly recommended that the legal representative get written consent to import that adult’s data into the new package.",
+          "P12": "EasyVisa is not responsible for ownership of packages (cases). For the convenience of the legal representatives on the EasyVisa platform, EasyVisa allows for the transfer of packages and re-assignment of ownership of packages for the convenience of legal representatives who are changing organizations, joining an organization (law practice or Recognized Organization), quitting their practice, selling their practice, if the legal representative has passed away and the ownership of those cases needs to be transferred, or for any number of other reasons. In the event that a legal representatives departs an organization that they were associated with, and that legal representative takes cases with him/her that do not belong to the departing legal representative, that is a business/legal issue between the organization and the departing legal representative and EasyVisa is not to be held liable for any such transfers. EasyVisa is also not liable if a legal representative transfers cases away from himself/herself while still being associated with an organization.",
+
+          "P13": "Features and functionality that may be referenced or mentioned in EasyVisa, but are not implemented include, but are not limited to:",
+
+          "P13_1": "Immigration Benefit Categories - EasyVisa only covers certain immigration processes (as we term them Immigration Benefit categories) that are limited only to the most common types of family immigration.",
+
+          "P13_1_1": "There is no <strong>Naturalization</strong> Immigration Benefit category in the first release of the EasyVisa platform, although there are references to that process in the website. We hope to add the process shortly after launch.",
+          "P13_1_2": "There is no <strong>Medical Certification for Disability Exception</strong> Immigration Benefit category in the first release of the EasyVisa platform, although there are references to that process in the website. We hope to add the process shortly after launch.",
+
+          "P13_1_3": "We do not support the following orphan adoption Immigration Benefit categories",
+          "P13_1_3_1": "IR-3 (IR-3 Orphan Adopted Abroad by a Citizen)",
+          "P13_1_3_2": "IR-4 (Orphan to be Adopted in U.S. by a Citizen)",
+
+
+          "P13_2": "Income and Assets - For the vast majority of family immigrant applications the income and assets of the Petitioner is sufficient to support the incoming immigrants according to USCIS and Federal Poverty Guidelines. Currently, EasyVisa does not support the use of additional income nor assets derived from utilizing household members nor Joint Sponsors (both of which would require additional 864s to be submitted for each additional person). We hope to support this feature in an upcoming version release of the EasyVisa platform. We recommend that if your Petitioner (client) needs income or assets of either household members or Joint Sponsors that you charge them for each form, as you will have to do these manually (as you currently do). You can also charge them these fees (although they cannot fill out those applications) within the EasyVisa platform in the Miscellaneous Fees sections in Task Queue > Create/Edit Package > Additional Legal Fees/Costs or Governmental Fees (Panel).",
+          "P13_2_1": "Currently, EasyVisa does not also support the I-944 form.",
+          "P13_2_2": "We do not currently support 864 forms for immigration situations where the primary Sponsor died and the immigrating family members require a substitute sponsor to submit the application or where the current sponsor was not the original sponsor in an earlier immigration step.",
+          "P13_2_3": "Joint Sponsors are not currently supported (neither income nor assets).",
+          "P13_2_4": "EasyVisa does not currently support utilizing income from the intending immigrants cannot be used on the EasyVisa platform",
+
+          "P13_3": "EasyVisa does not support any forms or processes whereby derivative beneficiaries intend to immigrate more than six (6) months after the arrival of the principal beneficiary.",
+          "P13_4": "EasyVisa does not support filling/population of the form G-28.",
+          "P13_5": "We do not offer services for immigrants applying for adjustment based on the Immigration and Nationality Act (INA) section 245(i).",
+
+          "P14": "Data Integrity - No website is 100% bug-free. We always recommend as a safety measure, that all users make manual backups of all data uploaded into the EasyVisa platform. EasyVisa is not responsible for any loss of data including breaches, theft, database errors, accidental deletion of files or data by either users or EasyVisa, etc.",
+
+          "P15": "Site Security",
+          "P15_1": "EasyVisa employs many security features on its servers including, SSL, firewall, etc. Although EasyVisa follows best practices implementing these and other security features on the website, it is expressly understood that there is no guarantee that any website or server will never be hacked, broken into, or have its data compromised.",
+          "P15_2": "EasyVisa stores all client data on its servers so that legal representatives (Legal representative (Attorney/Accredited Representative)/Accredited Representative) who subscribe to our service (and their clients who use the service) can easily edit and retrieve their data at any time. However, because no website is impervious to attack and hacking, it is always recommended that legal representatives make backup copies of all forms and documentation that is uploaded to the EasyVisa servers by either them or their clients.",
+
+          "P16": "Accuracy of Data",
+          "P16_1": "While EasyVisa does best efforts to ensure that all data that gets printed on the correct forms, in the correct places, with the same data from the questions that were asked in the Questionnaire, EasyVisa does not guarantee the accuracy of this data due to potential server issues, storage device errors, programming issues, computer errors, formatting issues, etc. United States immigration is an extremely specific, detail-oriented, lengthy process and it is the responsibility of both the applicant(s) and their legal representative(s) to carefully review all forms completely to ensure their accuracy and truthfulness before any forms are submitted to the U.S. government.",
+
+          "P17": "Questions within the Questionnaire",
+          "P17_1": "Legal representatives (Legal representative (Attorney/Accredited Representative)/Accredited Representative) and users both recognize that the general format, intent, and meaning of all questions in the EasyVisa platform are substantially similar to the USCIS forms, so that a layperson would answer questions on either the EasyVisa platform or the USCIS forms in the exact same manner. However, many of the questions in the EasyVisa platform have been clarified, modified, changed, simplified, or combined partially or fully with other similar questions from multiple USCIS forms. It is the responsibility of the legal representative (Legal representative (Attorney/Accredited Representative)/Accredited Representative) to review all questions in the EasyVisa questionnaire prior to permitting his/her clients to use the EasyVisa platform, so that he/she is comfortable with verbiage and legal interpretation of all questions. Further, it is the responsibility of the legal representative (Legal representative (Attorney/Accredited Representative)/Accredited Representative) to review the final USCIS forms and all questions with each client that uses the EasyVisa platform to ensure the all USCIS questions have been understood and answered properly and truthfully.",
+
+          "P18": "Form Versions – Dashboard > USCIS Edition Dates",
+          "P18_1": "While EasyVisa does every effort to ensure that the most recent version of each form is used on the website, due to changes and modifications in governmental forms, we do not guarantee that the forms generated on EasyVisa are the most accurate and up to date the match the latest forms issued by the government.",
+          "P18_2": "EasyVisa does not guarantee that older versions of USCIS forms will be available to be used in new packages if a newer version of the USICS form has already implemented into the EasyVisa website, even if older versions of those USCIS are still permitted to be submitted to the USCIS with an application (package).",
+
+
+          "P19": "Legal representatives (Legal representative (Attorney/Accredited Representative)/Accredited Representative) agree that upon receipt of final successful documentation (visa, green card, naturalization certificate) for their clients’ immigration, that they will have their client IMMEDIATELY scan and upload those documents to the EasyVisa server so that EasyVisa can accurately track for the legal representative (Legal representative (Attorney/Accredited Representative)/Accredited Representative) how quickly each step of the process takes and ensures that the free analytics that we provide to legal representatives are accurate. When clients upload those documents, it is also extremely helpful to legal representatives for future reference.",
+
+          "P20": "Representatives MUST have a valid credit card on file with EasyVisa (Visa, MasterCard, AMEX, Discover) that can be used by EasyVisa to charge fees, including, but not limited to:",
+          "P20_1": "Sign Up Fee",
+          "P20_2": "Monthly Maintenance Fee",
+          "P20_3": "Applicant Fee (Per Client per Process)",
+          "P20_4": "Cloud Storage Fees",
+          "P20_5": "Re-activation Fee",
+
+          "P21": "Users’ Data",
+          "P21_1": "Users agree that for the purposes of tech support, EasyVisa may, from time to time, and specifically when users call EasyVisa with questions or problems with their account or with their questionnaire or portal, access users’ data entered into EasyVisa website.",
+
+          "P22": "Logs – Certain logs are internally maintained by EasyVisa that track changes made by users. If there is a provable case against any Legal Representative that the Representative is using the platform through fraudulent means or with fraudulent intent then that Representative (and any associated Representatives, employees, partners, etc.) will be locked out of the platform. Additionally, all of the Representative’s current and former clients will also be locked out of the EasyVisa platform until such time that the matter is resolved with EasyVisa."
+        },
+        "CLIENTS":{
+          "TITLE": "Clients",
+
+          "P1": "Transferring a Package of Applicants",
+          "P1_1": "It is the responsibility of the client to initiate the transfer process between legal representatives.",
+          "P1_2": "Packages can only be transferred among legal representatives who are active members of the EasyVisa platform",
+          "P1_3": "Both the transferor and transferee legal representatives must consent to the transfer of the package of applicants.",
+          "P1_4": "EasyVisa is not responsible for the legal sufficiency of any consent given by the client to transfer any packages between legal representatives on the EasyVisa platform.",
+
+          "P2": "Privacy of Applicant Data",
+          "P2_1": "By using this site, you agree that yourself, certain family members, or soon to be family members may add, view, edit, and delete your personal, questionnaire, and document portal information within a package of applicants that is created or edited on the EasyVisa platform.",
+          "P2_2": "Additionally, you agree that your data may be also be used (add, view, edit, and delete) in future EasyVisa packages with other family members or potential family members and you are hereby granting consent to such usage.",
+          "P2_3": "If a registered user has entered any data for another person (third party, e.g: family member or potential family member), if that third party requests that the third party’s data (record) be deleted, it is the obligation of the registered user who entered the data into EasyVisa to delete that third party’s data record.",
+          "P2_4": "It is understood that multiple applicants within a package may all be registered on EasyVisa. Registrants agree that any of the registered users within a package have been given permission to not only add, edit, or delete data from other applicants in the package (whether registered or not), but registered applicants within the package also have permission to delete the entire data record of any non-registered applicants within the package.",
+          "P2_5": "Any applicant has the ability to delete all of their applicant data at any time by clicking the ‘Delete My Record’ button within <strong>My Account > Profile</strong>",
+
+
+          "P3": "Fees – EasyVisa does not charge any fees to users seeking immigration help. However, fees may be charged to you by your legal representative who is a member of the EasyVisa platform for representing you in your immigration process.",
+          "P4": "Data Integrity - No website is 100% bug-free. We always recommend that as a safety measure, that all users make manual backups of all data uploaded into the EasyVisa platform. EasyVisa is not responsible for any loss of data including breaches, theft, database errors, accidental deletion of files or data by either users or EasyVisa, etc.",
+
+          "P5": "Site Security",
+          "P5_1": "EasyVisa employs many security features on its servers including, SSL, firewall, etc. Although EasyVisa follows best practices implementing these and other security features on the website, it is expressly understood that there is no guarantee that any website or server will never be hacked, broken into, or have its data compromised.",
+          "P5_2": "EasyVisa stores all client data on its servers so that legal representative (Attorney/Accredited Representative)s who subscribe to our service and their clients who use the service can easily edit and retrieve their data at any time. However, because no website is impervious to attack and hacking, it is always recommended that legal representative (Attorney/Accredited Representative) and their clients make backup copies of all forms and documentation that is uploaded to the EasyVisa servers by either them or their clients.",
+
+          "P6": "Accuracy of Data",
+          "P6_1": "While EasyVisa does best efforts to ensure that all data that gets printed on the correct forms, in the correct places, with the same data from the questions that were asked in the Questionnaire, EasyVisa does not guarantee the accuracy of this data due to potential server issues, storage device errors, programming issues, computer errors, formatting issues, etc. United States immigration is an extremely specific, detail-oriented, lengthy process and it is the responsibility of both the applicant(s) and their legal representative(s) to carefully review all forms completely to ensure their accuracy and truthfulness before any forms are submitted to the U.S. government.",
+
+          "P7": "Questions within the Questionnaire",
+          "P7_1": "Legal representative (Attorney/Accredited Representative)s and users both recognize that the general format, intent, and meaning of all questions in the EasyVisa platform are substantially similar to the USCIS forms, so that a layperson would answer questions on either the EasyVisa platform or the USCIS forms in the exact same manner. However, many of the questions in the EasyVisa platform have been clarified, modified, changed, simplified, or combined partially or fully with other similar questions from multiple USCIS forms. It is the responsibility of the legal representative (Attorney/Accredited Representative) or immigration representative to review all questions in the EasyVisa questionnaire prior to permitting his/her clients to use the EasyVisa platform, so that he/she is comfortable with verbiage and legal interpretation of all questions. Further, it is the responsibility of the legal representative (Attorney/Accredited Representative) or immigration representative to review the final USCIS forms and all questions with each client that uses the EasyVisa platform to ensure the all USCIS questions have been understood and answered properly and truthfully.",
+
+          "P8": "Form Versions – Dashboard > USCIS Edition Dates",
+          "P8_1": "While EasyVisa does every effort to ensure that the most recent version of each form is used on the website, due to changes and modifications in governmental forms, we do not guarantee that the forms generated on EasyVisa are the most accurate and up to date the match the latest forms issued by the government.",
+          "P8_2": "EasyVisa does not guarantee that older versions of USCIS will be available to be used in new packages if a newer version of the USICS form has already implemented into the EasyVisa website, even if older versions of those USCIS are still permitted to be submitted to the USCIS with an application (package).",
+          "P8_3": "Every member of the EasyVisa platform should be committed to helping ensure that all data on the site is relevant and up to date. If any user on the site finds that some reference or form or data is expired or out-of-date, EasyVisa would really love to hear from you so that we can all work together to keep the site up-to-date."
+        },
+        "LEGAL_REPRESENTATIVE_AND_CLIENTS":{
+          "TITLE": "Legal Representatives and Clients",
+          "P1": "Languages and Translations – EasyVisa does not guarantee the accuracy of the translation of questions in the Questionnaire. It is up to the legal representative to ensure that their clients understood the meaning of the questions in English whose responses are populated into the USCIS forms after questions have been answered.",
+          "P2": "Find an Attorney Search Results – EasyVisa uses custom and proprietary algorithms to determine the ranking of legal representatives’ profiles, and therefore appearance, of search results in the Find an Attorney tab. Therefore EasyVisa does not guarantee any specific ranking or placement. Additionally, from time-to-time EasyVisa may display legal representatives in premiere placement panels (based on criteria that may vary over time) in the search results within Find an Attorney. No guarantees are made to legal representatives regarding potential placement within those panels.",
+          "P3": "Alerts & Warnings – the EasyVisa platform does not guarantee the receipt of Alerts and Warnings either to users’ email address nor the Alert and Warning tabs in the EasyVisa website interface.",
+          "P4": "The required documents for immigrant visa interviews can and will change over time based on changing requirements from DHS, USCIS, and other governmental agencies and therefore EasyVisa does not guarantee that those lists in the platform are complete and comprehensive.",
+          "P5": "Unique User ID - When EACH person signs up, they are assigned a permanent unique ID which will never change. This ID should be identical within all applications/immigration processes that are done on EasyVisa for each user. Your User ID should not be shared with other people, even within a family applying together on a single application. If a member of a package wants to add/delete/edit information in a package that they are a member, then they must get and use their own User ID and login separately.",
+          "P6": "Customer Support – EasyVisa does not give any legal advice regarding immigration. Users should contact their legal representative for immigration legal advice."
+        }
+      }
+    }
+  }
+}

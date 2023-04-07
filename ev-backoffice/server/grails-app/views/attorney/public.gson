@@ -1,0 +1,56 @@
+import com.easyvisa.LegalRepresentative
+import com.easyvisa.dto.AttorneySearchResponseDto
+import groovy.transform.Field
+
+@Field AttorneySearchResponseDto result
+
+json {
+    LegalRepresentative legalRepresentative = result.legalRepresentative
+    firstName legalRepresentative.profile?.firstName
+    lastName legalRepresentative.profile?.lastName
+    middleName legalRepresentative.profile?.middleName
+    profilePhoto legalRepresentative.profile.profilePhotoUrl
+    officeEmail legalRepresentative.profile.email
+    officeAddress legalRepresentative.officeAddress ?
+            g.render(template:'/publicAddress', model:[address:legalRepresentative.officeAddress]) : null
+    attorneyType legalRepresentative.attorneyType
+    representativeType legalRepresentative.representativeType
+    representativeTypeName legalRepresentative.representativeType?.displayName
+    organizationName result.lawFirmName
+    id legalRepresentative.id
+    numberOfReviews result.legalRepresentative.publicNoOfReviews
+    averageReviewRating result.legalRepresentative.publicAvgReviewRating
+    numberOfApprovedArticles result.legalRepresentative.publicNoOfApprovedArticles
+    maxYearsLicensed result.legalRepresentative.publicMaxYearsLicensed
+    faxNumber legalRepresentative.faxNumber
+    officePhone legalRepresentative.officePhone
+    mobilePhone legalRepresentative.mobilePhone
+    websiteUrl legalRepresentative.websiteUrl
+    facebookUrl legalRepresentative.facebookUrl
+    linkedinUrl legalRepresentative.linkedinUrl
+    twitterUrl legalRepresentative.twitterUrl
+    youtubeUrl legalRepresentative.youtubeUrl
+    licensedRegions legalRepresentative.licensedRegions.collect {
+        [dateLicensed:it.dateLicensed.format('MM-dd-yyyy'), state:it.state, barNumber:it.barNumber, id:it.id]
+    }
+    summary legalRepresentative.profileSummary
+    awards legalRepresentative.awards
+    experience legalRepresentative.experience
+    workingHours legalRepresentative.workingHours?.collect {
+        [dayOfWeek: it.dayOfWeek,
+         id       : it.id,
+         start    : [hour: it.startHour, minutes: it.startMinutes],
+         end      : [hour: it.endHour, minutes: it.endMinutes]]
+    }
+    languages legalRepresentative.spokenLanguages*.displayName
+    stateBarNumber legalRepresentative.stateBarNumber
+    uscisOnlineAccountNo legalRepresentative.uscisOnlineAccountNo
+    practiceAreas legalRepresentative.practiceAreas*.displayName
+    education legalRepresentative.degrees?.sort { it.year }.collect {
+        [school: it.school,
+         degree: it.degree?.displayName,
+         year  : it.year,
+         honors: it.honors,
+         id    : it.id]
+    }
+}

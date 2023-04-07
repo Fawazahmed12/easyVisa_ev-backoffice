@@ -1,0 +1,16 @@
+import com.easyvisa.Applicant
+
+inherits template: '/user/profile', model: [profile: applicant.profile]
+
+//noinspection UnusedVariable
+model {
+    Applicant applicant
+}
+json {
+    dateOfBirth applicant.dateOfBirth?.format('MM-dd-yyyy')
+    homeAddress applicant.home ? g.render(template: '/address', model: [address: applicant.home]) : null
+    mobileNumber applicant.mobileNumber
+    homeNumber applicant.homeNumber
+    workNumber applicant.workNumber
+    id applicant.id
+}

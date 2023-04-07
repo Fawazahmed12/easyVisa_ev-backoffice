@@ -1,0 +1,92 @@
+<div
+  class="d-flex flex-column align-items-stretch"
+>
+  <div>
+    <div class="d-flex flex-column flex-md-row justify-content-end mb-2">
+      <app-select-affiliation
+        class="col-md-6 mb-2 mb-md-0"
+        [formControl]="organizationIdFormControl"
+        [toolTipTemplate]="tipContent"
+      >
+      </app-select-affiliation>
+    </div>
+    <div class="articles-spinner-height">
+      <app-spinner
+        *ngIf="(getArticlesGetRequest$ | async).loading || !(getArticlesGetRequest$ | async).loaded"></app-spinner>
+      <div *ngIf="!(getArticlesGetRequest$ | async).loading && (getArticlesGetRequest$ | async).loaded"
+      >
+        <app-table
+          noDataText="TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_BONUSES_MODAL.NO_ARTICLES"
+          [header]="headers"
+          [tableData]="(articlesTableData$ | async)"
+          [tableSortCol]="sortFormControl.value"
+          [tableSortOrder]="orderFormControl.value"
+          [selectionStickyTable]="true"
+          [smallCells]="true"
+          (sortParams)="sortBy($event)"
+          (rowClick)="setActiveArticle($event)"
+          [noDataCustomShowing]="true"
+          class="small"
+        ></app-table>
+        <div class="bg-white border border-gray-ccc p-2 pt-0 flex-grow-1 mb-3 article-preview-section-height">
+          <div *ngIf="(activeArticle$ | async); else noArticleSelected">
+            <div class="row mb-2 align-content-end pt-2">
+              <h5
+                class="col-md-4 text-center offset-md-4 font-weight-bolder mb-0">{{(activeArticle$ | async)?.title}}</h5>
+              <div
+                *ngIf="!!(activeArticle$ | async)?.dateDispositioned"
+                class="col-md-4 text-center font-weight-bolder"
+              >
+                {{'TEMPLATE.DASHBOARD.ARTICLES.DATE_POSTED' | translate}}{{(activeArticle$ | async)?.dateDispositioned | date:'MM/dd/yyyy h:mm aaa'}}
+              </div>
+            </div>
+            <div
+              [innerHTML]="(activeArticle$ | async)?.content | safeHtml"
+            >
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-row">
+          <app-pagination
+            [collectionSize]="totalArticles$ | async"
+            [pageSize]="maxFormControl.value"
+            [page]="page"
+            [noOffset]="true"
+            (pageChange)="pageChange($event)"
+            class="offset-4 col-4 px-0 pagination-bg-none"
+          ></app-pagination>
+          <div *appHideByPosition="[EmployeePosition.TRAINEE, EmployeePosition.EMPLOYEE]"
+               class="d-flex align-items-center justify-content-end col-4 px-0"
+          >
+            <button
+              [disabled]="isSubmitDisabled(currentUser$ | async)"
+              (click) = "onSubmit()"
+              class="btn btn-primary px-4"
+            >{{submitBtnLabel$ | async | translate}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <ng-template #noArticleSelected>
+    <div class="text-gray text-center font-italic">
+      {{'TEMPLATE.DASHBOARD.ARTICLES.ARTICLE_BONUSES_MODAL.NO_ARTICLE_SELECTED' | translate}}
+    </div>
+  </ng-template>
+
+  <ng-template #tipContent>
+    <div class="text-left">
+      <p
+        [innerHTML]="'TEMPLATE.DASHBOARD.ARTICLES.ATTORNEY_P_1' | translate"
+      >
+      </p>
+      <p
+        [innerHTML]="'TEMPLATE.DASHBOARD.ARTICLES.ATTORNEY_P_2' | translate"
+      >
+      </p>
+      <p [innerHTML]="'TEMPLATE.DASHBOARD.ARTICLES.ATTORNEY_P_3' | translate"></p>
+    </div>
+  </ng-template>

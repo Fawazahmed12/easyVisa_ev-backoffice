@@ -1,0 +1,565 @@
+{
+  "TEMPLATE": {
+    "TASK_QUEUE": {
+      "NAV": {
+        "DISPOSITIONS": "Dispositions",
+        "ALERTS": "Alerts",
+        "WARNINGS": "Warnings",
+        "CLIENTS": "Clients",
+        "CREATE_EDIT_PACKAGE": "Create/Edit Package",
+        "ADDITIONAL_FEES": "Additional Fees"
+      },
+      "PACKAGE_TIPS": {
+        "PETITIONER": {
+          "P_1": "If the Applicant Type descriptor says “Petitioner”\nthen the applicant is sponsoring at least 1 other\nperson in the package.",
+          "P_2": "If the Applicant Type descriptor says\n“Self-Petitioning”, then there is only ONE person in\nthe package because the applicant is\nself-petitioning for an Immigration Benefit category."
+        },
+        "PRINCIPAL_BENEFICIARY": {
+          "P_1": "There can be only ONE Primary Beneficiary in a\npackage (e.g. One spouse/brother/sister of the\nPetitioner).",
+          "P_2": "i.e. So, if someone is petitioning to bring 3 brothers\nto the United States, then you would need create 3\nseparate packages, using the same Petitioner in\neach package."
+        },
+        "DERIVATIVE_BENEFICIARY": {
+          "P_1": "Unlike the Primary Beneficiary panel, where there\ncan be only ONE person in the package of that\napplicant type, there can be multiple Derivative\nBeneficiaries in the same package, although they\nmust all be in the same Immigration Benefit\ncategory. (e.g. multiple K2 children within the\nsame package)."
+        },
+        "SELF_PACKAGE": {
+          "P_1": "If the Applicant Type descriptor says “Petitioner”\nthen the applicant is sponsoring at least 1 other\nperson in the package.",
+          "P_2": "If the Applicant Type descriptor says “Self-Petitioning”, then there is only ONE person in the package because the applicant is self-petitioning for an Immigration Benefit category"
+        }
+      },
+      "PACKAGE": {
+        "CLOSED_PACKAGE_SELECTED": {
+          "CLOSED_PACKAGE_SELECTED_TIPS_1": "You cannot edit a Closed Package.",
+          "CLOSED_PACKAGE_SELECTED_TIPS_2": "Please re-open this Package in the Clients tab first.",
+          "GO_TO_CLIENTS_TAB": "Go to Clients tab",
+          "RESET_SELECTION": "Reset Selected Package"
+        },
+        "PACKAGE_CHANGES_DETECTED": {
+          "HEADER": "Warning",
+          "WARNING": "You have unsaved changes that will be lost if you leave this page."
+        },
+        "PETITIONER_STATUS_CHANGE_WARNING_MODAL": {
+          "TITLE": "Potential Conflicting Immigration Benefit Categories Between Applicants",
+          "P_1": "You have changed the Petitioner’s (legal) Status, which can cause conflicts with either the selected Immigration Benefit category or it can change the eligibility of the Beneficiary or Derivative Beneficiaries.",
+          "P_2": "You should check all the applicant (Beneficiary/Derivative Beneficiary) panels in this package to make sure that the Immigration Benefit categories for all applicants are consistent with your Petitioner’s (legal) Status modification, as well as confirming eligibility."
+        },
+        "PETITIONER_STATUS_NOT_SELECTED_MODAL": {
+          "TITLE": "Petitioner Status Not Selected",
+          "P_1": "You must select the Petitioner Status in Step 3c before you can select the Immigration Benefit category."
+        },
+        "PETITIONER_BENEFIT_CATEGORY": {
+          "TITLE": "Petitioner Benefit Category",
+          "LABEL_1": "Petitioner has NO Benefit Category - (Petitioner is sponsoring one (or more) Beneficiaries/Derivative Beneficiaries)",
+          "LABEL_2": "Green Card Holder to U.S. Citizen - (ONLY Petitioner in USCIS Package) - This option is coming soon!"
+        },
+        "IMMIGRATION_BENEFIT_CATEGORY": {
+          "TITLE": "Immigration Benefit Category",
+          "P_1": "Package Contains: Petitioner + Principle Beneficiary <br>(with any Derivative(s))",
+          "P_2": "Package Contains: Petitioner + Beneficiary <br><span class='text-danger'>Derivative Beneficiaries NOT Allowed</span>"
+        },
+        "SELECT_PACKAGE": "Select package",
+        "ADDITIONAL_APPLICANT": {
+          "TITLE": "Additional Applicant Fees",
+          "P_1": "By adding applicants to the package, you agree to be charged applicant fee for each applicant (that was just added to this package)\nwhen you click the ‘Save Changes & Create Updated Package email’ button\nin Step 5 (Disposition Package)."
+        },
+        "DELETE_DERIVATIVE_APPLICANT_MODAL": {
+          "TITLE": "USCIS Client Package - Delete Derivative Beneficiary Applicant",
+          "P_1": "If you click Delete, then this Derivative Beneficiary applicant will be permanently deleted from THIS USCIS package and will not be saved in the database.",
+          "P_2": "If you click Delete, then this Derivative Beneficiary applicant will be permanently deleted from THIS USCIS package and will not be saved in the database. However, any previously saved data for this applicant will remain unchanged in the database.",
+          "P_3": "Click ‘Delete’ below if you wish to delete the Derivative Beneficiary information. Click ‘Cancel’ if you wish to return to the Create/Edit Package to continue."
+        },
+        "DELETE_APPLICANT_MODAL": {
+          "TITLE": "USCIS Client Package - Delete Beneficiary Applicant",
+          "P_1": "This Beneficiary (<span class='text-danger'>and ALL their Derivative Beneficiary applicants, if any</span>) will be permanently deleted from THIS USCIS package and will not be saved in the database.",
+          "P_2": "This Beneficiary (and ALL Derivative Beneficiaries, if any) will be deleted from <span class='font-weight-bold'>THIS</span> USCIS package, however, any previously saved data for this applicant will remain unchanged in the database.",
+          "P_3": "Click ‘Delete’ below if you wish to delete the Beneficiary information. Click ‘Cancel’ if you wish to return to the Create/Edit Package to continue."
+        },
+        "DISPOSITION_PACKAGE": {
+          "TITLE": "Disposition Package",
+          "DELETE_PACKAGE": "Delete Package",
+          "CREATE_NEW_WELCOME_EMAIL": "Create New Client(s) Welcome email",
+          "CANCEL_MODIFICATION": "Cancel Modifications & Exit Package",
+          "RE_SEND_WELCOME_EMAIL": "Re-send Welcome email",
+          "SAVE_CHANGES": "Save Changes & Create Updated Package email",
+          "P_1": "You will be charged an additional fee for each new applicant you have added to this package."
+        },
+        "DELETE_NEW_PACKAGE_MODAL": {
+          "TITLE": "Delete New Package",
+          "TEXT": "If you click the ‘Confirm’ button below, then this entire USCIS package will be deleted and all the Applicant(s’) information you entered into this USCIS package will not be saved to the database and <span class='font-weight-bold'>CANNOT</span> be retrieved."
+        },
+        "CANCEL_MODIFICATIONS_MODAL": {
+          "TITLE": "Cancel Modifications to an Existing Package",
+          "TEXT": "If you click the ‘Confirm’ button, then all the information you just modified in this existing USCIS applicant(s) package will <span class='font-weight-bold'>NOT</span> be saved and you will exit the package. If you want to continue editing this package, then you must reload it again (in Step 1)."
+        },
+        "BENEFIT_CATEGORY_CONFLICT_MODAL": {
+          "TITLE": "Immigration Benefit Category Conflicts Between Applicants",
+          "P_1": "One or more applicants in this package cannot be in the same package with some other\napplicants within the package. You must create packages so that the package contains\nthe smallest set of applicants who are also allowed to be in the same package.",
+          "P_2": "Below are some common Immigration Benefit Category Conflicts (and solutions):",
+          "P_3": "A package contains a Petitioner sponsoring multiple applicants who are all considered to\nbe <span class='font-weight-bold'>Principle Beneficiary</span> applicants (e.g. a Petitioner attempting to sponsor multiple\nbrothers in the same package). The solution is create separate packages with the\nPetitioner sponsoring each brother within each individual package.",
+          "P_4": "A package contains a Petitioner, a K-1 fiance visa applicant (as the Principle Beneficiary)\nand the children are listed as IR-2 Deriviative Beneficiaries. The solution would be to\nchange the Immigration Benefit category of the children to K-2s."
+        },
+        "MEMBERS_OF_BLOCKED_OR_OPEN": {
+          "TITLE": "Package Applicants are Members of a Blocked or Open Package",
+          "P_1": "One or more applicants in this package is/are already a member of another package that is currently in <span class='text-danger font-weight-bold'>Open</span> or <span class='text-danger font-weight-bold'>Blocked</span> status on the EasyVisa platform.",
+          "P_2": "<span class='font-weight-bold'>No</span> applicants can be added to a package if they are member of another package that is currently in <span class='text-danger font-weight-bold'>Blocked status</span>.",
+          "P_3": "We recommended that you check with your clients in this package to find out what other Open packages\nthat they are a member of and if the status of those other packages might cause a conflict with this\npackage.",
+          "P_4": "An example where this would be a problem would be a situation where an applicant is an IR-1 Principle\nBeneficiary (spouse) in this package and they are also in an Open IR-1 as a Principle Beneficiary\n(spouse) in another package.",
+          "P_5": "An example where this would NOT be a problem would be a situation where an applicant is in an Open\nK-1/K-2 fiancé package, but they were previously in the U.S. illegally, so their legal representative\nOpened another package with the 601 process, which would be fine, because this allows the applicant\nto continue working on the K-1/K-2 package while simultaneously working on the 601 package."
+        },
+        "PACKAGE_PAYMENT_FAILED": {
+          "TITLE": "Payment Failed",
+          "P_1": "There was a problem processing this transaction.",
+          "P_2": "Please verify that the name, card number, expiration date, billing addres, billing ZIP code, and\nCVV/CVC code are all correct in <span class='font-weight-bold'>My Account > Payment & Fee Schedule</span> tab. If the above\ninformation is correct, then contact the issuing bank.",
+          "P_3": "You can also try using another credit card.",
+          "P_4": "The package status will not be changed when you click the ‘OK’ button."
+        },
+        "INFORMATION_MISSING_MODAL": {
+          "TITLE": "Mandatory Information Missing",
+          "P_1": "The information in Steps 3a - 3c of the Petitioner panel and/or the information in Steps 3b - 3c of the Beneficiary panel and any Derivative Beneficiary panels MUST be completed prior to proceeding.",
+          "P_2": "Please complete any missing Steps."
+        },
+        "CONFIRM_NO_CONFLICT_MODAL": {
+          "TITLE": "Please Confirm Petitioner Status and Immigration Benefit Categories",
+          "P_1": "Please confirm that the Petitioner Status that you selected does not conflict with the eligibility of any subsequent Beneficiaries or Derivative Beneficiaries!",
+          "P_2": "Also, please confirm that the Immigration Benefit categories of the Beneficiary and any Derivative Beneficiaries are all within in the same Immigration Benefit category ‘group’.",
+          "P_3": "Click the ‘Go Back’ button below to check your work and make any necessary changes.",
+          "P_4": "If everything is OK, then click the <span class='font-italic'>‘Create New Client(s) Welcome email’</span> button below to proceed."
+        },
+        "SPONSOR": "Sponsor"
+      },
+      "TITLE": "Create New USCIS Package (Lead Status)",
+      "TITLE_EDIT": "Edit an Existing USCIS Package in {{packageStatus}} Status",
+      "ASSIGN": "Assign Package to an {{representativeType}}",
+      "SELECT": "Select {{representativeType}}",
+      "SELECT_PLACEHOLDER": "--Select Name--",
+      "SELECT_PACKAGE_TYPE": "Select Package Type",
+      "CREATE_NEW_PACKAGE": "Create New USCIS Package",
+      "EDIT_EXISTING_PACKAGE": "Edit an Existing USCIS Package in Lead/Open Status",
+      "ENTER_EV_ID": "Enter EasyVisa ID (or email address) of any Clients within an existing USCIS package",
+      "ENTER_EV_ID_ERROR": "Please check for a typing mistake in your EasyVisa ID or your email address.",
+      "ENTER_EV_ID_INCORRECT": "The email or EasyVisa ID format is incorrect",
+      "SEARCH_FOR_PACKAGES": "Search for Package(s)",
+      "PACKAGES_THAT_INCLUDE_LABEL": "Packages that include the above person in Step 2b:",
+      "APPLICANTS": "Applicant(s)",
+      "FROM": "From",
+      "SUBJECT": "Subject",
+      "DATE": "Date",
+      "APPLICANT": {
+        "CLIENT_TYPE": "Client Type",
+        "CLIENT_NEW_TO_EV": "Client New To EasyVisa",
+        "PREVIOUS_EV_CLIENT": "Previous EasyVisa Client",
+        "ENTER_EV_ID_OR_EMAIL": "Enter EasyVisa ID or email Address",
+        "IMPORT_CLIENT_DATA": "Import Client Data",
+        "INVITE_TO_JOIN_PACKAGE": "Invite to Join Package",
+        "LEGAL_STATUS": "Legal Status",
+        "US_CITIZEN": "U.S. Citizen Petitioning for One or More Applicants",
+        "US_CITIZEN_SHORT": "U.S. Citizen",
+        "US_NATIONAL": "Non-Citizen U.S. National (those born or with ties to the outlying U.S. possessions of American Samoa or Swains Island or meeting (INA) section 308)",
+        "US_NATIONAL_SHORT": "U.S. National",
+        "LPR": "LPR (Lawful Permanent Resident) Petitioning for One or More Applicants",
+        "LPR_SHORT": "LPR",
+        "ALIEN": "Alien or LPR (Lawful Permanent Resident) NOT Sponsoring Other Applicants",
+        "ALIEN_SHORT": "Alien",
+        "LPR_SHOT": "LPR",
+        "SELECT_LEGAL_STATUS": "Select Legal Status",
+        "A_NUMBER_OR_RECEIPT_NUMBER": "A-Number or Receipt Number",
+        "A_NUMBER_OR_RECEIPT_NUMBER_ERROR": "The A-Number or Receipt Number format is invalid",
+        "USCIS_ELIS_ACCOUNT_NUMBER": "USCIS ELIS Account Number (must contain 12 numbers)",
+        "USCIS_ELIS_ACCOUNT_NUMBER_ERROR": "USCIS ELIS Account Number format is invalid",
+        "BENEFIT_CATEGORY": "Benefit Category",
+        "BENEFIT_WARNING_NOT_GRANTED": "Applicant Has NOT Granted Permission to be Added to This Package",
+        "BENEFIT_WARNING_NOT_SELECT": "<span class='text-danger'>Please Select Benefit Category</span>",
+        "BENEFIT_WARNING_WRONG_SELECT": "<span class='text-danger'>Selected (Benefit) Category for this applicant is not compatible with either the Petitioner’s Legal Status or the Petitioner’s Benefit Category</span>",
+        "FIRST_SELECT_LEGAL_STATUS": "You must first select this applicant’s legal status above!",
+        "BENEFIT_WARNING_NOT_REGISTERED": "Applicant Has NOT Registered",
+        "BENEFIT_WARNING_IN_OPEN_BLOCKED": "Applicant is a Member of Another Package(s) that is/are Open/Blocked",
+        "APPLICANT_INFO": "Applicant Info",
+        "PETITIONER": "Petitioner",
+        "BENEFICIARY": "Principle Beneficiary",
+        "DERIVATIVE_BENEFICIARY": "Derivative Beneficiary",
+        "INVITE_APPLICANT": "Invite Applicant to Register/Login Separately\n(When a Lead is converted to Open status)",
+        "ADD_ANOTHER_APPLICANT": "Add Another Applicant",
+        "ADD_ANOTHER_APPLICANT_WARNING": "This package cannot have this applicant type based on another applicant’s Legal Status or Benefit Category",
+        "ADD_ANOTHER_DERIVATIVE_WARNING": "This package cannot have a Derivative Beneficiary based on the Principle Beneficiary’s Benefit Category",
+        "APPLICANT_LABEL": "<span class='text-danger'>Steps 3a-3d are MANDATORY in the blue (Petitioner) panel<br>Steps 3b-3c are MANDATORY in ALL Beneficiary panels</span>",
+        "IMPORTANT_LABEL": "IMPORTANT!!!",
+        "EMAIL_ADDRESS": "email Address",
+        "VERIFY_EMAIL": "Verify email",
+        "RESEND_WELCOME": "Resend Welcome",
+        "RESEND_WELCOME_EMAIL": "Resend Welcome email",
+        "SEND_WELCOME_EMAIL": "Send Welcome email",
+        "RESEND_INVITE_TO_REGISTER": "Resend Invitation to Register",
+        "EMAIL_SENT": "email Sent",
+        "PETITIONER_DOB_ERROR": "Petitioner's age should be between 18 and 120",
+        "BENEFICIARY_DOB_ERROR": "Applicant's age should be under 120",
+        "INVITE_RE_INVITE_TO_REGISTER": "Invite/Re-invite to Register",
+        "RESEND_INVITATION_TITLE": "(Re)send Invite to Register",
+        "RESEND_WELCOME_TITLE": "(Re)send Welcome email",
+        "PETITIONER_BENEFIT_CATEGORY": "(Benefit) Category"
+      },
+      "BILLING_INFO": "Billing Info",
+      "EV_ID": "EasyVisa ID",
+      "APPLICANT_TYPE": "Applicant Type",
+      "ID_GENERATED": "ID generated on package creation",
+      "NAME": "Name",
+      "FEES": "Fees",
+      "WAIVED": "Waived",
+      "RESET_FEES": "Reset Fees to Default Values",
+      "PREVIOUS_BALANCE_DUE": "Previous Balance Due",
+      "NEW_TOTAL": "New Total (Updated) Fees",
+      "TOTAL_FEES": "Total Fees",
+      "ACCESS_DENIED_MODAL": {
+        "TITLE": "Access Denied",
+        "DESCRIPTION_P_1": "It appears as though you are attempting to view or edit a list of USCIS package(s) that is/are associated with {{associatedWith}}.",
+        "DESCRIPTION_P_2": "To protect client privacy, EasyVisa does not allow a user to access/edit a package on which he/she {{orMemberOf}}is not the currently named legal representative for the package on the EasyVisa platform.",
+        "ASSOCIATED_WITH_SOLO": " another legal representative on EasyVisa",
+        "ASSOCIATED_WITH_MEMBER": "a legal representative on EasyVisa who is not a member of your {{organizationType}}",
+        "OR_MEMBER_OF": "(or a member of their {{organizationType}}) ",
+        "DESCRIPTION_COMMON_P_3": "If the email address you entered is correct, and the client wishes to transfer this case to you, then tell the client that they can transfer the case to you in their <span class='text-blue'>My Account > Representative.</span>"
+      },
+      "PETITIONER_STATUS_NOT_SELECTED_MODAL": {
+        "TITLE": "Petitioner Status Not Selected",
+        "DESCRIPTION_P_1": "You must select the Petitioner Status in Step 3b before you can select the Immigration Benefit category."
+      },
+      "PETITIONER_BENEFIT_CATEGORY_MODAL": {
+        "TITLE": "Petitioner Benefit Category",
+        "PETITIONER_TITLE": "(Immigration Benefit) Category",
+        "BENEFICIARY_TIPS": "Beneficiary (Only) - <span class='text-danger'> NO Petitioner Questions</span>",
+        "PETITIONER_TIPS_1": "Petitioner + Principle Beneficiary + any Derivative(s)",
+        "PETITIONER_TIPS_2": "Sponsoring Other People",
+        "RADIO_LABEL_1": "Petitioner has NO Benefit Category - (Petitioner is sponsoring one (or more) Beneficiaries/Derivative Beneficiaries)",
+        "RADIO_LABEL_2": "Green Card Holder to U.S. Citizen - (ONLY Petitioner in USCIS Package)",
+        "FREE": "FREE"
+      },
+      "EMAIL_IS_ASSOCIATED_WITH_TITLE": "Error: Employee Account Detected",
+      "VERIFY_WITH_CLIENT_MODAL": {
+        "TITLE": "New User Detected",
+        "P_1": "There is no EasyVisa user on our platform using this email address. If this applicant is the petitioner/primary applicant, they will be automatically invited to join when the package is created.",
+        "P_2": "Otherwise, select “Invite Applicant” and they will receive an email to register on the platform and fill out the questionnaire.",
+        "P_3": "If you believe this applicant is already on the EasyVisa platform, contact them to get the email they are using (or have previously used) on EasyVisa."
+      },
+      "GOOD_NEWS_MODAL": {
+        "TITLE": "Success: Existing Applicant Found",
+        "P_1": "Congratulations, the email that you entered matches an existing EasyVisa customer! This\nwill save both you and your client a LOT of time by automatically importing all of their\npreviously entered Questionnaire data into this new application that you are creating.",
+        "P_2": "However, to ensure that the correct data will be imported, please verify that the name\nbelow matches the email.",
+        "P_3": "If the name matches the email address, then click the ‘Import Client Data’ below.",
+        "P_4": "If your client had a name change since their previous EasyVisa applications, then just click\nthe ‘Import Client Data’ below. Then, after the package is Opened, either you or your client\ncan edit the name in the Questionnaire.",
+        "P_5": "If the name does not match the email address, then click the ‘Cancel’ button and re-enter\nthe email address.",
+        "FIRST_NAME": "First Name",
+        "LAST_NAME": "Last Name",
+        "EMAIL": "email"
+      },
+      "DIFFERENT_EMAIL_REQUIRED_MODAL": {
+        "P_1": "This email address is associated with an existing EasyVisa account for a legal representative or law firm employee. For security reasons, EasyVisa keeps these account types separate.",
+        "P_2": "Contact your client and ask them to give you an alternate email address so they can register on the platform as an applicant."
+      },
+      "EMAIL_FORMAT_INVALID_MODAL": {
+        "HEADER": "email Format is Invalid",
+        "TITLE": "Please verify that the email address meets all of the below conditions:",
+        "P_1": "email address MUST contain the ‘@’ symbol",
+        "P_2": "email address MUST contain a period ‘.’ symbol",
+        "P_3": "email address MUST contain at least one character before the ‘@’ symbol",
+        "P_4": "email address MUST contain at least 2 characters after the period ‘.’ symbol",
+        "P_5": "email prefix CANNOT contain any other characters besides letters, numbers, hyphen(-), or underscore (_)",
+        "P_6": "email domain CANNOT contain any other characters besides letters, numbers, hyphen (-), or underscore (_)"
+      },
+      "APPLICANT_MEMBER_OF_BLOCKED_PACKAGE_MODAL": {
+        "HEADER": "Applicant is a Member of a Blocked Package",
+        "P_1": "Applicant is already a member of one or more package(s) that is currently in Blocked\nstatus on the EasyVisa platform.",
+        "P_2": "Please tell the Petitioner to contact the legal representative of any other Blocked\npackage(s) that the applicant is a member of and ask them to unblock that/those\npackage(s).",
+        "P_3": "You cannot convert this package from Lead Status to Open status if ANY members\nin the package are also a member of another package that is in Blocked status.",
+        "P_4": "For your convenience, an email and Alert has also been sent to this applicant giving\nthem the same instructions, which also gives this applicant the contact information\nfor his/her <span class='text-danger'>Attorney</span> of that Open or Blocked Package."
+      },
+      "BENEFICIARY_MEMBER_OF_OPEN_PACKAGE_MODAL": {
+        "HEADER": "Beneficiary is a Member of an Open Package",
+        "P_1": "This applicant is already a member of another package that is currently in Open status. Generally,\nthis does not make sense (e.g. an applicant is a Principle Beneficiary as an IR-1 in one package\nand is a Principle Beneficiary in another package as an F1 applicant).",
+        "P_2": "However, there are certain instances where an applicant could logically be a member of two\nsimultaneously open packages. An example might be someone who was applying for an IR-1 visa\nand then it was discovered that the applicant is currently in the United States illegally (I-601A), so\ntheir attorney created an I-601A package while keeping the original IR-1 package Open so that the\nclient can continue to also work on that package. Another example could be a K-1 applicant that\narrived in the United States, got married, applied for a green card and then simultaneously\napplied for the Employment Authorization Document.",
+        "P_3": "While EasyVisa does not prevent applicants from being members of two simultaneously open\npackages, we do recommend that you inquire about this situation with your client. An email and\nAlert has also been sent to this applicant giving them the same information."
+      },
+      "CLIENTS": {
+        "CLIENTS_FOR_SELECTED_REPRESENTATIVE": "Clients for Selected {{representativeType}}(s)",
+        "SEARCH_FOR_CLIENTS": "Search for Clients",
+        "SHOW_ALL_CLIENTS_OF_SELECTED_REP": "Show All Clients (of Selected {{representativeType}}(s))",
+        "SHOW_DEFAULT_PACKAGES": "Only Show Packages in Lead, Open, and Blocked Status",
+        "SHOW_ALL_PACKAGES": "Show packages in any status (Lead, Open, Blocked, Transferred, Closed)",
+        "SHOWING": "Showing <span class='font-weight-bold pl-1'>{{count}}</span> of <span class='font-weight-bold pl-1'>{{total}}</span> Total Matches",
+        "CLEAR_ACTIVE_PACKAGE": "Clear Active Package",
+        "DELETE_OLD_LEADS": "Delete Old Leads",
+        "STATUS": "Status",
+        "LEGAL_STATUS": "Legal Status",
+        "STATE": "State",
+        "BENEFIT": "Benefit",
+        "QUES": "Ques.",
+        "DOCS": "Docs",
+        "LAST_ACTIVE": "Last Active",
+        "OWED": "Owed",
+        "LEAD": "Lead",
+        "OPEN": "Open",
+        "CLOSED": "Closed",
+        "BLOCKED": "Blocked",
+        "TRANSFERRED": "Transferred",
+        "DELETED": "Deleted",
+        "NO_PACKAGES": "No Packages",
+        "PRINT_BLANK_FORMS": "Print Blank Forms",
+        "DELETE_LEADS": "Delete Leads",
+        "DELETE_TRANSFERS": "Delete Transfers",
+        "TRANSFER_CASES": "Transfer Case(s)",
+        "SHOW_CLOSED_LABEL": "Also display cases in Closed status when arriving at\nClients sub tab (by default).\n<br>(Search filters can temporarily override this setting)",
+        "CURRENT_DEFAULT_VIEW": "Currently Displaying Default View (Blocked, Lead, & Open cases only)",
+        "SHOW_DEFAULT_VIEW": "Show Default View (Blocked, Lead, & Open cases only)",
+        "CLIENT_SEARCH_MODAL": {
+          "TITLE": "Individual Client Search & Multiple Client Search Filters",
+          "INDIVIDUAL_SEARCH": "Individual Client Search",
+          "OR": "OR",
+          "MULTIPLE_SEARCH": "Multiple Client Search",
+          "CASE_STATUS": "Case Status",
+          "PETITIONER_LEGAL_STATUS": "Petitioner Legal Status",
+          "LPR": "LPR",
+          "MONEY_OWED": "Money Owed (excluding $0)",
+          "TIME_PERIOD": "Time Period",
+          "CLOSED_WITHIN": "Closed Within",
+          "CLOSED_FROM": "Closed From",
+          "CLOSED_TO": "Closed To",
+          "OLDEST_OPEN_CASES": "Oldest Open Cases",
+          "OPENED_FROM": "Opened From",
+          "OPENED_TO": "Opened To",
+          "INACTIVE_TIME": "Inactive Time",
+          "INACTIVE_FROM": "Inactive From",
+          "INACTIVE_TO": "Inactive To",
+          "TO": "to",
+          "IMMIGRATION_BENEFIT": "Immigration Benefit",
+          "SELECT_ALL_BENEFITS": "Select All Benefits",
+          "CLEAR_ALL_BENEFITS": "Clear All Benefits",
+          "IMMEDIATE_RELATIVE": "Immediate Relative",
+          "FAMILY_PREFERENCE": "Family Preference",
+          "FIANCE_VISA": "Fiancé(e) Visa",
+          "PERMANENT_RESIDENCE": "Permanent Residence",
+          "MISC": "Misc.",
+          "CITIZENSHIP": "Citizenship",
+          "SPONSOR_CLIENT_STATE": "Sponsor/Client State(s)",
+          "SELECT_ALL_STATES": "Select All States",
+          "CLEAR_ALL_STATES": "Clear All States",
+          "CLEAR_ALL_COUNTRIES": "Clear All Countries",
+          "BENEFICIARY_COUNTRIES": "Beneficiary Countries",
+          "SELECT_COUNTRIES": "Select Countries",
+          "SEARCH_FILTERS": "Search Filters",
+          "CLEAR_ALL_FILTERS": "Clear All Filters",
+          "ADD_SELECTED": "Add Selected"
+        },
+        "TRAINEE_NO_ACCESS_MODAL": {
+          "TITLE": "Permission Denied to Change Case Status",
+          "DESCRIPTION": "Trainees are not allowed to change the status of a package."
+        },
+        "NO_RESULTS_MODAL": {
+          "TITLE": "No Matching Results Found",
+          "DESCRIPTION_P_1": "There were no results found that matched your search criteria.",
+          "DESCRIPTION_P_2": "Please try deleting some of your search criteria and try again...",
+          "PACKAGE_DESCRIPTION": "There were no packages under this legal representative that match your search criteria."
+        },
+        "MULTIPLE_SELECTED_MODAL": {
+          "TITLE": "Multiple {{representativeType}}s Selected",
+          "DESCRIPTION_P_1": "The ‘Show All {{representativeType}}s’ is currently selected, however you are not allowed to simultaneously transfer cases away from multiple {{representativeType}}s at the same time.",
+          "DESCRIPTION_P_2": "You must de-select the ‘Show All {{representativeType}}s’ option and then select only one {{representativeType}} from the ‘Select {{representativeType}}’ drop down list in order to transfer cases."
+        },
+        "NO_CASES_SELECTED": {
+          "TITLE": "No Cases Selected",
+          "DESCRIPTION": "You must first select the case(s) you wish to transfer by clicking the box(es) in the rows in the leftmost column of the Clients table before you can transfer cases."
+        },
+        "CHANGE_CASE_STATUS_MODAL": {
+          "TITLE": "Change Case Status",
+          "WARNING": "You are choosing to convert a package that is currently in Lead status to Open status. This will allow the applicants to register and then begin answering questions in their Questionnaire, as well as uploading documents into the Document portal. <br/><br/> By clicking the ‘OK’ button below, you accept and consent to the EasyVisa per applicant fee charges for each applicant in the package. <br/><br/> If you are converting multiple packages <strong>with the SAME per applicant fee amount</strong> from Lead to Open status, we recommend waiting several minutes between converting each package to avoid your credit card company thinking there is an accidental charge duplication error.",
+          "PACKAGE_APPLICANT": "Package Applicants:",
+          "CHANGE_STATUS_TO": "Change Case Status To:"
+        },
+        "RE_OPEN_MODAL": {
+          "TITLE": "Re-Open a Closed or Blocked Case",
+          "DESCRIPTION": "You are about to change the case status on the package containing below applicants to OPEN.",
+          "WARNING_P_1": "When a closed or blocked case status is changed to open status, both you and your clients will again have FULL access to this case",
+          "WARNING_P_2": "This means that both you and your client(s) will be able to edit and modify any information in any section, including the Questionnaire and the Document portal!",
+          "OPEN_CASE": "Open Case"
+        },
+        "USCIS_PACKAGE_APPLICANTS": {
+          "TITLE": "USCIS Package Applicants",
+          "EDIT_AMOUNT_OWED": "Edit Amount Owed",
+          "BALANCE_OWED": "Balance Owed",
+          "LOCAL_TIME": "Local Time",
+          "PACKAGE_CASE_ID": "Package/Case ID:"
+        },
+        "TRANSFERRED_PACKAGE": {
+          "TITLE": "This Package/Case has Been Transferred and is no longer editable (but can be viewed and printed):",
+          "TRANSFERRED_BY": "Transferred by:",
+          "TRANSFER_DATE": "Transfer Date:",
+          "TRANSFERRED_TO": "Transferred to:",
+          "MEMBER_OF": "Member of:"
+        },
+        "EDIT_AMOUNT_OWED": {
+          "TITLE": "Edit Amount Owed on USCIS Package",
+          "DESCRIPTION": "Edit the amount owed on the package containing applicant(s):",
+          "PREVIOUS_AMOUNT": "Previous Amount Owed",
+          "NEW_AMOUNT": "New Amount Owed",
+          "POSITIVE_VALUE": "Amount should be a positive value"
+        },
+        "BLOCK_PACKAGE_MODAL": {
+          "TITLE": "Block Questionnaire and Document Portal Access",
+          "DESCRIPTION_P_1": "If you click the ‘Confirm’ button below, all the applicants in this USCIS package will be Blocked from accessing the Questionnaire and Document portal. That means that they will also no longer be able to print any USCIS documents, even if they have completed the Questionnaire. However, block does not affect your access to the Questionnaire or the Document portal in this USCIS package.",
+          "DESCRIPTION_P_2": "Representatives commonly use the Blocked function to prevent non-paying clients from being able to print out completed USCIS forms and going to another {{representativeType}}.",
+          "DESCRIPTION_P_3": "Additionally, when the client is Blocked out of the Document portal, it prevents them from being able to easily see and print out all the extremely useful documents and checklists in the Document portal, as well as preventing non-paying clients from being able to quickly download all the documents that they already uploaded that they have most likely spent considerable time gathering.",
+          "DESCRIPTION_P_4": "If any of the applicants in this USCIS package currently have other simultaneous Open USCIS packages with EasyVisa, those other packages will not be affected by the Blocked status for this USCIS package. You can easily re-open a USCIS package again in the Client tab by clicking on ‘<span class='text-danger'>Blocked</span>’ in the Status column and then selecting ‘Open’ in the pop up dialog box.",
+          "DESCRIPTION_P_5": "Blocked packages CANNOT be transferred by clients to another legal representative on the EasyVisa platform.",
+          "DESCRIPTION_P_6": "When you click the ‘Confirm’ button below, this USCIS package will have <span class='text-danger'>Blocked</span> in red in the ‘Status’ column of the package row in the Client Tab of the Task Queue."
+        },
+        "CLOSE_PACKAGE_MODAL": {
+          "TITLE": "Close a Case",
+          "SUBTITLE": "You are about to change the case status on the package containing below applicants to CLOSED.",
+          "DESCRIPTION_P_1": "When a case status is changed to closed, both you and your clients for this case <span class='font-weight-bold text-underline'>WILL NOT</span> be able to do the following actions.",
+          "DESCRIPTION_LI_1": "Access the Questionnaire",
+          "DESCRIPTION_LI_2": "Access the Document portal",
+          "DESCRIPTION_P_2": "You can always change the case status back to Open if you (or your clients) need to access the Questionnaire or Document portal again.",
+          "CLOSE_CASE": "Close Case"
+        },
+        "DELETE_OLD_LEADS_MODAL": {
+          "TITLE": "Delete Leads by Date Range",
+          "DESCRIPTION": "If you click the ‘Confirm’ button below, then these packages in Lead status (and all the associated data that you have already entered for the applicants within these USICS packages) will be deleted from your database and <b>CANNOT</b> be retrieved."
+        },
+        "TRANSFER_CASES_MODAL": {
+          "TITLE_1_MODAL": "You are requesting to transfer ownership of {{count}} of your cases to another representative.",
+          "TITLE_2_MODAL": "You are requesting to transfer ownership of {{count}} of your cases.",
+          "SUBTITLE_MODAL": "Prior to intiating this request, you should contact those clients to notify them of this process.",
+          "DESCRIPTION_P1": "When you click the ‘Request to Transfer Cases’ button below, the representative that you would like to transfer your\ncases to, which might be yourself at a Law Practice that you are also a member of. The recipient will receive a\nmessage in their Alerts sub-tab (in their Task Queue) indicating that you would like to transfer ownership of the\nselected cases to their account.",
+          "DESCRIPTION_P2": "The transferee can either accept or deny this request.",
+          "DESCRIPTION_P3": "If the transferee denies your request, then you will still maintain ownership of those cases and all of your cases will\nstill appear in your <span class='font-weight-bold'>Task Queue > Clients tab.</span",
+          "DESCRIPTION_P4": "If the transferee accepts your request, then ALL of the {{count}} selected cases will immediately be transferred into the\ntransferee’s account and you will no longer be able to access any of those cases (unless you are transferring cases to\nyourself between organizations (Solo Practice/Law Practice).",
+          "DESCRIPTION_P5": "Once the transferee accepts your request, this process CANNOT be undone!",
+          "DESCRIPTION_P6": "If you wish to request to transfer the selected cases to another representative on EasyVisa, then enter the recipient’s information below, click the Verify Recipient’ button, then click the ‘Request Caseload Transfer’ button.",
+          "TRANSFEREE_EVID": "Transferee’ EasyVisa ID",
+          "TRANSFEREE_EMAIL": "Transferee’s email address",
+          "TRANSFEREE_ORGANIZATIONS": "Transferee’s organizations",
+          "TRANSFEREE_ORGANIZATIONS_WARNING": "Your recipient is a member of more than one organization. Please select the organization of recipient that you want the selected case(s) to go to.",
+          "SELECT_TRANSFEREE_ORGANIZATIONS": "Select Organization",
+          "VERIFY_RECIPIENT": "Verify Recipient",
+          "REQUEST_TO_TRANSFER_CASES": "Request to Transfer Cases",
+          "INFORMATION_DOES_NOT_MATCH": "Information in both fields does not match the same person, please correct information.",
+          "EVID_OR_EMAIL_FORMAT_INVALID": "EasyVisa ID or email format invalid",
+          "RECIPIENT_CONFIRMED": "Recipient confirmed",
+          "POINT_1_TITLE": "Verify the ({{count}}) Cases You are Transferring:",
+          "POINT_2_TITLE": "Select the {{representativeType}} That You Want to Transfer the Selected Case(s) TO:",
+          "POINT_2": "Is this {{representativeType}} a member of this {{organizationType}}?",
+          "TRANSFER_CASES_BETWEEN_ATTORNEYS": "Transfer Cases Between Selected Attorneys"
+        },
+        "SHOW_CLOSED_TOOLTIP": {
+          "P_1": "Most legal representatives do not want to  view closed cases in their day-to-day tasks, so most users will leave this un-checked.",
+          "P_2": "This setting (whether checked on or off) stays set for each logged in session, which means that even if a user logs off and then logs back in, the setting remains the way it was last set.",
+          "P_3": "However, this setting can be temporarily overriden any time you are logged in. For example, if you leave the tick box un-checked (which is default setting), but you then select a search filter that includes closed cases, then the table WILL also display your closed cases, but the check box would remain un-checked."
+        },
+        "CANT_DELETE_LEADS_MODAL": {
+          "TITLE": "Packages Containing Status(es) Other Than Lead Status are Selected",
+          "DESCRIPTION": "Currently, you have selected one or more packages that are in a status other than ‘Lead’.<br> However, only packages in ‘Lead’ status can be deleted.<br> When you click the ‘OK’ button below, any non-Lead status packages will be de-selected."
+        },
+        "CONFIRM_DELETE_LEADS_MODAL": {
+          "TITLE": "Delete Leads",
+          "DESCRIPTION": "If you click the ‘Confirm’ button below, then these packages that you selected (and all the associated data that you have already entered for the applicants within these USICS packages) will be deleted from your database and <b>CANNOT</b> be retrieved."
+        },
+        "CONFIRM_DELETE_TRANSFERS_MODAL": {
+          "TITLE": "Delete Transfers",
+          "DESCRIPTION": "If you click the ‘Confirm’ button below, then these packages that you selected (and all the associated data that you have already entered for the applicants within these USICS packages) will be deleted from your database and <b>CANNOT</b> be retrieved."
+        },
+        "CANT_DELETE_TRANSFERS_MODAL": {
+          "TITLE": "Packages Containing Status(es) Other Than Transferred Status are Selected",
+          "DESCRIPTION": "Currently, you have selected one or more packages that are in a status other than ‘Transferred’.<br> However, only packages in ‘Transferred’ status can be deleted.<br> When you click the ‘OK’ button below, any non-Transferred status packages will be de-selected."
+        }
+      },
+      "PACKAGE_EMAIL_TEMPLATE": {
+        "NEW_CLIENT_EMAIL_TITLE": "New Client(s) Welcome email Template",
+        "UPDATED_PACKAGE_EMAIL_TITLE": "Updated Package email Template",
+        "INVITATION_TO_REGISTER_EMAIL_TITLE": "Open Package and Invite Applicants",
+        "INVITATION_WARNING_MESSAGE": "You will be charged applicant fee for each beneficiary you have added to this package.",
+        "ADDING_BILLING_INFORMATION": "Adding Billing Information",
+        "ADD_RETAINER_INFORMATION": "Add Retainer Information",
+        "UPLOAD_RETAINER": "Upload Retainer",
+        "EMAIL_SUBJECT_LINE": "email Subject Line",
+        "EMAIL_BODY": "email Body",
+        "TEXT_IS_EDITABLE": "The text in this field is editable",
+        "TEXT_IS_EDITABLE_WARNING": "The text in this field is editable, HOWEVER, please do NOT change any text within (or including) the vertical ' | ' pipe symbols, because they are variables and editing those will change the formatting of your email, which you can see by clicking the «Preview» button below the text field.\n",
+        "MISSING_RETAINER_AGREEMENT": "Missing Retainer Agreement",
+        "NOT_UPLOADED_RETAINER_AGREEMENT": "You have not uploaded a retainer agreement.",
+        "SENT_WITHOUT_RETAINER_AGREEMENT": "If you want to send this email without a retainer agreement, then click ‘OK’ below, and then un-click the ‘Add Retainer Information’ check box.",
+        "WELCOME_EMAIL_WARNING": "By clicking the Send button below, you are also creating a package in the Task Queue > Clients tab, which will initially be in ‘Lead’ status. Clients whose package is in Lead status CANNOT register on EasyVisa until you convert it into ‘Open’ status.",
+        "FEE_CHARGE_INFO": "When you click Send, you will be charged per applicant, based on their immigration benefit category as follows:",
+        "INVITATION_TO_REGISTER_SEND_BTN_DESCRIPTION": "By clicking the ‘Send’ button below, the above email will be sent to your client and you also consent to the EasyVisa applicant(s) fee charges to your account.",
+        "INVITATION_TO_REGISTER_RESEND_BTN_DESCRIPTION": "By clicking the ‘Send’ button below, the above email will be sent to your client. You will not be charged by clicking the ‘Resend’ button."
+      },
+      "WARNINGS": {
+        "UNREAD_WARNINGS_FOR_SELECTED_REPRESENTATIVE": "Unread Warnings for Selected Accredited Representative(s)",
+        "ASSIGNED_WARNING_P1": "The {{representativeType}} cannot be changed if you selected ‘Edit an Existing (Lead/Open) Status USCIS Package’ in Step 1.",
+        "ASSIGNED_WARNING_P2": "If you would like to change the legal representative ownership of this package, then an admin can do that in Task Queue > Clients.",
+        "ASSIGNED_WARNING_P3": "You can skip to Step 3.",
+        "NO_WARNINGS_SELECTED": "No Warnings Selected",
+        "NO_WARNINGS": "No Warnings"
+      },
+      "ALERTS": {
+        "NO_ALERTS_SELECTED": "No Alerts Selected"
+      },
+      "ADDITIONAL_FEES": {
+        "TITLE": "Additional Legal/Governmental/Service Fees",
+        "P_1": "When you click the ‘Send Fees Bill at the bottom of Step 2, the additional fees that you created in Step 1\nwill be sent (as an email) to the Petitioner of the below listed active package. The active package\napplicants are also displayed next to the EasyVisa logo above the main menu bar.",
+        "P_2": "If you would like to send additional fees bills to applicants of a different package than the current active package, then you must first go to <span class='font-weight-bold'>Task Queue > Clients</span> (sub tab) and then select the case (row) containing the package of applicants whom you want to bill additional fees to (which then\nmakes that the active package) and then return here to this <span class='font-weight-bold'>Additional Fees</span> sub tab.",
+        "CREATE_CHARGES": "Create Charges",
+        "DESCRIPTION": "Description",
+        "EACH": "Each",
+        "QUANTITY": "Qty.",
+        "EXT": "Ext.",
+        "GOVERNMENT_FEES_TABLE_BTN": "Government Fees Table",
+        "ADD_ANOTHER_FEE_BTN": "Add Another Fee",
+        "CLEAR_ENTIRE_BILL_BTN": "Clear Entire Bill",
+        "SEND_FEES_BILL_BTN": "Send Fees Bill",
+        "TOTAL": "Total",
+        "CREATE_EDIT_EMAIL": "Create/Edit email",
+        "NO_ACTIVE_PACKAGE_DESC_P1": "Additional Legal/Governmental/Service Fees are associated with a specific package of applicants (so that you can bill your clients for those additional services.",
+        "NO_ACTIVE_PACKAGE_DESC_P2_1": "You must first go to",
+        "NO_ACTIVE_PACKAGE_LINK": "Task Queue > Clients",
+        "NO_ACTIVE_PACKAGE_DESC_P2_2": "and select a package.",
+        "SENT_SUCCESS_TITLE": "Sent Successfully",
+        "SENT_SUCCESS_P1": "Additional Fees Bill Sent Successfully"
+      },
+      "GOVERNMENT_FEES_MODAL": {
+        "TITLE": "Government Fees",
+        "P_1": "EasyVisa makes every effort to ensure the accuracy of governmental immigration fees in this table. However, before quoting\nspecific fees to your clients, it is recommended that you verify these fees here:",
+        "P_2": "If you notice that any of the governmental fees in this table are incorrect, please send us an email at <a href='mailto:suggestions@easyvisa.com' target='_blank'>suggestions@easyvisa.com</a> and let us know exactly where you found the new correct amount so that we can verify it before updating the table. If you are the first person to notify us of any errors on the table, then we will give you a $50 credit towards future EasyVisa charges!"
+      },
+      "ADDITIONAL_APPLICANT_FEE": {
+        "TITLE": "Additional Applicant(s) Fees Info",
+        "CATEGORY": "Category",
+        "DESCRIPTION": "Description",
+        "AMOUNT": "Amount",
+        "P_1": "Categories that are used in this Package",
+        "SUBTOTAL": "Subtotal",
+        "IMMEDIATE_CHARGE": "You will be charged for the following now.",
+        "LATER_CHARGE": "You will be charged for the following benefit categories (plus applicable taxes) as each applicant opts into the package."
+      },
+      "DISPOSITIONS": {
+        "CLIENT": "Client",
+        "DOCUMENT": "Document (File Name)",
+        "BENEFIT": "Benefit",
+        "DATE": "Date",
+        "UNREAD_DISPOSITIONS_FOR_SELECTED_REPRESENTATIVE": "Items Remaining for Selected {{representativeType}}(s)",
+        "UNREAD_DISPOSITIONS_FOR_SOLO_PRACTITIONER": "Items Remaining",
+        "FILE_NAME": "File Name",
+        "TYPE": "Type",
+        "REJECT_FILE_POP_UP": {
+          "TITLE": "Document Rejection Notification email",
+          "DELETED_FILE_NAME": "Deleted File Name:",
+          "SUBJECT": "Subject"
+        },
+        "ENLARGE": "Enlarge",
+        "DOWNLOAD": "Download",
+        "REJECT": "Reject",
+        "APPROVE": "Approve",
+        "NEXT": "Next",
+        "PREVIOUS": "Previous",
+        "READ": "Read",
+        "NO_DISPOSITIONS_SELECTED": "No Dispositions Selected",
+        "NO_DOCUMENTS_TO_DISPOSITION": "No Documents to Disposition",
+        "FILE_NOT_FOUND": "This file has been removed. Refresh your browser to see the current data."
+      }
+    }
+  }
+}

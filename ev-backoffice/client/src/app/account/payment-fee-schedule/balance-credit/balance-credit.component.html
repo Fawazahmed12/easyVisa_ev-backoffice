@@ -1,0 +1,55 @@
+<div class="mb-4 bg-white border border-gray-ccc border-top-0">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <h3 class="text-center text-white bg-primary p-2 mb-0">{{ 'TEMPLATE.ACCOUNT.PAYMENT.TITLE_1' | translate }}</h3>
+    </div>
+  </div>
+  <div class="row p-4">
+    <div class="col-md-3 col-sm-12 d-flex flex-column align-items-center justify-content-center">
+      <h2 class="d-flex align-items-center justify-content-center"
+          [ngClass]="(balance$ | async) > -1 ? 'text-blue' : 'text-red'">
+        {{(balance$ | async)| currency:'USD':'symbol-narrow':'1.0-2'}}
+      </h2>
+      <div
+        class="d-flex flex-column justify-content-between"
+        *ngIf="(balance$ | async) < 0"
+      >
+        <button
+          type="button"
+          class="btn btn-primary px-4 mt-2 min-w-100"
+          (click)="payNowClick()"
+          [disabled]="(payBalancePostRequest$ | async).loading"
+        >
+          {{'TEMPLATE.ACCOUNT.PAYMENT.PAY_BALANCE_NOW_BTN' | translate }}
+        </button>
+        <app-taxes-info
+          [tax]="balanceWithEstTaxes$ | async"
+          [feeLabel]="'TEMPLATE.ACCOUNT.PAYMENT.AMOUNT_OWED'"
+          [showCredit]="false"
+          class="mt-2"
+        ></app-taxes-info>
+      </div>
+    </div>
+    <div class="col-md-9 col-sm-12" *ngIf="(balance$ | async) > -1">
+      {{'TEMPLATE.ACCOUNT.PAYMENT.BALANCE_DESCRIPTION_POSITIVE' | translate }}
+    </div>
+    <div class="col-md-9 col-sm-12 text-danger" *ngIf="(balance$ | async) < 0">
+      <h4 class="text-center">{{'TEMPLATE.ACCOUNT.PAYMENT.BALANCE_DESCRIPTION_NEGATIVE_TITLE'| translate}}</h4>
+      <div class="mt-1">
+        {{'TEMPLATE.ACCOUNT.PAYMENT.BALANCE_DESCRIPTION_NEGATIVE_1' | translate}}
+      </div>
+      <div class="mt-1">
+        {{'TEMPLATE.ACCOUNT.PAYMENT.BALANCE_DESCRIPTION_NEGATIVE_2' | translate}}
+      </div>
+      <div class="mt-1">
+        {{'TEMPLATE.ACCOUNT.PAYMENT.BALANCE_DESCRIPTION_NEGATIVE_3' | translate}}
+      </div>
+      <div class="mt-1">
+        {{'TEMPLATE.ACCOUNT.PAYMENT.BALANCE_DESCRIPTION_NEGATIVE_4' | translate}}
+      </div>
+      <div class="mt-1">
+        {{'TEMPLATE.ACCOUNT.PAYMENT.BALANCE_DESCRIPTION_NEGATIVE_5' | translate}}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="container-fluid p-0 border border-secondary">
+  <app-modal-header
+    [title]="(activeDispositionData$ | async)?.fileName"
+  ></app-modal-header>
+  <app-spinner
+    *ngIf="(getDispositionDataGetRequest$ | async)?.loading || (getDispositionPutRequest$ | async)?.loading"
+  ></app-spinner>
+  <div
+    class="d-flex flex-row"
+    *ngIf="!(getDispositionDataGetRequest$ | async)?.loading && !(getDispositionPutRequest$ | async)?.loading"
+  >
+    <div class="col-10 d-flex">
+      <div class="file-enlarge-preview">
+        <img
+          class="image-enlarge"
+          *ngIf="hasImageSourceByFileType((activeDispositionData$ | async)?.fileType)"
+          [src]="(activeDispositionData$ | async)?.file | safeUrl">
+        <img
+          class="image-icon mt-5"
+          *ngIf="!hasImageSourceByFileType((activeDispositionData$ | async)?.fileType)"
+          [src]="getFileTypeIcon((activeDispositionData$ | async)?.fileType)"
+        >
+      </div>
+    </div>
+    <div class="col-2 d-flex flex-column justify-content-between my-5">
+      <div>
+        <button
+          type="button"
+          class="btn btn-primary px-4 my-3 col"
+          [disabled]="(dispositions$ | async).length<=1"
+          (click)="nextActive()"
+        >{{ 'TEMPLATE.TASK_QUEUE.DISPOSITIONS.NEXT' | translate }}
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary px-4 my-3 col"
+          [disabled]="(dispositions$ | async).length<=1"
+          (click)="previousActive()"
+        >{{ 'TEMPLATE.TASK_QUEUE.DISPOSITIONS.PREVIOUS' | translate }}
+        </button>
+      </div>
+      <div>
+        <button
+          type="button"
+          class="btn btn-primary px-4 my-3 col"
+          (click)="downloadFile()"
+        >{{ 'TEMPLATE.TASK_QUEUE.DISPOSITIONS.DOWNLOAD' | translate }}
+        </button>
+      </div>
+      <div>
+        <button
+          *appHideByPosition="[EmployeePosition.TRAINEE]"
+          type="button"
+          class="btn btn-primary px-4 my-3 col"
+          (click)="openRejectModal()"
+        >{{ 'TEMPLATE.TASK_QUEUE.DISPOSITIONS.REJECT' | translate }}
+        </button>
+        <button
+          *appHideByPosition="[EmployeePosition.TRAINEE]"
+          type="button"
+          class="btn btn-primary px-4 my-3 col"
+          (click)="approveActiveDisposition()"
+        >{{ 'TEMPLATE.TASK_QUEUE.DISPOSITIONS.APPROVE' | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

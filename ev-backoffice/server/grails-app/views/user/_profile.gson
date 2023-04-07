@@ -1,0 +1,19 @@
+import com.easyvisa.Profile
+
+//noinspection UnusedVariable
+model {
+    Profile profile
+    Boolean canIncludeUserName
+}
+json {
+    firstName profile?.firstName
+    lastName profile?.lastName
+    middleName profile?.middleName
+    easyVisaId profile?.easyVisaId
+    email profile?.email
+    profilePhoto profile.profilePhotoUrl
+    if (canIncludeUserName) {
+        username profile?.user?.username
+    }
+
+}

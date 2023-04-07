@@ -1,0 +1,42 @@
+:host::ng-deep {
+  .col-count-4 {
+    column-count: 4;
+  }
+  .date-control {
+    font-size: small;
+  }
+  .vertical-line {
+    height: 100%;
+    width: 1px;
+  }
+  .datepicker-group {
+    height: 25px;
+  }
+  .benefit-title {
+    min-height: 32px;
+  }
+  .chips-wrapper {
+    min-height: 40px;
+    border-radius: 0.2rem;
+  }
+  .date-control {
+    height: calc(1.5em + 0.5rem);
+  }
+  .close-btn {
+    border-radius: 50%;
+    width: 1.3em;
+    height: 1.3em;
+  }
+  .fa-close:before {
+    left: 0;
+    top: 0;
+    width: 1.3em;
+    height: 1.3em;
+    position: absolute;
+    font-size: 10px;
+  }
+  .custom-label-align {
+    text-align: left;
+    min-width: 40px;
+  }
+}

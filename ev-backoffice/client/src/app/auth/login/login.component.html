@@ -1,0 +1,55 @@
+<app-auth-wrapper header="TEMPLATE.AUTH.LOGIN.TITLE" class="pb-0">
+  <form
+    [formGroup]="loginGroup"
+    (ngSubmit)="onSubmit(loginGroup.value)">
+
+    <div class="form-group row mt-5 justify-content-center">
+      <label class="col-sm-2 col-form-label col-form-label-sm">
+        {{ 'TEMPLATE.AUTH.LOGIN.USERNAME' | translate }}
+      </label>
+      <div class="col-sm-5">
+        <input type="text"
+               formControlName="username"
+               placeholder="Enter your UserName"
+               class="form-control form-control-sm">
+      </div>
+    </div>
+
+    <div class="form-group row justify-content-center">
+      <label class="col-sm-2 col-form-label col-form-label-sm">
+        {{ 'TEMPLATE.AUTH.LOGIN.PASSWORD' | translate }}
+      </label>
+      <div class="col-sm-5">
+        <input type="password"
+               formControlName="password"
+               placeholder="Enter your Password"
+               class="form-control form-control-sm">
+      </div>
+    </div>
+
+    <div [hidden]="!isShowingError">
+      <div class="auth-error-wrapper text-danger text-center"
+           *ngFor="let err of (submitRequest$ | async)?.error?.error.errors">
+        {{err.message}}
+      </div>
+    </div>
+
+    <div class="col justify-content-start align-items-center submit-button-wrapper">
+      <div class="d-flex justify-content-center">
+        <button type="submit"
+                class="btn btn-primary sign-in-btn"
+                [disabled]="loginGroup.invalid || (loginRequest$ | async).loading">
+          <i class="fa fa-lock" aria-hidden="true"></i> {{ 'TEMPLATE.AUTH.LOGIN.SIGN_IN' | translate }}
+        </button>
+      </div>
+      <div class="row justify-content-center forgot-username mt-2">
+        <a routerLink="/auth/retrieve-credential">{{ 'TEMPLATE.AUTH.FORGOT.TITLE' | translate }}</a>
+      </div>
+    </div>
+  </form>
+
+  <div class="row justify-content-center forgot-username">
+    <a routerLink="/auth/registration">{{ 'TEMPLATE.AUTH.LOGIN.CLICK_TO_REGISTER' | translate }}</a>
+  </div>
+</app-auth-wrapper>
+

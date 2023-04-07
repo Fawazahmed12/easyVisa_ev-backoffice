@@ -1,0 +1,14 @@
+import com.easyvisa.Warning
+import groovy.transform.Field
+
+inherits template: '/alert/evSystemMessage', model: [systemMessage: warning]
+
+@Field Warning warning
+
+json {
+    packageId warning.aPackage?.id
+    questionId warning.questionId
+    answerId warning.answer?.id
+    clientName warning.aPackage?.title
+    representativeName warning?.aPackage?.attorney?.profile?.title
+}

@@ -1,0 +1,14 @@
+import com.easyvisa.Review
+import groovy.transform.Field
+
+@Field Review reviewRecord
+
+json {
+    id reviewRecord.id
+    reviewer reviewRecord.reviewer.profile.firstName
+    rating reviewRecord.rating
+    title reviewRecord.title
+    review reviewRecord.review
+    reply reviewRecord.reply
+    dateCreated reviewRecord.dateCreated
+}

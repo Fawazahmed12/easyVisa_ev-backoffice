@@ -1,0 +1,13 @@
+import com.easyvisa.Employee
+import groovy.transform.Field
+
+@Field Employee admin
+
+json {
+    firstName admin.profile.firstName
+    lastName admin.profile.lastName
+    middleName admin.profile.middleName
+    easyVisaId admin.profile.easyVisaId
+    email admin.profile.email
+    officeEmail admin.profile.email
+}

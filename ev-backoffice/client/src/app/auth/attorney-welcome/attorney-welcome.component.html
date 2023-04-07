@@ -1,0 +1,33 @@
+<div class="extra-margin">
+  <h3 class="text-center m-3">{{'TEMPLATE.AUTH.WELCOME.TITLE' | translate}}</h3>
+  <h6 class="font-weight-bold text-center">{{'TEMPLATE.AUTH.WELCOME.TITLE_DESCRIPTION_P_1' | translate}}</h6>
+  <p class="text-center">{{'TEMPLATE.AUTH.WELCOME.TITLE_DESCRIPTION_P_2' | translate}}</p>
+</div>
+<div class="welcome-container">
+  <h6 class="text-center" [innerHTML]="'TEMPLATE.AUTH.WELCOME.SUBTITLE' | translate"></h6>
+  <ul>
+    <li *ngFor="let section of sections" class="py-2 position-relative">
+      <div *ngIf="section.attention"
+        class="position-absolute text-danger font-italic attention d-flex align-items-center h-100">
+        <div class="position-relative" [class.mt-4]="section.arrowTop">
+          <img
+            src="../../../assets/images/line_arrow.svg"
+            class="arrow arrow-btm"
+            [ngClass]="section?.arrowBtmSmall ? 'arrow-btm-small' : 'arrow-btm'">
+          <img src="../../../assets/images/line_arrow.svg" class="arrow arrow-top" *ngIf="section.arrowTop">
+          {{section.attention | translate}}
+        </div>
+      </div>
+      <div [innerHTML]="section.title | translate"></div>
+      <div *ngFor="let description of section.descriptions" class="small px-lg-5 my-2">
+        <div [innerHTML]="description | translate"></div>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="text-center extra-margin" [innerHTML]="'TEMPLATE.AUTH.WELCOME.CONCLUSION' | translate"></div>
+<div class="text-center text-lg-right mt-3 mb-5">
+  <button type="button" class="btn btn-primary px-4" (click)="goToProfile()">
+    {{'TEMPLATE.AUTH.WELCOME.LETS_GET_STARTED' | translate}}
+  </button>
+</div>

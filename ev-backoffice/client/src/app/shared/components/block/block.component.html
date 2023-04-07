@@ -1,0 +1,14 @@
+<div class="mb-4 bg-white border border-gray-ccc border-top-0">
+  <h4
+    class="text-center text-white bg-primary mb-0"
+    [class.small-title]="smallTitle"
+    [class.p-2]="!customPadding"
+    [class.px-2]="customPadding"
+    [class.py-1]="customPadding"
+  >
+    {{ title }}
+  </h4>
+  <div class="m-4">
+    <ng-content></ng-content>
+  </div>
+</div>

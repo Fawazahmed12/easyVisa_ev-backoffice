@@ -1,0 +1,12 @@
+<div class="p-3 d-flex">
+  <div class="pr-4 d-flex align-items-center">
+    <img src="../../../../../../../assets/images/warn-icon.png">
+  </div>
+  <div>
+    <p [innerHTML]="'TEMPLATE.TASK_QUEUE.PACKAGE.DELETE_APPLICANT_MODAL.P_1' | translate"
+      *ngIf="packageTypeFormControl.value === 'NEW'"></p>
+    <p [innerHTML]="'TEMPLATE.TASK_QUEUE.PACKAGE.DELETE_APPLICANT_MODAL.P_2' | translate"
+      *ngIf="packageTypeFormControl.value === 'EDIT'"></p>
+    <p>{{ 'TEMPLATE.TASK_QUEUE.PACKAGE.DELETE_APPLICANT_MODAL.P_3' | translate }}</p>
+  </div>
+</div>

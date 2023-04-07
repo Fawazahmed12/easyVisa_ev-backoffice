@@ -1,0 +1,27 @@
+import com.easyvisa.OrganizationEmployee
+
+model {
+    OrganizationEmployee organizationEmployee
+}
+json {
+    id organizationEmployee.id
+    employeeId organizationEmployee.employee.id
+    isAdmin organizationEmployee.isAdmin
+    position organizationEmployee.position
+    status organizationEmployee.status
+    activeDate organizationEmployee.activeDate
+    inactiveDate organizationEmployee.inactiveDate
+    officeEmail organizationEmployee.employee.profile.email
+    mobilePhone organizationEmployee.employee.mobilePhone
+    officePhone organizationEmployee.employee.officePhone
+    List<String> authorities = organizationEmployee.employee?.user?.authorities*.authority
+    roles authorities ?: []
+    profile {
+        id organizationEmployee.employee.profile.id
+        firstName organizationEmployee.employee.profile.firstName
+        lastName organizationEmployee.employee.profile.lastName
+        middleName organizationEmployee.employee.profile.middleName
+        easyVisaId organizationEmployee.employee.profile.easyVisaId
+        email organizationEmployee.employee.profile.email
+    }
+}

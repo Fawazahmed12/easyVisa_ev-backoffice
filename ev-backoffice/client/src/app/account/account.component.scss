@@ -1,0 +1,22 @@
+:host::ng-deep {
+  @media (max-width: 991px) {
+    .columns-wrapper > div {
+      border-right: none;
+      border-left: none;
+      border-top: 1px solid #6c757d;
+      border-bottom: 1px solid #6c757d;
+      &:first-child {
+        border-top: none;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .bg-size-cover {
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}

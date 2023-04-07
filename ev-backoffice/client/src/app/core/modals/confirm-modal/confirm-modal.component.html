@@ -1,0 +1,30 @@
+<div class="container-fluid p-0">
+  <div class="modal-header align-items-center bg-primary text-white">
+    <h4 class="modal-title w-100 text-center" *ngIf="header">{{ header | translate }}</h4>
+    <button
+      type="button"
+      class="d-flex align-items-center btn btn-secondary justify-content-center close-btn p-0"
+      aria-label="Close"
+      *ngIf="showCloseIcon"
+      (click)="onCloseIconClick()"
+    ><i class="fa fa-times" aria-hidden="true"></i></button>
+  </div>
+  <div class="modal-body">
+    <ng-container *ngIf="isBodyTemplate" [ngTemplateOutlet]="body"></ng-container>
+    <div *ngIf="isBodyArray">
+      <div *ngFor="let error of body">
+        <div [innerHTML]="error?.message | translate"></div>
+      </div>
+    </div>
+    <div *ngIf="!isBodyTemplate && !isBodyArray">{{ body | translate }}</div>
+  </div>
+  <div class="modal-footer border-top-0">
+    <button
+      type="button"
+      *ngFor="let button of buttons"
+      [ngClass]="button.className"
+      (click)="onButtonClick(button)"
+    >{{ button.label | translate }}
+    </button>
+  </div>
+</div>

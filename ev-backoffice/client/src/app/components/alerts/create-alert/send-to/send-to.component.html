@@ -1,0 +1,14 @@
+<div class="d-flex flex-column flex-md-row align-md-center align-items-start justify-content-between px-2 mt-2">
+  <div
+    *ngFor="let item of sendToConst; let i=index">
+    <label>
+      <input
+        type="checkbox"
+        [value]="item.value"
+        [checked]="value.includes(item.value)"
+        (change)="onCheckChange(item.value)"
+        [disabled]="disabled">
+      {{item.label | translate}}
+    </label>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+model {
+    List list = []
+    String var
+    String templatePath
+}
+json g.render(template: templatePath, collection: list, var: var)

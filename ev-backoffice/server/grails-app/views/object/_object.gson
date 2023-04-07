@@ -1,0 +1,6 @@
+import groovy.transform.Field
+
+@Field Object object
+
+//noinspection GroovyVariableNotAssigned
+json g.render(object)

@@ -1,0 +1,92 @@
+<div class="row body">
+  <div class="col-5">
+    <div class="card">
+      <div class="card-body">
+
+          <form [formGroup]="SuperAdminCreationForm" >
+            <div class="group-gap">
+
+              <div class="dropdown">
+                <label>{{'TEMPLATE.ADMIN.VERSION' | translate }}: </label>
+                <select class="" formControlName="version" >
+                  <option selected="selected" Value ="">
+                    <label>{{'TEMPLATE.ADMIN.SELECT_QUEST_VERSION' | translate }} </label>
+                  </option>
+                  <option *ngFor="let version of this.questionnaireVersion$|async" [ngValue]="version.questVersion" >{{version.questVersion}}</option>
+                </select>
+              </div>
+
+              <div class="dropdown">
+                <label>{{'TEMPLATE.ADMIN.BENEFIT_CATEGORY' | translate }}: </label>
+                <select class="" formControlName="benefitCategory" >
+                  <option selected="selected" Value ="">
+                    <label>{{'TEMPLATE.ADMIN.SELECT_BENEFIT_CATEGORY' | translate }} </label>
+                  </option>
+                  <option *ngFor="let category of this.benefitCategory$|async" [ngValue]="category.id">{{category.id}}</option>
+                </select>
+              </div>
+
+              <div class="dropdown">
+                <label>{{'TEMPLATE.ADMIN.FORM' | translate }}: </label>
+                <select class="" formControlName="form" >
+                  <option selected="selected" Value ="">
+                    <label>{{'TEMPLATE.ADMIN.SELECT_FORM' | translate }} </label>
+                  </option>
+                  <option *ngFor="let form of this.form$|async" [ngValue]="form.id">{{form.id}}</option>
+                </select>
+              </div>
+
+              <div class="dropdown">
+                <label>{{'TEMPLATE.ADMIN.SECTION' | translate }}: </label>
+                <select class="" formControlName="section" >
+                  <option selected="selected" Value ="">
+                    <label>{{'TEMPLATE.ADMIN.SELECT_SECTION' | translate }} </label>
+                  </option>
+                  <option *ngFor="let section of section$|async" [ngValue]="section.id" >{{section.id}}</option>
+                </select>
+              </div>
+
+              <div class="dropdown" >
+                <label>{{'TEMPLATE.ADMIN.SUB_SECTION' | translate }}: </label>
+                <select class="" formControlName="subSection">
+                  <option selected="selected" Value ="" >
+                    <label>{{'TEMPLATE.ADMIN.SELECT_SUB_SECTION' | translate }} </label>
+                  </option>
+                  <option *ngFor="let subSec of this.subSection$|async" [ngValue]="subSec.subsection.id" >{{subSec.subsection.id}}</option>
+                </select>
+              </div>
+              <div class="dropdown">
+                <label>{{'TEMPLATE.ADMIN.QUESTION' | translate }}: </label>
+                <ng-select [items]="question$ | async"
+                           bindLabel="id"
+                           bindValue="id"
+                           placeholder="{{'TEMPLATE.ADMIN.SELECT_QUESTION' | translate}}"
+                           [(ngModel)]="searchText"
+                           [ngModelOptions]="{standalone: true}"
+                           (change)="getMetadata()"
+                >
+                </ng-select>
+              </div>
+
+            </div>
+          </form>
+      </div>
+
+    </div>
+  </div>
+  <div class="col-7">
+    <div class="card h-100">
+      <div class="card-body">
+        <div *ngFor=" let meta of metadata$|async| keyvalue">
+          {{meta.key }}:{{meta.value | json}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

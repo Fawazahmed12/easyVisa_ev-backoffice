@@ -1,0 +1,1 @@
+ALTER TABLE legal_representative DROP column active_member_ship;

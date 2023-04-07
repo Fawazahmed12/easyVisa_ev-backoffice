@@ -1,0 +1,89 @@
+<app-block [title]="'FORM.LABELS.INVITE_MEMBER_TO_JOIN_YOUR_ORGANIZATION' | translate: ({
+        organizationType: (activeOrganization$ | async)?.organizationType | organizationType | translate})">
+  <div class="container-fluid">
+    <form
+        #form="ngForm"
+        [formGroup]="formGroup"
+        (ngSubmit)="sendInvite()"
+        class="d-flex flex-column justify-content-center align-items-center col-lg-12 px-0 my-5"
+    >
+      <div class="col my-2 px-0 d-flex flex-column flex-md-row">
+        <div
+          class="col col-md-3 offset-md-1 mb-2 px-0"
+          [innerHTML]="'TEMPLATE.ACCOUNT.CREATE_LEGAL_PRACTICE.EASY_VISA_ID_LABEL' | translate: (
+          {representativeType: (activeOrganization$ | async)?.organizationType | representativeType | translate})"
+        >
+        </div>
+        <div class="col col-md-4 px-0">
+          <input
+            class="form-control form-control-sm"
+            [formControl]="easyVisaIdFormControl"
+          >
+        </div>
+      </div>
+      <div class="col my-2 px-0 d-flex flex-column flex-md-row position-relative mb-1">
+        <div
+          class="col col-md-3 offset-md-1 mb-2 px-0"
+          [innerHTML]="'TEMPLATE.ACCOUNT.CREATE_LEGAL_PRACTICE.EMAIL_LABEL' | translate: (
+          {representativeType: (activeOrganization$ | async)?.organizationType | representativeType | translate})"
+        >
+        </div>
+        <div class="col col-md-4 px-0">
+          <input
+            class="form-control form-control-sm"
+            [formControl]="emailFormControl"
+          >
+        </div>
+      </div>
+      <div class="col small text-danger">
+        <div
+          class="col col-md-4 offset-md-4 p-0 pr-5 position-absolute text-center"
+          *ngIf="(showWarningSubject$|async) && ((emailFormControl.hasError('email') || easyVisaIdFormControl.hasError('pattern')) && form.submitted)">
+          {{'FORM.ERROR.EVID_OR_EMAIL_FORMAT_INVALID' | translate}}
+        </div>
+        <div
+          class="col col-md-4 offset-md-4 p-0 pr-5 position-absolute text-center"
+        >
+          {{(messageSubject$ | async)}}
+        </div>
+      </div>
+      <div class="row text-left mt-5">
+        <div class="col-lg-12 font-weight-bold mb-2">{{'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.DESCRIPTION_TITLE_1' | translate}}</div>
+        <div class="col-lg-12 mb-2" [innerHTML]="'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.DESCRIPTION_P1' | translate: ({
+        representativeType: (activeOrganization$ | async)?.organizationType | representativeType | translate,
+        organizationType: (activeOrganization$ | async)?.organizationType | organizationType | translate
+      })">
+        </div>
+        <div class="col-lg-12 mb-2" [innerHTML]="'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.DESCRIPTION_P2' | translate: ({
+        organizationType: (activeOrganization$ | async)?.organizationType | organizationType | translate
+      })">
+        </div>
+        <div class="col-lg-12 font-weight-bold mb-2">{{'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.DESCRIPTION_TITLE_2' | translate}}</div>
+        <div class="col-lg-12 mb-2" [innerHTML]="'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.DESCRIPTION_P3' | translate: ({
+        representativeType: (activeOrganization$ | async)?.organizationType | representativeType | translate,
+        organizationType: (activeOrganization$ | async)?.organizationType | organizationType | translate
+      })">
+        </div>
+        <div class="col-lg-12 mb-2" [innerHTML]="'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.DESCRIPTION_P4' | translate: ({
+        organizationType: (activeOrganization$ | async)?.organizationType | organizationType | translate
+      })">
+        </div>
+        <div class="col d-flex justify-content-center justify-content-md-end my-4">
+          <button
+            class="btn btn-primary px-4 mr-sm-4 mr-3 min-w-100"
+            type="button"
+            routerLink="/account/permissions"
+          >
+            {{ 'FORM.BUTTON.CANCEL' | translate }}
+          </button>
+          <button
+            class="btn btn-primary px-4 min-w-100"
+            type="submit"
+          >
+            {{'FORM.BUTTON.INVITE' | translate}}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</app-block>

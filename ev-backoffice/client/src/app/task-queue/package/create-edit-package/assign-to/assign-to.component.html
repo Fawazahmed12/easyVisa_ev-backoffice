@@ -1,0 +1,46 @@
+<div class="container-fluid">
+  <div class="row justify-content-center justify-content-lg-start my-4">
+    <div class="col-12 col-lg-5">
+      <div class="d-flex">
+        <div
+          class="column-number bg-primary mr-2"
+          [class.bg-gray]="isPackageEditType"
+        >
+          2
+        </div>
+        <h4 [class.text-gray]="isPackageEditType">
+          {{ 'TEMPLATE.TASK_QUEUE.ASSIGN' | translate:
+            ({representativeType: (activeOrganization$ | async)?.organizationType | representativeType | translate})
+          }}
+        </h4>
+      </div>
+    </div>
+    <div class="col ml-n4">
+      <div *ngIf="isPackageEditType">
+        <div class="text-danger small font-weight-bold mb-2">
+          {{'TEMPLATE.TASK_QUEUE.WARNINGS.ASSIGNED_WARNING_P1' | translate:
+            ({representativeType: (activeOrganization$ | async)?.organizationType | representativeType | translate})
+          }}
+        </div>
+        <div class="text-danger small font-weight-bold mb-2">
+          {{'TEMPLATE.TASK_QUEUE.WARNINGS.ASSIGNED_WARNING_P2' | translate}}
+        </div>
+        <div class="text-danger small font-weight-bold">
+          {{'TEMPLATE.TASK_QUEUE.WARNINGS.ASSIGNED_WARNING_P3' | translate}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-end">
+    <div class="col-12 col-lg-7">
+      <app-select-name
+        [formControl]="representativeId"
+        [isDimmed]="isPackageEditType"
+        [selectRepOption]="true"
+      ></app-select-name>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-4 mb-2 mx-3">
+    <div class="col-12 border-top border-bottom border-secondary"></div>
+  </div>
+</div>

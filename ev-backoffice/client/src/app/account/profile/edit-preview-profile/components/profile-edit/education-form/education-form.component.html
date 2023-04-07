@@ -1,0 +1,71 @@
+<div class="mt-3">
+  <h5 class="text-center mb-0 font-weight-bold">
+    {{'TEMPLATE.ACCOUNT.PROFILE.EDUCATION_TITLE' | translate}}
+  </h5>
+  <div class="form-group row mb-1 mt-2 no-gutters" *ngFor="let education of educationFormGroups">
+    <div class="col-md-5 flex-column mr-md-3 font-weight-bold">
+      <div>
+        {{'TEMPLATE.ACCOUNT.PROFILE.EDUCATION_FORM.SCHOOL' | translate}}
+      </div>
+      <input
+        class="form-control form-control-sm"
+        type="text"
+        placeholder="{{'TEMPLATE.ACCOUNT.PROFILE.INPUT_SCHOOL' | translate}}"
+        [formControl]="education.get('school')"
+      >
+    </div>
+    <div class="col-md flex-column mr-md-3 font-weight-bold">
+      <div>
+        {{'TEMPLATE.ACCOUNT.PROFILE.EDUCATION_FORM.DEGREE.DEGREE_TITLE' | translate}}
+      </div>
+      <select
+        class="form-control form-control-sm"
+        [formControl]="education.get('degree')"
+      >
+        <option [value]="null">
+          {{'FORM.LABELS.SELECT' | translate}}
+        </option>
+        <option [value]="degreeOut.value" *ngFor="let degreeOut of degrees">
+          {{degreeOut.fullLabel | translate}}
+        </option>
+      </select>
+    </div>
+    <div class="col-md flex-column mr-md-3 font-weight-bold">
+      <div>
+        {{'TEMPLATE.ACCOUNT.PROFILE.EDUCATION_FORM.YEAR' | translate}}
+      </div>
+      <select
+        class="form-control form-control-sm"
+        [formControl]="education.get('year')"
+      >
+        <option [ngValue]="null">
+          {{'FORM.LABELS.SELECT' | translate}}
+        </option>
+        <option [value]="year" *ngFor="let year of years">
+          {{year}}
+        </option>
+      </select>
+    </div>
+    <div class="col-md-3 flex-column font-weight-bold">
+      <div>
+        {{'TEMPLATE.ACCOUNT.PROFILE.EDUCATION_FORM.HONORS.HONORS_TITLE' | translate}}
+      </div>
+      <select
+        class="form-control form-control-sm"
+        [formControl]="education.get('honors')"
+      >
+        <option [value]="null">
+          {{'FORM.LABELS.SELECT' | translate}}
+        </option>
+        <option
+          [value]="honorOut.value"
+          *ngFor="let honorOut of honors"
+        >
+          {{honorOut.label | translate}}
+        </option>
+      </select>
+    </div>
+    <div class="border-bottom border-dark-gray d-md-none w-100 my-4 my-md-0 mx-3 mx-md-0"></div>
+  </div>
+</div>
+

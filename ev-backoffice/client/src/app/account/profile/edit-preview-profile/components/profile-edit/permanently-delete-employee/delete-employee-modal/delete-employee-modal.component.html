@@ -1,0 +1,37 @@
+<div class="container-fluid p-0">
+  <app-modal-header
+    [title]="'TEMPLATE.ACCOUNT.PROFILE.PERMANENTLY_DELETE_ACCOUNT.HEADER'">
+  </app-modal-header>
+  <div class="mx-4 my-3">
+    <div class="mx-4">
+      <h4 class="text-center mx-3">
+        {{'TEMPLATE.ACCOUNT.PROFILE.PERMANENTLY_DELETE_ACCOUNT.MODALS.DESCRIPTION_1' | translate}}
+      </h4>
+      <label class="font-weight-bold text-danger d-flex flex-row">
+        <input
+          class="mt-1 mr-2"
+          type="checkbox"
+          [formControl]="confirmFormControl"
+        >
+        {{'TEMPLATE.ACCOUNT.PROFILE.PERMANENTLY_DELETE_ACCOUNT.MODALS.DESCRIPTION_3' | translate}}
+      </label>
+    </div>
+  </div>
+</div>
+<div class="text-right m-4">
+  <button
+    (click)="closeModal()"
+    class="btn btn-primary px-4 mr-4 min-w-100"
+    type="button"
+  >
+    {{ 'FORM.BUTTON.CANCEL' | translate}}
+  </button>
+  <button
+    (click)="confirmModal()"
+    class="btn btn-primary px-4 min-w-100"
+    type="button"
+    [disabled]="!confirmFormControl.value"
+  >
+    {{ 'FORM.BUTTON.CONFIRM' | translate}}
+  </button>
+</div>

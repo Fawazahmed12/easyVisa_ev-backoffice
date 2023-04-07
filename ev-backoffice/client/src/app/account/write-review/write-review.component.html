@@ -1,0 +1,270 @@
+<form [formGroup]="formGroup" #form="ngForm" (submit)="formSubmit()">
+  <div class="container-fluid col pr-4">
+    <div class="row align-items-center mb-2">
+      <div class="column-number bg-primary">1</div>
+      <h6
+        class="col font-weight-bold m-0 font-16">{{ 'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.SELECT_PACKAGE' | translate }}
+      </h6>
+    </div>
+    <div class="row">
+      <app-select-package
+        class="col mx-4"
+        [formControl]="packageIdFormControl"
+        [withTransferredPackages]="true"
+        [withDeletedPackages]="true"
+      >
+      </app-select-package>
+    </div>
+    <div class="border-top border-dark my-4">
+    </div>
+    <div *ngIf="packageIdFormControl.value">
+      <div class="row align-items-center">
+        <div class="column-number bg-primary">2</div>
+        <h6
+          class="col font-weight-bold m-0 font-16">{{ 'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.SELECT_REPRESENTATIVE_FOR_PACKAGE' | translate }}
+        </h6>
+      </div>
+      <div class="row ml-md-1 mt-2">
+        <div
+          class="col col-md-6 d-flex flex-column-reverse flex-md-row align-items-center align-items-md-start justify-content-start pr-2">
+          <div
+            class="position-relative photo-frame border border-gray mx-lg-2 my-2 mr-md-2 min-w-100">
+            <div class="photo position-absolute w-100 h-100 bg-size-cover"
+                 [style.backgroundImage]="currentAssignee ? 'url('+currentAssignee?.profilePhoto+')': ''">
+            </div>
+            <div class="text-gray text-center">
+              {{('TEMPLATE.ACCOUNT.PROFILE.PHOTO_GOES_HERE') | translate}}
+            </div>
+          </div>
+          <div class="pl-2 text-center text-md-left">
+            <div class="flex-column d-md-flex mb-md-3 mx-md-3">
+              <label class="col-form-label p-0 mb-2 font-14 font-weight-bold">
+                {{ 'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.SELECT_REPRESENTATIVE_TO_REVIEW' | translate }}
+              </label>
+              <select
+                class="form-control form-control-sm"
+                [formControl]="representativeIdFormControl"
+              >
+                <option [ngValue]="null">
+                  {{ 'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.SELECT_REPRESENTATIVE' | translate }}
+                </option>
+                <option
+                  [value]="assignee.id" *ngFor="let assignee of (representativeAssigned$ | async)"
+                >
+                  {{assignee.firstName}} {{assignee.lastName}}
+                </option>
+              </select>
+            </div>
+            <div *ngIf="currentAssignee">
+              <div class="font-weight-bolder font-14">
+                {{currentAssignee?.firstName}} {{currentAssignee?.middleName}} {{currentAssignee?.lastName}}
+              </div>
+              <div class="font-13">
+                {{currentAssignee?.officeAddress?.postalCode}}
+                {{currentAssignee?.officeAddress?.line1}}
+                {{currentAssignee?.officeAddress?.line2}}
+                {{currentAssignee?.officeAddress?.city}}
+                {{currentAssignee?.officeAddress?.province}}
+                {{currentAssignee?.officeAddress?.state | findLabel: states}}
+                {{currentAssignee?.officeAddress?.country | findLabel: countries}}
+                {{currentAssignee?.officeAddress?.zipCode}}
+              </div>
+              <div class="font-13 d-flex flex-wrap">
+                <span class="mr-1"
+                  *ngIf="currentAssignee?.mobilePhone let mobilePhone"
+                >
+                  {{'FORM.LABELS.MOBILE' | translate}}:
+                  {{mobilePhone}} | </span>
+                <span class="mr-1"
+                  *ngIf="currentAssignee?.officePhone let officePhone"
+                >
+                  {{'FORM.LABELS.OFFICE' | translate}}:
+                  {{officePhone}} | </span>
+                <span
+                  *ngIf="currentAssignee?.faxNumber let faxNumber"
+                >
+                  {{'FORM.LABELS.FAX' | translate}}:
+                  {{faxNumber}}</span>
+              </div>
+              <div class="font-13">
+                <span>
+                  {{currentAssignee?.email}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="min-h-100 d-none d-md-block border-right border-dark my-3"></div>
+        <div class="col d-flex flex-column justify-content-start">
+          <div class="d-flex flex-column flex-sm-row justify-content-start align-items-center mb-1">
+            <span class="text-center text-sm-right font-weight-bolder pr-sm-1 col-sm-4 pl-0 font-13">
+              {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.USCIS_PACKAGE_TYPE' | translate}}:
+            </span>
+            <span class="font-13">
+              {{benefitCategory$ | async | findLabel: benefitCategories | translate}}
+              {{benefitCategory$ | async | findLabel: benefitCategories : true | translate}}
+            </span>
+          </div>
+          <div class="d-flex flex-column flex-sm-row justify-content-start align-items-center mb-1">
+            <span class="text-center text-sm-right font-weight-bolder pr-sm-1 col-sm-4 pl-0 font-13">
+              {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.PACKAGE_ID' | translate}}:
+            </span>
+            <span class="font-13">{{(package$ | async).easyVisaId}}</span>
+          </div>
+          <div class="d-flex flex-column flex-sm-row justify-content-start align-items-center mb-1">
+            <span
+              class="text-center text-sm-right font-13 font-weight-bolder pr-sm-1 col-sm-4 pl-0 ">
+               {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.PACKAGE_CREATION_DATE' | translate}}:
+            </span>
+            <span class="font-13">{{(package$ | async).creationDate | date: 'MM/dd/yyyy' }}</span>
+          </div>
+          <div class="d-flex flex-column flex-sm-row justify-content-start align-items-start">
+            <span class="text-center text-sm-right font-13 font-weight-bolder pr-sm-1 col-sm-4 pl-0 ">
+              {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.PACKAGE_APPLICANTS' | translate}}:
+            </span>
+            <div class="row col">
+              <ng-template class="font-13" ngFor [ngForOf]="(package$ | async)?.applicants" let-applicant
+                           let-isLast="last">
+                <div
+                  class="font-13"><span
+                  class="text-nowrap">{{applicant.profile.firstName}} {{applicant.profile.middleName}} {{applicant.profile.lastName}}</span>
+                </div>
+                <span
+                  class="font-13 pr-1" *ngIf="!isLast">,</span>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="border-top border-dark my-3"></div>
+      <app-spinner *ngIf="(reviewGetState$ | async).loading"></app-spinner>
+      <div *ngIf="representativeIdFormControl.value && !(reviewGetState$ | async).loading">
+        <h6
+          class="col font-weight-bold text-center text-md-left font-16">{{ 'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.RATE_YOUR_EXPERIENCE' | translate }}
+        </h6>
+        <div class="d-flex flex-column flex-md-row align-items-center mb-2">
+          <div class="col col-md-2 text-center text-md-right font-14 font-weight-bold">
+            {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.SELECT_STAR_RATING' | translate}}
+          </div>
+          <div class="d-flex flex-column flex-md-row align-items-center justify-content-start">
+            <app-stars-rating
+              [formControl]="ratingFormControl">
+            </app-stars-rating>
+            <div class="ml-2">
+            <span class="small">
+              {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.SET_RATING' | translate}}
+            </span>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-column flex-md-row align-items-center mb-md-2">
+          <div class="col col-md-2 text-center text-md-right font-14 font-weight-bold">
+            {{ 'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.TITLE_OF_REVIEW' | translate }}
+          </div>
+          <div class="col p-0">
+            <input
+              type="text"
+              class="form-control form-control-sm font-weight-bolder focus-input"
+              [class.text-b2-gray]="(isSubmitButtonDisabledSubject$ | async)"
+              [formControl]="titleFormControl">
+          </div>
+        </div>
+        <div class="d-flex flex-column flex-md-row">
+          <div class="col col-md-2 text-center text-md-right font-14 font-weight-bold">
+            {{ 'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.YOUR_REVIEW' | translate }}
+          </div>
+          <div class="col p-0">
+          <textarea
+            rows="7"
+            [maxlength]="(maxLength$ | async)"
+            type="text"
+            class="form-control form-control-sm position-relative"
+            [formControl]="reviewFormControl"
+            [class.text-b2-gray]="(isSubmitButtonDisabledSubject$ | async)"
+          >
+          </textarea>
+            <span
+              class="position-absolute position-words-count small text-gray"
+              [class.text-danger]="(charactersCount$ | async) < 0"
+              [class.text-gray]="(charactersCount$ | async) > 0"
+              *ngIf="(charactersCount$ | async)"
+            >
+              {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.CHARACTERS_REMAINING' | translate: ({characters: charactersCount$ | async})}}
+            </span>
+          </div>
+        </div>
+        <div class="row offset-1 offset-md-2 pl-md-2 mb-3">
+          <a
+            class="text-blue cursor-pointer"
+            (click)="openWritingTips()"
+          >
+            {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.TIPS_FOR_WRITING' | translate}}
+          </a>
+        </div>
+        <div class="text-center text-md-right">
+          <button
+            type="submit"
+            class="btn btn-primary px-4 min-w-100"
+            [disabled]="(isSubmitButtonDisabledSubject$ | async) || formGroup.invalid"
+          >{{ 'FORM.BUTTON.SUBMIT' | translate}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<ng-template #writingTips>
+  <div class="container-fluid my-4">
+    <div class="font-weight-bold mb-2">
+      {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.MODALS.TIPS_FOR_WRITING.DESCRIPTION_P1' | translate:
+        ({representativeType: (this.selectedRepresentativeTypeSubject$ | async) | representativeType | translate}) }}
+    </div>
+    <div class="font-weight-bold mb-2">
+      {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.MODALS.TIPS_FOR_WRITING.DESCRIPTION_P2' | translate }}
+    </div>
+    <div class="small">
+      <div class="font-weight-bold offset-1">
+        {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.MODALS.TIPS_FOR_WRITING.SUBTITLE_1' | translate }}
+      </div>
+      <div class="offset-2">
+        {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.MODALS.TIPS_FOR_WRITING.POINT_1_1' | translate }}
+      </div>
+      <div class="offset-2">
+        {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.MODALS.TIPS_FOR_WRITING.POINT_1_2' | translate }}
+      </div>
+      <div class="offset-2">
+        {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.MODALS.TIPS_FOR_WRITING.POINT_1_3' | translate }}
+      </div>
+      <div class="offset-2">
+        {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.MODALS.TIPS_FOR_WRITING.POINT_1_4' | translate }}
+      </div>
+      <div class="offset-2">
+        {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.MODALS.TIPS_FOR_WRITING.POINT_1_5' | translate }}
+      </div>
+      <div class="offset-2 mb-2">
+        {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.MODALS.TIPS_FOR_WRITING.POINT_1_6' | translate:
+          ({representativeType: (this.selectedRepresentativeTypeSubject$ | async) | representativeType | translate}) }}
+      </div>
+      <div class="font-weight-bold offset-1">
+        {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.MODALS.TIPS_FOR_WRITING.SUBTITLE_2' | translate }}
+      </div>
+      <div class="offset-2">
+        {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.MODALS.TIPS_FOR_WRITING.POINT_2_1' | translate }}
+      </div>
+      <div class="offset-2">
+        {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.MODALS.TIPS_FOR_WRITING.POINT_2_2' | translate }}
+      </div>
+      <div class="offset-2">
+        {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.MODALS.TIPS_FOR_WRITING.POINT_2_3' | translate }}
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #selectRepresentative>
+  <div class="container-fluid my-4">
+    <div class=" mb-2">
+      {{'TEMPLATE.ACCOUNT.WRITE_A_REVIEW.MODALS.SELECT_REPRESENTATIVE.DESCRIPTION_P1' | translate}}
+    </div>
+  </div>
+</ng-template>
+

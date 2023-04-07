@@ -1,0 +1,116 @@
+<app-spinner [hidden]="!(isLoading$|async)"></app-spinner>
+<div class="container-fluid" [hidden]="(isLoading$|async)">
+  <div class="row justify-content-center my-3">
+    <h3 class="text-center">
+      {{ 'TEMPLATE.AUTH.PAY_SIGN_UP_FEE.TITLE' | translate }}
+    </h3>
+  </div>
+  <form [formGroup]="formGroup" #form="ngForm" (submit)="formSubmit()">
+    <div class="row columns-wrapper justify-content-center">
+      <div class="col-md-6 p-3">
+        <div class="row justify-content-center mb-4">
+          <div class="col-md-10">
+            <app-credit-card-info
+              [formGroup]="infoFormGroup"
+              [colHeadNumber]="true"
+            ></app-credit-card-info>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 p-3">
+        <div class="row justify-content-center mb-4">
+          <div class="col-md-9">
+            <div class="d-flex justify-content-center align-items-center mb-3">
+              <div class="column-number bg-primary mr-3">2</div>
+              <h4 class="text-center mb-0">
+                {{ 'TEMPLATE.AUTH.PAY_SIGN_UP_FEE.CREDIT_CARD_BILLING_ADDRESS' | translate }}
+              </h4>
+            </div>
+
+            <h6 class="font-weight-bold">
+              {{ 'TEMPLATE.AUTH.PAY_SIGN_UP_FEE.OFFICE' | translate }}
+              {{ 'TEMPLATE.AUTH.PAY_SIGN_UP_FEE.ADDRESS' | translate }}
+            </h6>
+            <app-address
+              [submitted]="form.submitted"
+              [disabled]="true"
+              [formGroup]="officeAddressFormGroup"
+              [showCountrySelect]="showCountrySelect$ | async"
+              [primaryTextStyle]="false"
+              [smallMarginStyle]="true"
+              [col3Label]="true"
+            >
+            </app-address>
+            <div class="row mt-4">
+              <div class="col-4 font-weight-bold">
+                {{ 'TEMPLATE.AUTH.PAY_SIGN_UP_FEE.BILLING' | translate }}
+                {{ 'TEMPLATE.AUTH.PAY_SIGN_UP_FEE.ADDRESS' | translate }}
+              </div>
+            </div>
+            <app-credit-card-billing-address
+              [formGroup]="billingAddressFormGroup"
+              [checkBoxLabel]="'TEMPLATE.CREDIT_CARD_BILL_FORM.SAME_AS_PROFILE'"
+              [attorneyPayment]="false"
+              [col4Label]="true"
+            ></app-credit-card-billing-address>
+          </div>
+          <div class="col-md-11 offset-md-1 mt-4" *ngIf="(fee$ | async) && isBillingAddressEqualToTaxAddress()">
+            <div class="mb-4">
+              <app-taxes-info
+                [tax]="fee$ | async"
+                feeLabel="TEMPLATE.AUTH.PAY_SIGN_UP_FEE.ONE_TIME_SET_UP_FEE"
+              ></app-taxes-info>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label text-justify font-weight-bold">
+                <input class="form-check-input" type="checkbox" value="" formControlName="agreeTerms">
+                {{ 'TEMPLATE.AUTH.PAY_SIGN_UP_FEE.AGREE_TERMS_AND_CONDITIONS_1' | translate:
+                ({setUpFee: (fee$ | async)?.grandTotal | currency: 'USD' : 'symbol' : '1.0'})}}
+                <a (click)="openTermsConditionsModal()" class="text-blue cursor-pointer">{{ 'TEMPLATE.AUTH.PAY_SIGN_UP_FEE.TERMS_AND_CONDITIONS' |
+                  translate }}
+                </a>
+                {{ 'TEMPLATE.AUTH.PAY_SIGN_UP_FEE.AGREE_TERMS_AND_CONDITIONS_2' | translate }}
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5 mb-5">
+      <div class="offset-md-6 col-md-6">
+        <div class="d-flex justify-content-center">
+          <button class="btn btn-primary px-4 mr-4 min-w-100" type="button" (click)="goToRepBasicInfo()">
+            {{'FORM.BUTTON.PREVIOUS' | translate }}
+          </button>
+          <button
+            class="btn btn-primary px-4 ml-4 min-w-100"
+            type="button"
+            *ngIf="!((fee$ | async) && isBillingAddressEqualToTaxAddress())"
+            [disabled]="(isFeeLoading$ | async) || formGroup.invalid"
+            (click)="getTaxes()"
+          >
+            {{'FORM.BUTTON.NEXT' | translate }}
+          </button>
+          <button
+            *ngIf="(fee$ | async) && isBillingAddressEqualToTaxAddress()"
+            class="btn btn-primary px-4 ml-4 min-w-100"
+            type="submit"
+            [disabled]="(isLoading$ | async) || formGroup.invalid"
+          >
+            {{'FORM.BUTTON.REGISTER' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<ng-template #termsConditionsConfirmationModal>
+  <app-terms-conditions-confirmation-modal></app-terms-conditions-confirmation-modal>
+</ng-template>
+
+<ng-template #termsConditionsModal>
+  <app-terms-conditions-modal></app-terms-conditions-modal>
+</ng-template>

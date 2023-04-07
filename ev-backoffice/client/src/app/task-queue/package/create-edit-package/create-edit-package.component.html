@@ -1,0 +1,44 @@
+<div class="bg-white border border-top-0 border-gray-ccc">
+  <div *ngIf="packageTypeFormControl.value === PackageType.EDIT && !!(packageId$ | async); else editPackageTitle">
+    <h3 class="text-center text-white bg-primary p-2 mb-0">
+      {{ 'TEMPLATE.TASK_QUEUE.TITLE_EDIT'
+        | translate:({packageStatus: (package$ | async)?.status
+        | findLabel: packageStatusValue | translate})
+      }}
+    </h3>
+  </div>
+  <form [formGroup]="formGroup" #createEditPackageForm (keypress)="onKeyPress($event, createEditPackageForm)" >
+    <app-select-package-type [packageType]="packageTypeFormControl"></app-select-package-type>
+    <ng-container
+      *ngIf="(
+      packageTypeFormControl.value === 'NEW' ||
+      (packageId$ | async)) &&
+      (package$ | async)?.status !== PackageStatus.CLOSED; else closedPackageSelected">
+      <app-assign-to
+        [ngClass]="{'read-only-package':(isReadOnlyPackage$ | async)}"
+        [representativeId]="representativeIdFormControl"
+        [isPackageEditType]="packageTypeFormControl.value === 'EDIT'"
+      ></app-assign-to>
+      <div *ngIf="representativeIdFormControl.value" [ngClass]="{'read-only-package':(isReadOnlyPackage$ | async)}">
+        <app-applicants [isReadOnlyPackage]="(isReadOnlyPackage$ | async)"
+                        [packageTypeFormControl]="packageTypeFormControl"></app-applicants>
+        <app-billing-info [isReadOnlyPackage]="(isReadOnlyPackage$ | async)"></app-billing-info>
+        <app-disposition-package [hidden]="(isReadOnlyPackage$ | async)"
+          [packageTypeFormControl]="packageTypeFormControl"></app-disposition-package>
+      </div>
+    </ng-container>
+  </form>
+</div>
+
+<ng-template #closedPackageSelected>
+  <app-closed-package-selected
+    *ngIf="(packageId$ | async)"
+    [packageTypeFormControl]="packageTypeFormControl"
+  ></app-closed-package-selected>
+</ng-template>
+
+<ng-template #editPackageTitle>
+  <h3 class="text-center text-white bg-primary p-2 mb-0" >
+    {{ 'TEMPLATE.TASK_QUEUE.TITLE' | translate }}
+  </h3>
+</ng-template>

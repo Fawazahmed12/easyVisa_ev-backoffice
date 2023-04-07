@@ -1,0 +1,31 @@
+<div class="container-fluid p-0 border border-secondary">
+  <app-modal-header [title]="'TEMPLATE.PACKAGE_CANNOT_BE_OPEN.HEADER'"></app-modal-header>
+  <div class="modal-body small">
+    <div *ngIf="pendingOptApplicants.length">
+      <div class="font-weight-bold">
+        {{'TEMPLATE.PACKAGE_CANNOT_BE_OPEN.TITLE_1' | translate}}
+      </div>
+      <div class="scrolled-list scrolled-list--applicants border border-light-gray mx-auto col-9 my-2"
+      >
+        <div *ngFor="let applicant of pendingOptApplicants">
+          {{applicant.profile.firstName}}, {{applicant.profile.lastName}}
+        </div>
+      </div>
+    </div>
+    <div *ngIf="denyOptApplicants.length">
+      <div class="font-weight-bold">
+        {{'TEMPLATE.PACKAGE_CANNOT_BE_OPEN.TITLE_2' | translate}}
+      </div>
+      <div class="scrolled-list scrolled-list--applicants border border-light-gray mx-auto col-9 my-2">
+        <div *ngFor="let applicant of denyOptApplicants">
+          {{applicant.profile.firstName}}, {{applicant.profile.lastName}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-right">
+    <button class="btn btn-primary mx-4 mb-4 min-w-100" type="button" (click)="modalDismiss()">
+      {{ 'FORM.BUTTON.OK' | translate }}
+    </button>
+  </div>
+</div>

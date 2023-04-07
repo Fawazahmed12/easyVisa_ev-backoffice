@@ -1,0 +1,172 @@
+<form [formGroup]="transferCasesFormGroup" class="container-fluid p-0 border border-secondary">
+  <app-modal-header [title]="'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFER_CASES' | translate"></app-modal-header>
+  <div class="modal-body position-relative">
+    <div *ngIf="!(isSoloPractitioner$ | async)">
+      <div class="d-flex my-3">
+        <div class="column-number bg-primary mr-2">1</div>
+        <div class="flex-grow-1">
+          <h4>
+            {{ 'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFER_CASES_MODAL.POINT_1_TITLE' | translate:
+              ({count: selectedPackagesIds.length})}}
+          </h4>
+          <div class="ml-lg-3 mr-lg-5 mt-3">
+            <app-table
+              [header]="tableHeader"
+              [tableData]="tableData$ | async"
+              [selectionStickyTable]="true"
+              [smallCells]="true"
+              class="small"
+            ></app-table>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex my-3">
+        <div class="column-number bg-primary mr-2">2</div>
+        <div class="flex-grow-1">
+          <h4>
+            {{ 'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFER_CASES_MODAL.POINT_2_TITLE' | translate:
+              ({representativeType: (activeOrganization$ | async)?.organizationType | representativeType | translate})}}
+          </h4>
+          <span class="pr-4">
+            {{ 'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFER_CASES_MODAL.POINT_2' | translate:
+              ({
+                  representativeType: (activeOrganization$ | async)?.organizationType | representativeType | translate,
+                  organizationType: (activeOrganization$ | async)?.organizationType | organizationType | translate
+              })}}
+        </span>
+          <label class="pr-4">
+            <input type="radio" class="pr-2" [formControl]="isSameOrganizationMemberFormControl" [value]="true">
+            {{'FORM.LABELS.YES' | translate}}
+          </label>
+          <label class="pr-4">
+            <input type="radio" class="pr-2" [formControl]="isSameOrganizationMemberFormControl" [value]="false">
+            {{'FORM.LABELS.NO' | translate}}
+          </label>
+          <div class="col-md-6 mt-3" *ngIf="isSameOrganizationMemberFormControl.value">
+            <select class="form-control" formControlName="representativeId">
+              <option [ngValue]="null">
+                {{ 'FORM.LABELS.SELECT' | translate }} {{(activeOrganization$ | async)?.organizationType | representativeType | translate}}
+              </option>
+              <option
+                [ngClass]="(currentRepresentativeId$ | async) === item.id ? 'd-none' : ''"
+                [ngValue]="item.id"
+                *ngFor="let item of (representativesMenu$ | async)"
+              >
+                {{item?.firstName}} {{item?.lastName}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="(isSoloPractitioner$ | async) || isSameOrganizationMemberFormControl.value === false">
+      <h3 class="text-danger text-center" *ngIf="(isSoloPractitioner$ | async)">
+        {{'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFER_CASES_MODAL.TITLE_1_MODAL' | translate: ({count: selectedPackagesIds.length})}}
+      </h3>
+      <h3 class="text-danger text-center mt-5" *ngIf="!(isSoloPractitioner$ | async)">
+        {{'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFER_CASES_MODAL.TITLE_2_MODAL' | translate: ({count: selectedPackagesIds.length})}}
+      </h3>
+      <h5
+        class="text-danger text-center">{{'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFER_CASES_MODAL.SUBTITLE_MODAL' | translate}}</h5>
+      <div class="d-lg-flex">
+        <div class="mr-3 text-center my-3">
+          <img src="/assets/images/warn-icon.png"/>
+        </div>
+        <div class="my-3">
+          <p>{{'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFER_CASES_MODAL.DESCRIPTION_P1' | translate}}</p>
+          <p>{{'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFER_CASES_MODAL.DESCRIPTION_P2' | translate}}</p>
+          <p [innerHTML]="'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFER_CASES_MODAL.DESCRIPTION_P3' | translate"></p>
+          <p>
+            {{'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFER_CASES_MODAL.DESCRIPTION_P4' | translate: ({count: selectedPackagesIds.length})}}
+          </p>
+          <p class="text-danger">{{'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFER_CASES_MODAL.DESCRIPTION_P5' | translate}}</p>
+          <p>{{'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFER_CASES_MODAL.DESCRIPTION_P6' | translate}}</p>
+        </div>
+      </div>
+      <form [formGroup]="verifyRecipientFormGroup"
+            class="d-lg-flex justify-content-center align-items-center offset-lg-2 col-lg-8"
+            (ngSubmit)="verifyRecipient()"
+      >
+        <div class="mr-3 flex-grow-1">
+          <div class="row my-2">
+            <div class="col-md-6 text-center text-md-right">
+              {{'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFER_CASES_MODAL.TRANSFEREE_EVID' | translate}}
+            </div>
+            <div class="col-md-6">
+              <input
+                type="text"
+                class="form-control form-control-sm" formControlName="easyVisaId">
+            </div>
+          </div>
+          <div class="row my-2">
+            <div class="col-md-6 text-center text-md-right">
+              {{'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFER_CASES_MODAL.TRANSFEREE_EMAIL' | translate}}
+            </div>
+            <div class="col-md-6">
+              <input
+                type="text"
+                class="form-control form-control-sm" formControlName="email">
+            </div>
+          </div>
+          <div class="text-center small position-absolute text-danger w-100">
+            <span *ngIf="emailFormControl.hasError('pattern') || easyVisaIdFormControl.hasError('pattern')">
+               {{'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFER_CASES_MODAL.EVID_OR_EMAIL_FORMAT_INVALID' | translate}}
+            </span>
+            <div *ngIf="(isShowWarning$ | async)">
+              <div *ngFor="let error of (messageSubject$ | async)">
+                {{error.message}}
+              </div>
+            </div>
+            <span *ngIf="representativeIdFormControl.value">
+              {{'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFER_CASES_MODAL.RECIPIENT_CONFIRMED' | translate}}
+            </span>
+          </div>
+          <app-spinner *ngIf="(verifyAttorneyRequestState$ | async).loading"></app-spinner>
+          <div *ngIf="(transfereeOrganizations$ | async)?.length > 1">
+            <div class="row mb-2 mt-4 text-center">
+              {{'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFER_CASES_MODAL.TRANSFEREE_ORGANIZATIONS_WARNING' | translate}}
+            </div>
+            <div>
+              <div class="row my-2">
+                <div class="col-md-6 text-center text-md-right">
+                  {{'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFER_CASES_MODAL.TRANSFEREE_ORGANIZATIONS' | translate}}
+                </div>
+                <div class="col-md-6">
+                  <select
+                    class="form-control form-control-sm col"
+                    [formControl]="organizationIdFormControl"
+                  >
+                    <option [ngValue]="null">
+                      {{'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFER_CASES_MODAL.SELECT_TRANSFEREE_ORGANIZATIONS' | translate}}
+                    </option>
+                    <option [ngValue]="organization.id" *ngFor="let organization of (transfereeOrganizations$ | async)">
+                      {{organization.name}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="text-center text-lg-right m-4">
+    <button class="btn btn-primary px-4 mr-sm-4 min-w-100" type="button" (click)="modalDismiss()">
+      {{ 'FORM.BUTTON.CANCEL' | translate }}
+    </button>
+    <button class="btn btn-primary px-4 min-w-100"
+            type="button"
+            (click)="packagesTransfer()"
+            [disabled]="transferCasesFormGroup.invalid || (packagesTransferPostRequest$ | async)?.loading"
+    >
+      <span *ngIf="!isSameOrganizationMemberFormControl.value">
+        {{'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFER_CASES_MODAL.REQUEST_TO_TRANSFER_CASES' | translate}}
+      </span>
+      <span *ngIf="isSameOrganizationMemberFormControl.value">
+        {{'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFER_CASES_MODAL.TRANSFER_CASES_BETWEEN_ATTORNEYS' | translate}}
+      </span>
+    </button>
+  </div>
+</form>

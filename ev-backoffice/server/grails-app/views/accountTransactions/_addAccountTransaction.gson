@@ -1,0 +1,10 @@
+import com.easyvisa.dto.AddTransactionResponseDto
+import com.easyvisa.utils.NumberUtils
+import groovy.transform.Field
+
+@Field AddTransactionResponseDto addTransactionResponseDto
+
+json {
+    accountTransaction g.render(template: '/accountTransactions/accountTransaction', model: [accountTransaction: addTransactionResponseDto.accountTransaction])
+    balance NumberUtils.prepareBigDecimal(addTransactionResponseDto.balance)
+}

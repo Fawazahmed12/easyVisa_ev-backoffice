@@ -1,0 +1,31 @@
+@import '../../../_variables.scss';
+
+.star {
+  font-size: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+.filled {
+  color: $yellow;
+}
+
+ngb-rating {
+  z-index: -99999999;
+  &:focus {
+    outline: none;
+  }
+}
+
+.full {
+  color: $yellow;
+}
+.half {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  color: $yellow;
+}
+
+.small-star {
+  font-size: 1em;
+}

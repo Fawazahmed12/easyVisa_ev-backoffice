@@ -1,0 +1,37 @@
+<div class="container-fluid p-0 border border-secondary">
+  <app-modal-header [title]="'TEMPLATE.ACCOUNT.PROFILE.ADD_BAR_ADMISSION'"></app-modal-header>
+  <form class="modal-body d-md-flex justify-content-between text-center" [formGroup]="licensedRegionFormGroup">
+    <div class="px-1">
+      <label class="font-weight-bolder">{{'TEMPLATE.ACCOUNT.PROFILE.STATE_REGION_LICENSED_IN' | translate}}</label>
+      <select
+        [formControl]="stateFormControl"
+        class="form-control">
+        <option [value]=null>{{'FORM.LABELS.SELECT_STATE' | translate}}</option>
+        <option [value]="state.value" *ngFor="let state of states">
+          {{state.label}}
+        </option>
+      </select>
+    </div>
+    <div class="px-1">
+      <label class="font-weight-bolder">{{'TEMPLATE.ACCOUNT.PROFILE.BAR_NUMBER' | translate}}</label>
+      <input type="text" formControlName="barNumber" class="form-control">
+    </div>
+    <div class="px-1">
+      <label class="font-weight-bolder">{{'TEMPLATE.ACCOUNT.PROFILE.LICENSED_SINCE' | translate}}</label>
+      <app-datepicker-group
+        [dateFormControl]="dateLicensedFormControl"
+        [minDate]="minDate"
+        [maxDate]="maxDate"
+      >
+      </app-datepicker-group>
+    </div>
+  </form>
+  <div class="text-right m-4">
+    <button class="btn btn-primary px-4 mr-4 min-w-100" type="button" (click)="modalDismiss()">
+      {{ 'FORM.BUTTON.CANCEL' | translate }}
+    </button>
+    <button class="btn btn-primary px-4 min-w-100" type="button" (click)="addBarNumber()" [disabled]="licensedRegionFormGroup.invalid">
+      {{'FORM.BUTTON.ADD' | translate}}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<ng-container *ngIf="estimatedTax$ | async as tax">
+  <div *ngIf="tax.immediateCharge.length || tax.laterCharge.length">
+    <div class="d-flex flex-row text-center font-weight-bold">
+      <div class="col-2">{{'TEMPLATE.TASK_QUEUE.ADDITIONAL_APPLICANT_FEE.CATEGORY' | translate}}</div>
+      <div class="col-8">{{'TEMPLATE.TASK_QUEUE.ADDITIONAL_APPLICANT_FEE.DESCRIPTION' | translate}}</div>
+      <div class="col-2 text-right">{{'TEMPLATE.TASK_QUEUE.ADDITIONAL_APPLICANT_FEE.AMOUNT' | translate}}</div>
+    </div>
+    <div class="border border-b32 mt-1"></div>
+    <div *ngIf="tax.immediateCharge.length">
+      <div class="text-center font-italic small mt-2">
+        {{'TEMPLATE.TASK_QUEUE.ADDITIONAL_APPLICANT_FEE.IMMEDIATE_CHARGE' | translate}}
+      </div>
+      <div
+        class="d-flex flex-row text-center mt-2"
+        *ngFor="let additionalFee of tax.immediateCharge"
+      >
+        <div class="col-2">{{additionalFee.benefitCategory | findLabel: (allBenefitCategories$|async) | translate}}</div>
+        <div
+          class="col-8 text-left">{{additionalFee.benefitCategory | findLabel: (allBenefitCategories$|async) : true | translate}}</div>
+        <div class="col-2 text-right">{{additionalFee.amount | currency:'USD' : 'symbol' : '1.2-2' }}</div>
+      </div>
+      <div class="border border-gray mt-3"></div>
+    </div>
+    <div *ngIf="tax.laterCharge.length">
+      <div class="text-center font-italic small mt-2">
+        {{'TEMPLATE.TASK_QUEUE.ADDITIONAL_APPLICANT_FEE.LATER_CHARGE' | translate}}
+      </div>
+      <div
+        class="d-flex flex-row text-center mt-2"
+        *ngFor="let additionalFee of tax.laterCharge"
+      >
+        <div class="col-2">{{additionalFee.benefitCategory | findLabel: (allBenefitCategories$|async) | translate}}</div>
+        <div class="col-8 text-left">
+          {{additionalFee.benefitCategory | findLabel: (allBenefitCategories$|async) : true | translate}}
+        </div>
+        <div class="col-2 text-right">
+          {{additionalFee.amount | currency:'USD' : 'symbol' : '1.2-2' }}
+        </div>
+      </div>
+      <div class="border border-gray mt-3"></div>
+    </div>
+  </div>
+  <div class="col-6 offset-6 mt-4">
+    <app-taxes-info
+      [tax]="tax"
+      [feeLabel]="'TEMPLATE.TASK_QUEUE.ADDITIONAL_APPLICANT_FEE.SUBTOTAL'"
+      class="mt-2">
+    </app-taxes-info>
+  </div>
+</ng-container>

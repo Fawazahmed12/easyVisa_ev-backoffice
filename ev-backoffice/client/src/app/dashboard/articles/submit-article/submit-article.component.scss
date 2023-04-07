@@ -1,0 +1,15 @@
+@import '../../../../_variables';
+
+.min-height-editor-height {
+  height:  calc(100vh - 540px) !important;
+
+  ::ng-deep .ql-container {
+    height: calc(100% - 66px);
+  }
+
+  .text-b2-gray {
+    color: $b2-gray;
+  }
+}
+
+

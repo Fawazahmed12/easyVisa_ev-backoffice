@@ -1,0 +1,49 @@
+<div class="container-fluid p-0 border border-secondary">
+  <app-modal-header [title]="'TEMPLATE.ACCOUNT.PROFILE.DELETE_DATA_OF_APPLICANT.DELETE_DATA_OF_APPLICANT_MODAL.HEADER'"></app-modal-header>
+  <div class="mx-4 my-3 d-flex">
+    <div class="mr-3 text-center my-3">
+      <img src="/assets/images/warn-icon.png"/>
+    </div>
+    <div class="mr-2">
+      <div class="font-weight-bold text-danger mb-2">
+        {{'TEMPLATE.ACCOUNT.PROFILE.DELETE_DATA_OF_APPLICANT.DELETE_DATA_OF_APPLICANT_MODAL.P_1' | translate}}
+      </div>
+      <div class="font-weight-bold text-danger mb-2">
+        {{'TEMPLATE.ACCOUNT.PROFILE.DELETE_DATA_OF_APPLICANT.DELETE_DATA_OF_APPLICANT_MODAL.P_2' | translate}}
+      </div>
+      <div class="font-weight-bold text-danger mb-2">
+        {{'TEMPLATE.ACCOUNT.PROFILE.DELETE_DATA_OF_APPLICANT.DELETE_DATA_OF_APPLICANT_MODAL.P_3' | translate}}
+      </div>
+      <div class="font-weight-bold text-danger mb-2">
+        {{'TEMPLATE.ACCOUNT.PROFILE.DELETE_DATA_OF_APPLICANT.DELETE_DATA_OF_APPLICANT_MODAL.P_4' | translate}}
+      </div>
+    </div>
+  </div>
+  <div class="col d-flex flex-row ml-3">
+    <label class="mr-2">
+      <input
+        type="checkbox"
+        [formControl]="confirmFormControl"
+      >
+    </label>
+    <div class="font-weight-bold">{{'TEMPLATE.ACCOUNT.PROFILE.DELETE_MY_DATA.DELETE_MY_DATA_MODAL.CHECKBOX_LABEL' | translate}}</div>
+  </div>
+    <div class="text-right m-4">
+      <button
+        (click)="closeModal()"
+        class="btn btn-primary px-4 mr-4 min-w-100"
+        type="button"
+      >
+        {{ 'FORM.BUTTON.CANCEL' | translate}}
+      </button>
+      <button
+        (click)="confirmModal()"
+        class="btn btn-primary px-4 min-w-100"
+        type="button"
+        [disabled]="!confirmFormControl.value"
+      >
+        {{ 'TEMPLATE.ACCOUNT.PROFILE.DELETE_MY_DATA.DELETE_MY_DATA_MODAL.DELETE_ALL_DATA' | translate}}
+      </button>
+    </div>
+  </div>
+

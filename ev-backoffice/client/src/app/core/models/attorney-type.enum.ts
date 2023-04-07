@@ -1,0 +1,4 @@
+export enum AttorneyType {
+  MEMBER_OF_A_LAW_FIRM = 'MEMBER_OF_A_LAW_FIRM',
+  SOLO_PRACTITIONER = 'SOLO_PRACTITIONER',
+}

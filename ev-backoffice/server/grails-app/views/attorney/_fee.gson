@@ -1,0 +1,12 @@
+import com.easyvisa.Fee
+import groovy.transform.Field
+
+inherits template: '/attorney/feeBase', model: [fee: fee]
+
+@Field Fee fee
+
+json {
+    representativeId fee.representative.id
+    dateCreated fee.dateCreated
+    lastUpdated fee.lastUpdated
+}

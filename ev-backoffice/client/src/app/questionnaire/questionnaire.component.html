@@ -1,0 +1,45 @@
+<div class="wrapper questionnaire-wrapper">
+  <div class="row">
+    <div class="col-lg-3 package-section-menus">
+      <ul>
+        <li *ngFor="let packageSection of packageSections$ | async">
+          <div class="applicant-details">
+            <div class="applicant-name">
+              {{packageSection.applicantName}}
+            </div>
+            <div class="applicant-type">{{packageSection.applicantTitle}} ({{packageSection.benefitCategoryName}})</div>
+          </div>
+          <div *ngIf="!hasDerivedBeneficiary(packageSection)" class="d-flex justify-content-between align-items-center">
+            <div class="package-section-full-percentage">
+              <div class="package-section-completed-percentage"
+                   [style.width.%]="packageSection.completedWeightage">
+              </div>
+            </div>
+            <span class="badge badge-primary badge-pill completed-weightage">
+                {{packageSection.completedWeightage}}%
+            </span>
+          </div>
+
+          <ul>
+            <li *ngFor="let section of packageSection.sections" [ngClass]="{'active-link': isActive(packageSection.applicantId, section.id)}">
+              <i class="fa left-icon" *ngIf="isActive(packageSection.applicantId, section.id)">&#9656;</i>
+              <a tabindex="-1" (click)="onSectionSelect(packageSection.applicantId, section.id)">
+                {{section.shortName}}
+              </a>
+              <span class="completed-sec-percentage">
+                <i class="fa right-icon tick-icon" *ngIf="section.completionState">&#10003;</i>
+                <span class="right-icon" *ngIf="!section.completionState">{{section.completedPercentage}}%</span>
+              </span>
+            </li>
+            <li *ngIf="packageSection.sections && packageSection.sections.length==0" class="no-question-text font-italic">
+              No Questions for this Applicant
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="col-lg-9 package-section-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

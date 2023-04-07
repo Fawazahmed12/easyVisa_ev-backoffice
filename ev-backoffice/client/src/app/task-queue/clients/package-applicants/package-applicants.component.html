@@ -1,0 +1,105 @@
+<app-spinner *ngIf="(changePackageOwedPatchRequest$ | async).loading"></app-spinner>
+
+<div class="bg-white border border-top-0">
+  <h3 class="text-center text-white bg-primary p-2 mb-0">
+    {{ 'TEMPLATE.TASK_QUEUE.CLIENTS.USCIS_PACKAGE_APPLICANTS.TITLE' | translate }}
+  </h3>
+  <div class="text-center m-2">
+    {{'TEMPLATE.TASK_QUEUE.CLIENTS.USCIS_PACKAGE_APPLICANTS.PACKAGE_CASE_ID' | translate}} {{(package$ | async)?.easyVisaId}}
+  </div>
+
+  <div class="m-2 text-danger" *ngIf="(package$ | async)?.status==packageStatus.TRANSFERRED">
+    <div class="row">
+      <div class="col-lg-10 offset-1">
+        <div class="row">
+          <div class="col-lg-12">
+            <h5 class="font-weight-bold">{{'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFERRED_PACKAGE.TITLE' | translate}}</h5>
+          </div>
+          <div class="col-lg-2 pr-0">
+            <p class="font-weight-bold text-right mb-0"> {{'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFERRED_PACKAGE.TRANSFERRED_BY' | translate}}</p>
+          </div>
+          <div class="col-lg-10">
+            <p class="mb-0">{{getFullNameWithEVId((package$ | async)?.transferredBy)}}</p>
+          </div>
+          <div class="col-lg-2 pr-0">
+            <p class="font-weight-bold text-right mb-0"> {{'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFERRED_PACKAGE.TRANSFER_DATE' | translate}}</p>
+          </div>
+          <div class="col-lg-10">
+            <p class="mb-0">{{(package$ | async).transferredOn | date: 'MM/dd/yyyy h:mm a' }}</p>
+          </div>
+          <div class="col-lg-2 pr-0">
+            <p class="font-weight-bold text-right mb-0"> {{'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFERRED_PACKAGE.TRANSFERRED_TO' | translate}}</p>
+          </div>
+          <div class="col-lg-10">
+            <p class="mb-0">{{getFullNameWithEVId((package$ | async)?.transferredAttorneyTo)}}</p>
+          </div>
+          <div class="col-lg-2 pr-0">
+            <p class="font-weight-bold text-right mb-0"> {{'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFERRED_PACKAGE.MEMBER_OF' | translate}} </p>
+          </div>
+          <div class="col-lg-10">
+            <p class="mb-0">{{(package$ | async)?.transferredOrganizationTo?.memberOf}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-4 mb-4 py-2 border section-height">
+    <div
+      class="m-4 py-2 border"
+      *ngFor="let item of applicantFormGroup.controls; let i=index"
+      [ngClass]="applicantBgColor(item.get('applicantType').value, i)"
+    >
+      <app-applicant-info
+        [applicantTypeFormControl]="item.get('applicantType')"
+        [benefitCategoryFormControl]="item.get('benefitCategory')"
+        [inviteApplicantFormControl]="item.get('inviteApplicant')"
+        [profileFormGroup]="item.get('profile')"
+        [applicantFee]="item.get('fee').value"
+        [showFee]="true"
+        [showEmail]="true"
+        [showInviteResendCheckbox]="true"
+        [index]="i"
+      >
+      </app-applicant-info>
+    </div>
+  </div>
+  <div class="row px-4">
+    <div class="col-lg-5 d-flex mb-4 align-items-center">
+      <button [hidden]="(isPackageTransferred$ | async)"
+        class="btn btn-primary px-4 mr-4 min-w-100"
+        (click)="openEditAmountOwedModal(editAmountOwedModal)"
+      >
+        {{'TEMPLATE.TASK_QUEUE.CLIENTS.USCIS_PACKAGE_APPLICANTS.EDIT_AMOUNT_OWED' | translate}}
+      </button>
+      <div class="text-danger">
+        {{'TEMPLATE.TASK_QUEUE.CLIENTS.USCIS_PACKAGE_APPLICANTS.BALANCE_OWED' | translate}}
+        {{ (package$ | async)?.owed || 0 | currency: 'USD' : 'symbol' : '1.0'}}
+      </div>
+    </div>
+    <div class="col-lg-7 d-md-flex justify-content-end">
+      <button [hidden]="(hideResendInvitationBttn$ | async)"
+        class="btn btn-primary px-4 mr-4 min-w-100 mb-4"
+        [disabled]="isResendInvitationBtnClicked"
+        (click)="resendInvitation()"
+      >
+        {{resendTitle$ | async | translate}}
+      </button>
+      <button
+        class="btn btn-primary px-4 min-w-100 mb-4"
+        (click)="goToClientsPage()"
+      >
+        {{'FORM.BUTTON.BACK' | translate}}
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-template #editAmountOwedModal>
+  <app-edit-amount-owed
+    [owed]="(package$ | async)?.owed"
+    [petitioner]="(package$ | async)?.petitioner"
+    [applicants]="(package$ | async)?.applicants"
+    [formControl]="owedFormControl"
+  ></app-edit-amount-owed>
+</ng-template>

@@ -1,0 +1,16 @@
+import com.easyvisa.Address
+
+//noinspection UnusedVariable
+model {
+    Address address
+}
+json {
+    line1 address?.line1
+    line2 address?.line2
+    city address?.city
+    country address.country?.name()
+    state address.state?.name()
+    province address.province
+    zipCode address.zipCode
+    postalCode address.postalCode
+}

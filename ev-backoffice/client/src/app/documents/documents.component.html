@@ -1,0 +1,18 @@
+<div class="document-spinner-container" *ngIf="(fileUploading$ | async) || (fileDownloading$ | async)">
+  <app-spinner></app-spinner>
+</div>
+<app-spinner *ngIf="(requiredDocumentsGetRequest$ | async).loading && (sentDocumentsGetRequest$ | async).loading && (receivedDocumentsGetRequest$ | async).loading"></app-spinner>
+<div class="documents-wrapper" *ngIf="!(requiredDocumentsGetRequest$ | async).loading && !(sentDocumentsGetRequest$ | async).loading && !(receivedDocumentsGetRequest$ | async).loading">
+  <div class="text-center font-weight-bold text-danger row m-0">
+    <h3 class="col-md-12 p-0 doc-portal-title">{{'TEMPLATE.DOCUMENT_PORTAL.TITLE' | translate}}</h3>
+    <h5 class="col-md-10 offset-md-1">{{'TEMPLATE.DOCUMENT_PORTAL.SUB_TITLE' | translate}}</h5>
+  </div>
+  <app-required-documents-panel [readOnlyAccess]="(documentAccessData$ | async)?.REQUIRED_DOCUMENT.readOnly"></app-required-documents-panel>
+  <app-visa-interview-documentation-panel></app-visa-interview-documentation-panel>
+  <app-sent-documents-panel [readOnlyAccess]="(documentAccessData$ | async)?.DOCUMENT_SENT_TO_US.readOnly"></app-sent-documents-panel>
+  <app-received-documents-panel [readOnlyAccess]="(documentAccessData$ | async)?.DOCUMENT_RECEIVED_FROM_US.readOnly"></app-received-documents-panel>
+  <app-milestone-dates [readOnlyAccess]="(documentAccessData$ | async)?.DOCUMENT_MILESTONE_TYPE.readOnly"></app-milestone-dates>
+  <app-print-package-forms [readOnlyAccess]="(documentAccessData$ | async)?.PRINT_DOWNLOAD_USCIS_FORMS.readOnly"></app-print-package-forms>
+  <app-representative-notes [readOnlyAccess]="(documentAccessData$ | async)?.DOCUMENT_NOTE_TYPE.readOnly"></app-representative-notes>
+</div>
+

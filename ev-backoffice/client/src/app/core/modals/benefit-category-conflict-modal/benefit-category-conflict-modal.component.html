@@ -1,0 +1,23 @@
+<div class="container-fluid p-0 border border-secondary">
+  <app-modal-header [title]="'TEMPLATE.TASK_QUEUE.PACKAGE.BENEFIT_CATEGORY_CONFLICT_MODAL.TITLE'"></app-modal-header>
+  <div class="modal-body">
+    <div class="px-3 pt-3 d-flex mx-3">
+      <div class="pr-4 d-flex align-items-start">
+        <img src="../../../../../assets/images/warn-icon.png">
+      </div>
+      <div class="d-flex flex-column">
+        <div [innerHTML]="content"></div>
+        <div class="text-right m-4">
+          <button
+            (click)="closeModal()"
+            class="btn btn-primary px-4 mr-4 min-w-100"
+            type="button"
+          >
+            {{ 'FORM.BUTTON.OK' | translate}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,167 @@
+<app-block [title]="'TEMPLATE.TASK_QUEUE.ADDITIONAL_FEES.TITLE' | translate">
+  <form #form="ngForm" [formGroup]="formGroup" (ngSubmit)="sendFeesBill()">
+    <div class="mx-5" *ngIf="(activePackage$ | async); else noActivePackageDescription">
+      <h4 class="mt-5">
+        {{'TEMPLATE.TASK_QUEUE.ADDITIONAL_FEES.P_1' | translate}}
+      </h4>
+      <div class="mt-5 text-primary">
+        <ng-template ngFor [ngForOf]="(activePackage$ | async)?.applicants" let-applicant let-isLast="last">
+        <span class="font-weight-bold">{{applicant.applicantType | applicantType | translate}}
+          :</span><span> {{applicant.profile.firstName}} {{applicant.profile.lastName}}</span>
+          <span class="pr-1" *ngIf="!isLast">,</span>
+        </ng-template>
+      </div>
+      <div
+        class="mt-5"
+        [innerHTML]="'TEMPLATE.TASK_QUEUE.ADDITIONAL_FEES.P_2' | translate">
+      </div>
+      <div class="border mt-5 ml-5"></div>
+    </div>
+    <div *ngIf="(activePackage$ | async)">
+      <div class="d-flex mx-2 mt-3 align-items-center">
+        <div class="column-number bg-primary mr-2">1</div>
+        <h4 class="mb-0">{{ 'TEMPLATE.TASK_QUEUE.ADDITIONAL_FEES.CREATE_CHARGES' | translate }}</h4>
+      </div>
+      <div class="offset-1">
+        <div class="row font-weight-bold text-center mx-2">
+          <div class="col-8">{{'TEMPLATE.TASK_QUEUE.ADDITIONAL_FEES.DESCRIPTION' | translate}}</div>
+          <div class="col-2 row no-gutters">
+            <div class="col-6 offset-1">{{'TEMPLATE.TASK_QUEUE.ADDITIONAL_FEES.EACH' | translate}}</div>
+            <div class="col-4 offset-1 pl-1">{{'TEMPLATE.TASK_QUEUE.ADDITIONAL_FEES.QUANTITY' | translate}}</div>
+          </div>
+          <div class="col-2 pr-1">{{'TEMPLATE.TASK_QUEUE.ADDITIONAL_FEES.EXT' | translate}}</div>
+        </div>
+        <div class="border border-gray scrolled-list scrolled-list--additional-fee">
+          <div *ngFor="let charge of chargesFormArray.controls; let i=index">
+            <app-fee-item
+              [chargeFormGroup]="charge"
+              [form]="form"
+              [index]="i"
+              (removeFeeRow)="removeFeeRow($event)"
+            >
+            </app-fee-item>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="text-left col-4">
+            <button
+              class="btn btn-primary px-4 mr-4 min-w-100"
+              type="button"
+              (click)="openGovernmentFeesTableModal()">
+              {{ 'TEMPLATE.TASK_QUEUE.ADDITIONAL_FEES.GOVERNMENT_FEES_TABLE_BTN' | translate }}
+            </button>
+          </div>
+          <div class="text-center col-4">
+            <button
+              class="btn btn-primary px-4 mr-4 min-w-100"
+              type="button"
+              (click)="addAnotherFeeRow()">
+              {{ 'TEMPLATE.TASK_QUEUE.ADDITIONAL_FEES.ADD_ANOTHER_FEE_BTN' | translate }}
+            </button>
+          </div>
+          <div class="text-right col text-right mr-3">
+            <h4
+              *ngIf="(total$ | async)"
+            >{{'TEMPLATE.TASK_QUEUE.ADDITIONAL_FEES.TOTAL' | translate}} {{total$ | async | currency:'USD' : 'symbol' : '1.0'}}</h4>
+          </div>
+        </div>
+        <div class="border mt-5 mr-5"></div>
+      </div>
+      <div class="d-flex mx-2 mt-3 align-items-center">
+        <div class="column-number bg-primary mr-2">2</div>
+        <h4 class="mb-0">{{'TEMPLATE.TASK_QUEUE.ADDITIONAL_FEES.CREATE_EDIT_EMAIL' | translate }}
+          <a class="fa fa-info-circle text-primary cursor-pointer" (click)="openEmailTemplateVariablesModal()"></a>
+        </h4>
+      </div>
+      <div class="offset-1">
+      <textarea
+        type="text"
+        rows="20"
+        class="form-control form-control-sm mt-3"
+        [class.border]="emailFormControl.invalid && form.submitted && form.untouched && form.dirty"
+        [class.border-danger]="emailFormControl.invalid && form.submitted && form.untouched"
+        [formControl]="emailFormControl"
+      >
+      </textarea>
+        <div class="row mt-3">
+          <div class="col-4">
+            <button
+              class="btn btn-primary min-w-100"
+              type="button"
+              (click)="previewEmail(previewEmailPopUp, form)"
+            >
+              {{ 'FORM.BUTTON.PREVIEW' | translate }}
+            </button>
+          </div>
+          <div class="col-4 d-flex justify-content-center align-items-center">
+            <button
+              type="button"
+              class="btn btn-primary px-4 min-w-100"
+              (click)="openEditAmountOwedModal(editAmountOwedModal)"
+            >
+              {{'TEMPLATE.TASK_QUEUE.CLIENTS.USCIS_PACKAGE_APPLICANTS.EDIT_AMOUNT_OWED' | translate}}
+            </button>
+          </div>
+          <h4 class="col-4 text-left text-danger">
+            {{'TEMPLATE.TASK_QUEUE.CLIENTS.USCIS_PACKAGE_APPLICANTS.BALANCE_OWED' | translate}}
+            {{ (activePackage$ | async)?.owed || 0 | currency: 'USD' : 'symbol' : '1.0'}}
+          </h4>
+        </div>
+        <div class="border mt-3 mr-5"></div>
+        <div class="row mt-4">
+          <div class="col-6 d-flex justify-content-center align-items-center">
+            <button
+              type="button"
+              class="btn btn-primary px-4 min-w-100"
+              (click)="clearEntireBill()"
+            >
+              {{'TEMPLATE.TASK_QUEUE.ADDITIONAL_FEES.CLEAR_ENTIRE_BILL_BTN' | translate}}
+            </button>
+          </div>
+          <div class="col-6 d-flex justify-content-center align-items-center">
+            <button
+              type="submit"
+              class="btn btn-primary px-4 min-w-100"
+            >
+              {{'TEMPLATE.TASK_QUEUE.ADDITIONAL_FEES.SEND_FEES_BILL_BTN' | translate}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</app-block>
+
+<ng-template #governmentFeesModal>
+  <app-government-fees-modal
+    [governmentFee]="(governmentFee$ | async)"
+  ></app-government-fees-modal>
+</ng-template>
+
+<ng-template #noActivePackageDescription>
+  <div>
+    <div class="font-weight-bold">{{'TEMPLATE.TASK_QUEUE.ADDITIONAL_FEES.NO_ACTIVE_PACKAGE_DESC_P1' | translate}}</div>
+    <div class="mt-2">
+      <div class="font-weight-bold">
+        <span>{{'TEMPLATE.TASK_QUEUE.ADDITIONAL_FEES.NO_ACTIVE_PACKAGE_DESC_P2_1' | translate}}</span>
+        <a
+          routerLink="/task-queue/clients"
+          class="cursor-pointer text-primary px-1">{{'TEMPLATE.TASK_QUEUE.ADDITIONAL_FEES.NO_ACTIVE_PACKAGE_LINK' | translate}}</a>
+        <span>{{'TEMPLATE.TASK_QUEUE.ADDITIONAL_FEES.NO_ACTIVE_PACKAGE_DESC_P2_2' | translate}}</span>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #editAmountOwedModal>
+  <app-edit-amount-owed
+    [owed]="(activePackage$ | async).owed"
+    [petitioner]="(activePackage$ | async)?.petitioner"
+    [applicants]="(activePackage$ | async)?.applicants"
+    [formControl]="owedFormControl"
+  ></app-edit-amount-owed>
+</ng-template>
+
+<ng-template #previewEmailPopUp>
+  <app-preview-email [emailData]="formGroup.value"></app-preview-email>
+</ng-template>

@@ -1,0 +1,145 @@
+<div class="mb-4 bg-white border border-top-0">
+  <h4 class="text-center text-white bg-primary p-2 mb-0">
+    {{ 'TEMPLATE.DASHBOARD.SETTINGS.CUSTOMER_FEES.TITLE' | translate }}
+  </h4>
+  <form class="py-4 px-3" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-lg-5 mb-5 offset-lg-1">
+        <h5 class="text-center">{{ 'TEMPLATE.DASHBOARD.SETTINGS.CUSTOMER_FEES.FEES_CHARGED' | translate }}</h5>
+        <div class="container-fluid d-none d-md-block">
+          <div class="row justify-content-end">
+            <b class="col-md-3 text-center">
+              {{ 'TEMPLATE.DASHBOARD.SETTINGS.CUSTOMER_FEES.EACH' | translate }}
+            </b>
+          </div>
+        </div>
+        <div class="container-fluid mb-md-1 mb-3">
+          <div class="form-group row mb-1">
+            <label class="col-md-9 mb-0 d-flex align-items-center" for="signupFee">{{
+              'TEMPLATE.DASHBOARD.SETTINGS.CUSTOMER_FEES.SIGN_UP_FEE' | translate }}</label>
+            <div class="col-md-3 input-group">
+              <div class="align-items-center pr-1">$</div>
+              <input class="form-control form-control-sm text-right  " type="number" id="signupFee" formControlName="signupFee">
+              <span class="text-danger ">*</span>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid mb-md-1 mb-3">
+          <div class="form-group row mb-1">
+            <label class="col-md-9 mb-0 d-flex align-items-center" for="maintenanceFee">{{
+              'TEMPLATE.DASHBOARD.SETTINGS.CUSTOMER_FEES.MAINTENANCE_FEE' | translate }}</label>
+            <div class="col-md-3 input-group">
+              <div class="input-group-prepend align-items-center pr-1">$</div>
+              <input class="form-control form-control-sm text-right" type="number" id="maintenanceFee" formControlName="maintenanceFee">
+              <span class="text-danger ">*</span>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid mb-md-1 mb-3">
+          <div class="form-group row mb-1">
+            <label class="col-md-9 mb-0 d-flex align-items-center" for="cloudStorageFee">{{
+              'TEMPLATE.DASHBOARD.SETTINGS.CUSTOMER_FEES.CLOUD_STORAGE_FEE' | translate }}</label>
+            <div class="col-md-3 input-group">
+              <div class="input-group-prepend align-items-center pr-1">$</div>
+              <input class="form-control form-control-sm text-right" type="number" id="cloudStorageFee" formControlName="cloudStorageFee">
+              <span class="text-danger ">*</span>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid mb-md-1 mb-3">
+          <div class="form-group row mb-1">
+            <label class="col-md-9 mb-0 d-flex align-items-center" for="membershipReactivationFee">{{
+              'TEMPLATE.DASHBOARD.SETTINGS.CUSTOMER_FEES.MEMBERSHIP_REACTIVATION_FEE' | translate }}</label>
+            <div class="col-md-3 input-group">
+              <div class="input-group-prepend align-items-center pr-1">$</div>
+              <input
+                class="form-control form-control-sm text-right" type="number" id="membershipReactivationFee"
+                formControlName="membershipReactivationFee"
+              >
+              <span class="text-danger ">*</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 mb-5">
+        <h5 class="text-center">{{ 'TEMPLATE.DASHBOARD.SETTINGS.CUSTOMER_FEES.DISCOUNTS' | translate }}</h5>
+        <div class="container-fluid d-none d-md-block">
+          <div class="row justify-content-end">
+            <b class="col-md-3 text-center">
+              {{ 'TEMPLATE.DASHBOARD.SETTINGS.CUSTOMER_FEES.EACH' | translate }}
+            </b>
+          </div>
+        </div>
+        <div class="container-fluid mb-md-1 mb-3">
+          <div class="form-group row mb-1">
+            <label class="col-md-9 mb-0 d-flex align-items-center" for="referralBonus">{{
+              'TEMPLATE.DASHBOARD.SETTINGS.CUSTOMER_FEES.COLLEAGUE_REFERRAL_FEE' | translate }}</label>
+            <div class="col-md-3 input-group">
+              <div class="input-group-prepend align-items-center pr-1">$</div>
+              <input class="form-control form-control-sm text-right" type="number" id="referralBonus" formControlName="referralBonus">
+              <span class="text-danger ">*</span>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid mb-md-1 mb-3">
+          <div class="form-group row mb-1">
+            <label class="col-md-9 mb-0 d-flex align-items-center" for="signupDiscount">{{
+              'TEMPLATE.DASHBOARD.SETTINGS.CUSTOMER_FEES.SIGN_UP_DISCOUNT' | translate }}</label>
+            <div class="col-md-3 input-group">
+              <div class="input-group-prepend align-items-center pr-1">$</div>
+              <input class="form-control form-control-sm text-right" type="number" id="signupDiscount" formControlName="signupDiscount">
+              <span class="text-danger ">*</span>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid mb-md-1 mb-3">
+          <div class="form-group row mb-1">
+            <label class="col-md-9 mb-0 d-flex align-items-center" for="articleBonus">{{
+              'TEMPLATE.DASHBOARD.SETTINGS.CUSTOMER_FEES.ARTICLE_BONUS' | translate }}</label>
+            <div class="col-md-3 input-group">
+              <div class="input-group-prepend align-items-center pr-1">$</div>
+              <input class="form-control form-control-sm text-right" type="number" id="articleBonus" formControlName="articleBonus">
+              <span class="text-danger ">*</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 mb-5 offset-lg-1">
+        <h5 class="text-center mb-2">{{ 'TEMPLATE.DASHBOARD.SETTINGS.CUSTOMER_FEES.MISCELLANEOUS' | translate }}</h5>
+        <div class="container-fluid mb-md-1 mb-3">
+          <div class="form-group row mb-1">
+            <label class="col mb-0 d-flex align-items-center" for="supportEmail">{{
+              'TEMPLATE.DASHBOARD.SETTINGS.CUSTOMER_FEES.SUPPORT_EMAIL' | translate }}</label>
+            <div class="col-md-6 input-group">
+              <input class="form-control form-control-sm text-right px-1" type="email" id="supportEmail" formControlName="supportEmail">
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid mb-md-1 mb-3">
+          <div class="form-group row mb-1">
+            <label class="col mb-0 d-flex align-items-center" for="contactPhone">{{
+              'TEMPLATE.DASHBOARD.SETTINGS.CUSTOMER_FEES.CONTACT_PHONE' | translate }}</label>
+            <div class="col-md-6 input-group">
+              <input class="form-control form-control-sm text-right px-1" type="text" id="contactPhone" formControlName="contactPhone">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 d-flex justify-content-end">
+        <button
+          type="button"
+          class="btn btn-primary px-4 mx-3"
+          [disabled]="isEqualData$ | async"
+          (click)="resetForm()"
+        >{{ 'FORM.BUTTON.CANCEL' | translate }}
+        </button>
+        <button
+          type="submit"
+          class="btn btn-primary px-4 mx-3"
+          [disabled]="(isFeeDetailsPostLoading$ | async) || form.invalid"
+        >{{ 'FORM.BUTTON.SAVE' | translate }}
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,11 @@
+import com.easyvisa.Organization
+import groovy.transform.Field
+
+@Field Organization organization
+
+json {
+    id organization.id
+    name organization.name
+    organizationType organization?.organizationType?.name()
+    memberOf organization.memberOf()
+}

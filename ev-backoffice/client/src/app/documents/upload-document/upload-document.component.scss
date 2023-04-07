@@ -1,0 +1,8 @@
+.blue-link{
+  color: #006cb7;
+  margin-right: 10px;
+  cursor: pointer;
+  &:focus{
+    box-shadow: none;
+  }
+}

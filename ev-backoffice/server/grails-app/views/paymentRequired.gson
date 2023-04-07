@@ -1,0 +1,9 @@
+import org.apache.http.HttpStatus
+
+response.status HttpStatus.SC_PAYMENT_REQUIRED
+
+json {
+    errors([[message    : g.message(code: 'payment.method.not.configured'),
+             code       : HttpStatus.SC_PAYMENT_REQUIRED,
+             'errorCode': 'UNPAID']])
+}

@@ -1,0 +1,40 @@
+<div class="border border-light-gray w-100 mx-auto p-2 my-3" [class.scrolled-list]="scrollable">
+  <div class="row justify-content-center m-0 border-bottom font-weight-bolder font-size-14">
+    <div class="col-4">
+      {{'TEMPLATE.TABLES.APPLICANT_TYPE' | translate}}
+    </div>
+    <div class="col-4 text-center">
+      {{'TEMPLATE.TASK_QUEUE.NAME' | translate}}
+    </div>
+    <div class="col-4 text-right">
+      {{'TEMPLATE.TABLES.FEES' | translate}}
+    </div>
+  </div>
+  <div
+    class="row justify-content-center m-0 font-size-12"
+    *ngFor="let row of ((showPrice ? applicantRows$ : applicants$) | async); index as i"
+  >
+    <div class="col-4">
+      {{row.applicantType | applicantType | translate}}<span *ngIf="isDerivativeApplicant(row)"> {{i-1}}</span>:
+    </div>
+    <div class="col-4 font-weight-bolder">
+      {{row.name}}
+    </div>
+    <div class="col-4 text-right">
+      <div *ngIf="showPrice">
+        {{row.value ? (row.value | currency) : 'TEMPLATE.TASK_QUEUE.WAIVED' | translate}}
+      </div>
+    </div>
+  </div>
+  <ng-template [ngIf]="tax">
+    <div
+      class="row justify-content-center m-0 font-size-12" [ngClass]="{'border-top-2': isFirst}"
+      *ngFor="let row of taxRows; first as isFirst; last as isLast;"
+    >
+      <div class="offset-9 col-3 d-flex justify-content-between pl-0" [ngClass]="{'font-weight-bolder': isLast}">
+        <div> {{ row.label | translate }} </div>
+        <div class="text-right">{{ (row.value || 0) | currency }}</div>
+      </div>
+    </div>
+  </ng-template>
+</div>

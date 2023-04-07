@@ -1,0 +1,6 @@
+<app-spinner *ngIf="!(previewedEmail$ | async)"></app-spinner>
+<div *ngIf="(previewedEmail$ | async)">
+  <div class="text-center">{{(previewedEmail$ | async)?.data.subject }}</div>
+  <div [innerHTML]="(previewedEmail$ | async)?.data.preview | safeHtml"></div>
+</div>
+

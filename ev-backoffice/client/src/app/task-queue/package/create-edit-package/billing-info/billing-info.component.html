@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <div class="d-flex">
+    <div class="column-number bg-primary mr-2">4</div>
+    <h4>{{ 'TEMPLATE.TASK_QUEUE.BILLING_INFO' | translate }}</h4>
+  </div>
+  <div class="mx-md-5">
+    <div class="text-right">
+      <a class="text-blue cursor-pointer" (click)="resetFees()">{{ 'TEMPLATE.TASK_QUEUE.RESET_FEES' | translate }}</a>
+    </div>
+    <div class="table-billing-info mb-2">
+      <table class="table table-bordered mb-0">
+        <thead class="bg-primary text-white p-0">
+          <tr>
+            <th scope="col" class="text-center p-0" width="30%">{{ 'TEMPLATE.TASK_QUEUE.EV_ID' | translate }}</th>
+            <th scope="col" class="text-center p-0" width="20%">{{ 'TEMPLATE.TASK_QUEUE.APPLICANT_TYPE' | translate }}</th>
+            <th scope="col" class="text-center p-0" width="40%">{{ 'TEMPLATE.TASK_QUEUE.NAME' | translate }}</th>
+            <th scope="col" class="text-center p-0" width="10%">{{ 'TEMPLATE.TASK_QUEUE.FEES' | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of applicantsFormGroups; let i = index;">
+          <app-billing-info-table-row
+            [applicantFormGroup]="item"
+            [applicantFormControl]="item.controls.fee"
+            [index]="i"
+            class="d-flex"
+          >
+          </app-billing-info-table-row>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-6 offset-lg-4">
+        <h5 *ngIf="editedPackage$ | async" class="text-right text-danger font-weight-bold">
+          {{ 'TEMPLATE.TASK_QUEUE.PREVIOUS_BALANCE_DUE' | translate }}
+          {{ (previousBalance$ | async) | currency: 'USD' : 'symbol' : '1.0' }}
+        </h5>
+      </div>
+      <div class="col-lg-4 col-md-6 pl-0">
+        <h5 class="text-right font-weight-bold pr-3 mr-1">
+          <span *ngIf="!(editedPackage$ | async)">{{ 'TEMPLATE.TASK_QUEUE.TOTAL_FEES' | translate }}</span>
+          <span *ngIf="editedPackage$ | async">{{ 'TEMPLATE.TASK_QUEUE.NEW_TOTAL' | translate }}</span>
+          {{ currentBalance$ | async | currency: 'USD' : 'symbol' : '1.0' }}
+        </h5>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-4 mb-4 mr-0 ml-0">
+    <div class="col-12 my-2 border-top border-bottom border-secondary"></div>
+  </div>
+</div>

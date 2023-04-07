@@ -1,0 +1,17 @@
+.close-btn {
+  top: 0;
+  right: 0;
+  -webkit-appearance: none;
+}
+
+@media (max-width: 991px) {
+  .border-md-0 {
+    border: none !important;
+  }
+}
+
+.warning-message {
+  padding: 0 3rem;
+  margin-top: -1rem;
+  text-align: center;
+}

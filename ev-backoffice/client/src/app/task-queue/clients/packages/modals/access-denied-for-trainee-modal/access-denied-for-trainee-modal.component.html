@@ -1,0 +1,28 @@
+<div class="container-fluid p-0 border border-secondary">
+  <div class="modal-header align-items-center bg-primary text-white px-2">
+    <h5
+      class="modal-title w-100 text-center"
+    > {{ 'TEMPLATE.TASK_QUEUE.CLIENTS.TRAINEE_NO_ACCESS_MODAL.TITLE' | translate}} </h5>
+    <button
+      type="button"
+      class="btn btn-secondary close-btn p-0 font-weight-bold"
+      aria-label="Close"
+      (click)="closeModal()"
+    ><i class="fa fa-times" aria-hidden="true"></i></button>
+  </div>
+  <div class="modal-body">
+    <div
+      class="d-flex justify-content-center pt-2 pb-4 text-danger font-weight-bold text-center m-auto max-w-300"
+      [innerHTML]="'TEMPLATE.TASK_QUEUE.CLIENTS.TRAINEE_NO_ACCESS_MODAL.DESCRIPTION' | translate"
+    ></div>
+  </div>
+  <div class="modal-footer border-top-0">
+    <button class="btn btn-primary min-w-100 mr-2" type="button" (click)="closeModal()">
+      {{ 'FORM.BUTTON.OK' | translate }}
+    </button>
+  </div>
+</div>
+
+
+
+

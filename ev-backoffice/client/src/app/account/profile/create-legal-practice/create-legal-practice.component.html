@@ -1,0 +1,100 @@
+<app-block [title]="'TEMPLATE.ACCOUNT.CREATE_LEGAL_PRACTICE.HEADER' | translate">
+  <div class="p-3">
+    <div class="mb-2">
+      <span [innerHTML]="'TEMPLATE.ACCOUNT.CREATE_LEGAL_PRACTICE.DESCRIPTION_P1_1' | translate"></span>
+      <a
+        routerLink="/dashboard/financial"
+      >
+        {{'TEMPLATE.ACCOUNT.CREATE_LEGAL_PRACTICE.DESCRIPTION_LINK' | translate}}
+      </a>
+      <span class="mb-2" [innerHTML]="'TEMPLATE.ACCOUNT.CREATE_LEGAL_PRACTICE.DESCRIPTION_P1_2' | translate"></span>
+    </div>
+    <div
+      class="mb-2"
+      [innerHTML]="'TEMPLATE.ACCOUNT.CREATE_LEGAL_PRACTICE.DESCRIPTION_P2' | translate"
+    ></div>
+    <div
+      class="mb-2"
+      [innerHTML]="'TEMPLATE.ACCOUNT.CREATE_LEGAL_PRACTICE.DESCRIPTION_P3' | translate"
+    ></div>
+    <div class="ml-3 mb-2">
+      <p
+        class="text-indent mx-2 mb-0"
+        [innerHTML]="'TEMPLATE.ACCOUNT.CREATE_LEGAL_PRACTICE.DESCRIPTION_P4' | translate"
+      ></p>
+    </div>
+    <div class="ml-3">
+      <p
+        class="text-indent mx-2 mb-0"
+        [innerHTML]="'TEMPLATE.ACCOUNT.CREATE_LEGAL_PRACTICE.DESCRIPTION_P5' | translate"
+      ></p>
+    </div>
+    <div
+      class="text-center text-danger small mt-4"
+      [innerHTML]="'TEMPLATE.ACCOUNT.CREATE_LEGAL_PRACTICE.WARNING' | translate"
+    ></div>
+    <form
+        #form="ngForm"
+        [formGroup]="formGroup"
+        (ngSubmit)="sendInvite()"
+        class="d-flex flex-column justify-content-center align-items-center col-lg-12 px-0 my-4"
+    >
+      <div class="col my-2 px-0 d-flex flex-column flex-md-row">
+        <div
+          class="col col-md-3 offset-md-1 mb-2 px-0"
+          [innerHTML]="'TEMPLATE.ACCOUNT.CREATE_LEGAL_PRACTICE.EASY_VISA_ID_LABEL' | translate: (
+          {representativeType: (activeOrganization$ | async)?.organizationType | representativeType | translate})"
+        >
+        </div>
+        <div class="col col-md-4 px-0">
+          <input
+            class="form-control form-control-sm"
+            [formControl]="easyVisaIdFormControl"
+          >
+        </div>
+      </div>
+      <div class="col my-2 px-0 d-flex flex-column flex-md-row position-relative mb-1">
+        <div
+          class="col col-md-3 offset-md-1 mb-2 px-0"
+          [innerHTML]="'TEMPLATE.ACCOUNT.CREATE_LEGAL_PRACTICE.EMAIL_LABEL' | translate: (
+          {representativeType: (activeOrganization$ | async)?.organizationType | representativeType | translate})"
+        >
+        </div>
+        <div class="col col-md-4 px-0">
+          <input
+            class="form-control form-control-sm"
+            [formControl]="emailFormControl"
+          >
+        </div>
+      </div>
+      <div class="col small text-danger">
+        <div
+          class="col col-md-4 offset-md-4 p-0 pr-5 position-absolute text-center"
+          *ngIf="(showWarningSubject$|async) && ((emailFormControl.hasError('email') || easyVisaIdFormControl.hasError('pattern')) && form.submitted)">
+
+          {{'FORM.ERROR.EVID_OR_EMAIL_FORMAT_INVALID' | translate}}
+        </div>
+        <div
+          class="col col-md-4 offset-md-4 p-0 pr-5 position-absolute text-center"
+        >
+          {{(messageSubject$ | async)}}
+        </div>
+      </div>
+      <div class="col d-flex justify-content-center justify-content-md-end my-4 ">
+        <button
+          class="btn btn-primary px-4 mr-sm-4 mr-3 min-w-100"
+          type="button"
+          routerLink="/account/profile"
+        >
+          {{ 'FORM.BUTTON.CANCEL' | translate }}
+        </button>
+        <button
+          class="btn btn-primary px-4 min-w-100"
+          type="submit"
+        >
+          {{'FORM.BUTTON.INVITE' | translate}}
+        </button>
+      </div>
+    </form>
+  </div>
+</app-block>

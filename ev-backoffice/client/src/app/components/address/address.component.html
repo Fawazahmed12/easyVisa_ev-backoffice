@@ -1,0 +1,137 @@
+<div class="row justify-content-center" [class.no-gutters]="smallMarginStyle">
+  <div class="col-md-12">
+    <div class="form-group" [class.mb-1]="smallMarginStyle" *ngIf="showCountrySelect">
+      <div class="row" [class.no-gutters]="smallMarginStyle">
+        <label
+          class="col-form-label col-form-label-sm text-md-left"
+          [class.col-md-4]="!smallMarginStyle || col4Label"
+          [class.col-md-2]="smallMarginStyle"
+          [class.col-md-3]="smallMarginStyle && col3Label"
+          [class.pr-1]="smallMarginStyle"
+          [class.text-primary]="primaryTextStyle"
+          [class.font-weight-bold]="primaryTextStyle"
+        >
+          {{ 'FORM.LABELS.COUNTRY' | translate }}
+        </label>
+        <div class="col-md d-flex">
+          <select
+            [formControl]="countryControl"
+            [class.mr-2]="noRequired"
+            class="form-control form-control-sm position-relative">
+            <option hidden [ngValue]="null">
+              {{ 'FORM.LABELS.SELECT_COUNTRY' | translate }}
+            </option>
+            <option [value]="country.value" *ngFor="let country of countries">
+              {{country.label}}
+            </option>
+          </select>
+          <span
+            class="text-danger asterisk-font-size pl-1 asterisk-position"
+            [class.invisible]="!required"
+          >*</span>
+        </div>
+    </div>
+    </div>
+    <app-auth-form-field
+      [control]="address1Control"
+      [submitted]="submitted"
+      [required]="primaryTextStyle || required"
+      [primaryTextStyle]="primaryTextStyle"
+      [smallMarginStyle]="smallMarginStyle"
+      [showToolTips]="showToolTips"
+      [col3Label]="col3Label"
+      [col4Label]="col4Label"
+      label="FORM.LABELS.ADDRESS_1"
+    ></app-auth-form-field>
+    <app-auth-form-field
+      [control]="address2Control"
+      [submitted]="submitted"
+      [primaryTextStyle]="primaryTextStyle"
+      [smallMarginStyle]="smallMarginStyle"
+      [showToolTips]="showToolTips"
+      [col3Label]="col3Label"
+      [col4Label]="col4Label"
+      label="FORM.LABELS.ADDRESS_2"
+    ></app-auth-form-field>
+    <app-auth-form-field
+      [control]="cityControl"
+      [submitted]="submitted"
+      [required]="primaryTextStyle || required"
+      [primaryTextStyle]="primaryTextStyle"
+      [smallMarginStyle]="smallMarginStyle"
+      [showToolTips]="showToolTips"
+      [col3Label]="col3Label"
+      [col4Label]="col4Label"
+      label="FORM.LABELS.CITY"
+    ></app-auth-form-field>
+    <div class="form-group" *ngIf="countryControl.value === selectedUS" [class.mb-1]="smallMarginStyle">
+      <div class="row" [class.no-gutters]="smallMarginStyle">
+        <label
+          class="col-form-label col-form-label-sm text-md-left"
+          [class.col-md-4]="!smallMarginStyle || col4Label"
+          [class.col-md-2]="smallMarginStyle"
+          [class.col-md-3]="smallMarginStyle && col3Label"
+          [class.pr-1]="smallMarginStyle"
+          [class.text-primary]="primaryTextStyle"
+          [class.font-weight-bold]="primaryTextStyle"
+        >
+          {{ 'FORM.LABELS.STATE' | translate }}
+        </label>
+        <div class="col-md d-flex">
+          <select
+            [formControl]="stateControl"
+            class="form-control form-control-sm"
+            [class.mr-2]="smallMarginStyle && primaryTextStyle && !required"
+          >
+            <option value="">{{'FORM.LABELS.SELECT_STATE' | translate}}</option>
+            <option [value]="state.value" *ngFor="let state of states">
+              {{state.label}}
+            </option>
+          </select>
+          <span class="text-danger asterisk-font-size pl-1 asterisk-position"
+                [class.invisible]="!required">*</span>
+        </div>
+        <div *ngIf="(stateControl.dirty || submitted) && stateControl.hasError('required')"
+             class="text-right text-danger small col-md-12 pr-2">
+          {{ 'FORM.ERROR.REQUIRED_WITH_PARAM' | translate: ({field: 'FORM.LABELS.STATE' | translate})}}
+        </div>
+      </div>
+    </div>
+    <app-auth-form-field
+      *ngIf="countryControl.value === selectedUS"
+      [control]="zipControl"
+      [submitted]="submitted"
+      [required]="primaryTextStyle || required"
+      [primaryTextStyle]="primaryTextStyle"
+      [smallMarginStyle]="smallMarginStyle"
+      [showToolTips]="showToolTips"
+      [col3Label]="col3Label"
+      [col4Label]="col4Label"
+      label="FORM.LABELS.ZIP"
+    ></app-auth-form-field>
+    <app-auth-form-field
+      *ngIf="countryControl.value !== selectedUS"
+      [control]="provinceControl"
+      [submitted]="submitted"
+      [required]="primaryTextStyle || required"
+      [primaryTextStyle]="primaryTextStyle"
+      [smallMarginStyle]="smallMarginStyle"
+      [showToolTips]="showToolTips"
+      [col3Label]="col3Label"
+      [col4Label]="col4Label"
+      label="FORM.LABELS.PROVINCE_STATE"
+    ></app-auth-form-field>
+    <app-auth-form-field
+      *ngIf="countryControl.value !== selectedUS"
+      [control]="postalCodeControl"
+      [submitted]="submitted"
+      [required]="primaryTextStyle || required"
+      [primaryTextStyle]="primaryTextStyle"
+      [smallMarginStyle]="smallMarginStyle"
+      [showToolTips]="showToolTips"
+      [col3Label]="col3Label"
+      [col4Label]="col4Label"
+      label="FORM.LABELS.POSTAL_CODE"
+    ></app-auth-form-field>
+  </div>
+</div>

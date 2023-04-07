@@ -1,0 +1,36 @@
+<div class="per-applicant-charges-table">
+  <table class="table table-borderless mb-0">
+    <thead>
+    <tr>
+      <th class="text-center" width="10%">
+        {{'TEMPLATE.AUTH.STANDARD_CHARGES.PER_APPLICANT_CHARGES.ABBREVIATION' | translate}}
+      </th>
+      <th class="text-center" width="40%">
+        {{'TEMPLATE.AUTH.STANDARD_CHARGES.PER_APPLICANT_CHARGES.CATEGORY' | translate}}
+      </th>
+      <th class="text-center" width="40%">
+        {{'TEMPLATE.AUTH.STANDARD_CHARGES.PER_APPLICANT_CHARGES.DESCRIPTION' | translate}}
+      </th>
+      <th class="text-center" width="10%">
+        {{'TEMPLATE.AUTH.STANDARD_CHARGES.PER_APPLICANT_CHARGES.COST' | translate}}
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let charge of perApplicantCharges; let i = index;">
+      <td class="abbr-td">
+        {{charge.benefitCategoryObj.label}}
+      </td>
+      <td>
+        {{charge.benefitCategoryObj.benefitGroupObj.label}}
+      </td>
+      <td class="category-td">
+        {{charge.benefitCategoryObj.fullLabel}}
+      </td>
+      <td class="cost-td">
+        {{ charge.amount | currency: 'USD' : 'symbol' : '1.0' }}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

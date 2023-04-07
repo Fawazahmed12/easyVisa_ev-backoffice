@@ -1,0 +1,1 @@
+ALTER TABLE section_completion_status ADD completed_percentage float default 0;

@@ -1,0 +1,27 @@
+<div class="d-lg-flex flex-column flex-lg-row align-items-center no-gutters">
+  <label class="text-nowrap align-self-center mb-0 col col-lg-5 text-lg-right pr-lg-2"
+  >
+    {{ 'TEMPLATE.DASHBOARD.ARTICLES.DISPLAY_BY_AFFILIATION' | translate }}
+    <span
+      class="text-blue cursor-pointer"
+      [ngbTooltip]="toolTipTemplate"
+      container="body"
+      tooltipClass="custom-tool-tip custom-tool-tip-select-aff"
+    >
+      {{ 'TEMPLATE.DASHBOARD.ARTICLES.HELP' | translate }}
+    </span>
+  </label>
+  <select
+    class="form-control form-control-sm col col-lg-7"
+    [formControl]="formControl"
+    (select)="onTouched()"
+  >
+    <option [ngValue]="null">
+      {{ 'TEMPLATE.SELECT_NAME.SELECT_ALL_AFFILIATIONS' | translate }}
+    </option>
+    <option [ngValue]="item.id" *ngFor="let item of (affiliatedOrganizations$ | async)">
+      {{item.name}}
+    </option>
+  </select>
+</div>
+

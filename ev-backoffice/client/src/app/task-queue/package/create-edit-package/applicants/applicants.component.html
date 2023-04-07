@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  <div class="d-flex flex-column flex-md-row justify-content-between">
+    <div class="d-flex align-items-center mr-2">
+      <div class="column-number bg-primary mr-2">3</div>
+      <h4 class="m-0">{{ 'TEMPLATE.TASK_QUEUE.APPLICANTS' | translate }}</h4>
+    </div>
+    <div
+      class="d-flex flex-nowrap flex-column flex-md-row align-items-center justify-content-end text-danger"
+      *ngIf="(packageTypeFormControl.value === 'NEW')"
+    >
+      <h3 class="mb-0 text-nowrap text-center">
+        {{'TEMPLATE.TASK_QUEUE.APPLICANT.IMPORTANT_LABEL' | translate}}
+        <span class="fa fa-long-arrow-right font-weight-bolder pr-3 d-none d-md-inline-block"></span>
+        <br><span class="fa fa-long-arrow-down font-weight-bolder d-md-none text-center"></span>
+      </h3>
+    <div
+      class="mr-md-3 font-weight-bolder mt-3 mt-md-0 p-2 border border-danger rounded"
+      [innerHTML]="'TEMPLATE.TASK_QUEUE.APPLICANT.APPLICANT_LABEL' | translate"
+    ></div>
+    </div>
+  </div>
+  <div *ngFor="let applicant of applicantsFormArray.controls; let i=index">
+    <app-applicant
+      [applicantFormGroup]="applicant"
+      [index]="i"
+      [packageTypeFormControl]="packageTypeFormControl"
+      [minAge]="applicantAgeConfig.beneficiaryMinAge"
+      [maxAge]="applicantAgeConfig.applicantMaxAge"
+    ></app-applicant>
+  </div>
+  <div
+    class="text-center mt-3">
+    <button
+      class="btn btn-primary px-4"
+      type="button"
+      [hidden]="isReadOnlyPackage"
+      [disabled]="(canAddApplicant$ | async) || !(availableToAddDerivativeBeneficiary$ | async)"
+      (click)="addAnotherApplicant()">
+      {{'TEMPLATE.TASK_QUEUE.APPLICANT.ADD_ANOTHER_APPLICANT' | translate }}
+    </button>
+  </div>
+  <div class="row justify-content-center mt-4 mb-4 mr-0 ml-0">
+    <div class="col-12 my-2 border-top border-bottom border-secondary"></div>
+  </div>
+</div>
+<ng-template #additionalApplicantModal>
+  <app-additional-applicant-modal></app-additional-applicant-modal>
+</ng-template>

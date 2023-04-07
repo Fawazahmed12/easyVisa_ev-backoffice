@@ -1,0 +1,51 @@
+<div class="container-fluid pb-5 my-5 w-100">
+  <form
+      #form="ngForm"
+      [formGroup]="verifyMemberFormGroup"
+      class="d-lg-flex justify-content-center align-items-center offset-lg-2 col-lg-8"
+      (ngSubmit)="verifyMember()"
+  >
+    <div class="mb-3 mb-lg-0 mr-lg-3 mr-0 flex-grow-1">
+      <div class="row my-2">
+        <div class="col-md-5 text-center text-md-right">
+          {{labelEVID}}
+        </div>
+        <div class="col-md-7">
+          <input
+            class="form-control form-control-sm"
+            formControlName="easyVisaId"
+          >
+        </div>
+      </div>
+      <div class="row my-2 position-relative">
+        <div class="col-md-5 text-center text-md-right">
+          {{labelEmail}}
+        </div>
+        <div class="col-md-7">
+          <input
+            class="form-control form-control-sm"
+            formControlName="email"
+          >
+        </div>
+      </div>
+      <div class="offset-sm-5 offset-lg-4 small text-danger position-absolute-lg">
+        <div
+          class="col p-lg-0"
+          *ngIf="(emailFormControl.hasError('email') || easyVisaIdFormControl.hasError('pattern')) && form.submitted">
+             {{'FORM.ERROR.EVID_OR_EMAIL_FORMAT_INVALID' | translate}}
+        </div>
+        <div
+          class="col p-lg-0"
+          *ngFor="let message of (ValidateResponseSubject$ | async)">
+          <span class="text-center">
+            {{message?.message}}
+          </span>
+          <span [innerHTML]="message?.successMessage | translate"></span>
+          <span class="ml-1" *ngIf="message?.firstName">{{message?.firstName}}</span>
+          <span class="ml-1" *ngIf="message?.middleName">{{message?.middleName}}</span>
+          <span class="ml-1" *ngIf="message?.lastName">{{message?.lastName}}</span>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

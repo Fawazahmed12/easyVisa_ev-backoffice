@@ -1,0 +1,49 @@
+<div class="spinner-container text-center" [hidden]="hasQuestionAnswerLoaded">
+  <app-spinner></app-spinner>
+</div>
+
+
+<div [hidden]="!hasQuestionAnswerLoaded">
+  <h4 class="text-center font-weight-bold applicant-name">
+    {{(selectedSection$ | async)?.displayText}} - {{(selectedQuestionnaire$ | async)?.applicantName}}
+  </h4>
+
+  <div *ngIf="(answer$ | async) && (fields$ | async)" appSectionFieldNavigation>
+
+    <form [formGroup]="form">
+      <formly-form [model]="answer$ | async"
+                   [fields]="fields$ | async"
+                   [options]="options"
+                   [form]="form" track-by="$index">
+      </formly-form>
+    </form>
+
+    <div class="row mx-0 my-4 pt-4">
+      <div class="col-md-2">
+        <button
+          class="btn btn-primary px-4 min-w-100 pull-left"
+          type="button" (click)="onPreviousSection()" [disabled]="canDisablePreviousButton()">
+          Previous
+        </button>
+      </div>
+      <div class="col-md-8">
+      </div>
+      <div class="col-md-2">
+        <button
+          class="btn btn-primary px-4 min-w-100 pull-right"
+          type="button" (click)="onNextSection()" [disabled]="canDisableNextButton()">
+          Next
+        </button>
+      </div>
+    </div>
+
+    <div class="row mx-0 my-4 pt-4">
+      <div class="col-md-12">
+        <app-pdf-print-testing [packageId]="activePackageId$ | async">
+        </app-pdf-print-testing>
+      </div>
+    </div>
+
+  </div>
+</div>
+

@@ -1,0 +1,14 @@
+<div class="text-center font-weight-bold mb-1">
+  {{title | translate}}
+</div>
+<div
+  *ngFor="let item of items"
+  [ngClass]="item.value === activeItem ? 'text-gray' : ''"
+>
+  <a
+    class="cursor-pointer"
+    (click)="setItem(item.value)"
+  >
+    {{item.displayName}}
+  </a>
+</div>

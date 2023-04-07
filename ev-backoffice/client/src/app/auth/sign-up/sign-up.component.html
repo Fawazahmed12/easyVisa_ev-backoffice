@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="row p-5 justify-content-center">
+    <h3>{{ 'TEMPLATE.AUTH.SIGN_UP.TITLE' | translate }}</h3>
+  </div>
+  <form [formGroup]="formGroup" #form="ngForm" (submit)="formSubmit()">
+    <div class="row columns-wrapper">
+      <div class="col-md-6 p-3">
+        <app-name-email
+          [formGroup]="formGroup"
+          [submitted]="form.submitted"
+        ></app-name-email>
+      </div>
+      <div class="col-md-6 p-0">
+        <app-username-password
+          [formGroup]="formGroup"
+          [submitted]="form.submitted"
+        ></app-username-password>
+      </div>
+    </div>
+    <div class="row my-4 justify-content-center">
+      <div class="col-11 d-flex justify-content-end px-4">
+        <button
+          type="submit"
+          class="btn btn-primary px-4 min-w-100"
+          [disabled]="(userPostRequest$ | async)?.loading"
+        >{{ 'FORM.BUTTON.NEXT' | translate}}</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,10 @@
+<span *ngIf="controlValue">
+  <div *ngFor="let item of controlValue; let last = last" class="d-inline-block pl-1">
+    {{item | findLabel: array: false: searchLabel | translate}}
+    <button class="btn btn-secondary close-btn fa fa-close p-1 position-relative"
+      type="button"
+      (click)="removeItem(item)"
+    ></button>
+    <span *ngIf="!last">,</span>
+  </div>
+</span>

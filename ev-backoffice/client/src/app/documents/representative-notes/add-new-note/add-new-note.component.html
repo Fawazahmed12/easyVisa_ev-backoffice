@@ -1,0 +1,21 @@
+<div class="container-fluid p-0 border border-secondary">
+  <app-modal-header [title]="title$ | async"></app-modal-header>
+  <div class="m-4">
+    <textarea class="form-control form-control-sm scrolled-list mt-5" rows="10" (input)="str = $event.target.value" #input></textarea>
+    <div class="col-12 d-flex justify-content-end mt-4">
+      <button
+        type="button"
+        class="btn btn-primary px-4 mx-3"
+        (click)="closeModal()"
+      >{{ 'FORM.BUTTON.CANCEL' | translate }}
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary px-4 mx-3"
+        [disabled]="!str.length"
+        (click)="saveNote(input.value)"
+      >{{ 'FORM.BUTTON.SAVE' | translate }}
+      </button>
+    </div>
+  </div>
+</div>

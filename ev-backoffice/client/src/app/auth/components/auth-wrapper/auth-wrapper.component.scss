@@ -1,0 +1,23 @@
+.auth-wrapper {
+  border: 1px solid gray;
+  background-color: #F2F7FC;
+}
+
+.auth-header {
+  display: flex;
+  justify-content: center;
+  background-color: #40678C;
+  color: white;
+  padding: 8px 0;
+}
+
+.main-wrapper {
+  min-height: 350px;
+}
+
+.main {
+  border: 1px solid gray;
+  background-color: white;
+  margin: auto;
+  padding: 10px 30px;
+}

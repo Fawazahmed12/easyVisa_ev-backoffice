@@ -1,0 +1,41 @@
+<div class="document-panel">
+  <ngb-accordion #requiredDocumentPanel="ngbAccordion" activeIds="requiredDocumentPanel">
+    <ngb-panel id="requiredDocumentPanel">
+      <ng-template ngbPanelHeader let-opened="opened">
+        <div class="document-panel-header">
+          <div class="d-flex align-items-center justify-content-between">
+            <button ngbPanelToggle class="btn">
+              <i class="fa toggle-icon" *ngIf="!opened">&#9656;</i>
+              <i class="fa toggle-icon" *ngIf="opened">&#9662;</i>
+              {{'TEMPLATE.REQUIRED_DOCUMENTS.HEADER' | translate}}
+            </button>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template ngbPanelContent>
+          <div class="document-panel-content">
+            <ul>
+              <li *ngFor="let applicantRequiredDocument of applicantRequiredDocumentList$ | async">
+                <div class="applicant-details">
+                  <div class="row m-0">
+                    <div class="col-md-10 font-weight-bold">
+                      {{applicantRequiredDocument.applicantTitle}} - {{applicantRequiredDocument.applicantName}}
+                    </div>
+                    <div class="col-md-2 text-info">
+                      <button  class="btn btn-link p-0"
+                               (click)="downloadAllAttachments(applicantRequiredDocument)">
+                        {{'TEMPLATE.REQUIRED_DOCUMENTS.DOWNLOAD_ALL' | translate}}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <app-required-document [readOnlyAccess]="readOnlyAccess"
+                  [applicantRequiredDocument]="applicantRequiredDocument"
+                ></app-required-document>
+              </li>
+            </ul>
+          </div>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+</div>

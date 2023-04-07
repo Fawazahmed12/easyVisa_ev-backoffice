@@ -1,0 +1,52 @@
+<div class="col d-flex flex-column justify-content-start bg-white border border-secondary p-0">
+  <h5 class="text-center py-1">
+    {{title | translate}}
+  </h5>
+  <div class="d-flex flex-row justify-content-between col small font-weight-bold">
+    <div>{{'TEMPLATE.DASHBOARD.FINANCIAL.SETTINGS.SEARCH_RESULT_PANEL.RANKING_FACTOR_DESCRIPTION' | translate}}</div>
+    <div>{{'TEMPLATE.DASHBOARD.FINANCIAL.SETTINGS.SEARCH_RESULT_PANEL.POINTS' | translate}}</div>
+  </div>
+  <div class="border border-secondary mx-2"></div>
+  <div class="d-flex flex-column justify-content-start align-items-center text-center mb-3 mt-2">
+    <div class="row col-12">
+      <div class="col d-flex align-items-center text-left pl-0">
+        {{'TEMPLATE.DASHBOARD.FINANCIAL.SETTINGS.SEARCH_RESULT_PANEL.POINTS_ARTICLE' | translate}}
+      </div>
+      <div class="col-2 p-0">
+        <input class="form-control form-control-sm" type="number"
+          [formControl]="pointsFormControl"
+        >
+      </div>
+    </div>
+    <div class="row col-12 mt-2">
+      <div class="col d-flex align-items-center text-left pl-0">
+        {{'TEMPLATE.DASHBOARD.FINANCIAL.SETTINGS.SEARCH_RESULT_PANEL.ARTICLES_WITHIN_30' | translate}}
+      </div>
+      <div class="col-2 p-0">
+        <input class="form-control form-control-sm" type="number"
+          [formControl]="articlesInMonthFormControl"
+        >
+      </div>
+    </div>
+    <div class="row col-12 mt-2">
+      <div class="col d-flex align-items-center text-left pl-0">
+        {{'TEMPLATE.DASHBOARD.FINANCIAL.SETTINGS.SEARCH_RESULT_PANEL.ARTICLES_WITHIN_1_3_MONTH' | translate}}
+      </div>
+      <div class="col-2 p-0">
+        <input class="form-control form-control-sm" type="number"
+          [formControl]="articlesInQuarterFormControl"
+        >
+      </div>
+    </div>
+    <div class="row col-12 mt-2">
+      <div class="col d-flex align-items-center text-left pl-0">
+        {{'TEMPLATE.DASHBOARD.FINANCIAL.SETTINGS.SEARCH_RESULT_PANEL.ARTICLES_WITHIN_3_6_MONTH' | translate}}
+      </div>
+      <div class="col-2 p-0">
+        <input class="form-control form-control-sm" type="number"
+          [formControl]="articlesInHalfFormControl"
+        >
+      </div>
+    </div>
+  </div>
+</div>

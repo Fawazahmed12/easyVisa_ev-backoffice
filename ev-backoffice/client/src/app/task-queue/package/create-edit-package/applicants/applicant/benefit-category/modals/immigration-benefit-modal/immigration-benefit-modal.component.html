@@ -1,0 +1,108 @@
+<div class="container-fluid p-0 border border-secondary small">
+  <app-modal-header
+    [title]="'TEMPLATE.TASK_QUEUE.PACKAGE.IMMIGRATION_BENEFIT_CATEGORY.TITLE'"
+  >
+  </app-modal-header>
+  <div class="d-flex flex-column flex-md-row justify-content-center m-1">
+    <div
+      class="col col-md-6"
+      [class.border-right]= "applicantType !== ApplicantType.DERIVATIVE_BENEFICIARY"
+    >
+      <h5 class="text-center font-weight-bold my-3"
+          [innerHTML]="'TEMPLATE.TASK_QUEUE.PACKAGE.IMMIGRATION_BENEFIT_CATEGORY.P_1' | translate">
+      </h5>
+      <div
+        class="col px-0"
+        *ngFor="let group of (benefitGroupsDerivatives$ | async); let i = index; last as isLast;"
+        [class.border-bottom]="!isLast"
+      >
+        <div class="m-3">
+          <h5 class="text-center my-3">{{group.group.label}}
+            <span class="text-danger pl-2">{{group.group.note}}</span>
+          </h5>
+          <div *ngFor="let category of group.categories" class="d-flex">
+            <div>
+              <input
+                class="form-check-input"
+                type="radio"
+                [id]="category.value"
+                [name]="'benefitCategory'"
+                [formControl]="benefitCategoryControl"
+                [value]="category.value"
+                [attr.disabled]="category.disabled ? 'disabled' : null"
+              >
+            </div>
+            <div class="col-10 pl-0">
+              <label class="d-flex" [for]="category.value" [class.text-gray]="category.disabled">
+                <div class="font-weight-bold flex-shrink-0 pl-0 pr-2">
+                  {{category.label}}
+                </div>
+                <div class="col pr-0">
+                  <div>{{category.fullLabel}}</div>
+                  <div [ngClass]="category.disabled ? 'text-gray' : 'text-danger'">{{category.note}}</div>
+                </div>
+              </label>
+            </div>
+            <div class="col-2" [class.text-gray]="category.disabled">
+              {{category.price || 0 | currency:'USD' : 'symbol' : '1.0'}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col col-md-6" *ngIf="applicantType !== ApplicantType.DERIVATIVE_BENEFICIARY">
+        <h5
+          [innerHTML]="'TEMPLATE.TASK_QUEUE.PACKAGE.IMMIGRATION_BENEFIT_CATEGORY.P_2' | translate"
+          class="text-center font-weight-bold my-3"
+        ></h5>
+
+        <div
+          class="col px-0"
+          *ngFor="let group of (benefitGroupsWithoutDerivatives$ | async); let i = index; last as isLast;"
+          [class.border-bottom]="!isLast"
+        >
+          <div class="m-3">
+            <h5 class="text-center my-3">{{group.group.label}}
+              <span class="text-danger pl-2">{{group.group.note}}</span>
+            </h5>
+            <div *ngFor="let category of group.categories" class="d-flex">
+              <div>
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  [id]="category.value"
+                  [name]="'benefitCategory'"
+                  [formControl]="benefitCategoryControl"
+                  [value]="category.value"
+                  [attr.disabled]="category.disabled ? 'disabled' : null"
+                >
+              </div>
+              <div class="col-10 pl-0">
+                <label class="d-flex" [for]="category.value" [class.text-gray]="category.disabled">
+                  <div class="font-weight-bold flex-shrink-0 pl-0 pr-2">
+                    {{category.label}}
+                  </div>
+                  <div class="col pr-0">
+                    <div>{{category.fullLabel}}</div>
+                    <div [ngClass]="category.disabled ? 'text-gray' : 'text-danger'">{{category.note}}</div>
+                  </div>
+                </label>
+              </div>
+              <div class="col-2" [class.text-gray]="category.disabled">
+                {{category.price || 0 | currency:'USD' : 'symbol' : '1.0'}}
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="border-top m-3"></div>
+  <div class="text-right m-3">
+    <button class="btn btn-primary px-4 mr-4 min-w-100" type="button" (click)="modalDismiss()">
+      {{ 'FORM.BUTTON.CANCEL' | translate }}
+    </button>
+    <button class="btn btn-primary px-4 min-w-100" (click)="modalClose()">
+      {{ 'FORM.BUTTON.OK' | translate }}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+import com.easyvisa.AccountTransaction
+import groovy.transform.Field
+
+@Field AccountTransaction accountTransaction
+
+json {
+    id accountTransaction.id
+    date accountTransaction.date
+    memo accountTransaction.memo
+    amount accountTransaction.grandTotal
+}

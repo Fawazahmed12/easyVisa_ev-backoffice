@@ -1,0 +1,660 @@
+<div class="container-fluid p-0 border border-secondary">
+  <app-modal-header
+    [title]="'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.TITLE' | translate: (
+    {organizationType: (activeOrganization$ | async)?.organizationType | organizationType | translate})">
+  </app-modal-header>
+  <div class="m-4">
+    <div class="scroll-table-body width-90 ml-3">
+      <table class="w-100">
+        <tr class="w-100 bg-secondary">
+          <th class="width-30 bg-white"></th>
+          <th class="width-14"></th>
+          <th class="width-14"></th>
+          <th
+            class="width-14 text-center text-white">{{'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.ADD_EDIT_USER.POSITION' | translate}}</th>
+          <th class="width-14"></th>
+          <th class="width-14"></th>
+        </tr>
+        <tr class="bg-b8-gray">
+        <th
+          class="width-30 text-center text-white bg-white">
+        </th>
+        <th
+          class="width-14 text-center text-white py-2">
+          {{'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.TABLE.PARTNER_OWNER' | translate}}
+        </th>
+        <th
+          class="width-14 text-center text-white"
+          *ngIf="!(isSoloPractitioner$ | async)"
+        >
+          {{'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.TABLE.ATTORNEY' | translate}}
+        </th>
+        <th
+          class="width-14 text-center text-white px-2"
+          *ngIf="(isSoloPractitioner$ | async)"
+        >
+          {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.SOLO_PRACTICE' | translate}}
+        </th>
+        <th
+          class="width-14 text-center text-white">
+          {{'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.TABLE.MANAGER' | translate}}
+        </th>
+        <th
+          class="width-14 text-center text-white">
+          {{'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.TABLE.EMPLOYEE' | translate}}
+
+        </th>
+        <th
+          class="width-14 text-center text-white">
+          {{'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.TABLE.TRAINEE' | translate}}
+        </th>
+
+      </table>
+    </div>
+    <div class="scroll-table-body border-top border-bottom border-secondary width-90 ml-3">
+      <table>
+        <thead>
+        <tr>
+          <th class='width-30'></th>
+          <th class='width-14'></th>
+          <th class='width-14'></th>
+          <th class='width-14'></th>
+          <th class='width-14'></th>
+          <th class='width-14'></th>
+        </tr>
+        </thead>
+        <tbody class="text-left border-bottom-0">
+        <tr>
+          <td class="font-weight-bold pl-2">
+            {{'TEMPLATE.HEADER.NAV.FIND_AN_ATTORNEY' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            ({{'FORM.BUTTON.SEARCH' | translate}})
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.SEARCH_RESULT' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.ATTORNEY_PROFILE' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold pl-2">
+            {{'TEMPLATE.HEADER.NAV.DASHBOARD' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.FINANCIAL' | translate}}
+          </td>
+          <td></td>
+          <td
+            *ngIf="(isSoloPractitioner$ | async)"
+          ></td>
+          <td
+            class="text-center text-primary cursor-pointer"
+            tooltipClass="custom-tool-tip custom-tool-tip-permissions-level"
+            container="body"
+            [ngbTooltip]="help_1"
+            *ngIf="!(isSoloPractitioner$ | async)"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP' | translate}}
+          </td>
+          <td
+            class="text-center text-primary cursor-pointer"
+            tooltipClass="custom-tool-tip custom-tool-tip-permissions-level"
+            container="body"
+            [ngbTooltip]="help_tab_disabled"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP' | translate}}
+          </td>
+          <td
+            class="text-center text-primary cursor-pointer"
+            tooltipClass="custom-tool-tip custom-tool-tip-permissions-level"
+            container="body"
+            [ngbTooltip]="help_tab_disabled"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP' | translate}}
+          </td>
+          <td
+            class="text-center text-primary cursor-pointer"
+            tooltipClass="custom-tool-tip custom-tool-tip-permissions-level"
+            container="body"
+            [ngbTooltip]="help_tab_disabled"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP' | translate}}
+          </td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.MARKETING' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td
+            class="text-center text-primary cursor-pointer"
+            tooltipClass="custom-tool-tip custom-tool-tip-permissions-level"
+            container="body"
+            [ngbTooltip]="help_tab_disabled"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP' | translate}}
+          </td>
+          <td
+            class="text-center text-primary cursor-pointer"
+            tooltipClass="custom-tool-tip custom-tool-tip-permissions-level"
+            container="body"
+            [ngbTooltip]="help_tab_disabled"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP' | translate}}
+          </td>
+          <td
+            class="text-center text-primary cursor-pointer"
+            tooltipClass="custom-tool-tip custom-tool-tip-permissions-level"
+            container="body"
+            [ngbTooltip]="help_tab_disabled"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP' | translate}}
+          </td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.ARTICLES' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td
+            class="text-center text-primary cursor-pointer"
+            tooltipClass="custom-tool-tip custom-tool-tip-permissions-level"
+            container="body"
+            [ngbTooltip]="help_tab_display_only"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP' | translate}}
+          </td>
+          <td
+            class="text-center text-primary cursor-pointer"
+            tooltipClass="custom-tool-tip custom-tool-tip-permissions-level"
+            container="body"
+            [ngbTooltip]="help_tab_display_only"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP' | translate}}
+          </td>
+          <td
+            class="text-center text-primary cursor-pointer"
+            tooltipClass="custom-tool-tip custom-tool-tip-permissions-level"
+            container="body"
+            [ngbTooltip]="help_tab_display_only"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP' | translate}}
+          </td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.METRICS' | translate}}
+          </td>
+          <td></td>
+          <td
+            *ngIf="(isSoloPractitioner$ | async)"
+          ></td>
+          <td
+            class="text-center text-primary cursor-pointer"
+            tooltipClass="custom-tool-tip custom-tool-tip-permissions-level"
+            container="body"
+            [ngbTooltip]="help_tab_disabled"
+            *ngIf="!(isSoloPractitioner$ | async)"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP' | translate}}
+          </td>
+          <td
+            class="text-center text-primary cursor-pointer"
+            tooltipClass="custom-tool-tip custom-tool-tip-permissions-level"
+            container="body"
+            [ngbTooltip]="help_tab_disabled"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP' | translate}}
+          </td>
+          <td
+            class="text-center text-primary cursor-pointer"
+            tooltipClass="custom-tool-tip custom-tool-tip-permissions-level"
+            container="body"
+            [ngbTooltip]="help_tab_disabled"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP' | translate}}
+          </td>
+          <td
+            class="text-center text-primary cursor-pointer"
+            tooltipClass="custom-tool-tip custom-tool-tip-permissions-level"
+            container="body"
+            [ngbTooltip]="help_tab_disabled"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP' | translate}}
+          </td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.PROCESS_LINKS' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.TUTORIALS' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold pl-2">
+            {{'TEMPLATE.HEADER.NAV.TASK_QUEUE' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.DISPOSITIONS' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="text-center">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.DISPLAY_ONLY' | translate}}
+          </td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.ALERTS' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="text-center">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.DISPLAY_ONLY' | translate}}
+          </td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.WARNINGS' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="text-center">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.DISPLAY_ONLY' | translate}}
+          </td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.CLIENTS' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="text-center">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.DISPLAY_ONLY' | translate}}
+          </td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.CREATE_EDIT_PACKAGE' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="text-center">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.DISPLAY_ONLY' | translate}}
+          </td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold pl-2">
+            {{'TEMPLATE.HEADER.NAV.QUESTIONNAIRE' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.QUESTIONS' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="text-center">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.DISPLAY_ONLY' | translate}}
+          </td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold pl-2">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.DOCUMENTS' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.DOCUMENTS_R1' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="text-center">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.DISPLAY_ONLY' | translate}}
+          </td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.DOCUMENTS_R2' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="text-center">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.DISPLAY_ONLY' | translate}}
+          </td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.DOCUMENTS_R3' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="text-center">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.DISPLAY_ONLY' | translate}}
+          </td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.DOCUMENTS_R4' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="text-center">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.DISPLAY_ONLY' | translate}}
+          </td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.DOCUMENTS_R5' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="text-center">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.DISPLAY_ONLY' | translate}}
+          </td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.DOCUMENTS_R6' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="text-center">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.DISPLAY_ONLY' | translate}}
+          </td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.DOCUMENTS_R7' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="text-center">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.DISPLAY_ONLY' | translate}}
+          </td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold pl-2">
+            {{'TEMPLATE.HEADER.NAV.MY_ACCOUNT' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.NAV.PROFILE' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.NAV.PAYMENT_FEE_SCHEDULE' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td
+            class="text-center text-primary cursor-pointer"
+            tooltipClass="custom-tool-tip custom-tool-tip-permissions-level"
+            container="body"
+            [ngbTooltip]="help_tab_disabled"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP' | translate}}
+          </td>
+          <td
+            class="text-center text-primary cursor-pointer"
+            tooltipClass="custom-tool-tip custom-tool-tip-permissions-level"
+            container="body"
+            [ngbTooltip]="help_tab_disabled"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP' | translate}}
+          </td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.NAV.NOTIFICATIONS_REMINDERS' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td
+            class="text-center text-primary cursor-pointer"
+            tooltipClass="custom-tool-tip custom-tool-tip-permissions-level"
+            container="body"
+            [ngbTooltip]="help_tab_disabled"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP' | translate}}
+          </td>
+          <td
+            class="text-center text-primary cursor-pointer"
+            tooltipClass="custom-tool-tip custom-tool-tip-permissions-level"
+            container="body"
+            [ngbTooltip]="help_tab_disabled"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP' | translate}}
+          </td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.NAV.EMAIL_TEMPLATES' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td
+            class="text-center text-primary cursor-pointer"
+            tooltipClass="custom-tool-tip custom-tool-tip-permissions-level"
+            container="body"
+            [ngbTooltip]="help_tab_disabled"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP' | translate}}
+          </td>
+          <td
+            class="text-center text-primary cursor-pointer"
+            tooltipClass="custom-tool-tip custom-tool-tip-permissions-level"
+            container="body"
+            [ngbTooltip]="help_tab_disabled"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP' | translate}}
+          </td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.NAV.PERMISSIONS' | translate}}
+          </td>
+          <td></td>
+          <td
+            *ngIf="!(isSoloPractitioner$ | async)"
+          ></td>
+          <td
+            class="text-center text-primary cursor-pointer"
+            tooltipClass="custom-tool-tip custom-tool-tip-permissions-level"
+            container="body"
+            [ngbTooltip]="help_tab_disabled"
+            *ngIf="(isSoloPractitioner$ | async)"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP' | translate}}
+          </td>
+          <td
+            class="text-center text-primary cursor-pointer"
+            tooltipClass="custom-tool-tip custom-tool-tip-permissions-level"
+            container="body"
+            [ngbTooltip]="help_if_admin"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP' | translate}}
+          </td>
+          <td
+            class="text-center text-primary cursor-pointer"
+            tooltipClass="custom-tool-tip custom-tool-tip-permissions-level"
+            container="body"
+            [ngbTooltip]="help_if_admin"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP' | translate}}
+          </td>
+          <td class="text-center">
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.DISPLAY_ONLY' | translate}}
+          </td>
+        </tr>
+        <tr>
+          <td class="pl-5">
+            {{'TEMPLATE.ACCOUNT.NAV.LOG' | translate}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td
+            class="text-center text-primary cursor-pointer"
+            tooltipClass="custom-tool-tip custom-tool-tip-permissions-level"
+            container="body"
+            [ngbTooltip]="help_tab_disabled"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP' | translate}}
+          </td>
+          <td
+            class="text-center text-primary cursor-pointer"
+            tooltipClass="custom-tool-tip custom-tool-tip-permissions-level"
+            container="body"
+            [ngbTooltip]="help_tab_disabled"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP' | translate}}
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="text-right m-5">
+    <button
+      (click)="closeModal()"
+      class="btn btn-primary px-4 min-w-100"
+      type="button"
+    >
+      {{ 'FORM.BUTTON.OK' | translate}}
+    </button>
+  </div>
+</div>
+
+
+<ng-template #help_1>
+  <div>
+    {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP_TOOLTIP' | translate}}
+  </div>
+</ng-template>
+<ng-template #help_tab_disabled>
+  <div>
+    {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP_TOOLTIP_TAB_DISABLED' | translate}}
+  </div>
+</ng-template>
+<ng-template #help_tab_display_only>
+  <div class="mb-1">
+    {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP_TOOLTIP_DISPLAY_ONLY_P1' | translate}}
+  </div>
+  <div>
+    {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP_TOOLTIP_DISPLAY_ONLY_P2' | translate}}
+  </div>
+</ng-template>
+<ng-template #help_if_admin>
+  <div>
+    {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.PERMISSIONS_LEVELS.HELP_TOOLTIP_IF_ADMIN' | translate}}
+  </div>
+</ng-template>

@@ -1,0 +1,8 @@
+import org.apache.http.HttpStatus
+
+response.status HttpStatus.SC_UNAUTHORIZED
+
+json {
+    errors([[message: g.message(code: 'notauthorized.error'),
+             code   : HttpStatus.SC_UNAUTHORIZED,]])
+}

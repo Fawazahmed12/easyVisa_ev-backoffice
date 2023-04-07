@@ -1,0 +1,146 @@
+<div class="my-3">
+  <div
+    class="d-md-flex flex-column flex-lg-row m-3 text-center justify-content-between"
+  >
+    <div
+      class="d-flex flex-column col-8 col-md-5 col-lg-3"
+      [ngClass]="(isEmployee$ | async) ? 'offset-2' :  null"
+    >
+      <div class="d-flex flex-column col p-0">
+        <button class="btn btn-primary min-w-100 my-2"
+                *ngIf="(isSoloPractitioner$ | async) && !(invite$ | async)?.firstName && !(hasNonAttorneyPosition$ | async)"
+                type="button"
+                (click)="openImportantMessageModal()">{{'TEMPLATE.ACCOUNT.PROFILE.CREATE_LEGAL_PRACTICE' | translate}}
+        </button>
+        <button class="btn btn-primary min-w-100 my-2 position-relative"
+                *ngIf="(isSoloPractitioner$ | async) && (invite$ | async)?.firstName" type="button"
+                (click)="deleteInvitation()">
+          {{'TEMPLATE.ACCOUNT.PROFILE.WITHDRAW_INVITATION' | translate}}
+        </button>
+        <div
+          class="pt-3 position-absolute col-6 p-0 left-100"
+          *ngIf="(invite$ | async)?.firstName">
+          {{(invite$ | async)?.firstName}} {{(invite$ | async)?.middleName}} {{(invite$ | async)?.lastName}}
+        </div>
+        <button
+          class="btn btn-primary min-w-100 my-2"
+          *ngIf="!!(activeOrganization$ | async) && !(isSoloPractitioner$ | async) || (hasNonAttorneyPosition$ | async)"
+          type="button"
+          (click)="leaveLegalPractice()"
+        >
+          {{'TEMPLATE.ACCOUNT.PROFILE.LEAVE_THIS_LEGAL_PRACTICE' | translate}}
+        </button>
+        <button
+          class="btn btn-primary min-w-100 my-2"
+          type="button"
+          routerLink="/account/profile/request-to-join"
+          *ngIf="!(requestJoin$ | async)"
+          [disabled]="(activeOrganization$ | async)?.organizationType === lawFirm || (hasNonAttorneyPosition$ | async)"
+        >
+          {{'TEMPLATE.ACCOUNT.PROFILE.REQUEST_TO_JOIN_PRACTICE' | translate}}
+        </button>
+        <div
+          class="col position-relative p-0"
+          *ngIf="(isSoloPractitioner$ | async) && !!(requestJoin$ | async)?.requestId"
+        >
+          <button
+            class="btn btn-primary min-w-100 my-2 col"
+            type="button"
+            (click)="deleteRequestJoin()"
+          >
+            {{'TEMPLATE.ACCOUNT.PROFILE.WITHDRAW_REQUEST' | translate}}
+          </button>
+          <span
+            class="pt-3 col-6 p-0 position-absolute left-100 text-nowrap pl-3"
+            *ngIf="!!(requestJoin$ | async)?.requestId">
+          {{(requestJoin$ | async)?.organizationName}}
+        </span>
+        </div>
+      </div>
+
+    </div>
+    <div class="d-flex flex-row col col-lg-8 justify-content-around mt-2">
+      <div *ngIf="!(isEmployee$ | async)">
+        <h6 class="mb-0 font-weight-bold">{{'TEMPLATE.ACCOUNT.PROFILE.REPRESENTATIVE_TYPE' | translate}}</h6>
+        <div>{{(activeOrganization$ | async)?.organizationType | representativeType | translate}}</div>
+      </div>
+      <div *ngIf="!(isEmployee$ | async)">
+        <h6 class="mb-0 font-weight-bold">{{'TEMPLATE.ACCOUNT.PROFILE.PRACTICE_TYPE' | translate}}</h6>
+        <div>{{practiceType$ | async | translate}}</div>
+        <div *appIfActiveOrganization="lawFirm">{{(organization$ | async)?.name}}</div>
+      </div>
+      <div *ngIf="!(isEmployee$ | async)">
+        <h6 class="mb-0 font-weight-bold">{{'TEMPLATE.ACCOUNT.PROFILE.LAW_FIRM_ID' | translate}}</h6>
+        <div>{{(organization$ | async)?.easyVisaId}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #mandatoryAdmin>
+  <div class="m-md-4">
+    {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.MANDATORY_ADMIN.DESCRIPTION_P1' | translate: ({organizationType: (activeOrganization$ | async)?.organizationType | organizationType | translate})}}
+  </div>
+</ng-template>
+
+<ng-template #leaveRecognizedOrganization>
+  <div class="container-fluid my-4">
+    <div class="mb-2">
+      {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.LEAVE_THIS_RECOGNIZED_ORGANIZATION.DESCRIPTION_P1' | translate }}
+    </div>
+    <div>
+      {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.LEAVE_THIS_RECOGNIZED_ORGANIZATION.DESCRIPTION_P1' | translate }}
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #lawPracticeWillBeDeleted>
+  <div class="container-fluid my-2">
+    <div class="row align-items-start justify-content-center">
+      <div class="mb-3 mb-lg-0 mr-lg-4">
+        <img src="/assets/images/warn-icon.png" alt="warn-icon">
+      </div>
+      <div class="col-md">
+        <div class="mb-2">
+          {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.LAW_PRACTICE_ACCOUNT_WILL_BE_DELETED.DESCRIPTION_P1' | translate }}
+        </div>
+        <div class="mb-2">
+          {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.LAW_PRACTICE_ACCOUNT_WILL_BE_DELETED.DESCRIPTION_P2' | translate }}
+        </div>
+        <div class="mb-2">
+          {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.LAW_PRACTICE_ACCOUNT_WILL_BE_DELETED.DESCRIPTION_P3' | translate }}
+        </div>
+        <div>
+          {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.LAW_PRACTICE_ACCOUNT_WILL_BE_DELETED.DESCRIPTION_P4' | translate }}
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #leaveLegalPracticeModal>
+  <div class="mx-4 my-3 d-flex">
+    <div class="mr-3 text-center my-3">
+      <img src="/assets/images/warn-icon.png"/>
+    </div>
+    <div class="mr-2">
+      <div class="mb-2">
+        {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.LEAVE_LEGAL_PRACTICE.DESCRIPTION_P1' | translate}}
+      </div>
+      <div>
+        {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.LEAVE_LEGAL_PRACTICE.DESCRIPTION_P2' | translate}}
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #employeeLeaveLegalPractice>
+  <div class="mx-4 my-3 d-flex">
+    <div class="mr-3 text-center my-3">
+      <img src="/assets/images/warn-icon.png"/>
+    </div>
+    <div class="d-flex align-items-center">
+      {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.EMPLOYEE_LEAVE_LEGAL_PRACTICE.DESCRIPTION_P1' | translate}}
+    </div>
+  </div>
+</ng-template>

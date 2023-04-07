@@ -1,0 +1,41 @@
+<div class="form-group row " [class.mb-1]="smallMarginStyle" [class.no-gutters]="smallMarginStyle">
+  <label
+    *ngIf="label"
+    class="col-form-label col-form-label-sm"
+    [class.text-md-left]="!textAlignRight"
+    [class.text-md-right]="textAlignRight"
+    [class.col-md-4]="!smallMarginStyle"
+    [class.col-md-3]="col3Label"
+    [class.col-md-2]="smallMarginStyle"
+    [class.text-primary]="primaryTextStyle"
+    [class.font-weight-bold]="primaryTextStyle"
+    [class.pr-2]="smallMarginStyle"
+  >
+    {{ label | translate }}
+  </label>
+  <div
+    class="col-md d-flex mr-3"
+    [class.mr-3]="registrationForm"
+    [class.mr-4]="!registrationForm"
+  >
+    <div
+      class="input-group input-group-sm mr-2 p-0"
+      [class.col-5]="smallMarginStyle && !packageScreen"
+      [class.col-3]="packageScreen && smallMarginStyle"
+    >
+      <input
+        type="text"
+        class="form-control"
+        [ngbTooltip]="countryTooltip"
+        [formControl]="phoneCodeControl"
+        (change)="updateNumber()">
+    </div>
+    <input
+      type="text"
+      (change)="updateNumber()"
+      [formControl]="phoneNumberControl"
+      [class.col-9]="packageScreen"
+      class="form-control form-control-sm col-7"
+    >
+  </div>
+</div>

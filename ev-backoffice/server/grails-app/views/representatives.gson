@@ -1,0 +1,6 @@
+import com.easyvisa.LegalRepresentative
+import groovy.transform.Field
+
+@Field List<LegalRepresentative> representatives = []
+
+json tmpl.'/user/attorney'('legalRepresentative', representatives)

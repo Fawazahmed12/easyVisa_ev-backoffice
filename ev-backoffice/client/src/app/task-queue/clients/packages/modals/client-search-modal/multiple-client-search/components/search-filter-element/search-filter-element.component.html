@@ -1,0 +1,8 @@
+<div *ngIf="control.control.value" class="pl-1 d-inline-block">
+  {{control.label | translate}}
+  <span *ngIf="control.isDate && control.control.valid">{{control.control.value | date}} </span>
+  <button class="btn btn-secondary close-btn fa fa-close p-1 position-relative"
+    type="button"
+    (click)="control.control.reset()"
+  ></button><span *ngIf="!last || showComma">,</span>
+</div>

@@ -1,0 +1,45 @@
+<div class="document-attachments-wrapper">
+
+  <h6 class="text-center text-danger" *ngIf="document?.attachments.length==0">No attachments available</h6>
+
+  <div *ngIf="document?.attachments.length>0">
+    <dts-select-container #selectContainer="dts-select-container"
+                          [(selectedItems)]="selectedDocumentAttachments"
+                          (select)="onDocumentSelect($event)">
+      <div class="thumbnail-container"
+           *ngFor="let attachment of document.attachments"
+           [dtsSelectItem]="attachment"
+           (dblclick)="onDocumentAttachmentPreview(attachment)"
+           [ngClass]="getSelectedDocumentsClass(attachment)"
+           [placement]="['bottom', 'auto']"
+           [ngbTooltip]="attchmentFileName"
+           container="body" tooltipClass="required-document-help">
+        <div class="img-container d-flex justify-content-center">
+
+          <img [src]="getThumbnailUrl(attachment) | safeUrl" class="image-thumbnail"
+               *ngIf="hasImageSourceByFileType(attachment.fileType) && hasImageThumbnail(attachment)"/>
+
+          <img [src]="getFileTypeIcon(attachment.fileType)"
+               *ngIf="!hasImageSourceByFileType(attachment.fileType) || !hasImageThumbnail(attachment)"/>
+
+          <span class="approved-mark" *ngIf="attachment.approved">
+            <i class="fa tick-icon">&#10003;</i>
+          </span>
+
+        </div>
+        <div class="filename-text">{{attachment.fileName}}</div>
+
+        <ng-template #attchmentFileName>
+          <div [innerHtml]="attachment.fileName"></div>
+        </ng-template>
+      </div>
+    </dts-select-container>
+  </div>
+
+</div>
+
+
+<ng-template #documentViewerModal>
+  <app-document-viewer-modal></app-document-viewer-modal>
+</ng-template>
+

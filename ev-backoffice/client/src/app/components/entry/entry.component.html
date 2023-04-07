@@ -1,0 +1,26 @@
+<div class="container-fluid p-0">
+  <div class="row align-items-center justify-content-end mr-1">
+    <div class="d-flex justify-content-end text-uppercase" *ngIf="!(isLoggedIn$ | async)">
+      <div class="px-2 border-right border-secondary cursor-pointer entry-text" (click)="goToRegister()">
+        {{ 'TEMPLATE.HEADER.ENTRY.REGISTER' | translate }}
+      </div>
+      <div class="px-2 cursor-pointer entry-text" (click)="goToLogin()">
+        {{ 'TEMPLATE.HEADER.ENTRY.LOGIN' | translate }}
+      </div>
+    </div>
+    <div class="d-flex align-items-center">
+      <ng-template [ngIf]="isLoggedIn$ | async">
+        <span class="px-2 text-truncate text-uppercase entry-text"  style="max-width:155px">
+          {{ 'TEMPLATE.HEADER.ENTRY.HELLO' | translate }}, {{(currentUser$ | async)?.profile.firstName}}
+        </span>
+        <a
+          class="px-2 py-0 login border-0 text-uppercase logout-text cursor-pointer entry-text"
+          (click)="logOut()"
+          [attr.disabled]="(logoutRequest$ | async).loading">
+          {{ 'TEMPLATE.HEADER.ENTRY.LOGOUT' | translate }}
+        </a>
+      </ng-template>
+    </div>
+  </div>
+  <app-select-organization-representative *ngIf="(isLoggedIn$ | async)"></app-select-organization-representative>
+</div>

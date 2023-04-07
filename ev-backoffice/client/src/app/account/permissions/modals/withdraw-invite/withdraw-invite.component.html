@@ -1,0 +1,28 @@
+<div class="container-fluid p-0 border border-secondary">
+  <app-modal-header [title]="'TEMPLATE.ACCOUNT.PROFILE.MODALS.WITHDRAW_INVITATION.HEADER'"></app-modal-header>
+  <div
+    class="m-3"
+  >
+    <div class="mb-1">
+      {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.WITHDRAW_INVITATION.DESCRIPTION_P1' | translate}}
+      {{employee.profile.firstName}} {{employee.profile.middleName}} {{employee.profile.lastName}}
+      {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.WITHDRAW_INVITATION.DESCRIPTION_P2' | translate}}
+    </div>
+  </div>
+  <div class="d-flex flex-row justify-content-end text-right m-4">
+    <button
+      (click)="cancelModal()"
+      class="btn btn-primary px-4 min-w-100 mr-3"
+      type="button"
+    >
+      {{ 'FORM.BUTTON.CANCEL' | translate}}
+    </button>
+    <button
+      (click)="closeModal()"
+      class="btn btn-primary px-4 min-w-100"
+      type="button"
+    >
+      {{ 'FORM.BUTTON.OK' | translate}}
+    </button>
+  </div>
+</div>

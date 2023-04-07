@@ -1,0 +1,81 @@
+<div
+  class="border-top-0 border-gray-ccc d-flex flex-column align-items-center mb-3"
+>
+  <div
+    [ngClass]="bodyWidth">
+    <h3
+      class="text-center p-2 mb-0"
+      [ngClass]="headerStyle">
+      {{ 'TEMPLATE.BILLING_HISTORY.HEADER' | translate }}
+    </h3>
+    <app-table
+      [header]="headers"
+      [tableData]="billingHistoryTableData$  | async"
+      [scrolledTableBody]="true"
+      [borderNone]="true"
+      [hideScrollBar]="false"
+      *ngIf="!(accountTransactionsGetRequest$  | async).loading"
+    >
+    </app-table>
+    <app-spinner
+      *ngIf="(accountTransactionsGetRequest$  | async).loading"
+    >
+    </app-spinner>
+    <div
+      class="row"
+      *ngIf="!(accountTransactionsGetRequest$  | async).loading"
+    >
+      <ngb-pagination
+        [collectionSize]="(accountTransactionsTotal$ | async)"
+        [pageSize]="maxFormControl.value"
+        [page]="page"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="pageChange($event)"
+        class="col-6 offset-3 d-flex justify-content-center pagination-bg-none"
+      >
+        <ng-template ngbPaginationFirst>{{'FORM.PAGINATION_LABELS.FIRST' | translate}}</ng-template>
+        <ng-template ngbPaginationLast>{{'FORM.PAGINATION_LABELS.LAST' | translate}}</ng-template>
+        <ng-template ngbPaginationPrevious>{{'FORM.PAGINATION_LABELS.PREVIOUS' | translate}}</ng-template>
+        <ng-template ngbPaginationNext>{{'FORM.PAGINATION_LABELS.NEXT' | translate}}</ng-template>
+      </ngb-pagination>
+      <div
+        class="d-flex flex-row col justify-content-end align-items-center mr-5 px-0"
+        *ngIf=showBalance
+      >
+        <h5
+          class="pr-3 mb-0"
+          [ngClass]="(balance$ | async) > -1 ? 'text-blue' : 'text-red'">
+          {{'TEMPLATE.ACCOUNT.PAYMENT.CREDIT_BALANCE' | translate}}
+        </h5>
+        <h5
+          class="mb-0"
+          [ngClass]="(balance$ | async) > -1 ? 'text-blue' : 'text-red'">
+          {{(balance$ | async) | currency:'USD':'symbol-narrow':'1.0-2'}}
+        </h5>
+        <a
+          class="fa fa-question-circle align-self-start text-primary cursor-pointer pl-2"
+          (click)="openModal()">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #creditBalance>
+  <div class="container-fluid my-4 px-5">
+    <div class="mb-2">
+      {{'TEMPLATE.ACCOUNT.PAYMENT.CREDIT_BALANCE_MODAL.P_1' | translate }}
+    </div>
+    <div class="mb-2">
+      {{'TEMPLATE.ACCOUNT.PAYMENT.CREDIT_BALANCE_MODAL.P_2' | translate }}
+    </div>
+    <div class="mb-2 font-weight-bold">
+      {{'TEMPLATE.ACCOUNT.PAYMENT.CREDIT_BALANCE_MODAL.P_3' | translate }}
+    </div>
+    <div class="mb-2">
+      {{'TEMPLATE.ACCOUNT.PAYMENT.CREDIT_BALANCE_MODAL.P_4' | translate }}
+    </div>
+  </div>
+</ng-template>

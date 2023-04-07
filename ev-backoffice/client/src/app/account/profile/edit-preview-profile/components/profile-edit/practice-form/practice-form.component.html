@@ -1,0 +1,15 @@
+<div class="mb-3">
+  <h5 class="text-center mb-2 font-weight-bold">{{'TEMPLATE.ACCOUNT.PROFILE.PRACTICE_AREAS' | translate}}</h5>
+  <div class="practice-columns">
+      <div *ngFor="let practice of practices" class="text-left">
+        <label class="mb-0">
+          <input
+            type="checkbox"
+            (change)="selectPractice($event, practice)"
+            [checked]="practice.checked"
+          >
+          {{practice.label | translate}}
+        </label>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="container-fluid p-0 border border-secondary">
+  <div class="modal-header align-items-center bg-primary text-white px-2">
+    <h5 class="modal-title w-100 text-center">{{ 'TEMPLATE.TASK_QUEUE.CLIENTS.CANT_DELETE_LEADS_MODAL.TITLE' | translate }}</h5>
+    <button
+      type="button"
+      class="btn btn-secondary close-btn p-0"
+      aria-label="Close"
+      (click)="closeModal()"
+    ><span aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="modal-body">
+    <div class="d-flex justify-content-center pt-2 pb-4" [innerHTML]="'TEMPLATE.TASK_QUEUE.CLIENTS.CANT_DELETE_LEADS_MODAL.DESCRIPTION' | translate"></div>
+    <div class="text-right">
+      <button class="btn btn-primary min-w-100" type="button" (click)="closeModal()">
+        {{ 'FORM.BUTTON.OK' | translate }}
+      </button>
+    </div>
+  </div>
+</div>

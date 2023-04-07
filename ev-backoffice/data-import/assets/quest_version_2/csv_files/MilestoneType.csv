@@ -1,0 +1,12 @@
+EasyVisaId,QuestVersion,Name,DisplayText,DateLabel,ReminderRule,ReminderRuleParam
+DocMilestone_1,quest_version_2,PUBLIC_NOTE,Package sent to USCIS,Date Sent,,
+DocMilestone_2,quest_version_2,APPROVAL_DATE,Approval Date,Approval Date,,
+DocMilestone_3,quest_version_2,VISA_INTERVIEW,Visa Interview,Interview Date,,
+DocMilestone_4,quest_version_2,VISA_STAMP_IN_PASSPORT,Visa Stamp in Passport,Date Received,,
+DocMilestone_5,quest_version_2,ARRIVAL_DATE_IN_US,Arrival Date in U.S.,Arrival Date,ArrivalDateReminderRule,K1K3
+DocMilestone_6,quest_version_2,MARRIAGE_DATE,Marriage Date,Marriage Date,MarriageDateReminderRule,K1K3
+DocMilestone_7,quest_version_2,AOS_INTERVIEW,AOS Interview,Interview Date,,
+DocMilestone_8,quest_version_2,GREENCARD_CONDITIONAL_ISSUANCE,Conditional Green Card Issuance Date,Issuance Date,,
+DocMilestone_9,quest_version_2,GREENCARD_CONDITIONAL_EXPIRATION,Conditional Green Card Expiration Date,Expiration Date,,
+DocMilestone_10,quest_version_2,EXPIRATION_PRIOR_DATE,90 Days Prior to Expiration of Conditional Residence Status,Date,,
+DocMilestone_11,quest_version_2,GREENCARD_PERMANENT_EXPIRATION,Permanent Green Card Expiration Date,Expiration Date,GreenCardExpirationReminderRule,REMOVECOND

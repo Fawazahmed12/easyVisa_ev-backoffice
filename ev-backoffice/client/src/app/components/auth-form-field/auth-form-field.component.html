@@ -1,0 +1,69 @@
+<div class="form-group" [class.mb-1]="smallMarginStyle" [class.mb-3]="extraMarginBottom">
+  <div class="row" [class.no-gutters]="smallMarginStyle" [class.pr-2]="contactInfoEmail">
+    <label
+      *ngIf="label"
+      class="col-form-label col-form-label-sm text-md-left"
+      [class.col-md-2]="smallMarginStyle"
+      [class.col-md-3]="smallMarginStyle && col3Label"
+      [class.col-md-4]="smallMarginStyle && col4Label"
+      [class.pr-1]="smallMarginStyle"
+      [class.text-primary]="primaryTextStyle"
+      [class.font-weight-bold]="primaryTextStyle"
+    >
+      {{ label | translate }}
+    </label>
+    <div class="col-md d-flex"
+         [ngbTooltip]="'FORM.LABELS.ADDRESS_TOOLTIP' | translate"
+         [disableTooltip]="control.enabled || !showToolTips"
+    >
+      <input
+        [type]="type"
+        [formControl]="control"
+        [placeholder]="placeHolder"
+        [class.mr-2]="noRequired"
+        class="form-control form-control-sm position-relative"
+      >
+      <span
+        class="text-danger asterisk-font-size pl-1"
+        [ngClass]="contactInfoEmail ? 'double-asterisk-position' : 'asterisk-position'"
+        [class.invisible]="!required"
+      >*<span *ngIf="!smallMarginStyle || contactInfoEmail" [class.invisible]="!doubleNote">*</span>
+    </span>
+    </div>
+  </div>
+  <div
+    class="row p-0 mb-1"
+    [ngClass]="{'d-none' : !showError}"
+  >
+    <div
+      class="col-md"
+      [class.offset-md-3] = "!smallCell"
+      [class.offset-md-2] = "smallCell"
+      [ngClass]="passwordInput ? 'mb-5' : ''"
+    >
+      <div
+        class="text-center text-danger small px-1"
+      >
+        <app-auth-form-field-error *ngIf="(control.dirty || submitted) && control.hasError('required')" textCenter="true">
+          {{ 'FORM.ERROR.REQUIRED_WITH_PARAM' | translate: ({field: label | translate})}}
+        </app-auth-form-field-error>
+        <app-auth-form-field-error *ngIf="control.hasError('pattern')" textCenter="true">
+          {{ 'FORM.ERROR.INVALID' | translate: ({field: label | translate})}}
+        </app-auth-form-field-error>
+        <app-auth-form-field-error *ngIf="control.hasError('email')" textCenter="true">
+          {{ 'FORM.ERROR.EMAIL_INVALID' | translate}}
+        </app-auth-form-field-error>
+        <app-auth-form-field-error *ngIf="control.hasError('reqValidator')" textCenter="true">
+          {{control.getError('invalidMessage') || 'FORM.ERROR.INVALID' | translate: ({field: label | translate})}}
+        </app-auth-form-field-error>
+        <app-auth-form-field-error *ngIf="control.hasError('minlength')" textCenter="true">
+          {{ 'FORM.ERROR.MIN_LENGTH' | translate: ({length: control.getError('minlength')['requiredLength']})}}
+        </app-auth-form-field-error>
+        <app-auth-form-field-error *ngIf="control.hasError('maxlength')" textCenter="true">
+          {{ 'FORM.ERROR.MAX_LENGTH' | translate: ({length: control.getError('maxlength')['requiredLength']})}}
+        </app-auth-form-field-error>
+        <ng-content select="app-auth-form-field-error"></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

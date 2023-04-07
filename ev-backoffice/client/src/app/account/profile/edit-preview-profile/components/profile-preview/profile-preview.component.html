@@ -1,0 +1,186 @@
+<div class="d-flex flex-column flex-lg-row justify-content-start border border-b2-gray mx-0 mb-3  bg-soft-gray">
+  <div class="col-8 d-flex flex-row mr-2">
+    <div
+      class="position-relative photo-frame border border-b2-gray d-flex flex-column justify-content-center mx-auto mx-lg-2 my-2">
+      <div class="photo position-absolute w-100 h-100 bg-size-cover"
+           [style.backgroundImage]="profile?.profilePhoto ? 'url('+profile?.profilePhoto+')': null">
+      </div>
+      <div class="text-gray text-center">
+        {{(isOrganizationProfile ? 'TEMPLATE.ACCOUNT.PROFILE.LOGO_GOES_HERE' : 'TEMPLATE.ACCOUNT.PROFILE.PHOTO_GOES_HERE')
+          | translate}}
+      </div>
+    </div>
+    <div class="col-md d-flex flex-column justify-content-between my-3 text-center text-lg-left"
+         *ngIf="!isOrganizationProfile">
+      <div>
+        <span class="pr-1 font-weight-bolder">{{profile?.firstName}}</span>
+        <span class="pr-1 font-weight-bolder">{{profile?.middleName}}</span>
+        <span class="font-weight-bolder">{{profile?.lastName}}</span>
+        <div class="" *ngFor=" let organizationItem of profile?.organizations">
+          <span class="font-weight-bold">{{organizationItem?.name}}</span>
+        </div>
+      </div>
+      <div *ngIf="!isOrganizationProfile && profile?.licensedRegions.length">
+        {{'TEMPLATE.ACCOUNT.PROFILE.LICENSED' | translate}} {{transformLicence(profile)}}
+        {{'TEMPLATE.ACCOUNT.PROFILE.YEARS' | translate}}
+      </div>
+    </div>
+    <div class="col-lg-8 my-3 ml-lg-6 align-content-center justify-content-between"
+         *ngIf="isOrganizationProfile">
+      <h6 class="text-center font-weight-bolder">
+        {{profile?.name}}
+      </h6>
+      <div class="text-center mb-3" *ngIf="profile?.yearFounded">
+        {{'TEMPLATE.ACCOUNT.PROFILE.FIRM_FOUNDED_IN' | translate }}<span
+        class="pl-2">{{currentYear - profile?.yearFounded}}</span>
+      </div>
+      <div class="border-top border-secondary mb-3" *ngIf="profile?.languages.length"></div>
+      <div class="text-center font-weight-bolder" *ngIf="profile?.languages.length">
+        {{'TEMPLATE.ACCOUNT.PROFILE.LANGUAGES_SPOKEN' | translate}}
+      </div>
+      <div class="mt-1 text-center overflow-auto small p-1 mb-3" *ngIf="profile?.languages.length">
+      <span *ngFor="let language of profile?.languages; last as isLast;" class="pr-1 ">
+        <span>{{language | findLabel:languagesProfile}}</span>
+        <span *ngIf="!isLast">,</span>
+      </span>
+      </div>
+    </div>
+  </div>
+  <div class="border border-right border-b2-gray my-4"></div>
+  <div class="col col-lg-4 my-3" *ngIf="!isOrganizationProfile && profile?.languages.length">
+    <div class="text-center font-weight-bolder">
+      {{'TEMPLATE.ACCOUNT.PROFILE.LANGUAGES_SPOKEN' | translate}}
+    </div>
+    <div class="mt-1 text-center overflow-auto small p-1 mb-3">
+      <span *ngFor="let language of profile?.languages; last as isLast;" class="pr-1 ">
+        <span>{{language | findLabel:languagesProfile}}</span>
+        <span *ngIf="!isLast">,</span>
+      </span>
+    </div>
+    <div class="text-center font-weight-bolder" *ngIf="!isOrganizationProfile">
+      {{'TEMPLATE.ACCOUNT.PROFILE.CLIENT_RATING' | translate}}
+    </div>
+  </div>
+  <div class="col col-lg-4 my-3">
+    <div class="mb-1 text-center font-weight-bolder">
+      {{ 'FORM.LABELS.CONTACT_INFO' | translate }}
+    </div>
+    <div *ngFor="let contact of this?.contactInfo" class="row">
+
+      <span class="col-3">{{contact.label | translate}}:</span>
+      <span class="col-5">{{contact.number}}</span>
+
+    </div>
+    <div class="row justify-content-center my-2">
+      <span *ngFor="let social of this?.socialUrls">
+        <a
+          href={{social.socialUrl}}
+          ngClass="fa-{{social.style}}-square"
+          *ngIf=(social.socialUrl)
+          class="col-md-2 text-md-right text-center text-dark-gray mb-0 mt-1 pr-2 fa social-icon">
+        </a>
+      </span>
+    </div>
+    <div *ngIf="isOrganizationProfile" class="row">
+      <span class="col-3">{{"FORM.LABELS.EMAIL" | translate}}:</span>
+      <span class="col-5">{{profile?.email}}</span>
+    </div>
+  </div>
+</div>
+
+<div class="row justify-content-start align-items-start mx-0 mb-3">
+  <div class="col-lg-8 text-center border border-b2-gray mr-lg-3 mb-3 mb-lg-0 bg-soft-gray">
+    <div class="font-weight-bolder my-2">
+      {{'TEMPLATE.ACCOUNT.PROFILE.PROFILE_SUMMARY' | translate}}
+    </div>
+    <div class="border-top border-secondary mb-2"></div>
+    <div class="overflow-auto max-height-block">{{profile?.summary}}</div>
+  </div>
+  <div class="col text-center border border-b2-gray min-height-block bg-soft-gray">
+    <div class="font-weight-bolder my-2">
+      {{'TEMPLATE.ACCOUNT.PROFILE.HOURS_PST' | translate}}
+    </div>
+    <div class="border-top border-secondary mb-2"></div>
+    <div class="overflow-auto max-height-block small">
+      <div *ngFor="let day of profile?.workingHours" class="row no-gutters my-1">
+        <div class="col-4 text-left pr-2">
+          {{ day.dayOfWeek | findLabel: workingDays : true | translate }}
+        </div>
+        <div class="col-4 pr-2" *ngIf="day.start.hour !== null; else nonWorkingDay">
+          {{day.start | transformTime}}
+        </div>
+        <div class="col-4" *ngIf="!(day.start.hour === null); else nonWorkingDay">
+          {{day.end | transformTime}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="row justify-content-start align-items-start mx-0 mb-3">
+  <div class="col-lg-8 text-center border border-b2-gray min-height-block mr-lg-3 mb-3 mb-lg-0 bg-soft-gray">
+    <div class="font-weight-bolder my-2">
+      {{'TEMPLATE.ACCOUNT.PROFILE.EXPERIENCE' | translate}}
+    </div>
+    <div class="border-top border-secondary mb-2"></div>
+    <div class="overflow-auto max-height-block">{{profile?.experience}}</div>
+  </div>
+  <div class="col text-center border border-b2-gray bg-soft-gray">
+    <div class="font-weight-bolder my-2">
+      {{'TEMPLATE.ACCOUNT.PROFILE.PRACTICE_AREAS' | translate}}
+    </div>
+    <div class="border-top border-secondary mb-2"></div>
+    <div class="practice-columns max-height-block">
+      <div class="text-left small" *ngFor="let practiceAreas of profile?.practiceAreas">
+        {{practiceAreas |findLabel:practices | translate}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row justify-content-start align-items-start mx-0 mb-3">
+  <div class="col-lg-8 text-center border border-b2-gray mr-lg-3 mb-3 mb-lg-0 bg-soft-gray">
+    <div class="font-weight-bolder my-2">
+      {{'TEMPLATE.ACCOUNT.PROFILE.AWARDS' | translate}}
+    </div>
+    <div class="border-top border-secondary mb-2"></div>
+    <div class="overflow-auto max-height-block">{{profile?.awards}}</div>
+  </div>
+  <div class="col text-center border border-b2-gray min-height-block bg-soft-gray" *ngIf="!(isOrganizationProfile)">
+    <div class="font-weight-bolder my-2">
+      {{'TEMPLATE.ACCOUNT.PROFILE.EDUCATION_TITLE' | translate}}
+    </div>
+    <div class="border-top border-secondary mb-2"></div>
+    <div *ngFor="let education of profile?.education" class="text-left">
+      {{education.school}}
+      <span *ngIf="education.school">, </span>
+      {{education.year}}
+      <span *ngIf="education.year">, </span>
+      {{education.degree | findLabel : degree | translate}}
+      <div class="font-italic pl-3">
+        {{education.honors | findLabel : honors | translate}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mx-0 border border-b2-gray align-content-center justify-content-center min-height-label mb-4  bg-soft-gray"
+     *ngIf="profile?.officeAddress">
+  <div class="text-center">
+    {{profile?.officeAddress?.zipCode}}
+    {{profile?.officeAddress?.line1}}
+    <span *ngIf="profile.officeAddress.line1&&!(profile.officeAddress.line2&&profile.officeAddress.city)">•</span>
+    {{profile?.officeAddress?.line2}}
+    <span *ngIf="!profile.officeAddress.line1&&profile.officeAddress.line2">•</span>
+    {{profile?.officeAddress?.city}}
+  </div>
+</div>
+
+<div class="border-top border-secondary mx-4"></div>
+
+<ng-template #nonWorkingDay>
+  <div class="col pr-2">
+    {{'TEMPLATE.ACCOUNT.PROFILE.CLOSED' | translate}}
+  </div>
+</ng-template>

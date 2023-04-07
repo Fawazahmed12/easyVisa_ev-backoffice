@@ -1,0 +1,9 @@
+<input #documentFileInput type="file" style="display: none;"
+       (change)="documentUpload($event)"
+       (click)="documentFileInput.value = null"
+       [accept]="acceptFileTypes" [disabled]="readOnlyAccess">
+
+<button type="button" class="btn btn-link p-0 blue-link"
+        [disabled]="readOnlyAccess" (click)="documentFileInput.click()">
+  {{'TEMPLATE.ATTACHMENTS.ADD' | translate}}
+</button>

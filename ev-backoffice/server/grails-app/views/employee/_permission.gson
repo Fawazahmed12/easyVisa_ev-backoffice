@@ -1,0 +1,28 @@
+import groovy.sql.GroovyRowResult
+import groovy.transform.Field
+
+@Field GroovyRowResult row
+
+json {
+    id row.id
+    employeeId row.employee_id
+    isAdmin row.is_admin
+    position row.position
+    status row.status
+    activeDate row.active_date
+    inactiveDate row.inactive_date
+    officeEmail row.email
+    mobilePhone row.mobile_phone
+    officePhone row.office_phone
+    String[] authorities = row.roles.toString().replaceAll('\\{|\\}', '').split(',')
+    roles authorities && authorities.first() != 'null' ? authorities : []
+
+    profile {
+        id row.profile_id
+        firstName row.first_name
+        lastName row.last_name
+        middleName row.middle_name
+        easyVisaId row.easy_visa_id
+        email row.email
+    }
+}

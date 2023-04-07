@@ -1,0 +1,20 @@
+<div class="form-group row no-gutters mb-1">
+  <label
+    *ngIf="label"
+    class="col-md-2 col-form-label col-form-label-sm text-md-left pr-2"
+    [class.col-md-3]="col3Label"
+    [class.col-md-4]="col4Label"
+  >
+    {{ label | translate }}
+  </label>
+  <div class="col-md d-flex">
+    <input [type]="type"
+           [formControl]="control"
+           [ngClass]="borderDanger"
+           class="form-control form-control-sm">
+    <span
+      class="text-danger"
+      [ngClass]="{'invisible': !required}"
+    >*</span>
+  </div>
+</div>

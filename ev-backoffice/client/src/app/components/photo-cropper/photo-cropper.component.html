@@ -1,0 +1,123 @@
+<div class="container-fluid p-0 border border-secondary">
+  <app-modal-header [title]="'TEMPLATE.ACCOUNT.PROFILE.UPLOAD_PHOTO_TITLE'"></app-modal-header>
+  <div class="m-4">
+    <div *ngIf="tooSmallWidthSubject$ | async"
+         class="col justify-content-center border border-danger border-secondary mt-2 p-2">
+      <div class="font-weight-bold text-danger text-center">
+        {{'TEMPLATE.ACCOUNT.PROFILE.UNSUPPORTED_FILE_TYPE.WARNING_1' | translate}}
+      </div>
+      <div class="text-center">
+        {{'TEMPLATE.ACCOUNT.PROFILE.UNSUPPORTED_FILE_TYPE.WARNING_2' | translate}}
+      </div>
+      <div class="text-center">
+        {{'TEMPLATE.ACCOUNT.PROFILE.UNSUPPORTED_FILE_TYPE.WARNING_3' | translate}}
+      </div>
+    </div>
+    <div class="row justify-content-start mt-4">
+      <input type="file" id="upload-photo" (change)="fileChangeEvent($event)"/>
+      <label class="btn btn-primary border ml-3 mr-5" for="upload-photo">
+        {{'TEMPLATE.ACCOUNT.PROFILE.CHOOSE_FILE' | translate}}
+      </label>
+      <div *ngIf="croppedImage">
+        <button
+          (click)="rotateLeft()"
+          class="btn btn-primary mr-1">
+          <i class="fa fa-rotate-left" aria-hidden="true"></i>
+        </button>
+        <button
+          (click)="rotateRight()"
+          class="btn btn-primary mx-1">
+          <i class="fa fa-rotate-right" aria-hidden="true"></i>
+        </button>
+        <button
+          (click)="flipHorizontal()"
+          class="btn btn-primary mx-1">
+          <i class="fa fa-exchange" aria-hidden="true"></i>
+        </button>
+        <button
+          (click)="flipVertical()"
+          class="btn btn-primary mx-1">
+          <i class="fa fa-exchange rotate-90" aria-hidden="true"></i>
+        </button>
+        <button
+          (click)="zoomOut()"
+          class="btn btn-primary mx-1">
+          <i class="fa fa-search-minus" aria-hidden="true"></i>
+        </button>
+        <button
+          (click)="zoomIn()"
+          class="btn btn-primary mx-1">
+          <i class="fa fa-search-plus" aria-hidden="true"></i>
+        </button>
+        <button
+          (click)="resetImage()"
+          class="btn btn-primary ml-3">
+          {{'TEMPLATE.ACCOUNT.PROFILE.RESET_IMAGE' | translate}}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!croppedImage" class="min-height-block-200"></div>
+  <div class="col">
+    <div class="row align-items-start justify-content-around ml-3">
+      <div class="col-8">
+        <div class="col text-center mx-0" *ngIf="(fileNameSubject$ | async)">
+          <div>
+            {{'TEMPLATE.ACCOUNT.PROFILE.PHOTO_CROPPER_DESC_1' | translate}}
+          </div>
+          <div>
+            {{'TEMPLATE.ACCOUNT.PROFILE.PHOTO_CROPPER_DESC_2' | translate}}
+          </div>
+        </div>
+        <image-cropper
+          [imageChangedEvent]="imageChangedEvent"
+          [maintainAspectRatio]="true"
+          [containWithinAspectRatio]="containWithinAspectRatio"
+          [aspectRatio]="4 / 5"
+          [cropperMinWidth]="120"
+          [resizeToWidth]="360"
+          onlyScaleDown="true"
+          [roundCropper]="false"
+          [canvasRotation]="canvasRotation"
+          [transform]="transform"
+          [alignImage]="'center'"
+          [style.display]="showCropper ? null : 'none'"
+          [imageQuality]="100"
+          format="png"
+          (imageCropped)="imageCropped($event)"
+          (imageLoaded)="imageLoaded()"
+        ></image-cropper>
+        <div class="text-center" *ngIf="(fileNameSubject$ | async) as fileName">
+          <span class="font-weight-bold pr-1">{{'TEMPLATE.ACCOUNT.PROFILE.FILE' | translate}}</span>
+          {{fileName}}
+        </div>
+      </div>
+      <div class="d-flex flex-column align-items-between justify-content-center my-auto" *ngIf="croppedImage">
+        <div class="font-weight-bold text-center mb-0">
+          {{'TEMPLATE.ACCOUNT.PROFILE.PROFILE_PHOTO' | translate}}
+        </div>
+        <div class="font-weight-bold text-center mb-0">
+          {{'TEMPLATE.ACCOUNT.PROFILE.PREVIEW' | translate}}
+        </div>
+        <div class="text-center">
+          ({{'TEMPLATE.ACCOUNT.PROFILE.ACTUAL_SIZE' | translate}})
+        </div>
+        <img
+          [src]="croppedImage"
+          class="photo-frame-cropper"
+        />
+      </div>
+    </div>
+    <div class="text-center m-4">
+      <button
+        (click)="closeModal()"
+        *ngIf="croppedImage"
+        [disabled]="(tooSmallWidthSubject$ | async)"
+        class="btn btn-primary px-4 min-w-100"
+        type="button"
+      >
+        {{ 'TEMPLATE.ACCOUNT.PROFILE.UPLOAD_PHOTO' | translate}}
+      </button>
+    </div>
+  </div>
+</div>

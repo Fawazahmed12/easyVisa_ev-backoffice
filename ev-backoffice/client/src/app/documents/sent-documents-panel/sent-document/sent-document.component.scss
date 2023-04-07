@@ -1,0 +1,83 @@
+@import "../../../../variables";
+
+.toggle-header-container{
+  position: relative;
+  .toggle-icon{
+    font-size: 18px;
+    color: $primary;
+  }
+  .btn:focus{
+    box-shadow: none;
+  }
+  .blue-link{
+    color: #006cb7;
+    cursor: pointer;
+  }
+  .header-btn-container{
+    float: right;
+    .btn{
+      margin-right: 10px;
+      &.icon-btn{
+        width: 24px;
+      }
+      i{
+        padding: 0 5px;
+        font-size: 20px;
+      }
+      .tick-icon, .minus-icon{
+        font-weight: bolder;
+      }
+      .tick-icon{
+        color: $primary;
+      }
+      .minus-icon{
+        color: $red;
+      }
+      &.download-icon{
+        i{
+          color: #006cb7;
+        }
+      }
+      &.folder-icon{
+        position: relative;
+        i{
+          color: #FEE4C2;
+        }
+        .attachment-count{
+          position: absolute;
+          font-size: 10px;
+          left: 10px;
+          top: 3px;
+          color: $b32;
+        }
+        .paper-tick{
+          display: block;
+          width: 0;
+          height: 0;
+          border-top: 8px solid white;
+          border-right: 8px solid transparent;
+          position: absolute;
+          top: 0;
+          left: 12px;
+          transform: rotate(45deg);
+        }
+      }
+      .form-inline{
+        .form-control{
+          height: 28px;
+        }
+        .input-group-append{
+          height: 28px;
+          .btn{
+            margin: 0;
+            padding: 0 10px;
+            i{
+              padding: 0;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

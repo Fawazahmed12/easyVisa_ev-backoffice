@@ -1,0 +1,17 @@
+import com.easyvisa.Employee
+
+inherits template: '/user/profile', model: [profile: employee.profile]
+
+model {
+    Employee employee
+}
+json {
+    id employee.id
+    faxNumber employee.faxNumber
+    officePhone employee.officePhone
+    mobilePhone employee.mobilePhone
+    officeEmail employee.profile.email
+    languages employee.spokenLanguages*.name()
+    organizations tmpl.'/organizationEmployee'('organizationEmployee', employee.organizationEmployees)
+    officeAddress employee.officeAddress ? g.render(template: '/address', model: [address: employee.officeAddress]) : null
+}

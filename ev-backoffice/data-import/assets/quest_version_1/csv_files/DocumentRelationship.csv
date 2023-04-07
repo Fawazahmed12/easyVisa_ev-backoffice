@@ -1,0 +1,483 @@
+From_NodeType,From_NodeId,From_NodeName,RelationshipType,To_NodeType,To_NodeId,To_NodeName
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has#0,Document,Doc_1,"Active Military Status (751, 864)"
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has#1,Document,Doc_1,"Active Military Status (751, 864)"
+,,,,,,
+Form,Form_130,I-130 Petition for Alien Relative,has#0,Document,Doc_2,"Adoption Decree (130, 485, 601A)"
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has#1,Document,Doc_2,"Adoption Decree (130, 485, 601A)"
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has#2,Document,Doc_2,"Adoption Decree (130, 485, 601A)"
+,,,,,,
+Form,Form_134,I-134 Affidavit of Support,has#0,Document,Doc_3,Affidavit of Support Document for USCIS I-134
+,,,,,,
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has#0,Document,Doc_4,Affidavit of Support Documents for USCIS I-864
+,,,,,,
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has#0,Document,Doc_5,"Affidavits (485, 601, 601A)"
+Form,Form_601,I-601 Application for Waiver on Grounds of Inadmissibility,has#1,Document,Doc_5,"Affidavits (485, 601, 601A)"
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has#2,Document,Doc_5,"Affidavits (485, 601, 601A)"
+,,,,,,
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has#0,Document,Doc_6,"Approval Notice: Notice of Action, USCIS I-797 (485, 601A)"
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has#1,Document,Doc_6,"Approval Notice: Notice of Action, USCIS I-797 (485, 601A)"
+,,,,,,
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has#0,Document,Doc_7,"Arrival/Departure Record, USCIS I-94 (485, 601A, 765, 864)"
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has#1,Document,Doc_7,"Arrival/Departure Record, USCIS I-94 (485, 601A, 765, 864)"
+Form,Form_765,I-765 Application for Employment Authorization,has#2,Document,Doc_7,"Arrival/Departure Record, USCIS I-94 (485, 601A, 765, 864)"
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has#3,Document,Doc_7,"Arrival/Departure Record, USCIS I-94 (485, 601A, 765, 864)"
+,,,,,,
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has#0,Document,Doc_8,Assets to Supplement Income (864)
+,,,,,,
+Form,Form_134,I-134 Affidavit of Support,has#0,Document,Doc_9,Bank Officer Statement (134)
+,,,,,,
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has#0,Document,Doc_10,Battered Spouses/Children Evidence (751)
+,,,,,,
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has#0,Document,Doc_11,Beneficiary$sq$s Income Will Continue Evidence (864)
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has#0,Document,Doc_12,"Birth Certificate (129F, 130, 485, 601A, 751, 765, 864)"
+Form,Form_130,I-130 Petition for Alien Relative,has#1,Document,Doc_12,"Birth Certificate (129F, 130, 485, 601A, 751, 765, 864)"
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has#2,Document,Doc_12,"Birth Certificate (129F, 130, 485, 601A, 751, 765, 864)"
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has#3,Document,Doc_12,"Birth Certificate (129F, 130, 485, 601A, 751, 765, 864)"
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has#4,Document,Doc_12,"Birth Certificate (129F, 130, 485, 601A, 751, 765, 864)"
+Form,Form_765,I-765 Application for Employment Authorization,has#5,Document,Doc_12,"Birth Certificate (129F, 130, 485, 601A, 751, 765, 864)"
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has#6,Document,Doc_12,"Birth Certificate (129F, 130, 485, 601A, 751, 765, 864)"
+,,,,,,
+Form,Form_130,I-130 Petition for Alien Relative,has#0,Document,Doc_13,"Bona Fide Marriage Evidence (130, 751)"
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has#1,Document,Doc_13,"Bona Fide Marriage Evidence (130, 751)"
+,,,,,,
+Form,Form_134,I-134 Affidavit of Support,has#0,Document,Doc_14,Bond Holdings Information (134)
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has#0,Document,Doc_15,"Certified Police and Court Records: Criminal Charges, Arrests, or Convictions (129F, 485, 601, 601A,751)"
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has#1,Document,Doc_15,"Certified Police and Court Records: Criminal Charges, Arrests, or Convictions (129F, 485, 601, 601A,751)"
+Form,Form_601,I-601 Application for Waiver on Grounds of Inadmissibility,has#2,Document,Doc_15,"Certified Police and Court Records: Criminal Charges, Arrests, or Convictions (129F, 485, 601, 601A,751)"
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has#3,Document,Doc_15,"Certified Police and Court Records: Criminal Charges, Arrests, or Convictions (129F, 485, 601, 601A,751)"
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has#4,Document,Doc_15,"Certified Police and Court Records: Criminal Charges, Arrests, or Convictions (129F, 485, 601, 601A,751)"
+,,,,,,
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has#0,Document,Doc_16,Continuous Lawful Presence Evidence (485)
+,,,,,,
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has#0,Document,Doc_17,Country of Domicile Evidence (864) 
+,,,,,,
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has#0,Document,Doc_18,"Death Certificates (485, 601A, 751)"
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has#1,Document,Doc_18,"Death Certificates (485, 601A, 751)"
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has#2,Document,Doc_18,"Death Certificates (485, 601A, 751)"
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has#0,Document,Doc_19,Did Not Meet Fianc$e$(e) Prior to Marriage: Evidence of Inability/Impossibility (129F)
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has#0,Document,Doc_20,"Divorce Decrees and Documents (129F, 130, 485, 751)"
+Form,Form_130,I-130 Petition for Alien Relative,has#1,Document,Doc_20,"Divorce Decrees and Documents (129F, 130, 485, 751)"
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has#2,Document,Doc_20,"Divorce Decrees and Documents (129F, 130, 485, 751)"
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has#3,Document,Doc_20,"Divorce Decrees and Documents (129F, 130, 485, 751)"
+,,,,,,
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has#0,Document,Doc_21,DOJ EOIR Administrative Closure Order (601A)
+,,,,,,
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has#0,Document,Doc_22,DOS Immigrant Visa Processing Fee Receipt (601A)
+,,,,,,
+Form,Form_134,I-134 Affidavit of Support,has#0,Document,Doc_23,Employer Statement (134)
+,,,,,,
+Form,Form_134,I-134 Affidavit of Support,has#0,Document,Doc_24,"Employment and Annual Income Evidence (134, 864)"
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has#1,Document,Doc_24,"Employment and Annual Income Evidence (134, 864)"
+,,,,,,
+Form,Form_765,I-765 Application for Employment Authorization,has#0,Document,Doc_25,Employment Authorization Document (765)
+,,,,,,
+Form,Form_601,I-601 Application for Waiver on Grounds of Inadmissibility,has#0,Document,Doc_26,"Extreme Hardship Evidence (601, 601A, 751)"
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has#1,Document,Doc_26,"Extreme Hardship Evidence (601, 601A, 751)"
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has#2,Document,Doc_26,"Extreme Hardship Evidence (601, 601A, 751)"
+,,,,,,
+Form,Form_130,I-130 Petition for Alien Relative,has#0,Document,Doc_27,"Family Relationship Evidence (130, 485, 751)"
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has#1,Document,Doc_27,"Family Relationship Evidence (130, 485, 751)"
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has#2,Document,Doc_27,"Family Relationship Evidence (130, 485, 751)"
+,,,,,,
+Form,Form_134,I-134 Affidavit of Support,has#0,Document,Doc_28,"Federal Income Tax Documents (134, 864)"
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has#1,Document,Doc_28,"Federal Income Tax Documents (134, 864)"
+,,,,,,
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has#0,Document,Doc_29,Federal Income Tax Return Evidence (864)
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has#0,Document,Doc_30,Fianc$e$(e) Will Become Spouse Evidence (129F)
+,,,,,,
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has#0,Document,Doc_31,Fingerprint Cards (751)
+,,,,,,
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has#0,Document,Doc_32,Government-Issued Identity Document with Photograph (485)
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has#0,Document,Doc_33,IMB Information Consent (129F)
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has#0,Document,Doc_34,IMB Information Violent Offense Conviction Waiver (129F)
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has#0,Document,Doc_35,IMB Multiple Filing Certification Waiver (129F)
+,,,,,,
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has#0,Document,Doc_36,"Immigrant Category Evidence (485, 601A)"
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has#1,Document,Doc_36,"Immigrant Category Evidence (485, 601A)"
+,,,,,,
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has#0,Document,Doc_37,Immigration Court Records (601A)
+,,,,,,
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has#0,Document,Doc_38,Inspection and Admission or Inspection and Parole Evidence (485)
+,,,,,,
+Form,Form_130,I-130 Petition for Alien Relative,has#0,Document,Doc_39,"Lawful Permanent Resident Evidence (130, 601A, 751, 864)"
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has#1,Document,Doc_39,"Lawful Permanent Resident Evidence (130, 601A, 751, 864)"
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has#2,Document,Doc_39,"Lawful Permanent Resident Evidence (130, 601A, 751, 864)"
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has#3,Document,Doc_39,"Lawful Permanent Resident Evidence (130, 601A, 751, 864)"
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has#0,Document,Doc_40,"Marriage Certificates and Other Proof of Bona Fide Relationship Evidence (129F, 130, 485, 601, 601A, 751)"
+Form,Form_130,I-130 Petition for Alien Relative,has#1,Document,Doc_40,"Marriage Certificates and Other Proof of Bona Fide Relationship Evidence (129F, 130, 485, 601, 601A, 751)"
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has#2,Document,Doc_40,"Marriage Certificates and Other Proof of Bona Fide Relationship Evidence (129F, 130, 485, 601, 601A, 751)"
+Form,Form_601,I-601 Application for Waiver on Grounds of Inadmissibility,has#3,Document,Doc_40,"Marriage Certificates and Other Proof of Bona Fide Relationship Evidence (129F, 130, 485, 601, 601A, 751)"
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has#4,Document,Doc_40,"Marriage Certificates and Other Proof of Bona Fide Relationship Evidence (129F, 130, 485, 601, 601A, 751)"
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has#5,Document,Doc_40,"Marriage Certificates and Other Proof of Bona Fide Relationship Evidence (129F, 130, 485, 601, 601A, 751)"
+,,,,,,
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has#0,Document,Doc_41,Medical Records (Physical/Mental Disorder) (485)
+,,,,,,
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has#0,Document,Doc_42,Military Service Evidence (864)
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has#0,Document,Doc_43,Multiple Filer IMBRA Certification Waiver (129F)
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has#0,Document,Doc_44,Multiple Filer Violent Offense Conviction Waiver (129F)
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has#0,Document,Doc_45,"Name Change Evidence (129F, 130, 601A)"
+Form,Form_130,I-130 Petition for Alien Relative,has#1,Document,Doc_45,"Name Change Evidence (129F, 130, 601A)"
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has#2,Document,Doc_45,"Name Change Evidence (129F, 130, 601A)"
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has#0,Document,Doc_46,"Notice of Action, USCIS I-797 (129F, 485, 601A, 765)"
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has#1,Document,Doc_46,"Notice of Action, USCIS I-797 (129F, 485, 601A, 765)"
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has#2,Document,Doc_46,"Notice of Action, USCIS I-797 (129F, 485, 601A, 765)"
+Form,Form_765,I-765 Application for Employment Authorization,has#3,Document,Doc_46,"Notice of Action, USCIS I-797 (129F, 485, 601A, 765)"
+,,,,,,
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has#0,Document,Doc_47,"Passport Pages (485, 601A)"
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has#1,Document,Doc_47,"Passport Pages (485, 601A)"
+,,,,,,
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has#0,Document,Doc_48,Petition for Alien Relative (485)
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has#0,Document,Doc_49,"Photographs (129F, 130, 485, 751, 765)"
+Form,Form_130,I-130 Petition for Alien Relative,has#1,Document,Doc_49,"Photographs (129F, 130, 485, 751, 765)"
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has#2,Document,Doc_49,"Photographs (129F, 130, 485, 751, 765)"
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has#3,Document,Doc_49,"Photographs (129F, 130, 485, 751, 765)"
+Form,Form_765,I-765 Application for Employment Authorization,has#4,Document,Doc_49,"Photographs (129F, 130, 485, 751, 765)"
+,,,,,,
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has#0,Document,Doc_50,"Report of Medical Examination and Vaccination Record, 693 (485)"
+,,,,,,
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has#0,Document,Doc_51,Request for Waiver of Joint Filing Requirement to Remove Conditions on Residence (751)
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has#0,Document,Doc_52,"Secondary Evidence Where Primary Evidence Unavailable (129F, 130, 485, 601A)"
+Form,Form_130,I-130 Petition for Alien Relative,has#1,Document,Doc_52,"Secondary Evidence Where Primary Evidence Unavailable (129F, 130, 485, 601A)"
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has#2,Document,Doc_52,"Secondary Evidence Where Primary Evidence Unavailable (129F, 130, 485, 601A)"
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has#3,Document,Doc_52,"Secondary Evidence Where Primary Evidence Unavailable (129F, 130, 485, 601A)"
+,,,,,,
+Form,Form_134,I-134 Affidavit of Support,has#0,Document,Doc_53,Self-Employment Statement (134)
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has#0,Document,Doc_54,Spouse to Enter U.S. as Non-Immigrant Pending Issuance of Immigrant Visa (129F)
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has#0,Document,Doc_55,"Termination of Previous Marriages (129F, 130, 485)"
+Form,Form_130,I-130 Petition for Alien Relative,has#1,Document,Doc_55,"Termination of Previous Marriages (129F, 130, 485)"
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has#2,Document,Doc_55,"Termination of Previous Marriages (129F, 130, 485)"
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has#0,Document,Doc_56,"U.S. Citizenship Evidence (129F, 130, 601A, 864)"
+Form,Form_130,I-130 Petition for Alien Relative,has#1,Document,Doc_56,"U.S. Citizenship Evidence (129F, 130, 601A, 864)"
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has#2,Document,Doc_56,"U.S. Citizenship Evidence (129F, 130, 601A, 864)"
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has#3,Document,Doc_56,"U.S. Citizenship Evidence (129F, 130, 601A, 864)"
+,,,,,,
+Form,Form_601,I-601 Application for Waiver on Grounds of Inadmissibility,has#0,Document,Doc_57,Waiver Request Based on Communicable Disease Inadmissibility (601)
+,,,,,,
+Form,Form_601,I-601 Application for Waiver on Grounds of Inadmissibility,has#0,Document,Doc_58,Waiver Request Based on Involvement with a Totalitarian Party Evidence (601)
+,,,,,,
+Form,Form_601,I-601 Application for Waiver on Grounds of Inadmissibility,has#0,Document,Doc_59,Waiver Request Based on Smuggling or as Subject a Civil Penalty (601)
+,,,,,,
+Form,Form_601,I-601 Application for Waiver on Grounds of Inadmissibility,has#0,Document,Doc_60,Waiver Request for Exemption from Vaccination Requirement (601)
+,,,,,,
+Form,Form_601,I-601 Application for Waiver on Grounds of Inadmissibility,has#0,Document,Doc_61,Waiver Request for Physical/Mental Disorder & Harmful Behavior Inadmissibility (601)
+,,,,,,
+,,,,,,
+,,,,,,
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has,DocumentHelp,DocHelp_1,Active Military Status #751
+Document,Doc_1,"Active Military Status (751, 864)",has,DocumentHelp,DocHelp_1,Active Military Status #751
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has,DocumentHelp,DocHelp_2,Active Military Status #864
+Document,Doc_1,"Active Military Status (751, 864)",has,DocumentHelp,DocHelp_2,Active Military Status #864
+,,,,,,
+Form,Form_130,I-130 Petition for Alien Relative,has,DocumentHelp,DocHelp_3,Adoption Decree #130
+Document,Doc_2,"Adoption Decree (130, 485, 601A)",has,DocumentHelp,DocHelp_3,Adoption Decree #130
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has,DocumentHelp,DocHelp_4,Adoption Decree #485
+Document,Doc_2,"Adoption Decree (130, 485, 601A)",has,DocumentHelp,DocHelp_4,Adoption Decree #485
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has,DocumentHelp,DocHelp_5,Adoption Decree #601A
+Document,Doc_2,"Adoption Decree (130, 485, 601A)",has,DocumentHelp,DocHelp_5,Adoption Decree #601A
+,,,,,,
+Form,Form_134,I-134 Affidavit of Support,has,DocumentHelp,DocHelp_6,Affidavit of Support Document for USCIS I-134 #134
+Document,Doc_3,Affidavit of Support Document for USCIS I-134,has,DocumentHelp,DocHelp_6,Affidavit of Support Document for USCIS I-134 #134
+,,,,,,
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has,DocumentHelp,DocHelp_7,Affidavit of Support Documents for USCIS I-864 #864
+Document,Doc_4,Affidavit of Support Documents for USCIS I-864,has,DocumentHelp,DocHelp_7,Affidavit of Support Documents for USCIS I-864 #864
+,,,,,,
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has,DocumentHelp,DocHelp_8,Affidavits #485
+Document,Doc_5,"Affidavits (485, 601, 601A)",has,DocumentHelp,DocHelp_8,Affidavits #485
+Form,Form_601,I-601 Application for Waiver on Grounds of Inadmissibility,has,DocumentHelp,DocHelp_9,Affidavits #601
+Document,Doc_5,"Affidavits (485, 601, 601A)",has,DocumentHelp,DocHelp_9,Affidavits #601
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has,DocumentHelp,DocHelp_10,Affidavits #601A
+Document,Doc_5,"Affidavits (485, 601, 601A)",has,DocumentHelp,DocHelp_10,Affidavits #601A
+,,,,,,
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has,DocumentHelp,DocHelp_11,"Approval Notice: Notice of Action, USCIS I-797 #485"
+Document,Doc_6,"Approval Notice: Notice of Action, USCIS I-797 (485, 601A)",has,DocumentHelp,DocHelp_11,"Approval Notice: Notice of Action, USCIS I-797 #485"
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has,DocumentHelp,DocHelp_12,"Approval Notice: Notice of Action, USCIS I-797 #601A"
+Document,Doc_6,"Approval Notice: Notice of Action, USCIS I-797 (485, 601A)",has,DocumentHelp,DocHelp_12,"Approval Notice: Notice of Action, USCIS I-797 #601A"
+,,,,,,
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has,DocumentHelp,DocHelp_13,"Arrival/Departure Record, USCIS I-94 #485"
+Document,Doc_7,"Arrival/Departure Record, USCIS I-94 (485, 601A, 765, 864)",has,DocumentHelp,DocHelp_13,"Arrival/Departure Record, USCIS I-94 #485"
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has,DocumentHelp,DocHelp_14,"Arrival/Departure Record, USCIS I-94 #601A"
+Document,Doc_7,"Arrival/Departure Record, USCIS I-94 (485, 601A, 765, 864)",has,DocumentHelp,DocHelp_14,"Arrival/Departure Record, USCIS I-94 #601A"
+Form,Form_765,I-765 Application for Employment Authorization,has,DocumentHelp,DocHelp_15,"Arrival/Departure Record, USCIS I-94 #765"
+Document,Doc_7,"Arrival/Departure Record, USCIS I-94 (485, 601A, 765, 864)",has,DocumentHelp,DocHelp_15,"Arrival/Departure Record, USCIS I-94 #765"
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has,DocumentHelp,DocHelp_16,"Arrival/Departure Record, USCIS I-94 #864"
+Document,Doc_7,"Arrival/Departure Record, USCIS I-94 (485, 601A, 765, 864)",has,DocumentHelp,DocHelp_16,"Arrival/Departure Record, USCIS I-94 #864"
+,,,,,,
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has,DocumentHelp,DocHelp_17,Assets to Supplement Income #864
+Document,Doc_8,Assets to Supplement Income (864),has,DocumentHelp,DocHelp_17,Assets to Supplement Income #864
+,,,,,,
+Form,Form_134,I-134 Affidavit of Support,has,DocumentHelp,DocHelp_18,Bank Officer Statement #134
+Document,Doc_9,Bank Officer Statement (134),has,DocumentHelp,DocHelp_18,Bank Officer Statement #134
+,,,,,,
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has,DocumentHelp,DocHelp_19,Battered Spouses/Children Evidence #751
+Document,Doc_10,Battered Spouses/Children Evidence (751),has,DocumentHelp,DocHelp_19,Battered Spouses/Children Evidence #751
+,,,,,,
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has,DocumentHelp,DocHelp_20,Beneficiary$sq$s Income Will Continue Evidence #864
+Document,Doc_11,Beneficiary$sq$s Income Will Continue Evidence (864),has,DocumentHelp,DocHelp_20,Beneficiary$sq$s Income Will Continue Evidence #864
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has,DocumentHelp,DocHelp_21,Birth Certificate #129F
+Document,Doc_12,"Birth Certificate (129F, 130, 485, 601A, 751, 765, 864)",has,DocumentHelp,DocHelp_21,Birth Certificate #129F
+Form,Form_130,I-130 Petition for Alien Relative,has,DocumentHelp,DocHelp_22,Birth Certificate #130
+Document,Doc_12,"Birth Certificate (129F, 130, 485, 601A, 751, 765, 864)",has,DocumentHelp,DocHelp_22,Birth Certificate #130
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has,DocumentHelp,DocHelp_23,Birth Certificate #485
+Document,Doc_12,"Birth Certificate (129F, 130, 485, 601A, 751, 765, 864)",has,DocumentHelp,DocHelp_23,Birth Certificate #485
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has,DocumentHelp,DocHelp_24,Birth Certificate #601A
+Document,Doc_12,"Birth Certificate (129F, 130, 485, 601A, 751, 765, 864)",has,DocumentHelp,DocHelp_24,Birth Certificate #601A
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has,DocumentHelp,DocHelp_25,Birth Certificate #751
+Document,Doc_12,"Birth Certificate (129F, 130, 485, 601A, 751, 765, 864)",has,DocumentHelp,DocHelp_25,Birth Certificate #751
+Form,Form_765,I-765 Application for Employment Authorization,has,DocumentHelp,DocHelp_26,Birth Certificate #765
+Document,Doc_12,"Birth Certificate (129F, 130, 485, 601A, 751, 765, 864)",has,DocumentHelp,DocHelp_26,Birth Certificate #765
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has,DocumentHelp,DocHelp_27,Birth Certificate #864
+Document,Doc_12,"Birth Certificate (129F, 130, 485, 601A, 751, 765, 864)",has,DocumentHelp,DocHelp_27,Birth Certificate #864
+,,,,,,
+Form,Form_130,I-130 Petition for Alien Relative,has,DocumentHelp,DocHelp_28,Bona Fide Marriage Evidence #130
+Document,Doc_13,"Bona Fide Marriage Evidence (130, 751)",has,DocumentHelp,DocHelp_28,Bona Fide Marriage Evidence #130
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has,DocumentHelp,DocHelp_29,Bona Fide Marriage Evidence #751
+Document,Doc_13,"Bona Fide Marriage Evidence (130, 751)",has,DocumentHelp,DocHelp_29,Bona Fide Marriage Evidence #751
+,,,,,,
+Form,Form_134,I-134 Affidavit of Support,has,DocumentHelp,DocHelp_30,Bond Holdings Information #134
+Document,Doc_14,Bond Holdings Information (134),has,DocumentHelp,DocHelp_30,Bond Holdings Information #134
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has,DocumentHelp,DocHelp_31,"Certified Police and Court Records: Criminal Charges, Arrests, or Convictions #129F"
+Document,Doc_15,"Certified Police and Court Records: Criminal Charges, Arrests, or Convictions (129F, 485, 601, 601A,751)",has,DocumentHelp,DocHelp_31,"Certified Police and Court Records: Criminal Charges, Arrests, or Convictions #129F"
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has,DocumentHelp,DocHelp_32,"Certified Police and Court Records: Criminal Charges, Arrests, or Convictions #485"
+Document,Doc_15,"Certified Police and Court Records: Criminal Charges, Arrests, or Convictions (129F, 485, 601, 601A,751)",has,DocumentHelp,DocHelp_32,"Certified Police and Court Records: Criminal Charges, Arrests, or Convictions #485"
+Form,Form_601,I-601 Application for Waiver on Grounds of Inadmissibility,has,DocumentHelp,DocHelp_33,"Certified Police and Court Records: Criminal Charges, Arrests, or Convictions #601"
+Document,Doc_15,"Certified Police and Court Records: Criminal Charges, Arrests, or Convictions (129F, 485, 601, 601A,751)",has,DocumentHelp,DocHelp_33,"Certified Police and Court Records: Criminal Charges, Arrests, or Convictions #601"
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has,DocumentHelp,DocHelp_34,"Certified Police and Court Records: Criminal Charges, Arrests, or Convictions #601A"
+Document,Doc_15,"Certified Police and Court Records: Criminal Charges, Arrests, or Convictions (129F, 485, 601, 601A,751)",has,DocumentHelp,DocHelp_34,"Certified Police and Court Records: Criminal Charges, Arrests, or Convictions #601A"
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has,DocumentHelp,DocHelp_35,"Certified Police and Court Records: Criminal Charges, Arrests, or Convictions #751"
+Document,Doc_15,"Certified Police and Court Records: Criminal Charges, Arrests, or Convictions (129F, 485, 601, 601A,751)",has,DocumentHelp,DocHelp_35,"Certified Police and Court Records: Criminal Charges, Arrests, or Convictions #751"
+,,,,,,
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has,DocumentHelp,DocHelp_36,Continuous Lawful Presence Evidence #485
+Document,Doc_16,Continuous Lawful Presence Evidence (485),has,DocumentHelp,DocHelp_36,Continuous Lawful Presence Evidence #485
+,,,,,,
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has,DocumentHelp,DocHelp_37,Country of Domicile Evidence #864
+Document,Doc_17,Country of Domicile Evidence (864) ,has,DocumentHelp,DocHelp_37,Country of Domicile Evidence #864
+,,,,,,
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has,DocumentHelp,DocHelp_38,Death Certificates #485
+Document,Doc_18,"Death Certificates (485, 601A, 751)",has,DocumentHelp,DocHelp_38,Death Certificates #485
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has,DocumentHelp,DocHelp_39,Death Certificates #601A
+Document,Doc_18,"Death Certificates (485, 601A, 751)",has,DocumentHelp,DocHelp_39,Death Certificates #601A
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has,DocumentHelp,DocHelp_40,Death Certificates #751
+Document,Doc_18,"Death Certificates (485, 601A, 751)",has,DocumentHelp,DocHelp_40,Death Certificates #751
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has,DocumentHelp,DocHelp_41,Did Not Meet Fianc$e$(e) Prior to Marriage: Evidence of Inability/Impossibility #129F
+Document,Doc_19,Did Not Meet Fianc$e$(e) Prior to Marriage: Evidence of Inability/Impossibility (129F),has,DocumentHelp,DocHelp_41,Did Not Meet Fianc$e$(e) Prior to Marriage: Evidence of Inability/Impossibility #129F
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has,DocumentHelp,DocHelp_42,Divorce Decrees and Documents #129F
+Document,Doc_20,"Divorce Decrees and Documents (129F, 130, 485, 751)",has,DocumentHelp,DocHelp_42,Divorce Decrees and Documents #129F
+Form,Form_130,I-130 Petition for Alien Relative,has,DocumentHelp,DocHelp_43,Divorce Decrees and Documents #130
+Document,Doc_20,"Divorce Decrees and Documents (129F, 130, 485, 751)",has,DocumentHelp,DocHelp_43,Divorce Decrees and Documents #130
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has,DocumentHelp,DocHelp_44,Divorce Decrees and Documents #485
+Document,Doc_20,"Divorce Decrees and Documents (129F, 130, 485, 751)",has,DocumentHelp,DocHelp_44,Divorce Decrees and Documents #485
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has,DocumentHelp,DocHelp_45,Divorce Decrees and Documents #751
+Document,Doc_20,"Divorce Decrees and Documents (129F, 130, 485, 751)",has,DocumentHelp,DocHelp_45,Divorce Decrees and Documents #751
+,,,,,,
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has,DocumentHelp,DocHelp_46,DOJ EOIR Administrative Closure Order #601A
+Document,Doc_21,DOJ EOIR Administrative Closure Order (601A),has,DocumentHelp,DocHelp_46,DOJ EOIR Administrative Closure Order #601A
+,,,,,,
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has,DocumentHelp,DocHelp_47,DOS Immigrant Visa Processing Fee Receipt #601A
+Document,Doc_22,DOS Immigrant Visa Processing Fee Receipt (601A),has,DocumentHelp,DocHelp_47,DOS Immigrant Visa Processing Fee Receipt #601A
+,,,,,,
+Form,Form_134,I-134 Affidavit of Support,has,DocumentHelp,DocHelp_48,Employer Statement #134
+Document,Doc_23,Employer Statement (134),has,DocumentHelp,DocHelp_48,Employer Statement #134
+,,,,,,
+Form,Form_134,I-134 Affidavit of Support,has,DocumentHelp,DocHelp_49,Employment and Annual Income Evidence #134
+Document,Doc_24,"Employment and Annual Income Evidence (134, 864)",has,DocumentHelp,DocHelp_49,Employment and Annual Income Evidence #134
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has,DocumentHelp,DocHelp_50,Employment and Annual Income Evidence #864
+Document,Doc_24,"Employment and Annual Income Evidence (134, 864)",has,DocumentHelp,DocHelp_50,Employment and Annual Income Evidence #864
+,,,,,,
+Form,Form_765,I-765 Application for Employment Authorization,has,DocumentHelp,DocHelp_51,Employment Authorization Document #765
+Document,Doc_25,Employment Authorization Document (765),has,DocumentHelp,DocHelp_51,Employment Authorization Document #765
+,,,,,,
+Form,Form_601,I-601 Application for Waiver on Grounds of Inadmissibility,has,DocumentHelp,DocHelp_52,Extreme Hardship Evidence #601
+Document,Doc_26,"Extreme Hardship Evidence (601, 601A, 751)",has,DocumentHelp,DocHelp_52,Extreme Hardship Evidence #601
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has,DocumentHelp,DocHelp_53,Extreme Hardship Evidence #601A
+Document,Doc_26,"Extreme Hardship Evidence (601, 601A, 751)",has,DocumentHelp,DocHelp_53,Extreme Hardship Evidence #601A
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has,DocumentHelp,DocHelp_54,Extreme Hardship Evidence #751
+Document,Doc_26,"Extreme Hardship Evidence (601, 601A, 751)",has,DocumentHelp,DocHelp_54,Extreme Hardship Evidence #751
+,,,,,,
+Form,Form_130,I-130 Petition for Alien Relative,has,DocumentHelp,DocHelp_55,Family Relationship Evidence #130
+Document,Doc_27,"Family Relationship Evidence (130, 485, 751)",has,DocumentHelp,DocHelp_55,Family Relationship Evidence #130
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has,DocumentHelp,DocHelp_56,Family Relationship Evidence #485
+Document,Doc_27,"Family Relationship Evidence (130, 485, 751)",has,DocumentHelp,DocHelp_56,Family Relationship Evidence #485
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has,DocumentHelp,DocHelp_57,Family Relationship Evidence #751
+Document,Doc_27,"Family Relationship Evidence (130, 485, 751)",has,DocumentHelp,DocHelp_57,Family Relationship Evidence #751
+,,,,,,
+Form,Form_134,I-134 Affidavit of Support,has,DocumentHelp,DocHelp_58,Federal Income Tax Documents #134
+Document,Doc_28,"Federal Income Tax Documents (134, 864)",has,DocumentHelp,DocHelp_58,Federal Income Tax Documents #134
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has,DocumentHelp,DocHelp_59,Federal Income Tax Documents #864
+Document,Doc_28,"Federal Income Tax Documents (134, 864)",has,DocumentHelp,DocHelp_59,Federal Income Tax Documents #864
+,,,,,,
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has,DocumentHelp,DocHelp_60,Federal Income Tax Return Evidence #864
+Document,Doc_29,Federal Income Tax Return Evidence (864),has,DocumentHelp,DocHelp_60,Federal Income Tax Return Evidence #864
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has,DocumentHelp,DocHelp_61,Fianc$e$(e) Will Become Spouse Evidence #129F
+Document,Doc_30,Fianc$e$(e) Will Become Spouse Evidence (129F),has,DocumentHelp,DocHelp_61,Fianc$e$(e) Will Become Spouse Evidence #129F
+,,,,,,
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has,DocumentHelp,DocHelp_62,Fingerprint Cards #751
+Document,Doc_31,Fingerprint Cards (751),has,DocumentHelp,DocHelp_62,Fingerprint Cards #751
+,,,,,,
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has,DocumentHelp,DocHelp_63,Government-Issued Identity Document with Photograph #485
+Document,Doc_32,Government-Issued Identity Document with Photograph (485),has,DocumentHelp,DocHelp_63,Government-Issued Identity Document with Photograph #485
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has,DocumentHelp,DocHelp_64,IMB Information Consent #129F
+Document,Doc_33,IMB Information Consent (129F),has,DocumentHelp,DocHelp_64,IMB Information Consent #129F
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has,DocumentHelp,DocHelp_65,IMB Information Violent Offense Conviction Waiver #129F
+Document,Doc_34,IMB Information Violent Offense Conviction Waiver (129F),has,DocumentHelp,DocHelp_65,IMB Information Violent Offense Conviction Waiver #129F
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has,DocumentHelp,DocHelp_66,IMB Multiple Filing Certification Waiver #129F
+Document,Doc_35,IMB Multiple Filing Certification Waiver (129F),has,DocumentHelp,DocHelp_66,IMB Multiple Filing Certification Waiver #129F
+,,,,,,
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has,DocumentHelp,DocHelp_67,Immigrant Category Evidence #485
+Document,Doc_36,"Immigrant Category Evidence (485, 601A)",has,DocumentHelp,DocHelp_67,Immigrant Category Evidence #485
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has,DocumentHelp,DocHelp_68,Immigrant Category Evidence #601A
+Document,Doc_36,"Immigrant Category Evidence (485, 601A)",has,DocumentHelp,DocHelp_68,Immigrant Category Evidence #601A
+,,,,,,
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has,DocumentHelp,DocHelp_69,Immigration Court Records #601A
+Document,Doc_37,Immigration Court Records (601A),has,DocumentHelp,DocHelp_69,Immigration Court Records #601A
+,,,,,,
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has,DocumentHelp,DocHelp_70,Inspection and Admission or Inspection and Parole Evidence #485
+Document,Doc_38,Inspection and Admission or Inspection and Parole Evidence (485),has,DocumentHelp,DocHelp_70,Inspection and Admission or Inspection and Parole Evidence #485
+,,,,,,
+Form,Form_130,I-130 Petition for Alien Relative,has,DocumentHelp,DocHelp_71,Lawful Permanent Resident Evidence #130
+Document,Doc_39,"Lawful Permanent Resident Evidence (130, 601A, 751, 864)",has,DocumentHelp,DocHelp_71,Lawful Permanent Resident Evidence #130
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has,DocumentHelp,DocHelp_72,Lawful Permanent Resident Evidence #601A
+Document,Doc_39,"Lawful Permanent Resident Evidence (130, 601A, 751, 864)",has,DocumentHelp,DocHelp_72,Lawful Permanent Resident Evidence #601A
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has,DocumentHelp,DocHelp_73,Lawful Permanent Resident Evidence #751
+Document,Doc_39,"Lawful Permanent Resident Evidence (130, 601A, 751, 864)",has,DocumentHelp,DocHelp_73,Lawful Permanent Resident Evidence #751
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has,DocumentHelp,DocHelp_74,Lawful Permanent Resident Evidence #864
+Document,Doc_39,"Lawful Permanent Resident Evidence (130, 601A, 751, 864)",has,DocumentHelp,DocHelp_74,Lawful Permanent Resident Evidence #864
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has,DocumentHelp,DocHelp_75,Marriage Certificates and Other Proof of Bona Fide Relationship Evidence #129F
+Document,Doc_40,"Marriage Certificates and Other Proof of Bona Fide Relationship Evidence (129F, 130, 485, 601, 601A, 751)",has,DocumentHelp,DocHelp_75,Marriage Certificates and Other Proof of Bona Fide Relationship Evidence #129F
+Form,Form_130,I-130 Petition for Alien Relative,has,DocumentHelp,DocHelp_76,Marriage Certificates and Other Proof of Bona Fide Relationship Evidence #130
+Document,Doc_40,"Marriage Certificates and Other Proof of Bona Fide Relationship Evidence (129F, 130, 485, 601, 601A, 751)",has,DocumentHelp,DocHelp_76,Marriage Certificates and Other Proof of Bona Fide Relationship Evidence #130
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has,DocumentHelp,DocHelp_77,Marriage Certificates and Other Proof of Bona Fide Relationship Evidence #485
+Document,Doc_40,"Marriage Certificates and Other Proof of Bona Fide Relationship Evidence (129F, 130, 485, 601, 601A, 751)",has,DocumentHelp,DocHelp_77,Marriage Certificates and Other Proof of Bona Fide Relationship Evidence #485
+Form,Form_601,I-601 Application for Waiver on Grounds of Inadmissibility,has,DocumentHelp,DocHelp_78,Marriage Certificates and Other Proof of Bona Fide Relationship Evidence #601
+Document,Doc_40,"Marriage Certificates and Other Proof of Bona Fide Relationship Evidence (129F, 130, 485, 601, 601A, 751)",has,DocumentHelp,DocHelp_78,Marriage Certificates and Other Proof of Bona Fide Relationship Evidence #601
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has,DocumentHelp,DocHelp_79,Marriage Certificates and Other Proof of Bona Fide Relationship Evidence #601A
+Document,Doc_40,"Marriage Certificates and Other Proof of Bona Fide Relationship Evidence (129F, 130, 485, 601, 601A, 751)",has,DocumentHelp,DocHelp_79,Marriage Certificates and Other Proof of Bona Fide Relationship Evidence #601A
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has,DocumentHelp,DocHelp_80,Marriage Certificates and Other Proof of Bona Fide Relationship Evidence #751
+Document,Doc_40,"Marriage Certificates and Other Proof of Bona Fide Relationship Evidence (129F, 130, 485, 601, 601A, 751)",has,DocumentHelp,DocHelp_80,Marriage Certificates and Other Proof of Bona Fide Relationship Evidence #751
+,,,,,,
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has,DocumentHelp,DocHelp_81,Medical Records (Physical/Mental Disorder)  #485
+Document,Doc_41,Medical Records (Physical/Mental Disorder) (485),has,DocumentHelp,DocHelp_81,Medical Records (Physical/Mental Disorder)  #485
+,,,,,,
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has,DocumentHelp,DocHelp_82,Military Service Evidence #864
+Document,Doc_42,Military Service Evidence (864),has,DocumentHelp,DocHelp_82,Military Service Evidence #864
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has,DocumentHelp,DocHelp_83,Multiple Filer IMBRA Certification Waiver #129F
+Document,Doc_43,Multiple Filer IMBRA Certification Waiver (129F),has,DocumentHelp,DocHelp_83,Multiple Filer IMBRA Certification Waiver #129F
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has,DocumentHelp,DocHelp_84,Multiple Filer Violent Offense Conviction Waiver #129F
+Document,Doc_44,Multiple Filer Violent Offense Conviction Waiver (129F),has,DocumentHelp,DocHelp_84,Multiple Filer Violent Offense Conviction Waiver #129F
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has,DocumentHelp,DocHelp_85,Name Change Evidence #129F
+Document,Doc_45,"Name Change Evidence (129F, 130, 601A)",has,DocumentHelp,DocHelp_85,Name Change Evidence #129F
+Form,Form_130,I-130 Petition for Alien Relative,has,DocumentHelp,DocHelp_86,Name Change Evidence #130
+Document,Doc_45,"Name Change Evidence (129F, 130, 601A)",has,DocumentHelp,DocHelp_86,Name Change Evidence #130
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has,DocumentHelp,DocHelp_87,Name Change Evidence #601A
+Document,Doc_45,"Name Change Evidence (129F, 130, 601A)",has,DocumentHelp,DocHelp_87,Name Change Evidence #601A
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has,DocumentHelp,DocHelp_88,"Notice of Action, USCIS I-797 #129F"
+Document,Doc_46,"Notice of Action, USCIS I-797 (129F, 485, 601A, 765)",has,DocumentHelp,DocHelp_88,"Notice of Action, USCIS I-797 #129F"
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has,DocumentHelp,DocHelp_89,"Notice of Action, USCIS I-797 #485"
+Document,Doc_46,"Notice of Action, USCIS I-797 (129F, 485, 601A, 765)",has,DocumentHelp,DocHelp_89,"Notice of Action, USCIS I-797 #485"
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has,DocumentHelp,DocHelp_90,"Notice of Action, USCIS I-797 #601A"
+Document,Doc_46,"Notice of Action, USCIS I-797 (129F, 485, 601A, 765)",has,DocumentHelp,DocHelp_90,"Notice of Action, USCIS I-797 #601A"
+Form,Form_765,I-765 Application for Employment Authorization,has,DocumentHelp,DocHelp_91,"Notice of Action, USCIS I-797 #765"
+Document,Doc_46,"Notice of Action, USCIS I-797 (129F, 485, 601A, 765)",has,DocumentHelp,DocHelp_91,"Notice of Action, USCIS I-797 #765"
+,,,,,,
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has,DocumentHelp,DocHelp_92,Passport Pages #485
+Document,Doc_47,"Passport Pages (485, 601A)",has,DocumentHelp,DocHelp_92,Passport Pages #485
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has,DocumentHelp,DocHelp_93,Passport Pages #601A
+Document,Doc_47,"Passport Pages (485, 601A)",has,DocumentHelp,DocHelp_93,Passport Pages #601A
+,,,,,,
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has,DocumentHelp,DocHelp_94,Petition for Alien Relative #485
+Document,Doc_48,Petition for Alien Relative (485),has,DocumentHelp,DocHelp_94,Petition for Alien Relative #485
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has,DocumentHelp,DocHelp_95,Photographs #129F
+Document,Doc_49,"Photographs (129F, 130, 485, 751, 765)",has,DocumentHelp,DocHelp_95,Photographs #129F
+Form,Form_130,I-130 Petition for Alien Relative,has,DocumentHelp,DocHelp_96,Photographs #130
+Document,Doc_49,"Photographs (129F, 130, 485, 751, 765)",has,DocumentHelp,DocHelp_96,Photographs #130
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has,DocumentHelp,DocHelp_97,Photographs #485
+Document,Doc_49,"Photographs (129F, 130, 485, 751, 765)",has,DocumentHelp,DocHelp_97,Photographs #485
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has,DocumentHelp,DocHelp_98,Photographs #751
+Document,Doc_49,"Photographs (129F, 130, 485, 751, 765)",has,DocumentHelp,DocHelp_98,Photographs #751
+Form,Form_765,I-765 Application for Employment Authorization,has,DocumentHelp,DocHelp_99,Photographs #765
+Document,Doc_49,"Photographs (129F, 130, 485, 751, 765)",has,DocumentHelp,DocHelp_99,Photographs #765
+,,,,,,
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has,DocumentHelp,DocHelp_100,"Report of Medical Examination and Vaccination Record, 693 #485"
+Document,Doc_50,"Report of Medical Examination and Vaccination Record, 693 (485)",has,DocumentHelp,DocHelp_100,"Report of Medical Examination and Vaccination Record, 693 #485"
+,,,,,,
+Form,Form_751,I-751 Petition to Remove Conditions on Residence,has,DocumentHelp,DocHelp_101,Request for Waiver of Joint Filing Requirement to Remove Conditions on Residence #751
+Document,Doc_51,Request for Waiver of Joint Filing Requirement to Remove Conditions on Residence (751),has,DocumentHelp,DocHelp_101,Request for Waiver of Joint Filing Requirement to Remove Conditions on Residence #751
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has,DocumentHelp,DocHelp_102,Secondary Evidence Where Primary Evidence Unavailable #129F
+Document,Doc_52,"Secondary Evidence Where Primary Evidence Unavailable (129F, 130, 485, 601A)",has,DocumentHelp,DocHelp_102,Secondary Evidence Where Primary Evidence Unavailable #129F
+Form,Form_130,I-130 Petition for Alien Relative,has,DocumentHelp,DocHelp_103,Secondary Evidence Where Primary Evidence Unavailable #130
+Document,Doc_52,"Secondary Evidence Where Primary Evidence Unavailable (129F, 130, 485, 601A)",has,DocumentHelp,DocHelp_103,Secondary Evidence Where Primary Evidence Unavailable #130
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has,DocumentHelp,DocHelp_104,Secondary Evidence Where Primary Evidence Unavailable #485
+Document,Doc_52,"Secondary Evidence Where Primary Evidence Unavailable (129F, 130, 485, 601A)",has,DocumentHelp,DocHelp_104,Secondary Evidence Where Primary Evidence Unavailable #485
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has,DocumentHelp,DocHelp_105,Secondary Evidence Where Primary Evidence Unavailable #601A
+Document,Doc_52,"Secondary Evidence Where Primary Evidence Unavailable (129F, 130, 485, 601A)",has,DocumentHelp,DocHelp_105,Secondary Evidence Where Primary Evidence Unavailable #601A
+,,,,,,
+Form,Form_134,I-134 Affidavit of Support,has,DocumentHelp,DocHelp_106,Self-Employment Statement #134
+Document,Doc_53,Self-Employment Statement (134),has,DocumentHelp,DocHelp_106,Self-Employment Statement #134
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has,DocumentHelp,DocHelp_107,Spouse to Enter U.S. as Non-Immigrant Pending Issuance of Immigrant Visa #129F
+Document,Doc_54,Spouse to Enter U.S. as Non-Immigrant Pending Issuance of Immigrant Visa (129F),has,DocumentHelp,DocHelp_107,Spouse to Enter U.S. as Non-Immigrant Pending Issuance of Immigrant Visa #129F
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has,DocumentHelp,DocHelp_108,Termination of Previous Marriages #129F
+Document,Doc_55,"Termination of Previous Marriages (129F, 130, 485)",has,DocumentHelp,DocHelp_108,Termination of Previous Marriages #129F
+Form,Form_130,I-130 Petition for Alien Relative,has,DocumentHelp,DocHelp_109,Termination of Previous Marriages #130
+Document,Doc_55,"Termination of Previous Marriages (129F, 130, 485)",has,DocumentHelp,DocHelp_109,Termination of Previous Marriages #130
+Form,Form_485,I-485 Application to Register Permanent Residence or Adjust Status,has,DocumentHelp,DocHelp_110,Termination of Previous Marriages #485
+Document,Doc_55,"Termination of Previous Marriages (129F, 130, 485)",has,DocumentHelp,DocHelp_110,Termination of Previous Marriages #485
+,,,,,,
+Form,Form_129F,I-129F Petition for Alien Fianc$e$(e),has,DocumentHelp,DocHelp_111,U.S. Citizenship Evidence #129F
+Document,Doc_56,"U.S. Citizenship Evidence (129F, 130, 601A, 864)",has,DocumentHelp,DocHelp_111,U.S. Citizenship Evidence #129F
+Form,Form_130,I-130 Petition for Alien Relative,has,DocumentHelp,DocHelp_112,U.S. Citizenship Evidence #130
+Document,Doc_56,"U.S. Citizenship Evidence (129F, 130, 601A, 864)",has,DocumentHelp,DocHelp_112,U.S. Citizenship Evidence #130
+Form,Form_601A,I-601A Application for Provisional Unlawful Presence Waiver,has,DocumentHelp,DocHelp_113,U.S. Citizenship Evidence #601A
+Document,Doc_56,"U.S. Citizenship Evidence (129F, 130, 601A, 864)",has,DocumentHelp,DocHelp_113,U.S. Citizenship Evidence #601A
+Form,Form_864,I-864 Affidavit of Support Under Section 213A of the INA,has,DocumentHelp,DocHelp_114,U.S. Citizenship Evidence #864
+Document,Doc_56,"U.S. Citizenship Evidence (129F, 130, 601A, 864)",has,DocumentHelp,DocHelp_114,U.S. Citizenship Evidence #864
+,,,,,,
+Form,Form_601,I-601 Application for Waiver on Grounds of Inadmissibility,has,DocumentHelp,DocHelp_115,Waiver Request Based on Communicable Disease Inadmissibility #601
+Document,Doc_57,Waiver Request Based on Communicable Disease Inadmissibility (601),has,DocumentHelp,DocHelp_115,Waiver Request Based on Communicable Disease Inadmissibility #601
+,,,,,,
+Form,Form_601,I-601 Application for Waiver on Grounds of Inadmissibility,has,DocumentHelp,DocHelp_116,Waiver Request Based on Involvement with a Totalitarian Party Evidence #601
+Document,Doc_58,Waiver Request Based on Involvement with a Totalitarian Party Evidence (601),has,DocumentHelp,DocHelp_116,Waiver Request Based on Involvement with a Totalitarian Party Evidence #601
+,,,,,,
+Form,Form_601,I-601 Application for Waiver on Grounds of Inadmissibility,has,DocumentHelp,DocHelp_117,Waiver Request Based on Smuggling or as Subject a Civil Penalty #601
+Document,Doc_59,Waiver Request Based on Smuggling or as Subject a Civil Penalty (601),has,DocumentHelp,DocHelp_117,Waiver Request Based on Smuggling or as Subject a Civil Penalty #601
+,,,,,,
+Form,Form_601,I-601 Application for Waiver on Grounds of Inadmissibility,has,DocumentHelp,DocHelp_118,Waiver Request for Exemption from Vaccination Requirement #601
+Document,Doc_60,Waiver Request for Exemption from Vaccination Requirement (601),has,DocumentHelp,DocHelp_118,Waiver Request for Exemption from Vaccination Requirement #601
+,,,,,,
+Form,Form_601,I-601 Application for Waiver on Grounds of Inadmissibility,has,DocumentHelp,DocHelp_119,Waiver Request for Physical/Mental Disorder & Harmful Behavior Inadmissibility #601
+Document,Doc_61,Waiver Request for Physical/Mental Disorder & Harmful Behavior Inadmissibility (601),has,DocumentHelp,DocHelp_119,Waiver Request for Physical/Mental Disorder & Harmful Behavior Inadmissibility #601
+,,,,,,
+,,,,,,

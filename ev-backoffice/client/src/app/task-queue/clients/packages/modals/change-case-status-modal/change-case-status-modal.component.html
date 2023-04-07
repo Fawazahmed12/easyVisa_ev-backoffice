@@ -1,0 +1,64 @@
+<div class="container-fluid p-0">
+  <app-modal-header [title]="'TEMPLATE.TASK_QUEUE.CLIENTS.CHANGE_CASE_STATUS_MODAL.TITLE'"></app-modal-header>
+  <form class="modal-body" [formGroup]="formGroup"
+        (ngSubmit)="onSubmit()"
+        #form="ngForm">
+
+    <div class="row m-0">
+      <div class="col-md-3 pl-2 pr-0 font-weight-bold font-16">{{'TEMPLATE.TASK_QUEUE.CLIENTS.CHANGE_CASE_STATUS_MODAL.PACKAGE_APPLICANT' | translate}}</div>
+      <div class="col-md-9">
+        <div class="change-status-applicants pt-1 pl-2">
+          <table>
+            <tbody>
+            <tr *ngFor="let packageApplicant of getPackageApplicants()">
+              <td class="font-weight-bold">{{packageApplicant.applicantType}}:</td>
+              <td class="pl-3">{{packageApplicant.applicantName}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="row m-0 mt-3 mb-3">
+      <div class="col-md-3 pl-2 pr-0 font-weight-bold font-16">{{'TEMPLATE.TASK_QUEUE.CLIENTS.CHANGE_CASE_STATUS_MODAL.CHANGE_STATUS_TO' | translate}}</div>
+      <div class="col-md-9">
+        <div class="radio-group d-flex">
+          <div class="form-check mr-3" *ngFor="let status of statuses">
+            <label class="form-check-label"
+                   [class.cursor-pointer]="!disabledStatuses(status.value)"
+                   [class.text-b2-gray]="statusFormControl.disabled || disabledStatuses(status.value)">
+              <input type="radio"
+                     formControlName="status"
+                     [value]="status.value"
+                     class="form-check-input"
+                     (change)="onStatusSelection()"
+                     [attr.disabled]="disabledStatuses(status.value) ? 'disabled' : null">
+              {{ status.label | translate }}
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row m-0 mb-3 p-2" *ngIf="!(hideWarning$ | async)">
+      <div class="col-md-2 d-flex justify-content-center align-items-center">
+        <img src="../../../../../assets/images/warn-icon.png">
+      </div>
+      <div class="col-md-10 text-danger">
+        <div [innerHTML]="'TEMPLATE.TASK_QUEUE.CLIENTS.CHANGE_CASE_STATUS_MODAL.WARNING' | translate">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="text-right">
+      <button (click)="closeModal()" class="btn btn-primary min-w-100 px-4 mr-4" type="button">
+        {{ 'FORM.BUTTON.CANCEL' | translate }}
+      </button>
+      <button class="btn btn-primary min-w-100 px-4 mr-3" type="submit" [disabled]="form.pristine">
+        {{ 'FORM.BUTTON.OK' | translate }}
+      </button>
+    </div>
+  </form>
+</div>

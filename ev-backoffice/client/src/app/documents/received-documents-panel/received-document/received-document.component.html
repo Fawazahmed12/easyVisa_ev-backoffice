@@ -1,0 +1,98 @@
+<ngb-accordion #receivedDocumentAccordion="ngbAccordion" >
+  <ngb-panel *ngFor="let receivedDocument of applicantReceivedDocument.receivedDocuments; let idx = index"
+             [id]="getPanelId(receivedDocument, idx)">
+    <ng-template ngbPanelHeader let-opened="opened">
+      <app-drag-drop-document [panelData]="getPanelData(receivedDocument,idx)"
+                              [accordionRef]="receivedDocumentAccordion"
+                              [readOnlyAccess]="readOnlyAccess"
+                              (documentDropEmitter)="onDocumentUpload(receivedDocument)">
+
+      </app-drag-drop-document>
+      <div class="toggle-header-container">
+        <button class="btn p-0 m-0" ngbPanelToggle (click)="onRequireDocumentClick(receivedDocument)">
+          <i class="fa toggle-icon" *ngIf="!opened">&#9656;</i>
+          <i class="fa toggle-icon" *ngIf="opened">&#9662;</i>
+          <span class="mx-2">{{receivedDocument.description}}</span>
+        </button>
+        <app-document-help [documentHelpText]="receivedDocument.helpText"></app-document-help>
+        <span class="header-btn-container">
+            <app-upload-document
+              [readOnlyAccess]="readOnlyAccess"
+              [panelData]="getPanelData(receivedDocument,idx)"
+                                 (documentUploadEmitter)="onDocumentUpload(receivedDocument)"></app-upload-document>
+            <button  class="btn btn-link p-0 blue-link"
+                     (click)="onReceivedDocumentDelete(receivedDocument)"
+                     [disabled]="!hasSelectedAttachments(receivedDocument) || readOnlyAccess">
+              {{'TEMPLATE.ATTACHMENTS.DELETE' | translate}}
+            </button>
+            <button  class="btn btn-link p-0 icon-btn download-icon"
+                     (click)="onReceivedDocumentDownload(receivedDocument)"
+                     [disabled]="!hasSelectedAttachments(receivedDocument)">
+              <i class="fa fa-download"></i>
+            </button>
+            <button  class="btn btn-link p-0 folder-icon icon-btn" >
+              <i class="fa fa-folder"></i>
+              <span class="attachment-count" *ngIf="receivedDocument.attachments.length==0">-</span>
+              <span class="attachment-count"  *ngIf="receivedDocument.attachments.length>0">{{receivedDocument.attachments.length}}</span>
+              <span class="paper-tick"  *ngIf="receivedDocument.attachments.length>0"></span>
+            </button>
+
+            <button  class="btn p-0 ml-4" >
+              <form class="form-inline">
+                <label>{{'TEMPLATE.RECEIVED_DOCUMENTS.DATE_RECEIVED' | translate}}:</label>
+                <div class="form-group mx-2">
+                  <div class="input-group">
+                    <input class="form-control" placeholder="mm-dd-yyyy"
+                           name="dp" [ngModel]="receivedDocument.actionDate"
+                           ngbDatepicker #d="ngbDatepicker"
+                           [container]="'body'"
+                           (dateSelect)="onDateSelection($event, receivedDocument)" [disabled]="readOnlyAccess">
+                    <div class="input-group-append">
+                      <button class="btn text-secondary calendar fa fa-calendar border-gray border-left-0 bg-white"
+                              [disabled]="readOnlyAccess"
+                              (click)="d.toggle()" type="button">
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </button>
+
+            <button  class="btn btn-link p-0 icon-btn" *ngIf="isAttorney$ | async"
+                     [disabled]="dispositionSubmitted || receivedDocument.attachments.length==0 || readOnlyAccess">
+              <i class="fa tick-icon" *ngIf="receivedDocument.isApproved"
+                 (click)="onDispositionRejectEntirePanel(receivedDocument)">
+                &#10003;
+              </i>
+              <i class="fa minus-icon" *ngIf="!receivedDocument.isApproved"
+                 (click)="onDispositionApprovedEntirePanel(receivedDocument)">
+                &#8722;
+              </i>
+            </button>
+
+          </span>
+      </div>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <app-document-attachments
+        [document]="receivedDocument"
+        [documentType]="documentType"
+        [applicantId]="applicantReceivedDocument.applicantId"
+        [readOnlyAccess]="readOnlyAccess">
+      </app-document-attachments>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
+
+
+<ng-template #removeDocumentAttachmentsModalTemplate>
+  <div class="row">
+    <div class="col-md-3">
+      <img src="../../../../assets/images/warn-icon.png"/>
+    </div>
+    <div class="col-md-9">
+      <p>Are you sure that you want to permanently delete the selected document(s)?</p>
+      <p>This cannot be undone.</p>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,15 @@
+.file-preview-container {
+  margin: 15px auto;
+  background-color: black;
+  width: 600px;
+  height: 400px; /* 3:2 Aspect Ratio */
+  img{
+    overflow: hidden;
+    max-width: 600px;
+    max-height: 400px;
+    margin: auto;
+    &.icon-preview{
+      max-width: 100px;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+import com.easyvisa.InviteToCreateOrganizationRequest
+import com.easyvisa.JoinOrganizationRequest
+import com.easyvisa.LegalRepresentative
+import com.easyvisa.utils.NumberUtils
+import groovy.transform.Field
+
+@Field LegalRepresentative legalRepresentative
+@Field InviteToCreateOrganizationRequest newFirmJoinDetails
+@Field JoinOrganizationRequest firmRequestDetailsObj
+@Field BigDecimal userBalance
+//workaround of npe if newFirmJoinDetails is null
+Map<String, Object> params = [:]
+params['legalRepresentative'] = legalRepresentative
+
+if (newFirmJoinDetails) {
+    params['newFirmJoinDetails'] = newFirmJoinDetails
+}
+if (firmRequestDetailsObj) {
+    params['firmRequestDetailsObj'] = firmRequestDetailsObj
+}
+
+inherits template: '/user/attorney', model: params
+
+json {
+    balance NumberUtils.prepareBigDecimal(userBalance)
+}

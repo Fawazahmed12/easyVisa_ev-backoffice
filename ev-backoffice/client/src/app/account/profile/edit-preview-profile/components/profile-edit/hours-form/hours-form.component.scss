@@ -1,0 +1,13 @@
+:host::ng-deep {
+  .hours {
+    .ngb-tp-input-container {
+      width: 35px;
+      input {
+        padding: 0;
+      }
+    }
+  }
+  select {
+    text-align-last: center;
+  }
+}

@@ -1,0 +1,23 @@
+<div class="container-fluid p-0 border border-secondary">
+  <app-modal-header [title]="'TEMPLATE.TASK_QUEUE.CLIENTS.CLIENT_SEARCH_MODAL.BENEFICIARY_COUNTRIES'"></app-modal-header>
+  <div class="modal-body small">
+    <div class="countries-columns">
+      <div *ngFor="let country of beneficiaryCountries">
+        <label>
+          <input type="checkbox" [(ngModel)]="country.checked">
+          {{country.label}}
+        </label>
+      </div>
+      <div class="text-center text-primary mt-2 mb-3">
+        <a class="cursor-pointer" (click)="clearAllCountries()">
+          {{'TEMPLATE.TASK_QUEUE.CLIENTS.CLIENT_SEARCH_MODAL.CLEAR_ALL_COUNTRIES' | translate}}
+        </a>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-primary px-4 btn-sm" type="button" (click)="addSelectedCountries()">
+          {{ 'FORM.BUTTON.ADD_SELECTED' | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

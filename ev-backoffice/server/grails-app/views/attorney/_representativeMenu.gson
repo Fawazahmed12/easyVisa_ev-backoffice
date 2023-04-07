@@ -1,0 +1,13 @@
+import groovy.sql.GroovyRowResult
+import groovy.transform.Field
+
+@Field GroovyRowResult row
+
+json {
+    id row.id
+    firstName row.first_name
+    lastName row.last_name
+    middleName row.middle_name
+    status row.status
+    userId row.user_id
+}

@@ -1,0 +1,9 @@
+<div class="container-fluid p-0 border border-secondary">
+  <app-modal-header [title]="'TEMPLATE.PAYMENT_FAILED.TITLE'"></app-modal-header>
+  <div class="px-4 pt-3" [innerHTML]="errorContent | safeHtml"></div>
+  <div class="text-right mt-5">
+    <button class="btn btn-primary mx-4 mb-4 min-w-100" type="button" (click)="modalDismiss()">
+      {{ 'FORM.BUTTON.OK' | translate }}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div *ngIf="fileInfo">
+  <div class="position-relative">
+    <span class="fa big-icon {{fileInfo.fileType | fileIcon}}"></span>
+    <span
+      class="close fa fa-times-circle text-danger position-absolute remove-document-icon"
+      *ngIf="showRemoveIcon"
+      (click)="deleteDocument()"
+    ></span>
+  </div>
+  <div class="mt-2 small">{{fileInfo?.name}}</div>
+</div>

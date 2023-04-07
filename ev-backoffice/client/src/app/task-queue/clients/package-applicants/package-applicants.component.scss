@@ -1,0 +1,9 @@
+.section-height {
+  max-height: calc(75vh - 175px);
+  flex-grow: 1;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  @media (min-height: 800px) {
+    max-height: calc(78vh - 175px) !important;
+  }
+}

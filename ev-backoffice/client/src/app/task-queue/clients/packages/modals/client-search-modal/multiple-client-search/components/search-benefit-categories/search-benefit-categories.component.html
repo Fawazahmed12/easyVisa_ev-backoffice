@@ -1,0 +1,21 @@
+<div class="row">
+  <div *ngFor="let item of (searchBenefitGroups$ | async)" class="col-3 mb-2 p-0">
+    <div class="d-flex flex-column align-items-center text-center font-weight-bold benefit-title my-1 col">
+      {{ item.group.shortName }}
+      <div class="text-danger text-center small">{{ item.group.note }}</div>
+    </div>
+    <div *ngFor="let category of item.categories">
+      <div class="d-flex text-center col no-gutters px-1">
+        <label class="ml-3 mb-0">
+          <input
+            type="checkbox"
+            [value]="category.value"
+            [checked]="benefitCategoriesValue.includes(category.value)"
+            (change)="selectBenefitCheckboxes($event)">
+          {{category.searchLabel}}
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+

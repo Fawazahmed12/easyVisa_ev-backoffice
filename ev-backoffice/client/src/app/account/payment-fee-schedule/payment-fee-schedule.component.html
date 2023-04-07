@@ -1,0 +1,24 @@
+<div *appIfNoRepresentativeSelected="selectRep">
+  <app-balance-credit></app-balance-credit>
+  <app-payment-method></app-payment-method>
+  <app-fee-schedule
+    *appIfActiveUser="true"
+    [selectedRepresentativeFormControl]="representativeIdFormControl"
+  ></app-fee-schedule>
+  <app-billing-history-table
+    *ngIf="(!(isMe$ | async) && !(isAdmin$ | async)) || (isMe$ | async) "
+    [inMyAccount]="true"
+    [showBalance]="true"
+  ></app-billing-history-table>
+</div>
+
+<ng-template #selectRep>
+  <div class="d-flex align-items-start justify-content-start full-page-min-height">
+    {{'TEMPLATE.ACCOUNT.PAYMENT.SELECT_ATTORNEY' | translate}}
+  </div>
+</ng-template>
+
+<app-warning-personal-page
+  [notShowForAdmin]="isAdmin$ | async"
+></app-warning-personal-page>
+

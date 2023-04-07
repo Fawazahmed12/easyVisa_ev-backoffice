@@ -1,0 +1,19 @@
+<div class="bg-white border border-top-0 mb-4">
+  <h3 class="text-center text-white bg-primary p-2 mb-0">
+    {{'TEMPLATE.ACCOUNT.PROFILE.DELETE_MY_DATA.HEADER' | translate}}
+  </h3>
+  <div class="text-center font-weight-bold my-4 px-3">
+    {{'TEMPLATE.ACCOUNT.PROFILE.DELETE_MY_DATA.DESCRIPTION_1' | translate}}
+  </div>
+  <div class="row mb-4">
+    <div class="d-flex flex-row col justify-content-center">
+      <button
+        type="button"
+        class="btn btn-primary m-3 min-w-100"
+        [disabled]="(userDeleteRequest$ | async)?.loading"
+        (click)="openModal()">
+        {{'TEMPLATE.ACCOUNT.PROFILE.DELETE_MY_DATA.BUTTON' | translate}}
+      </button>
+    </div>
+  </div>
+</div>

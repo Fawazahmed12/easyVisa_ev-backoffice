@@ -1,0 +1,47 @@
+
+<div
+  class="mx-1"
+  *ngFor="let item of forms">
+  <label
+    class="d-flex flex-row align-items-center mt-1 justify-content-start"
+    [class.text-gray]="!item.hasCompleted"
+  >
+    <input
+      type="checkbox"
+      [checked]="ids.includes(item.formId)"
+      [value]="item.formId"
+      (change)="onCheckChange($event, item.formId)"
+      [disabled]="disabled"
+    >
+    <div class="col-1 pl-4">
+      {{item.displayFormId | translate}}
+    </div>
+
+    <div class="col-7 pl-4">
+      {{item.displayFormName | translate}}
+    </div>
+
+    <div class="col-2 pl-4">
+      {{item.signerName}}
+    </div>
+  </label>
+</div>
+<div
+  class="mx-1"
+  *ngFor="let item of continuationSheets; let i=index">
+  <label
+    class="d-flex flex-row align-items-center mt-1 justify-content-start"
+    [class.text-gray]="!item.hasCompleted"
+  >
+    <input
+      type="checkbox"
+      [checked]="ids.includes(item.continuationSheetId)"
+      [value]="item.continuationSheetId"
+      (change)="onCheckChange($event, item.continuationSheetId)"
+      [disabled]="disabled"
+    >
+    <div class="col pl-4 text-left">
+      {{getContinuationSheetDisplayName(item)}}
+    </div>
+  </label>
+</div>

@@ -1,0 +1,55 @@
+<div class="container-fluid p-0 border border-secondary">
+  <app-modal-header [title]="'TEMPLATE.PRINT_FORMS.DOWNLOAD_PRINT_POP_UP_TITLE' | translate">
+  </app-modal-header>
+  <div class="mt-3"></div>
+  <div
+    class="mx-1"
+    *ngFor="let item of (blanks$ | async)">
+    <label
+      class="d-flex flex-row align-items-center mt-1 justify-content-center"
+    >
+      <input
+        type="checkbox"
+        [checked]="formControl.value.includes(item.formId)"
+        [value]="item.formId"
+        (change)="onCheckChange(item.formId)"
+      >
+      <div class="col-8 pl-2 text-left">
+        {{item.displayText | translate}}
+      </div>
+    </label>
+  </div>
+  <div class="d-sm-flex justify-content-sm-end mx-4 mb-4">
+    <div class="mr-sm-4 mt-2 text-center">
+      <button
+        class="btn btn-primary px-4 min-w-100" type="button"
+        (click)="closeModal()"
+      >
+        {{'FORM.BUTTON.CANCEL' | translate }}
+      </button>
+    </div>
+    <div class="ml-sm-4 mt-2 text-center">
+      <button
+        class="btn btn-primary px-4 min-w-100" type="button"
+        [disabled]="(this.downloadBlanksGetRequestState$ | async).loading || formControl.value.length === 0"
+        (click)="downloadFiles()"
+      >
+        {{'TEMPLATE.PRINT_FORMS.DOWNLOAD' | translate }}
+      </button>
+      <div
+        *ngIf="(this.downloadBlanksGetRequestState$ | async).loading"
+        class="text-success">
+        {{'TEMPLATE.PRINT_FORMS.DOWNLOADING_STATUS' | translate }}
+      </div>
+    </div>
+    <div class="ml-sm-4 mt-2 text-center">
+      <button
+        class="btn btn-primary px-4 min-w-100" type="button"
+        (click)="printFiles()"
+        [disabled]="formControl.invalid || (this.printBlankGetRequestState$ | async).loading"
+      >
+        {{'TEMPLATE.PRINT_FORMS.PRINT' | translate }}
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,1 @@
+UPDATE ev_user SET password = concat('{bcrypt}', password);

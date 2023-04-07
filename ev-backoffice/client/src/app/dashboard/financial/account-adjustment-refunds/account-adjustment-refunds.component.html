@@ -1,0 +1,47 @@
+<div class="bg-white border border-top-0">
+  <h3 class="text-center text-white bg-primary p-2 mb-0">
+    {{ 'TEMPLATE.DASHBOARD.ACCOUNT_ADJUSTMENT_REFUNDS.HEADER' | translate }}
+  </h3>
+  <div class="d-flex flex-column flex-md-row my-4">
+    <div class="d-flex flex-column flex-lg-row col col-md-7 align-items-center my-lg-3 mb-md-3">
+      <label class="col-md-5 text-center text-lg-right col-form-label col-form-label-sm py-0">
+        {{'TEMPLATE.DASHBOARD.ACCOUNT_ADJUSTMENT_REFUNDS.REPRESENTATIVE_ID' | translate}}
+      </label>
+      <div class="d-flex col-md mr-2 position-relative mb-4 mb-md-2 mb-lg-0">
+        <input
+          [formControl]="representativeIdFormControl"
+          class="form-control form-control-sm"
+          type="email"
+        >
+        <div *ngIf="representativeIdFormControl.dirty && representativeIdFormControl.invalid"
+             class="position-absolute text-center text-danger small position-top-2">
+          {{'FORM.ERROR.INVALID' | translate:({field: 'TEMPLATE.DASHBOARD.ACCOUNT_ADJUSTMENT_REFUNDS.EVID' | translate })}}
+        </div>
+      </div>
+      <div class="d-flex flex-row col justify-content-center mb-lg-0">
+        <button
+          type="button"
+          class="btn btn-primary min-w-100"
+          (click)="getRepresentativeId()"
+        >
+          {{'FORM.BUTTON.SEARCH' | translate}}
+        </button>
+      </div>
+    </div>
+    <div class="d-flex flex-column flex-md-row col col-md-5 align-items-center">
+      <label class="col-md-4 text-md-right pr-2 col-form-label col-form-label-sm">
+        {{'TEMPLATE.DASHBOARD.ACCOUNT_ADJUSTMENT_REFUNDS.CURRENT_BALANCE' | translate}}
+      </label>
+      <div class="d-flex col-md-5 mr-2 position-relative">
+        <span class="pr-1 align-self-center">$</span>
+        <input
+          class="form-control form-control-sm text-left"
+          type="email"
+          [disabled]="true"
+          [value]="-(representativeBalance$ | async)"
+        >
+      </div>
+    </div>
+  </div>
+</div>
+

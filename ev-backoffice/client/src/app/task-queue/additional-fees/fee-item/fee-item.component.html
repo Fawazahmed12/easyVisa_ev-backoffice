@@ -1,0 +1,43 @@
+<form class="row mt-2 mx-2">
+  <div class="col-8">
+    <input
+      class="form-control form-control-sm mr-1"
+      [formControl]="descriptionFormControl"
+      [class.border]="descriptionFormControl.invalid && form.submitted"
+      [class.border-danger]="descriptionFormControl.invalid && form.submitted"
+    >
+  </div>
+  <div class="col-2 mr-1 d-flex flex-row justify-content-between align-items-center">
+    <div class="pr-1">$</div>
+    <input
+      class="form-control form-control-sm col-5 text-right"
+      currencyMask
+      [options]="{ prefix: '', thousands: ',', precision: 0 }"
+      [formControl]="eachFormControl"
+      [class.border]="eachFormControl.invalid && form.submitted"
+      [class.border-danger]="eachFormControl.invalid && form.submitted"
+    >
+    <div class="mx-2">X</div>
+    <input
+      class="form-control form-control-sm col-4 text-center"
+      currencyMask
+      [options]="{ prefix: '', thousands: ',', precision: 0 }"
+      [formControl]="quantityFormControl"
+      [class.border]="quantityFormControl.invalid && form.submitted"
+      [class.border-danger]="quantityFormControl.invalid && form.submitted"
+    >
+    <div class="ml-2">=</div>
+  </div>
+  <div class="d-flex flex-row justify-content-between align-items-center col no-gutters">
+    <div class="col-2">$</div>
+    <div class="col-8 text-center">{{extValueSubject$ | async | number}}</div>
+    <div>
+      <a
+        type="button"
+        class="text-danger close-btn p-2 cursor-pointer fa fa-close mx-1"
+        (click)="removeFee(index)"
+      >
+      </a>
+    </div>
+  </div>
+</form>

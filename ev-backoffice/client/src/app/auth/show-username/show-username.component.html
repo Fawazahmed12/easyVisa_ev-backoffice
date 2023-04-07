@@ -1,0 +1,10 @@
+<app-auth-wrapper class="show-username">
+  <h5 class="text-center m-3">
+    {{'TEMPLATE.AUTH.FORGOT.YOUR_USERNAME_IS' | translate}}
+    {{ (showUsername$ | async).username }}.
+    <span>
+      {{'TEMPLATE.AUTH.FORGOT.PLEASE_LOGIN' | translate}}
+      <a routerLink="/auth/login">{{'TEMPLATE.AUTH.FORGOT.LOG_IN' | translate}}</a>.
+    </span>
+  </h5>
+</app-auth-wrapper>

@@ -1,0 +1,4 @@
+package com.easyvisa.questionnaire.answering.benefitcategoryfeatures
+
+class NaturalizationBenefitCategoryFeature extends BaseBenefitCategoryFeature {
+}

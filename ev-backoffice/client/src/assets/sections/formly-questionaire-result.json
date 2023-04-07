@@ -1,0 +1,407 @@
+[
+  {
+    "key": "introQuestions",
+    "id": "Sec_1",
+    "hide": false,
+    "fieldGroup": [
+      {
+        "template": "<h2>Intro Questions</h2>",
+        "className": "col-12 section-label"
+      },
+      {
+        "key": "sponsorshipRelationship",
+        "id": "SubSec_4",
+        "hide": false,
+        "fieldGroup": [
+          {
+            "template": "<h3>Sponsorship Relationship</h3>",
+            "className": "col-12 sub-section-label"
+          }
+        ]
+      },
+      {
+        "key": "previousImmigrationFilledForAnotherPerson",
+        "id": "SubSec_1",
+        "hide": false,
+        "fieldGroup": [
+          {
+            "template": "<h3>Previous Immigration (Visa) Petitions You Filed for Another Person</h3>",
+            "className": "col-12 sub-section-label"
+          },
+          {
+            "id": "Q_1",
+            "key": "everFilledPetition",
+            "type": "radio",
+            "hide": false,
+            "defaultValue": "false",
+            "wrappers": [
+              "form-field-horizontal"
+            ],
+            "className": "col-12 question-label",
+            "templateOptions": {
+              "label": "Have you ever before filed a Petition for Alien Fiance or for any other beneficiary?",
+              "options": [
+                {
+                  "key": "true",
+                  "value": "Yes"
+                },
+                {
+                  "key": "false",
+                  "value": "No"
+                }
+              ]
+            }
+          },
+          {
+            "hideExpression": "model.everFilledPetition === 'false'",
+            "fieldGroupClassName": "row",
+            "fieldGroup": [
+              {
+                "key": "everFilledPetitionQuestions",
+                "type": "repeat",
+                "className": "col-12 repeating-question-group-label",
+                "fieldArray": {
+                  "fieldGroupClassName": "row my-3",
+                  "fieldGroup": [
+                    {
+                      "id": "Q_7",
+                      "key": "cityortown",
+                      "type": "input",
+                      "hide": false,
+                      "wrappers": [
+                        "form-field-horizontal"
+                      ],
+                      "className": "col-12 question-label",
+                      "templateOptions": {
+                        "label": "City or town where petition was filed",
+                        "required": true
+                      }
+                    },
+                    {
+                      "id": "Q_5",
+                      "key": "relationshipToYou",
+                      "type": "input",
+                      "hide": false,
+                      "wrappers": [
+                        "form-field-horizontal"
+                      ],
+                      "className": "col-12 question-label",
+                      "templateOptions": {
+                        "label": "What was this person's relationship to you?",
+                        "required": true
+                      }
+                    },
+                    {
+                      "id": "Q_2",
+                      "key": "firstName",
+                      "type": "input",
+                      "hide": false,
+                      "wrappers": [
+                        "form-field-horizontal"
+                      ],
+                      "className": "col-12 question-label",
+                      "templateOptions": {
+                        "label": "Given Name (First name)",
+                        "required": true
+                      }
+                    },
+                    {
+                      "id": "Q_9",
+                      "key": "dof",
+                      "type": "input",
+                      "hide": false,
+                      "wrappers": [
+                        "form-field-horizontal"
+                      ],
+                      "className": "col-12 question-label",
+                      "templateOptions": {
+                        "label": "Date of Filing",
+                        "type": "date",
+                        "required": true
+                      }
+                    },
+                    {
+                      "id": "Q_11",
+                      "key": "issuedAlienNo",
+                      "type": "radio",
+                      "hide": false,
+                      "defaultValue": "false",
+                      "wrappers": [
+                        "form-field-horizontal"
+                      ],
+                      "className": "col-12 question-label",
+                      "templateOptions": {
+                        "label": "Was this person issued an Alien Registration Number (A-Number)?",
+                        "required": true,
+                        "options": [
+                          {
+                            "key": "true",
+                            "value": "Yes"
+                          },
+                          {
+                            "key": "false",
+                            "value": "No"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "id": "Q_12",
+                      "key": "alienNo",
+                      "type": "input",
+                      "hide": true,
+                      "wrappers": [
+                        "form-field-horizontal"
+                      ],
+                      "hideExpression": "model.issuedAlienNo === 'false'",
+                      "className": "col-12 question-label",
+                      "templateOptions": {
+                        "label": "What was that person's Alien Registration Number (A-number)?",
+                        "required": true
+                      }
+                    },
+                    {
+                      "id": "Q_6",
+                      "key": "dob",
+                      "type": "input",
+                      "hide": false,
+                      "wrappers": [
+                        "form-field-horizontal"
+                      ],
+                      "className": "col-12 question-label",
+                      "templateOptions": {
+                        "label": "What was this person's date of birth?",
+                        "type": "date",
+                        "required": true
+                      }
+                    },
+                    {
+                      "id": "Q_8",
+                      "key": "state",
+                      "type": "select",
+                      "hide": false,
+                      "defaultValue": "",
+                      "wrappers": [
+                        "form-field-horizontal"
+                      ],
+                      "className": "col-12 question-label",
+                      "templateOptions": {
+                        "label": "State where petition was filed",
+                        "required": true
+                      }
+                    },
+                    {
+                      "id": "Q_10",
+                      "key": "resultOfPetition",
+                      "type": "input",
+                      "hide": false,
+                      "wrappers": [
+                        "form-field-horizontal"
+                      ],
+                      "className": "col-12 question-label",
+                      "templateOptions": {
+                        "label": "What was the result of the petition?",
+                        "required": true
+                      }
+                    },
+                    {
+                      "id": "Q_4",
+                      "key": "familyName",
+                      "type": "input",
+                      "hide": false,
+                      "wrappers": [
+                        "form-field-horizontal"
+                      ],
+                      "className": "col-12 question-label",
+                      "templateOptions": {
+                        "label": "Family Name/Last Name/Surname",
+                        "required": true
+                      }
+                    },
+                    {
+                      "id": "Q_3",
+                      "key": "middleName",
+                      "type": "input",
+                      "hide": false,
+                      "wrappers": [
+                        "form-field-horizontal"
+                      ],
+                      "className": "col-12 question-label",
+                      "templateOptions": {
+                        "label": "Middle Name (Do Not Abbreviate)",
+                        "required": true
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "Q_14",
+                "key": "filled2orMorePetitions",
+                "type": "radio",
+                "hide": true,
+                "defaultValue": "false",
+                "wrappers": [
+                  "form-field-horizontal"
+                ],
+                "className": "col-12 question-label",
+                "templateOptions": {
+                  "label": "Have you filed 2 or more petitions for an Alien Fiance(e) (other than for your spouse) in your lifetime? Help",
+                  "required": true,
+                  "options": [
+                    {
+                      "key": "true",
+                      "value": "Yes"
+                    },
+                    {
+                      "key": "false",
+                      "value": "No"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "Q_13",
+                "key": "hadPetitionInPrev2Years",
+                "type": "radio",
+                "hide": true,
+                "defaultValue": "false",
+                "wrappers": [
+                  "form-field-horizontal"
+                ],
+                "className": "col-12 question-label",
+                "templateOptions": {
+                  "label": "Have you had a petition of Alien Fiance(e) approved by the USCIS within the previous two years? Help",
+                  "required": true,
+                  "options": [
+                    {
+                      "key": "true",
+                      "value": "Yes"
+                    },
+                    {
+                      "key": "false",
+                      "value": "No"
+                    }
+                  ]
+                }
+              }
+            ],
+            "expressionProperties": {
+              "templateOptions.disabled": "model.everFilledPetition === 'false'"
+            }
+          }
+        ]
+      },
+      {
+        "key": "petitionForOtherRelatives",
+        "id": "SubSec_2",
+        "hide": false,
+        "fieldGroup": [
+          {
+            "template": "<h3>Petitions for Other Relatives</h3>",
+            "className": "col-12 sub-section-label"
+          },
+          {
+            "id": "Q_15",
+            "key": "filledForOtherRelatives",
+            "type": "radio",
+            "hide": false,
+            "defaultValue": "false",
+            "wrappers": [
+              "form-field-horizontal"
+            ],
+            "className": "col-12 question-label",
+            "templateOptions": {
+              "label": "Other than this Beneficiary, are you filing separate petitions for other relatives?",
+              "options": [
+                {
+                  "key": "true",
+                  "value": "Yes"
+                },
+                {
+                  "key": "false",
+                  "value": "No"
+                }
+              ]
+            }
+          },
+          {
+            "hideExpression": "model.filledForOtherRelatives === 'false'",
+            "fieldGroupClassName": "row",
+            "fieldGroup": [
+              {
+                "key": "filledForOtherRelativesQuestions",
+                "type": "repeat",
+                "className": "col-12 repeating-question-group-label",
+                "fieldArray": {
+                  "fieldGroupClassName": "row my-3",
+                  "fieldGroup": [
+                    {
+                      "id": "Q_19",
+                      "key": "relationship",
+                      "type": "input",
+                      "hide": false,
+                      "wrappers": [
+                        "form-field-horizontal"
+                      ],
+                      "className": "col-12 question-label",
+                      "templateOptions": {
+                        "label": "Relationship",
+                        "required": true
+                      }
+                    },
+                    {
+                      "id": "Q_16",
+                      "key": "firstName",
+                      "type": "input",
+                      "hide": false,
+                      "wrappers": [
+                        "form-field-horizontal"
+                      ],
+                      "className": "col-12 question-label",
+                      "templateOptions": {
+                        "label": "Given Name (First name)",
+                        "required": true
+                      }
+                    },
+                    {
+                      "id": "Q_17",
+                      "key": "middleName",
+                      "type": "input",
+                      "hide": false,
+                      "wrappers": [
+                        "form-field-horizontal"
+                      ],
+                      "className": "col-12 question-label",
+                      "templateOptions": {
+                        "label": "Middle Name (Do Not Abbreviate)",
+                        "required": true
+                      }
+                    },
+                    {
+                      "id": "Q_18",
+                      "key": "familyName",
+                      "type": "input",
+                      "hide": false,
+                      "wrappers": [
+                        "form-field-horizontal"
+                      ],
+                      "className": "col-12 question-label",
+                      "templateOptions": {
+                        "label": "Family Name/Last Name/Surname",
+                        "required": true
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "expressionProperties": {
+              "templateOptions.disabled": "model.filledForOtherRelatives === 'false'"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

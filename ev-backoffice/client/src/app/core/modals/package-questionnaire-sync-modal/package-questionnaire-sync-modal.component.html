@@ -1,0 +1,30 @@
+<div *ngIf="activePackage" class="container-fluid p-0 border border-secondary">
+  <app-modal-header [title]="'TEMPLATE.INCOMPLETE_QUESTIONNAIRE_SYNC.TITLE'"></app-modal-header>
+  <div class="modal-body">
+    <div *ngIf="retryCount<=maxRetryCount">
+      <div [innerHTML]="'TEMPLATE.INCOMPLETE_QUESTIONNAIRE_SYNC.IN_PROGRESS' | translate"></div>
+      <div class="modal-footer border-top-0">
+        <span class='spinner-container'>
+            <img src='../../../../assets/images/spinner.gif'/>
+          </span>
+        <button (click)="modalDismiss()" class="btn btn-primary min-w-100 mr-2" type="button">
+          {{ 'FORM.BUTTON.OK' | translate }}
+        </button>
+      </div>
+    </div>
+    <div *ngIf="retryCount>maxRetryCount">
+      <div class="mt-3 d-flex">
+        <div class="mr-3 text-center my-3">
+          <img src="/assets/images/warn-icon.png"/>
+        </div>
+        <div [innerHTML]="'TEMPLATE.INCOMPLETE_QUESTIONNAIRE_SYNC.FAILED' | translate"></div>
+      </div>
+
+      <div class="modal-footer border-top-0">
+        <button (click)="modalDismissFromFailure()" class="btn btn-primary min-w-100" type="button">
+          {{ 'FORM.BUTTON.OK' | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

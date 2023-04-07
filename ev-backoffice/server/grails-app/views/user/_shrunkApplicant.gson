@@ -1,0 +1,14 @@
+import com.easyvisa.dto.PackageApplicantResponseDto
+import com.easyvisa.questionnaire.model.ApplicantType
+import groovy.transform.Field
+
+@Field PackageApplicantResponseDto packageApplicant
+
+json {
+    if (packageApplicant.applicantType != ApplicantType.Petitioner.uiValue) {
+        benefitCategory packageApplicant.category
+    }
+    citizenshipStatus packageApplicant.citizenshipStatus
+    applicantType packageApplicant.applicantType
+    profile g.render(template:'/user/applicantProfile', model:[applicant:packageApplicant.applicant])
+}

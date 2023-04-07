@@ -1,0 +1,10 @@
+import com.easyvisa.Fee
+import groovy.transform.Field
+
+@Field Fee fee
+
+json {
+    id fee.id
+    benefitCategory fee.benefitCategory
+    amount fee.amount
+}

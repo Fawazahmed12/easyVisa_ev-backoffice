@@ -1,0 +1,169 @@
+<div class="mb-4 bg-white border border-gray-ccc border-top-0">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <h3 class="text-center text-white bg-primary p-2 mb-0">{{ title$ | async | translate }}</h3>
+    </div>
+  </div>
+  <form [formGroup]="feeScheduleFormGroup" *ngIf="feeScheduleFormGroup" (ngSubmit)="saveFeeSchedule()">
+    <h3 class="text-center my-3" [innerHTML]="'FORM.FEE_SCHEDULE.BENEFICIARY_ONLY' | translate"></h3>
+    <div class="border border-top-0 mx-5 my-2"></div>
+    <div class="d-flex flex-wrap m-2">
+      <div class="col-12 col-lg-6"
+           *ngFor="let group of (noPetitionerBenefitGroups$ | async); let i = index; let even = even;"
+           [class.border-right]="even">
+        <div *ngIf="i !== 0 && i !== 1" class="border-bottom"></div>
+        <div class="m-3">
+          <h5 class="text-center my-3">{{group.label | translate}}<span class="text-danger pl-2">{{group.note}}</span>
+          </h5>
+          <div class="d-flex flex-row justify-content-end">
+            <div class="col-2 font-weight-bold text-center">
+              {{'FORM.LABELS.EACH' | translate}}
+            </div>
+          </div>
+          <div *ngFor="let category of feeFormGroups.controls">
+            <div *ngIf="group.value === category.value.group" class="row align-items-start mt-1">
+              <div class="col-9 pl-0">
+                <div
+                  class="d-flex my-2"
+                  [ngClass]="category.value.disabled ? 'text-gray' : null"
+                >
+                  <div class="font-weight-bold flex-shrink-0 px-2">
+                    {{category.value.label}}
+                  </div>
+                  <div class="col">
+                    <div *ngIf="group.value">{{category.value.fullLabel}}</div>
+                    <div class="text-danger">{{category.get('note').value}}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-3 d-flex align-items-center position-relative">
+                <div>{{category.get('note').value}}</div>
+                <div class="dollar-symbol">
+
+                  <input class="form-control form-control-sm text-right pl-3"
+                         [formControl]="category.get('amount')"
+                         type="text"
+                         [attr.disabled]="category.value.disabled ? 'disabled' : null"
+                         (keypress)="onKeyPressHandler($event)"
+                         currencyMask
+                         [options]="{ prefix: '', thousands: ',', precision: 0 }"
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="border border-secondary mx-3 my-2"></div>
+    <h3 class="text-center my-3" [innerHTML]="'FORM.FEE_SCHEDULE.WITH_DERIVATIVES' | translate"></h3>
+    <div class="d-flex flex-wrap m-2">
+      <div class="col-12 col-lg-6"
+           *ngFor="let group of (benefitGroupsWithDerivatives$ | async); let i = index; let even = even;"
+           [class.border-right]="even">
+        <div *ngIf="i !== 0 && i !== 1" class="border-bottom"></div>
+        <div class="m-3">
+          <h5 class="text-center my-3">{{group.label | translate}}<span class="text-danger pl-2">{{group.note}}</span>
+          </h5>
+          <div class="d-flex flex-row justify-content-end">
+            <div class="col-2 font-weight-bold text-center">
+              {{'FORM.LABELS.EACH' | translate}}
+            </div>
+          </div>
+          <div *ngFor="let category of withDerivativesFeeScheduleFeeFormGroups.controls">
+            <div *ngIf="group.value === category.value.group" class="row align-items-start mt-1">
+              <div class="col-9 pl-0">
+                <div
+                  class="d-flex my-2"
+                  [ngClass]="category.value.disabled ? 'text-gray' : null"
+                >
+                  <div class="font-weight-bold flex-shrink-0 px-2">
+                    {{category.value.label}}
+                  </div>
+                  <div class="col">
+                    <div *ngIf="group.value">{{category.value.fullLabel}}</div>
+                    <div class="text-danger">{{category.get('note').value}}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-3 d-flex align-items-center">
+                <div class="dollar-symbol">
+                  <input class="form-control form-control-sm text-right pl-3"
+                         [formControl]="category.get('amount')"
+                         type="text"
+                         [attr.disabled]="category.value.disabled ? 'disabled' : null"
+                         (keypress)="onKeyPressHandler($event)"
+                         currencyMask
+                         [options]="{ prefix: '', thousands: ',', precision: 0 }"
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h3 class="text-center my-3" [innerHTML]="'FORM.FEE_SCHEDULE.WITHOUT_DERIVATIVES' | translate"></h3>
+    <div class="d-flex flex-wrap m-2">
+      <div class="col-12 col-lg-6"
+           *ngFor="let group of (benefitGroupsNoDerivatives$ | async); let i = index; let even = even;"
+           [class.border-right]="even">
+        <div *ngIf="i !== 0 && i !== 1" class="border-bottom"></div>
+        <div class="m-3">
+          <h5 class="text-center my-3">{{group.label | translate}}<span class="text-danger pl-2">{{group.note}}</span>
+          </h5>
+          <div class="d-flex flex-row justify-content-end">
+            <div class="col-2 font-weight-bold text-center">
+              {{'FORM.LABELS.EACH' | translate}}
+            </div>
+          </div>
+          <div *ngFor="let category of noDerivativesFeeScheduleFeeFormGroups.controls">
+            <div *ngIf="group.value === category.value.group" class="row align-items-start mt-1">
+              <div class="col-9 pl-0">
+                <div
+                  class="d-flex my-2"
+                  [ngClass]="category.value.disabled ? 'text-gray' : null"
+                >
+                  <div class="font-weight-bold flex-shrink-0 px-2">
+                    {{category.value.label}}
+
+                  </div>
+                  <div class="col">
+                    <div *ngIf="group.value">{{category.value.fullLabel}}</div>
+                    <div class="text-danger">{{category.get('note').value}}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-3 d-flex align-items-center">
+                <div class="dollar-symbol">
+                  <input class="form-control form-control-sm text-right pl-3"
+                         [formControl]="category.get('amount')"
+                         type="text"
+                         [attr.disabled]="category.value.disabled ? 'disabled' : null"
+                         (keypress)="onKeyPressHandler($event)"
+                         currencyMask
+                         [options]="{ prefix: '', thousands: ',', precision: 0 }"
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="border border-bottom m-4"></div>
+    <div class="d-sm-flex justify-content-sm-end mx-4 mb-4">
+      <div class="mr-sm-4 mt-2 text-center">
+        <button class="btn btn-primary px-4 min-w-100" type="button" (click)="resetFeeSchedule()">
+          {{'FORM.BUTTON.CANCEL' | translate }}
+        </button>
+      </div>
+      <div class="ml-sm-4 mt-2 text-center">
+        <button class="btn btn-primary px-4 min-w-100" type="submit"
+                [disabled]="feeScheduleFormGroup.invalid || (updateAttorneyRequest$ | async).loading">
+          {{'FORM.BUTTON.SAVE' | translate }}
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

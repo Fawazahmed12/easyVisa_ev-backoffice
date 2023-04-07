@@ -1,0 +1,28 @@
+:host::ng-deep {
+  margin: 20px auto;
+
+  .auth-error-wrapper {
+    min-height: 1.5em;
+  }
+
+  .submit-button-wrapper {
+    margin: 30px 0;
+
+    button.btn {
+      background-color: #40678C;
+    }
+  }
+
+  .bg-number {
+    border-radius: 50%;
+    background-color: #40678C;
+    color: white;
+    width: 1.5em;
+    height: 1.5em;
+    text-align: center;
+  }
+
+  .form-check-input:disabled ~ .form-check-label {
+    color: #b2b2b2;
+  }
+}

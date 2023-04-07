@@ -1,0 +1,24 @@
+EasyVisaId,QuestVersion,Name,DisplayText,CategoryName
+BC_IR1,quest_version_3,IR-1,IR-1 Spouse of Citizen,Immediate Relative
+BC_IR2,quest_version_3,IR-2,IR-2 Unmarried Children (under 21) of a Nat. Citizen,Immediate Relative
+BC_IR5,quest_version_3,IR-5,IR-5 Parent of Citizen (age 21 and over),Immediate Relative
+BC_F1_A,quest_version_3,F1_A,F1 Unmarried (age 21 and over) Sons and Daughters of Citizens and Their Minor Children,Family Preference
+BC_F2_A,quest_version_3,F2_A,"F2 Spouse, Minor Children, and Unmarried Sons and Daughters (age 21 and over) of LPRs",Family Preference
+BC_F3_A,quest_version_3,F3_A,"F3 Married Sons and Daughters of Citizens, and Their Spouses and Their Minor Children",Family Preference
+BC_F4_A,quest_version_3,F4_A,"F4 Brothers & Sisters of Citizens (age 21 and over), & Their Spouses & Minor Children",Family Preference
+BC_F1_B,quest_version_3,F1_B,F1 Unmarried (age 21 and over) Sons and Daughters of Citizens and Their Minor Children,Family Preference
+BC_F2_B,quest_version_3,F2_B,"F2 Spouse, Minor Children, and Unmarried Sons and Daughters (age 21 and over) of LPRs",Family Preference
+BC_F3_B,quest_version_3,F3_B,"F3 Married Sons and Daughters of Citizens, and Their Spouses and Their Minor Children",Family Preference
+BC_F4_B,quest_version_3,F4_B,"F4 Brothers & Sisters of Citizens (age 21 and over), & Their Spouses & Minor Children",Family Preference
+BC_K1K3,quest_version_3,K-1,K-1 Fianc$e$(e),Fiance Visa
+BC_K2K4,quest_version_3,K-2,K-2 Fianc$e$(e) Children,Fiance Visa
+BC_Citizenship,quest_version_3,Citizenship ,Citizenship ,Naturalization
+BC_SpouseToLPR,quest_version_3,LPR,Spouse to LPR,Permanent Residence
+BC_SpouseChildrenToLPR,quest_version_3,LPR,Spouse$sq$s Children to LPR,Permanent Residence
+BC_601,quest_version_3,601,Application for Waiver of Grounds on Inadmissibility(Client is OUTSIDE U.S.),Miscellaneous
+BC_601A,quest_version_3,601A,Application for Provisional Unlawful Presence Waiver (Client is INSIDE U.S.),Miscellaneous
+BC_EAD,quest_version_3,EAD,Employment Authorization Document,Miscellaneous
+BC_648,quest_version_3,648,Medical Certification for Disability Exception,Miscellaneous
+BC_RemoveConditions,quest_version_3,Remove Conditions,Remove Conditions 2-Year to 10-Year LPR,Remove Conditions on Permanent Residence
+,,,,
+,,,,

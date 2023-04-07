@@ -1,0 +1,16 @@
+:host::ng-deep {
+  @media (max-width: 991px) {
+    .custom-width {
+      max-width: 500px;
+      margin: auto;
+    }
+  }
+  .resize-none {
+    resize: none;
+  }
+
+}
+.mb-7{
+  margin-bottom: 7rem;
+}
+

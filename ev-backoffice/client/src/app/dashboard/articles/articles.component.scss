@@ -1,0 +1,11 @@
+.preview-article {
+  max-height: 500px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.article-preview-section-height {
+  flex-grow: 1;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}

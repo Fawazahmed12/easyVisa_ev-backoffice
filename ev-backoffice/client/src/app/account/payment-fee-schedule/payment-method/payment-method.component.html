@@ -1,0 +1,78 @@
+<form
+  class="mb-4 bg-white border border-gray-ccc border-top-0"
+  [formGroup]="formGroup"
+  (submit)="formSubmit()"
+>
+  <h3 class="text-center text-white bg-primary p-2 mb-0">{{ 'TEMPLATE.ACCOUNT.PAYMENT.TITLE_2' | translate }}</h3>
+  <div class="container-fluid">
+    <div class="row justify-content-center columns-wrapper mt-3">
+      <div class="col-lg-6 col-11 pb-sm-4 pb-lg-0">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10 justify-content-center">
+            <app-credit-card-info
+              [formGroup]="infoFormGroup"
+              *ngIf="!(paymentMethod$ | async)?.cardLastFour || (this.editCardSubject$ | async)"
+            ></app-credit-card-info>
+            <app-credit-card-info-view
+              [paymentMethod]="(paymentMethod$ | async)"
+              (editCard)="editCard()"
+              *ngIf="(paymentMethod$ | async)?.cardLastFour && !(this.editCardSubject$ | async)"
+            ></app-credit-card-info-view>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-lg-6 col-11 pt-5 pt-lg-0"
+        *ngIf="!(paymentMethod$ | async)?.cardLastFour || (this.editCardSubject$ | async)"
+      >
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10">
+            <app-credit-card-billing-address
+              [formGroup]="billingAddressFormGroup"
+              [checkBoxLabel]="'TEMPLATE.CREDIT_CARD_BILL_FORM.SAME_AS_PROFILE'"
+              [col4Label]="true"
+            ></app-credit-card-billing-address>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-11 mt-3 border-top border-bottom border-secondary"></div>
+    </div>
+    <div
+      class="row my-4 justify-content-center"
+      *ngIf="!(paymentMethod$ | async)?.cardLastFour || (this.editCardSubject$ | async)"
+    >
+      <div class="col-11 d-flex justify-content-end px-0">
+        <button
+          class="btn btn-primary px-4 mr-4 min-w-100"
+          type="button"
+          (click)="cancelCard()"
+        >
+          {{'FORM.BUTTON.CANCEL' | translate }}
+        </button>
+        <button
+          class="btn btn-primary px-4 ml-4 min-w-100"
+          type="submit"
+          [disabled]="(isLoading$ | async) || formGroup.invalid"
+        >
+          {{'FORM.BUTTON.SAVE' | translate }}
+        </button>
+      </div>
+    </div>
+    <div
+      class="row my-4 justify-content-center"
+      *ngIf="(paymentMethod$ | async)?.cardLastFour && !(this.editCardSubject$ | async)"
+    >
+      <div class="col-11 d-flex justify-content-end px-0">
+        <button
+          class="btn btn-primary px-4 min-w-100"
+          type="button"
+          (click)="editCard()"
+        >
+          {{ 'FORM.BUTTON.EDIT' | translate}}
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

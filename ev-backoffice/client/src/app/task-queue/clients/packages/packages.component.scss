@@ -1,0 +1,71 @@
+::ng-deep {
+  .checkbox-col {
+    width: 3%;
+  }
+
+  .width-7 {
+    width: 7%;
+  }
+
+  .width-5 {
+    width: 5%;
+  }
+
+  .width-12 {
+    width: 12%;
+  }
+
+
+  .min-height-page {
+    justify-content: stretch;
+    min-height:  520px !important;
+    @media (min-height: 800px) {
+      min-height: calc(100vh - 333px) !important;
+    }
+  }
+
+  .packages-table {
+    table {
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      height:  calc(74vh - 165px) !important;
+      overflow-y: scroll;
+
+      @media (min-height: 800px) {
+        height: calc(78vh - 165px) !important;
+      }
+
+      thead, tbody tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+      }
+
+      thead {
+        position: sticky;
+        top: 0;
+      }
+
+      tbody {
+        display: block;
+        overflow-x: hidden;
+      }
+
+      td {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 0.50rem;
+      }
+
+      th, td {
+        border: none;
+        border-right: 1px solid #dee2e6;
+
+        &:last-child {
+          border: none;
+        }
+      }
+    }
+  }
+}

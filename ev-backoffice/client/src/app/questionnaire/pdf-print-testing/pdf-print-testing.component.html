@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-md-10">
+    <div class="row mt--20">
+      <div class="col-md-12">
+        <div class="mb-2 cursor-pointer" >
+          <ng-select [items]="uscisForms"
+                     bindLabel="displayText"
+                     bindValue="id"
+                     appendTo="body"
+                     [searchable]="false"
+                     [clearable]="false"
+                     placeholder="--Select USCIS Forms--"
+                     [(ngModel)]="selectedUSCISFormId"
+                     (change)="onUSCISFormChange($event)">
+            <ng-template ng-option-tmp let-item="item" let-index="index">
+              <b [ngClass]="{'no-answer':!item.answered && !item.disabled}">{{item.displayText}}</b>
+            </ng-template>
+          </ng-select>
+        </div>
+
+        <div class="cursor-pointer" >
+          <ng-select [items]="continuationSheets"
+                     bindLabel="displayName"
+                     bindValue="id"
+                     appendTo="body"
+                     [searchable]="false"
+                     [clearable]="false"
+                     placeholder="--Select Continuation Sheet--"
+                     [(ngModel)]="selectedContinuationSheetd"
+                     (change)="onContinuationSheetChange($event)">
+          </ng-select>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="row">
+      <div class="col-md-12 text-right pl-0">
+        <span class="spinner-container mr-xl-1" *ngIf="isPdfGenerateProcessing">
+          <img src="../../../assets/images/spinner.gif"/>
+        </span>
+        <button
+          class="btn btn-primary px-4 min-w-100"
+          type="button" (click)="onPdfPrint()"
+          [disabled]="!selectedUSCISFormId || isPdfGenerateProcessing">
+          Generate
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #pdfViewerModal>
+  <app-pdf-viewer-modal></app-pdf-viewer-modal>
+</ng-template>

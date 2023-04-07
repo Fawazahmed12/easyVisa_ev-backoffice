@@ -1,0 +1,26 @@
+<div
+  *ngIf="noOffset"
+  class="row text-center font-weight-bold justify-content-center">
+  {{'FORM.PAGINATION_LABELS.PAGE' | translate}}
+</div>
+<div
+  [ngClass]="noOffset ? 'd-flex justify-content-center align-items-center' : 'row'"
+
+>
+  <ngb-pagination
+    [collectionSize]="collectionSize"
+    [pageSize]="pageSize"
+    [page]="page"
+    [maxSize]="maxSize"
+    [rotate]="rotate"
+    [boundaryLinks]="boundaryLinks"
+    (pageChange)="paginationPageChange($event)"
+    [ngClass]="noOffset ? '' : 'col-6 offset-3'"
+    class="d-flex justify-content-center border-0"
+  >
+    <ng-template ngbPaginationFirst>{{'FORM.PAGINATION_LABELS.FIRST' | translate}}</ng-template>
+    <ng-template ngbPaginationLast>{{'FORM.PAGINATION_LABELS.LAST' | translate}}</ng-template>
+    <ng-template ngbPaginationPrevious>{{'FORM.PAGINATION_LABELS.PREVIOUS' | translate}}</ng-template>
+    <ng-template ngbPaginationNext>{{'FORM.PAGINATION_LABELS.NEXT' | translate}}</ng-template>
+  </ngb-pagination>
+</div>

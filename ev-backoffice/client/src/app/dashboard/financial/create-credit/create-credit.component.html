@@ -1,0 +1,61 @@
+<div class="bg-white border border-top-0 py-4">
+  <div class="d-flex flex-column flex-md-row">
+    <div class="col col-md-10 d-flex flex-column">
+      <div class="d-flex flex-column align-items-center flex-md-row mb-4 position-relative">
+        <span class="position-absolute asterisk-font-size text-danger position-right">*</span>
+        <label class="col-md-2 text-lg-right col-form-label col-form-labwords-countel-sm">
+          {{'TEMPLATE.DASHBOARD.ACCOUNT_ADJUSTMENT_REFUNDS.DESCRIPTION_LABEL' | translate}}
+        </label>
+        <div class="d-flex col mr-2 position-relative mb-2 mb-lg-0 position-relative pr-2">
+          <input
+            class="form-control form-control-sm"
+            type="text"
+            [formControl]="descriptionFormControl"
+          >
+          <div class="position-absolute text-center small position-top-2">
+            ({{'TEMPLATE.DASHBOARD.ACCOUNT_ADJUSTMENT_REFUNDS.DESCRIPTION_1' | translate}})
+          </div>
+        </div>
+      </div>
+      <div class="d-flex flex-column align-items-center flex-md-row mb-2 mb-md-4 justify-content-end position-relative">
+        <span class="position-absolute asterisk-font-size position-right text-danger">*</span>
+        <label class="col-md-3 text-lg-right col-form-label col-form-label-sm">
+          {{'TEMPLATE.DASHBOARD.ACCOUNT_ADJUSTMENT_REFUNDS.AMOUNT_LABEL' | translate}}
+        </label>
+        <div class="d-flex col col-md-5 mr-2 mb-2 mb-lg-0 pr-2">
+          <span class="pr-2 align-self-center">$</span>
+          <input
+            class="form-control form-control-sm"
+            type="number"
+            [formControl]="amountFormControl"
+          >
+        </div>
+      </div>
+      <div class="d-flex flex-column align-items-center flex-md-row justify-content-end">
+        <label class="col-md-3 text-lg-right col-form-label col-form-label-sm">
+          {{'TEMPLATE.DASHBOARD.ACCOUNT_ADJUSTMENT_REFUNDS.NEW_BALANCE_LABEL' | translate}}
+        </label>
+        <div class="d-flex col col-md-5 mr-2 mb-2 mb-lg-0 pr-2">
+          <span class="pr-2 align-self-center">$</span>
+          <input
+            class="form-control form-control-sm"
+            type="text"
+            [disabled]="true"
+            [value]="amountFormControl.value ? (newBalance$ | async) : null"
+          >
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-row col justify-content-center mb-lg-0">
+      <button
+        type="button"
+        class="btn btn-primary min-w-100 my-auto"
+        [disabled]="formGroup.invalid"
+        (click)=formSubmit()
+      >
+        {{'FORM.BUTTON.ENTER' | translate}}
+      </button>
+    </div>
+  </div>
+</div>
+

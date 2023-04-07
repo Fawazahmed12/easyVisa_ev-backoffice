@@ -1,0 +1,12 @@
+import com.easyvisa.PackageAssignee
+import groovy.transform.Field
+
+@Field PackageAssignee packageAssignee
+inherits template: '/user/attorney', model: [legalRepresentative: packageAssignee.representative]
+
+json {
+    startDate packageAssignee.startDate
+    endDate packageAssignee.endDate
+    status packageAssignee.status.displayName
+    organization packageAssignee.organization.name
+}

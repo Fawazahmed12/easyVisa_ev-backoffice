@@ -1,0 +1,4 @@
+<app-auth-wrapper [header]="(header$ | async) | translate" class="success">
+  <h5 class="text-center my-3">{{ (text$ | async) | translate }}</h5>
+  <h5 class="text-center my-4">{{ 'TEMPLATE.AUTH.SUCCESS.CHECK_SPAM' | translate }}</h5>
+</app-auth-wrapper>

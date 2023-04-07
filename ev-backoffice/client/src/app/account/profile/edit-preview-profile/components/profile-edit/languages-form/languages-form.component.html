@@ -1,0 +1,32 @@
+<div class="d-flex flex-column align-items-center">
+  <div class="text-center col">
+    <h6 class="mt-3 text-center mb-0 font-weight-bold">{{'TEMPLATE.ACCOUNT.PROFILE.LANGUAGES_SPOKEN' | translate}}</h6>
+    <a
+      class="text-primary cursor-pointer p-0"
+      (click)="selectLanguagesProfile()"
+    >{{'TEMPLATE.ACCOUNT.PROFILE.CLICK_TO_SELECT' | translate}}
+    </a>
+    <div class="border-gray border overflow-auto profile-languages small p-1">
+      <div *ngFor="let language of languagesFormControl.value; last as isLast;" class="pr-1 d-inline-block">
+        <span>{{language | findLabel:languagesProfile}}</span>
+        <span *ngIf="!isLast">,</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #selectLanguages>
+  <div class="language-columns">
+    <div *ngFor="let language of languagesProfile">
+      <label>
+        <input
+          type="checkbox"
+          (change)="selectLanguage($event, language)"
+          [checked]="language.checked"
+        >
+        {{language.fullLabel}}
+      </label>
+    </div>
+  </div>
+</ng-template>
+

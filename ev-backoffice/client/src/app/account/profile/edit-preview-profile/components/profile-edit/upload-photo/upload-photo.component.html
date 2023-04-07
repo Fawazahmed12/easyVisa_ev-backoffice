@@ -1,0 +1,65 @@
+<h6 class="font-weight-bolder">
+  {{(isOrganizationProfile ? 'TEMPLATE.ACCOUNT.PROFILE.LOGO' : 'TEMPLATE.ACCOUNT.PROFILE.PHOTO') | translate}}
+</h6>
+<div class="position-relative pb-4">
+  <div class="photo-frame border border-gray mx-auto mt-1 position-relative d-flex flex-column justify-content-center">
+    <div class="position-absolute w-100 h-100 bg-size-cover" *ngIf="!isOrganizationProfile"
+         [style.backgroundImage]="(profile$ | async)?.profilePhoto ? 'url('+ (profile$ | async)?.profilePhoto +')' : null">
+    </div>
+    <div class="photo position-absolute w-100 h-100 bg-size-cover" *ngIf="isOrganizationProfile"
+         [style.backgroundImage]="(organizationProfile$ | async)?.profilePhoto ? 'url('+ (organizationProfile$ | async)?.profilePhoto +')' : null">
+    </div>
+    <div class="text-gray">
+      {{(isOrganizationProfile ? 'TEMPLATE.ACCOUNT.PROFILE.LOGO_GOES_HERE' : 'TEMPLATE.ACCOUNT.PROFILE.PHOTO_GOES_HERE') | translate}}
+    </div>
+  </div>
+  <div class="position-absolute text-danger small w-100 text-center">
+    <span *ngIf="isFileNotAllowed$ | async">{{'FORM.ERROR.FILE_TYPE_NOT_ALLOWED' | translate}}</span>
+    <span *ngIf="isFileSizeNotAllowed$ | async">{{'FORM.ERROR.FILE_TO_LARGE' | translate}}</span>
+  </div>
+</div>
+<button
+  type="button"
+  class="btn btn-primary min-w-100 position-relative"
+  (click)="uploadPhoto()"
+>
+  {{(isOrganizationProfile ? 'TEMPLATE.ACCOUNT.PROFILE.UPLOAD_LOGO' : 'TEMPLATE.ACCOUNT.PROFILE.UPLOAD_PHOTO') | translate}}
+</button>
+<div class="mb-4">
+  <a
+    class="cursor-pointer text-primary small"
+    (click)="openPhotoGuidelinesModal()"
+  >
+    {{'TEMPLATE.ACCOUNT.PROFILE.PHOTO_GUIDELINES' | translate}}
+  </a>
+</div>
+<ng-template #confirmModal>
+  <div class="container-fluid col-10">
+    <h5 class="text-center text-danger pt-3 mb-5 font-weight-bold">
+      {{'TEMPLATE.ACCOUNT.PROFILE.PHOTO_GUIDELINES_MODAL.DESCRIPTION' | translate}}
+    </h5>
+    <h6 class="text-center font-weight-bold">
+      {{'TEMPLATE.ACCOUNT.PROFILE.PHOTO_GUIDELINES_MODAL.TITLE_PHOTO' | translate}}
+    </h6>
+    <div class="text-center mb-5">
+      <div>
+        {{'TEMPLATE.ACCOUNT.PROFILE.PHOTO_GUIDELINES_MODAL.PHOTO_WIDTH' | translate}}
+      </div>
+      <div class="photo-frame border-dark-gray border d-inline-block position-relative">
+        <img class="w-100 h-100" src="/assets/images/person-placeholder.png"/>
+        <div class="photo-height-text position-absolute">
+          {{'TEMPLATE.ACCOUNT.PROFILE.PHOTO_GUIDELINES_MODAL.PHOTO_HEIGHT' | translate}}
+        </div>
+      </div>
+    </div>
+    <div class="mb-2" [innerHTML]="'TEMPLATE.ACCOUNT.PROFILE.PHOTO_GUIDELINES_MODAL.FILE_SIZE' | translate"></div>
+    <div class="mb-2" [innerHTML]="'TEMPLATE.ACCOUNT.PROFILE.PHOTO_GUIDELINES_MODAL.FILE_TYPE' | translate"></div>
+    <div class="mb-2"
+         [innerHTML]="'TEMPLATE.ACCOUNT.PROFILE.PHOTO_GUIDELINES_MODAL.PHOTO_DIMENSIONS' | translate"></div>
+    <div class="mb-2"
+         [innerHTML]="'TEMPLATE.ACCOUNT.PROFILE.PHOTO_GUIDELINES_MODAL.PHOTO_RESOLUTION' | translate"></div>
+    <div class="mb-2" [innerHTML]="'TEMPLATE.ACCOUNT.PROFILE.PHOTO_GUIDELINES_MODAL.ASPECT_RATIO' | translate"></div>
+    <div class="mb-5" [innerHTML]="'TEMPLATE.ACCOUNT.PROFILE.PHOTO_GUIDELINES_MODAL.COLOR_SPACE' | translate"></div>
+  </div>
+
+</ng-template>

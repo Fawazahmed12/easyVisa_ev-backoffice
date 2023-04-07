@@ -1,0 +1,2576 @@
+= EasyVisa API Guide
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+[[overview]]
+= Overview
+
+[[overview-http-verbs]]
+== HTTP verbs
+
+EasyVisa tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP verbs.
+
+|===
+| Verb | Usage
+
+| `GET`
+| Used to retrieve a resource
+
+| `POST`
+| Used to create a new resource
+
+| `PATCH`
+| Used to update an existing resource, including partial updates
+
+| `DELETE`
+| Used to delete an existing resource
+
+| `HEAD`
+| Used to check existence of a resource
+|===
+
+[[overview-http-status-codes]]
+== HTTP status codes
+
+EasyVisa tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP status codes.
+
+|===
+| Status code | Usage
+
+| `200 OK`
+| The request completed successfully
+
+| `201 Created`
+| A new resource has been created successfully. The resource's URI is available from the response's
+`Location` header
+
+| `204 No Content`
+| An update to an existing resource has been applied successfully
+
+| `400 Bad Request`
+| The request was malformed. The response body will include an error providing further information
+
+| `404 Not Found`
+| The requested resource did not exist
+|===
+
+[[resources]]
+
+[[resources-login]]
+== Login
+
+The login provides the entry point into the service.
+
+
+
+[[resources-login-access]]
+=== Accessing the login
+
+A `POST` request is used to access the login
+
+==== Example request
+
+include::{snippets}/login/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/login/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/login/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/login/response-fields.adoc[]
+
+[[resources-logout]]
+== Logout
+
+A `POST` request is used to access the logout endpoint. It does not need any parameters. Returns 200 if logout is successful.
+
+=== Example request
+
+include::{snippets}/user-logout/curl-request.adoc[]
+
+=== Example response
+
+include::{snippets}/user-logout/http-response.adoc[]
+
+[[resources-get-logged-in-user]]
+== Find the logged in User
+
+A `GET` request is used to access this endpoint
+
+=== Example request
+
+include::{snippets}/get-logged-in-user/curl-request.adoc[]
+
+=== Request structure
+
+A `GET` call to api endpoint `/api/users/me`
+
+=== Example response
+
+include::{snippets}/get-logged-in-user/http-response.adoc[]
+
+=== Response structure
+
+include::{snippets}/get-logged-in-user/response-fields.adoc[]
+
+[[resources-deactivate-membership]]
+== Deactivate an user membership
+
+A `PATCH` request is used to access this endpoint.
+
+=== Example request
+
+include::{snippets}/deactivate-membership/curl-request.adoc[]
+
+=== Request structure
+
+A `PATCH` call to api endpoint `/api/users/me`
+
+include::{snippets}/deactivate-membership/request-fields.adoc[]
+
+=== Example response
+
+include::{snippets}/deactivate-membership/http-response.adoc[]
+
+=== Response structure
+
+include::{snippets}/deactivate-membership/response-fields.adoc[]
+
+[[resources-delete-account]]
+== Deleting user account
+
+A `DELETE` request is used to access this endpoint.
+
+=== Example request
+
+include::{snippets}/delete-account/curl-request.adoc[]
+
+=== Request structure
+
+A `DELETE` call to api endpoint `/api/users/me`
+
+=== Example response
+
+include::{snippets}/delete-account/http-response.adoc[]
+
+=== Response structure
+
+include::{snippets}/delete-account/response-fields.adoc[]
+
+
+[[resources-upload-profile-picture]]
+== Upload profile picture for the current logged in user
+
+=== URL for Endpoint is
+
+`/api/users/:id/profile-picture`
+
+=== Request Fields
+
+API expects a file called `profilePhoto` which contains the retainer file.
+
+=== Response Structure
+
+Successful response is HTTP 200 with JSON response. The response will contain a key *url* which returns the URL for the profile picture.
+
+[[resources-get-profile]]
+== Get profile for the current logged in user
+
+A `GET` request is used to access this endpoint
+
+=== Example request
+
+include::{snippets}/get-user-profile/curl-request.adoc[]
+
+=== Request structure
+
+A `GET` call to api endpoint `/api/profile`
+
+=== Example request
+
+include::{snippets}/get-user-profile/http-request.adoc[]
+
+=== Example response
+
+include::{snippets}/get-user-profile/http-response.adoc[]
+
+[[resources-edit-profile]]
+== Update profile for the current logged in user
+
+A `PUT` request is used to access this endpoint
+
+=== Request Structure
+
+include::{snippets}/edit-user-profile/curl-request.adoc[]
+
+=== Response structure
+
+The response has same structure as the GET /api/profile response.
+
+=== Example request
+
+include::{snippets}/edit-user-profile/http-request.adoc[]
+
+=== Example response
+
+include::{snippets}/edit-user-profile/http-response.adoc[]
+
+
+[[resources-edit-profile-email]]
+== Update profile email for the current logged in user
+
+A `PUT` request is used to access this endpoint
+
+=== Request Example
+
+include::{snippets}/edit-profile-email/curl-request.adoc[]
+
+=== Request Structure
+
+include::{snippets}/edit-profile-email/request-fields.adoc[]
+
+=== Response structure
+
+include::{snippets}/edit-profile-email/response-fields.adoc[]
+
+=== Example response
+
+include::{snippets}/edit-profile-email/http-response.adoc[]
+
+
+[[resources-get-email-preference]]
+== Returns email preferences
+
+A `GET` request is used to access this endpoint
+
+=== Request Example
+
+include::{snippets}/get-email-preference/curl-request.adoc[]
+
+=== Response structure
+
+include::{snippets}/get-email-preference/response-fields.adoc[]
+
+=== Example response
+
+include::{snippets}/get-email-preference/http-response.adoc[]
+
+
+[[resources-update-email-preference]]
+== Updating email preferences
+
+A `PUT` request is used to access this endpoint
+
+=== Request Example
+
+include::{snippets}/update-email-preference/curl-request.adoc[]
+
+=== Request Structure
+
+include::{snippets}/update-email-preference/request-fields.adoc[]
+
+=== Response structure
+
+include::{snippets}/update-email-preference/response-fields.adoc[]
+
+=== Example response
+
+include::{snippets}/update-email-preference/http-response.adoc[]
+
+
+
+[[resources-forgot-password]]
+== Forgot Password
+
+The forgot-password is for emailing the reset password link. The reset password link loads a pre-configured web page where
+the user can enter a new password. The link will have a "token" parameter. This token should be sent along with the new password.
+
+
+
+[[resources-forgot-password-access]]
+=== Starting the reset password process
+
+A `POST` request is used to start the reset password process
+
+==== Example request
+
+include::{snippets}/forgot-password/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/forgot-password/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/forgot-password/http-response.adoc[]
+
+==== Example response if there is an error
+
+include::{snippets}/forgot-password-error/http-response.adoc[]
+
+
+[[resources-reset-password]]
+== Reset Password
+
+The reset-password is for saving the new password.
+
+
+
+[[resources-reset-password-access]]
+=== Saving the new password
+
+A `POST` request is used to save the new password
+
+==== Example request
+
+include::{snippets}/reset-password/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/reset-password/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/reset-password/http-response.adoc[]
+
+
+[[resources-edit-user-password]]
+=== Change the user password
+
+A `PUT` request is used to change the password
+
+422 error will be returned in the following cases:
+
+* any of parameters is missed
+* oldPassword does not equal to current password
+* newPassword equals current password
+* newPassword does not strong enough
+
+==== Example request
+
+include::{snippets}/edit-user-password/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/edit-user-password/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/edit-user-password/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/edit-user-password/response-fields.adoc[]
+
+
+[[resources-forgot-username]]
+== Forgot Username
+
+The forgot-username is for emailing the username retrieval link.
+
+
+
+[[resources-forgot-username-access]]
+=== Starting the forgot username process
+
+A `POST` request is used to start the username retrieval process
+
+==== Example request
+
+include::{snippets}/forgot-username/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/forgot-username/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/forgot-username/http-response.adoc[]
+
+==== Example response if there is an error
+
+include::{snippets}/forgot-username-error/http-response.adoc[]
+
+
+[[resources-show-username]]
+== Show Username
+
+The show-username is for showing the retrieved username.
+
+
+
+[[resources-show-username-access]]
+=== Showing the username
+
+A `POST` request is show the username
+
+==== Example request
+
+include::{snippets}/show-username/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/show-username/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/show-username/http-response.adoc[]
+
+==== Example response if there is an error
+
+include::{snippets}/show-username-error/http-response.adoc[]
+
+
+[[resources-check-username]]
+== Validate Username
+
+Used for checking if a username is valid according to Easyvisa rules
+
+[[resources-check-username-access]]
+=== Checking if a username is valid
+
+A `POST` request is used to check
+
+==== Example request
+
+include::{snippets}/check-username/curl-request.adoc[]
+
+==== Request fields
+
+include::{snippets}/check-username/request-fields.adoc[]
+
+
+==== Response
+
+include::{snippets}/check-username/http-response.adoc[]
+
+
+[[resources-get-user-id-by-legal-representative-id]]
+== Get user id by attorney/legal representative id
+
+A `GET` request is used to get user id by attorney/legal representative easyvisa id.
+
+=== Request Example
+
+include::{snippets}/get-user-id-by-legal-representative-id/curl-request.adoc[]
+
+==== Path parameters
+
+include::{snippets}/get-user-id-by-legal-representative-id/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/get-user-id-by-legal-representative-id/http-response.adoc[]
+
+==== Example error response
+
+include::{snippets}/get-user-id-by-legal-representative-id-not-found/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/get-user-id-by-legal-representative-id/response-fields.adoc[]
+
+[[resources-validate-email]]
+== Validate Email
+
+Used for checking if given email is valid according to Easyvisa rules
+
+
+
+[[resources-validate-email-access]]
+=== Checking if email is Valid
+
+A `POST` request is used to access this endpoint
+
+==== Example request
+
+include::{snippets}/validate-email/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/validate-email/request-fields.adoc[]
+
+A query param `email` should be present with the email to be validated.
+
+==== Example response
+
+include::{snippets}/validate-email/http-response.adoc[]
+
+
+
+
+[[resources-save-admin-user]]
+== Admin creates another Admin User
+
+The /api/users POST is for creating a new Admin User. Only an Admin User can do this request.
+
+
+////
+[[resources-save-admin-user-access]]
+=== Creating an Admin User
+
+A `POST` request is used
+
+==== Example request
+
+include::{snippets}/save-admin-user/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/save-admin-user/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/save-admin-user/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/save-admin-user/response-fields.adoc[]
+////
+
+[[resources-send-ev-alerts]]
+=== Sends broadcast messages to EV users.
+
+A `POST` request is used. Accessible to owners only.
+
+==== Example request
+
+include::{snippets}/send-ev-alerts/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/send-ev-alerts/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/send-ev-alerts/http-response.adoc[]
+
+
+[[resource-validate-registration-token]]
+== Validates a registration token send to Non legal representative Users
+
+A `POST` request is used to access this endpoint
+
+=== Example request
+
+include::{snippets}/validate-registration-token/curl-request.adoc[]
+
+=== Request structure
+
+include::{snippets}/validate-registration-token/request-fields.adoc[]
+
+=== Example response
+
+include::{snippets}/validate-registration-token/http-response.adoc[]
+
+=== Response structure
+
+include::{snippets}/validate-registration-token/response-fields.adoc[]
+
+
+[[resource-register-non-legal-rep]]
+== Register a Non Legal Representative User
+
+A `POST` request is used to access this endpoint
+
+=== Example request
+
+include::{snippets}/register-non-legal-rep-user/curl-request.adoc[]
+
+=== Request structure
+
+include::{snippets}/register-non-legal-rep-user/request-fields.adoc[]
+
+=== Example response
+
+include::{snippets}/register-non-legal-rep-user/http-response.adoc[]
+
+=== Response structure
+
+include::{snippets}/register-non-legal-rep-user/response-fields.adoc[]
+
+[[resources-register-attorney]]
+== Register as an Attorney
+
+The /api/public/register-attorney POST is for registering an Attorney user.
+
+[[resources-register-attorney-access]]
+=== Registering as an Attorney
+
+A `POST` request is used. An email will be sent to the email address provided to verify the attorney user.
+
+==== Example request
+
+include::{snippets}/register-attorney/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/register-attorney/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/register-attorney/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/register-attorney/response-fields.adoc[]
+
+
+[[resources-update-attorney]]
+=== Updating an attorney
+A `PATCH` request is used. An email will be sent to the email address provided to verify the attorney user.
+==== Example request
+include::{snippets}/update-attorney/curl-request.adoc[]
+==== Request structure
+Same as Register Attorney, (Note that Username can not be updated).
+Registration status can be updated by adding an `registrationStatus` value in the request.
+==== Example response
+include::{snippets}/update-attorney/http-response.adoc[]
+==== Response structure
+include::{snippets}/update-attorney/response-fields.adoc[]
+
+
+////
+[[resources-attorney-payment]]
+== Making payment for registration of an attorney
+A `POST` request is used. An email will be sent to the email address provided to verify the attorney user.
+
+=== Request Example
+include::{snippets}/attorney-payment/curl-request.adoc[]
+==== Request structure
+include::{snippets}/attorney-payment/request-fields.adoc[]
+==== Example response
+include::{snippets}/attorney-payment/http-response.adoc[]
+==== Response structure
+include::{snippets}/attorney-payment/response-fields.adoc[]
+////
+
+
+[[resources-get-attorney-notifications-types]]
+== Getting attorney's notifications types
+A `GET` request is used. It returns attorney's notification types.
+
+=== Request Example
+include::{snippets}/get-attorney-notifications-types/curl-request.adoc[]
+
+==== Response structure
+include::{snippets}/get-attorney-notifications-types/response-fields.adoc[]
+
+==== Example response
+include::{snippets}/get-attorney-notifications-types/http-response.adoc[]
+
+
+[[resources-get-attorney-notifications]]
+== Getting list of attorney notifications
+A `GET` request is used. It returns a list of all attorney notifications that will be send to clients.
+
+=== Request Example
+include::{snippets}/get-attorney-notifications/curl-request.adoc[]
+
+==== Path structure
+include::{snippets}/get-attorney-notifications/path-parameters.adoc[]
+
+==== Request parameters
+include::{snippets}/get-attorney-notifications/request-parameters.adoc[]
+
+==== Example response
+include::{snippets}/get-attorney-notifications/http-response.adoc[]
+
+==== Response structure
+include::{snippets}/get-attorney-notifications/response-fields.adoc[]
+
+
+[[resources-update-attorney-notifications]]
+== Updating list of attorney notifications
+A `PATCH` request is used. It updates provided notifications only.
+
+=== Request Example
+include::{snippets}/update-attorney-notifications/curl-request.adoc[]
+
+==== Path structure
+include::{snippets}/update-attorney-notifications/path-parameters.adoc[]
+
+==== Request structure
+include::{snippets}/update-attorney-notifications/request-fields.adoc[]
+
+==== Example response
+include::{snippets}/update-attorney-notifications/http-response.adoc[]
+
+==== Response structure
+include::{snippets}/update-attorney-notifications/response-fields.adoc[]
+
+
+[[resources-get-payment-method]]
+== Getting payment method for the user
+A `GET` request is used to get payment method for the user.
+
+=== Example request
+include::{snippets}/get-payment-method/curl-request.adoc[]
+=== Path parameters
+include::{snippets}/get-payment-method/path-parameters.adoc[]
+=== Example response
+include::{snippets}/get-payment-method/http-response.adoc[]
+=== Example empty response/no payment method
+include::{snippets}/get-no-payment-method/http-response.adoc[]
+=== Response structure
+include::{snippets}/get-payment-method/response-fields.adoc[]
+
+[[resources-save-payment-method]]
+== Saving payment method for the user
+A `PUT` request is used to save payment method for the user.
+
+=== Example request
+include::{snippets}/save-payment-method/curl-request.adoc[]
+=== Path parameters
+include::{snippets}/save-payment-method/path-parameters.adoc[]
+=== Request structure
+include::{snippets}/save-payment-method/request-fields.adoc[]
+=== Example response
+include::{snippets}/save-payment-method/http-response.adoc[]
+=== Response structure
+include::{snippets}/save-payment-method/response-fields.adoc[]
+
+[[resources-get-balance]]
+== Getting the user account balance
+A `GET` request is used to get the user account balance.
+
+* Negative one - the user has credit. Everything can be used without any limitations.
+* Zero - everything is paid and user can use the app without any restrictions
+* Positive - the user has non paid transaction, e.g. monthly fee. It should be paid, otherwise user will be limited to use the app
+
+=== Example request
+include::{snippets}/get-balance/curl-request.adoc[]
+=== Path parameters
+include::{snippets}/get-balance/path-parameters.adoc[]
+=== Example response
+include::{snippets}/get-balance/http-response.adoc[]
+=== Response structure
+include::{snippets}/get-balance/response-fields.adoc[]
+
+[[resources-pay-balance]]
+== Paying the user account balance
+A `POST` request is used to get the user account balance. The balance should be positive, otherwise there is nothing to be paid.
+
+=== Example request
+include::{snippets}/pay-balance/curl-request.adoc[]
+=== Path parameters
+include::{snippets}/pay-balance/request-fields.adoc[]
+=== Request structure
+include::{snippets}/pay-balance/path-parameters.adoc[]
+=== Example response
+include::{snippets}/pay-balance/http-response.adoc[]
+
+[[resources-get-account-transactions]]
+== Getting list of the user account transactions
+A `GET` request is used to get a list the user account transaction. Amount value description:
+
+* Negative one - the user paid the balance or got a credit (e.g. article bonus).
+* Positive - the user EasyVisa service fee (e.g. monthly maintenance fee)
+
+=== Example request
+include::{snippets}/get-account-transactions/curl-request.adoc[]
+=== Path parameters
+include::{snippets}/get-account-transactions/path-parameters.adoc[]
+=== Request parameters
+include::{snippets}/get-account-transactions/request-parameters.adoc[]
+=== Example response
+include::{snippets}/get-account-transactions/http-response.adoc[]
+=== Response structure
+include::{snippets}/get-account-transactions/response-fields.adoc[]
+
+[[resources-add-account-transaction]]
+== Adding an account transaction to the user
+A `POSt` request is used to add an account transaction to the user.
+Only adding credits (negative value) is supported currently
+
+=== Example request
+include::{snippets}/add-account-transaction/curl-request.adoc[]
+=== Path parameters
+include::{snippets}/add-account-transaction/path-parameters.adoc[]
+=== Request structure
+include::{snippets}/add-account-transaction/request-fields.adoc[]
+=== Example response
+include::{snippets}/add-account-transaction/http-response.adoc[]
+=== Response structure
+include::{snippets}/add-account-transaction/response-fields.adoc[]
+
+[[resources-verify-attorney]]
+== For verifying attorney user registered.
+The /api/public/verify-attorney is for verifying and unlocking the attorney user registered.
+[[resources-verify-attorney-access]]
+=== Verifying the Attorney account
+A `POST` request is used.
+==== Example request
+include::{snippets}/verify-attorney/curl-request.adoc[]
+==== Request structure
+include::{snippets}/verify-attorney/request-fields.adoc[]
+==== Example response
+include::{snippets}/verify-attorney/http-response.adoc[]
+
+[[resources-referral-discount]]
+== For verifying attorney user registered.
+A `POST` request is used to provided referral and signup discounts
+
+=== Request Example
+include::{snippets}/referral-discount/curl-request.adoc[]
+==== Request structure
+include::{snippets}/referral-discount/request-fields.adoc[]
+==== Example response
+include::{snippets}/referral-discount/http-response.adoc[]
+==== Response structure
+include::{snippets}/referral-discount/response-fields.adoc[]
+
+
+[[resources-validate-attorney]]
+== Validate Attorney by email and EasyVisaId
+For validating a representative is paid and active member by email and EasyvisaId. /api/attorneys/validate
+ endpoint is used with a POST request method.
+=== Example request
+include::{snippets}/validate-attorney/curl-request.adoc[]
+=== Request structure
+include::{snippets}/validate-attorney/request-fields.adoc[]
+=== Response structure
+include::{snippets}/validate-attorney/response-fields.adoc[]
+=== Example response
+include::{snippets}/validate-attorney/http-response.adoc[]
+
+[[resources-check-attorney-isadmin]]
+== Validate if an attorney is an admin in an organization or not.
+For validating a representative is paid and active member by email and EasyvisaId. /api/attorneys/isadmin
+ endpoint is used with a POST request method.
+=== Example request
+include::{snippets}/validate-attorney-isadmin/curl-request.adoc[]
+=== Request structure
+include::{snippets}/validate-attorney-isadmin/request-fields.adoc[]
+=== Response structure
+include::{snippets}/validate-attorney-isadmin/response-fields.adoc[]
+=== Example response
+include::{snippets}/validate-attorney-isadmin/http-response.adoc[]
+
+[[resources-invite-attorney-to-create-organization]]
+== Invite an Attorney to create a new organization
+=== Example request
+include::{snippets}/invite-attorney-to-create-organization/curl-request.adoc[]
+=== Request structure
+include::{snippets}/invite-attorney-to-create-organization/request-fields.adoc[]
+=== Response structure
+include::{snippets}/invite-attorney-to-create-organization/response-fields.adoc[]
+=== Example response
+include::{snippets}/invite-attorney-to-create-organization/http-response.adoc[]
+
+
+
+
+[[resources-update-fee-config]]
+== Adding/Updating fee configuration
+
+A `POST` request is used to access this endpoint.
+Only Users with Role 'ROLE_OWNER' can access this endpoint.
+
+=== Example request
+
+include::{snippets}/fee-setting-update/curl-request.adoc[]
+
+=== Request structure
+
+include::{snippets}/fee-setting-update/request-fields.adoc[]
+
+=== Example response
+
+include::{snippets}/fee-setting-update/http-response.adoc[]
+
+=== Response structure
+
+include::{snippets}/fee-setting-update/response-fields.adoc[]
+
+
+[[resources-gov-fee-update]]
+== Adding/Updating Government fee configuration
+
+A `POST` request is used to access this endpoint.
+Only Users with Role 'ROLE_OWNER' can access this endpoint.
+
+=== Example request
+
+include::{snippets}/gov-fee-update/curl-request.adoc[]
+
+=== Request structure
+
+include::{snippets}/gov-fee-update/request-fields.adoc[]
+
+=== Example response
+
+include::{snippets}/gov-fee-update/http-response.adoc[]
+
+=== Response structure
+
+include::{snippets}/gov-fee-update/response-fields.adoc[]
+
+
+
+[[resources-admin-fee-schedule-update]]
+== Adding/Updating Admin Fee Schedule
+
+A `POST` request is used to access this endpoint.
+Only Users with Role 'ROLE_OWNER' can access this endpoint.
+
+=== Example request
+
+include::{snippets}/admin-fee-schedule-update/curl-request.adoc[]
+
+=== Request structure
+
+include::{snippets}/admin-fee-schedule-update/request-fields.adoc[]
+
+=== Example response
+
+include::{snippets}/admin-fee-schedule-update/http-response.adoc[]
+
+=== Response structure
+
+include::{snippets}/admin-fee-schedule-update/response-fields.adoc[]
+
+
+
+[[resources-get-fee-config]]
+== Getting Fee details
+
+A `GET` request is used to access this endpoint
+
+=== Example request
+
+include::{snippets}/fee-setting-get/curl-request.adoc[]
+
+=== Request structure
+
+There are no additional params
+
+=== Example response
+
+include::{snippets}/fee-setting-get/http-response.adoc[]
+
+This endpoint will throw a 422 error if the fee config is not setup on the backend.
+
+=== Response structure
+
+include::{snippets}/fee-setting-get/response-fields.adoc[]
+
+
+[[resources-gov-fee-get]]
+== Getting Government Fee details
+
+A `GET` request is used to access this endpoint
+
+=== Example request
+
+include::{snippets}/gov-fee-get/curl-request.adoc[]
+
+=== Request structure
+
+There are no additional params
+
+=== Example response
+
+include::{snippets}/gov-fee-get/http-response.adoc[]
+
+This endpoint will throw a 422 error if the fee config is not setup on the backend.
+
+=== Response structure
+
+include::{snippets}/gov-fee-get/response-fields.adoc[]
+
+
+[[resources-get-admin-fee-schedule]]
+== Getting Admin Fee Schedule details
+
+A `GET` request is used to access this endpoint
+
+=== Example request
+
+include::{snippets}/get-admin-fee-schedule/curl-request.adoc[]
+
+=== Request structure
+
+There are no additional params
+
+=== Example response
+
+include::{snippets}/get-admin-fee-schedule/http-response.adoc[]
+
+This endpoint will throw a 422 error if the fee config is not setup on the backend.
+
+=== Response structure
+
+include::{snippets}/get-admin-fee-schedule/response-fields.adoc[]
+
+
+[[resources-get-alerts]]
+== Get User alerts
+
+A `GET` request is used to access this endpoint. This returns only the alerts for the current user
+
+=== Example request
+
+include::{snippets}/get-user-alerts/curl-request.adoc[]
+
+=== Request structure
+
+There are no additional params
+
+=== Example response
+
+include::{snippets}/get-user-alerts/http-response.adoc[]
+
+
+[[resources-alert-details]]
+== Get Details of An Alert
+
+A `GET` request is used to access this endpoint.
+
+=== Example request
+
+include::{snippets}/alert-details/curl-request.adoc[]
+
+=== Request structure
+There are no additional params
+
+=== Response structure
+include::{snippets}/alert-details/response-fields.adoc[]
+
+=== Example response
+
+include::{snippets}/alert-details/http-response.adoc[]
+
+
+[[resources-alert-read]]
+== Mark an alert as Read
+
+A `PUT` request is used to access this endpoint.
+
+=== Example request
+
+include::{snippets}/read-alert/curl-request.adoc[]
+
+=== Request structure
+include::{snippets}/read-alert/request-fields.adoc[]
+
+
+=== Response structure
+include::{snippets}/read-alert/response-fields.adoc[]
+
+=== Example response
+
+include::{snippets}/read-alert/http-response.adoc[]
+
+[[resources-alert-star]]
+== Mark an alert as Starred
+
+A `PUT` request is used to access this endpoint.
+
+=== Example request
+
+include::{snippets}/starred-alert/curl-request.adoc[]
+
+=== Request structure
+include::{snippets}/starred-alert/request-fields.adoc[]
+
+
+=== Response structure
+include::{snippets}/starred-alert/response-fields.adoc[]
+
+=== Example response
+
+include::{snippets}/starred-alert/http-response.adoc[]
+
+
+[[resources-alert-delete]]
+== Delete Multiple Alerts
+
+A `DELETE` request is used to access this endpoint.
+
+=== Example request
+
+include::{snippets}/delete-alerts/curl-request.adoc[]
+
+=== Request structure
+include::{snippets}/delete-alerts/request-parameters.adoc[]
+
+=== Response structure
+include::{snippets}/delete-alerts/response-fields.adoc[]
+=== Example response
+include::{snippets}/delete-alerts/http-response.adoc[]
+
+
+[[resources-alert-count]]
+== Count read/unread Alerts, Warnings and Dispositions
+A `GET` request is used to access this endpoint.
+=== Request structure
+No extra parameters are required.
+=== Response structure
+include::{snippets}/unread-counts/response-fields.adoc[]
+=== Example request
+include::{snippets}/unread-counts/curl-request.adoc[]
+=== Example response
+include::{snippets}/unread-counts/http-response.adoc[]
+
+[[resources-warning-read]]
+== Mark a warning as Read
+
+A `PUT` request is used to access this endpoint.
+
+=== Example request
+
+include::{snippets}/read-warning/curl-request.adoc[]
+
+=== Request structure
+include::{snippets}/read-warning/request-fields.adoc[]
+
+
+=== Response structure
+include::{snippets}/read-warning/response-fields.adoc[]
+
+=== Example response
+
+include::{snippets}/read-warning/http-response.adoc[]
+
+[[resources-warning-star]]
+== Mark a warning as Starred
+
+A `PUT` request is used to access this endpoint.
+
+=== Example request
+
+include::{snippets}/star-warning/curl-request.adoc[]
+
+=== Request structure
+include::{snippets}/star-warning/request-fields.adoc[]
+
+
+=== Response structure
+include::{snippets}/star-warning/response-fields.adoc[]
+
+=== Example response
+
+include::{snippets}/star-warning/http-response.adoc[]
+
+[[resources-warning-delete]]
+== Delete Multiple Warnings
+
+A `DELETE` request is used to access this endpoint.
+
+=== Example request
+
+include::{snippets}/delete-warnings/curl-request.adoc[]
+
+=== Request structure
+include::{snippets}/delete-warnings/request-parameters.adoc[]
+
+=== Response structure
+include::{snippets}/delete-warnings/response-fields.adoc[]
+
+=== Example response
+include::{snippets}/delete-warnings/http-response.adoc[]
+
+
+[[resources-get-warnings]]
+== Get User Warnings
+
+A `GET` request is used to access this endpoint. This returns only the warnings for the current user
+
+=== Example request
+
+include::{snippets}/get-user-warnings/curl-request.adoc[]
+
+=== Request structure
+
+include::{snippets}/get-user-warnings/request-parameters.adoc[]
+
+=== Example response
+
+include::{snippets}/get-user-warnings/http-response.adoc[]
+
+[[resources-reply-alerts]]
+== Reply Alerts to either ACCEPT or DENY a user alert.
+
+A `PUT` request is used to access this endpoint.
+
+=== Example request
+
+include::{snippets}/reply-user-alerts/curl-request.adoc[]
+
+=== Request structure
+
+include::{snippets}/reply-user-alerts/request-fields.adoc[]
+
+=== Example response
+
+include::{snippets}/reply-user-alerts/http-response.adoc[]
+
+
+[[resources-fetch-questionnaire]]
+== Fetch Questionnaire
+
+A `POST` request is used.
+url = /api/questionnaire/questions
+
+
+=== Example request
+
+include::{snippets}/fetch-questionnaire/curl-request.adoc[]
+
+=== Request structure
+
+include::{snippets}/fetch-questionnaire/request-fields.adoc[]
+
+=== Example response
+
+include::{snippets}/fetch-questionnaire/http-response.adoc[]
+
+
+
+[[resources-fetch-questionnaire-answers]]
+== Fetch Answers
+
+`GET` request to load all answers of a section (by package and applicant)
+url = /api/questionnaire/packages/${packageId}/applicants/${applicantId}/sections/${sectionId}
+
+
+=== Example request
+
+include::{snippets}/fetch-questionnaire-answers/curl-request.adoc[]
+
+=== Example response
+
+include::{snippets}/fetch-questionnaire-answers/http-response.adoc[]
+
+[[resources-generate-form]]
+== Generating PDF for a form or a continuations sheet(s)
+
+`GET` request to get generated pdf from for a form or a continuation sheet(s).
+Returns a pdf file or a zip file if multiple continuation sheets generated
+
+=== Example request
+
+include::{snippets}/generate-form-pdf/curl-request.adoc[]
+
+=== Request structure for a form generation
+
+include::{snippets}/generate-form-pdf/request-parameters.adoc[]
+
+=== Request structure for a continuation sheet(s) generation
+
+include::{snippets}/generate-continuations-sheet-pdf/request-parameters.adoc[]
+
+
+[[resources-fetch-package-sections]]
+== Fetch Sections By Package
+
+`GET` request to load sections (grouped by benefitCategory)
+url = /api/package/${packageId}/sections
+
+=== Example request
+
+include::{snippets}/fetch-package-sections/curl-request.adoc[]
+
+=== Example response
+
+include::{snippets}/fetch-package-sections/http-response.adoc[]
+
+
+[[resources-get-package-progress]]
+== Get package answer progress
+
+`GET` request to get answer progress for all applicants
+
+=== Example request
+
+include::{snippets}/get-package-progress/curl-request.adoc[]
+
+=== Path parameters
+
+include::{snippets}/get-package-progress/path-parameters.adoc[]
+
+=== Example response
+
+include::{snippets}/get-package-progress/http-response.adoc[]
+
+=== Response structure
+
+include::{snippets}/get-package-progress/response-fields.adoc[]
+
+
+[[resources-save-answer]]
+== Save Answer Field
+
+`POST` request to save a single answer field
+
+=== Example request
+
+include::{snippets}/save-answer/curl-request.adoc[]
+
+=== Request structure
+
+include::{snippets}/save-answer/request-fields.adoc[]
+
+=== Example response
+
+include::{snippets}/save-answer/http-response.adoc[]
+
+
+
+[[resources-create-repeating-group-instance]]
+==  Create Repeating Group Instance
+
+`POST` request to Add a Group of fields with default answers
+
+=== Example request
+
+include::{snippets}/create-repeating-group-instance/curl-request.adoc[]
+
+=== Request structure
+
+include::{snippets}/create-repeating-group-instance/request-fields.adoc[]
+
+=== Example response
+
+include::{snippets}/create-repeating-group-instance/http-response.adoc[]
+
+
+
+[[resources-remove-repeating-group-instance]]
+== Remove Repeating Group Instance
+
+`POST` request to remove a Group of fields
+
+=== Example request
+
+include::{snippets}/remove-repeating-group-instance/curl-request.adoc[]
+
+=== Request structure
+
+include::{snippets}/remove-repeating-group-instance/request-fields.adoc[]
+
+=== Example response
+
+include::{snippets}/remove-repeating-group-instance/http-response.adoc[]
+
+
+[[resources-get-benefit-categories]]
+== Get benefit groups and categories
+
+A `GET` request is used to create a package. It accessible to Employee and Attorney roles.
+
+=== Request Example
+
+include::{snippets}/get-benefit-categories/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/get-benefit-categories/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/get-benefit-categories/response-fields.adoc[]
+
+
+[[resources-create-package]]
+== Create a package
+
+A `POST` request is used to create a package.
+
+=== Request Example
+
+include::{snippets}/create-package/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/create-package/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/create-package/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/create-package/response-fields.adoc[]
+
+
+[[resources-search-package]]
+== Search for packages of an applicant
+
+A `GET` request is used to search for the packages of the applicant.
+
+=== Request Example
+
+include::{snippets}/find-packages/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/find-packages/request-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/find-packages/http-response.adoc[]
+
+==== Response structure
+
+List of Packages
+
+[[resources-get-package]]
+== Get a Package by Id
+
+A `GET` request is used to get a package by its id.
+
+=== Request Example
+
+include::{snippets}/get-package/curl-request.adoc[]
+
+==== Path parameters
+
+include::{snippets}/get-package/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/get-package/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/get-package/response-fields.adoc[]
+
+
+[[resources-edit-package]]
+== Edit a Package
+
+A `PUT` request is used to edit a package.
+
+=== Request Example
+include::{snippets}/edit-package/curl-request.adoc[]
+
+==== Path parameters
+include::{snippets}/edit-package/path-parameters.adoc[]
+
+==== Request Fields
+include::{snippets}/edit-package/request-fields.adoc[]
+
+==== Example response
+include::{snippets}/edit-package/http-response.adoc[]
+
+==== Response structure
+include::{snippets}/edit-package/response-fields.adoc[]
+
+[[resources-change-package-status]]
+== Change status of a Package
+
+A `POST` request is used to change status of a Package.
+
+=== Request Example
+include::{snippets}/change-package-status/curl-request.adoc[]
+
+==== Path parameters
+include::{snippets}/change-package-status/path-parameters.adoc[]
+
+==== Request Fields
+include::{snippets}/change-package-status/request-fields.adoc[]
+
+==== Example response
+include::{snippets}/change-package-status/http-response.adoc[]
+
+==== Response structure
+include::{snippets}/change-package-status/response-fields.adoc[]
+
+
+[[resources-search-applicant]]
+== Search for an applicant by email
+
+A `GET` request is used to search for applicants that have registered user account. Response may be one of the following HTTP status -
+
+* 200 response with an applicant in response body
+* 404 When no use found with the given email id
+* 422 Validation issue, like invalid email or required parameter is missed
+* 423 When a user is found but it is not an applicant.
+
+=== Request Example
+
+include::{snippets}/find-applicant/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/find-applicant/request-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/find-applicant/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/find-applicant/response-fields.adoc[]
+
+
+[[resources-package-transfer-by-applicant]]
+== Initiates package transfer request by an Applicant
+
+A `POST` request is used to call this endpoint.
+Requested package should be in non Blocked status and an Applicant should be a client (petitioner or beneficiary in no petitioner package)
+
+=== Request Example
+
+include::{snippets}/package-transfer-by-applicant/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/package-transfer-by-applicant/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/package-transfer-by-applicant/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/package-transfer-by-applicant/response-fields.adoc[]
+
+
+////
+[[resources-delete-applicant-data]]
+== Deletes non registered applicant data
+
+A `DELETE` request is used to delete an applicant data, that not registered
+
+=== Request Example
+
+include::{snippets}/delete-applicant-data/curl-request.adoc[]
+
+==== Path parameters
+
+include::{snippets}/delete-applicant-data/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/delete-applicant-data/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/delete-applicant-data/response-fields.adoc[]
+////
+
+[[resources-send-package-welcome-email]]
+== Send Package welcome email
+
+A `POST` request is used to send a package-welcome email.
+
+=== Request Example
+
+include::{snippets}/send-package-welcome-email/curl-request.adoc[]
+
+==== Path parameters
+
+include::{snippets}/send-package-welcome-email/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/send-package-welcome-email/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/send-package-welcome-email/response-fields.adoc[]
+
+[[resources-send-package-applicant-invite-email]]
+== Send package applicant invite
+
+A `POST` request is used to send a package invite to an applicant. If the request body contains an applicantId, then
+email is sent to that applicant only, otherwise email is sent to all applicants and petitioner.
+
+=== Request Example
+
+include::{snippets}/send-package-applicant-invite-email/curl-request.adoc[]
+
+==== Path parameters
+
+include::{snippets}/send-package-applicant-invite-email/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/send-package-applicant-invite-email/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/send-package-applicant-invite-email/response-fields.adoc[]
+
+[[resources-upload-package-retainer]]
+== Add a Package retainer agreement to a package
+
+A `POST` request is used to upload a reatiner agreement.
+
+=== URL for Endpoint is
+
+`/api/packages/:id/retainer`
+
+=== Request Fields
+
+API expects a file called `retainerFile` which contains the retainer file.
+
+=== Response Structure
+
+Successful response is HTTP 201 with JSON response. The response will contain information about the file.
+
+[[resources-delete-package-retainer]]
+== Remove Package retainer agreement from a package
+
+A `DELETE` request is used to delete a reatiner agreement.
+
+=== URL for Endpoint is
+
+`/api/packages/:id/retainer`
+
+=== Request Structure
+include::{snippets}/delete-package-retainer-agreement/path-parameters.adoc[]
+
+=== Response Structure
+include::{snippets}/delete-package-retainer-agreement/response-fields.adoc[]
+
+=== Example Response
+include::{snippets}/delete-package-retainer-agreement/http-response.adoc[]
+
+=== Example Request
+include::{snippets}/delete-package-retainer-agreement/curl-request.adoc[]
+
+
+[[resources-delete-package-leads]]
+== Deletes Packages with LEAD status
+A `DELETE` request is used to access this endpoint.
+
+=== URL for Endpoint is
+
+`/api/packages`
+
+=== Request Fields
+include::{snippets}/delete-package-leads/request-parameters.adoc[]
+=== Response Structure
+include::{snippets}/delete-package-leads/response-fields.adoc[]
+=== Example Request
+include::{snippets}/delete-package-leads/curl-request.adoc[]
+=== Example Response
+include::{snippets}/delete-package-leads/http-response.adoc[]
+
+[[resources-package-transfer-same-organization]]
+== Transfer Packages to other representative
+
+A `POST` request is used to access this endpoint.
+
+=== URL for Endpoint is
+
+/api/packages/transfer
+
+=== Request Fields
+include::{snippets}/package-transfer-same-organization/request-fields.adoc[]
+=== Response Structure
+include::{snippets}/package-transfer-same-organization/response-fields.adoc[]
+=== Example Request
+include::{snippets}/package-transfer-same-organization/curl-request.adoc[]
+=== Example Response
+include::{snippets}/package-transfer-same-organization/http-response.adoc[]
+
+
+[[resources-get-email-template]]
+== Get email-template content by email template type
+
+A `GET` request is used to access this endpoint
+
+=== Example request
+
+include::{snippets}/get-email-template/curl-request.adoc[]
+
+=== Request Parameters
+
+include::{snippets}/get-email-template/request-parameters.adoc[]
+
+=== Example response
+
+include::{snippets}/get-email-template/http-response.adoc[]
+
+==== Response structure
+List of Email templates
+
+[[resources-get-email-templates]]
+== Get email-template content for mutitple Email template types.
+
+A `GET` request is used to access this endpoint
+
+=== Example request
+
+include::{snippets}/get-email-templates/curl-request.adoc[]
+
+=== Request Parameters
+
+include::{snippets}/get-email-templates/request-parameters.adoc[]
+
+=== Example response
+
+include::{snippets}/get-email-templates/http-response.adoc[]
+
+==== Response structure
+
+Key value pair for every template content based on template type.
+
+
+[[resources-preview-email-templates]]
+== Preview is used to preveiw an unsaved email.
+
+This endpoint is used to preview some text content as email without actually creating a new email,
+ based on the template type of the content. A `POST` request is used to access this endpoint
+
+=== Example request
+
+include::{snippets}/preview-email-template/curl-request.adoc[]
+
+=== Request Parameters
+
+include::{snippets}/preview-email-template/request-fields.adoc[]
+
+=== Example response
+
+include::{snippets}/preview-email-template/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/preview-email-template/response-fields.adoc[]
+
+
+[[resources-create-email]]
+== Create a new email
+
+A `POST` request is used to access this endpoint
+
+=== Example request
+
+include::{snippets}/create-email/curl-request.adoc[]
+
+=== Request Strurcture
+
+include::{snippets}/create-email/request-fields.adoc[]
+
+=== Example response
+
+include::{snippets}/create-email/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/create-email/response-fields.adoc[]
+
+
+[[resources-get-email]]
+== Get an email by id
+
+A `GET` request is used to access this endpoint
+
+=== Example request
+include::{snippets}/get-email/curl-request.adoc[]
+
+=== Path Parameter
+include::{snippets}/get-email/path-parameters.adoc[]
+
+=== Example response
+include::{snippets}/get-email/http-response.adoc[]
+
+==== Response structure
+include::{snippets}/get-email/response-fields.adoc[]
+
+
+
+[[resources-find-email]]
+== find an email by templateType and (packageId or representativeId)
+
+A `GET` request is used to access this endpoint
+
+=== Example request
+
+include::{snippets}/find-email/curl-request.adoc[]
+
+=== Request Parameters
+
+include::{snippets}/find-email/request-parameters.adoc[]
+
+=== Example response
+
+include::{snippets}/find-email/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/find-email/response-fields.adoc[]
+
+
+[[resources-update-email]]
+== update an email by id
+
+A `PUT` request is used to access this endpoint
+
+=== Example request
+
+include::{snippets}/update-email/curl-request.adoc[]
+
+=== Request Structure
+
+include::{snippets}/update-email/request-fields.adoc[]
+
+=== Example response
+
+include::{snippets}/update-email/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/update-email/response-fields.adoc[]
+
+
+[[resources-update-email-template]]
+== update an email-template
+A `PUT` request is used to access this endpoint
+=== Example request
+include::{snippets}/update-email-template/curl-request.adoc[]
+=== Request Structure
+include::{snippets}/update-email-template/request-fields.adoc[]
+=== Example response
+include::{snippets}/update-email-template/http-response.adoc[]
+==== Response structure
+include::{snippets}/update-email-template/response-fields.adoc[]
+
+
+[[resources-preview-email]]
+== Preview email content
+A `GET` request is used to access this endpoint
+=== Example request
+include::{snippets}/preview-email/curl-request.adoc[]
+=== Path parameters
+include::{snippets}/preview-email/path-parameters.adoc[]
+=== Example response
+include::{snippets}/preview-email/http-response.adoc[]
+==== Response structure
+include::{snippets}/preview-email/response-fields.adoc[]
+
+
+[[resources-get-organization]]
+== Get Organization
+A `GET` request is used to access this endpoint
+=== Example request
+include::{snippets}/get-organization/curl-request.adoc[]
+=== Path parameters
+include::{snippets}/get-organization/path-parameters.adoc[]
+=== Example response
+include::{snippets}/get-organization/http-response.adoc[]
+=== Response structure
+include::{snippets}/get-organization/response-fields.adoc[]
+
+[[resources-update-organization]]
+== Update an Organization
+A `PUT` request is used to access this endpoint
+=== Example request
+include::{snippets}/edit-organization/curl-request.adoc[]
+=== Path parameters
+include::{snippets}/edit-organization/path-parameters.adoc[]
+=== Example response
+include::{snippets}/edit-organization/http-response.adoc[]
+=== Response structure
+include::{snippets}/edit-organization/response-fields.adoc[]
+
+[[resources-upload-organization-profile-picture]]
+== Upload profile picture for the organization
+
+=== URL for Endpoint is
+
+`/api/organizations/:id/profile-picture`
+
+=== Request Fields
+
+API expects a file called `profilePhoto` which contains the file.
+
+=== Response Structure
+
+Successful response is HTTP 200 with JSON response. The response will contain a key *url* which returns the URL for the profile picture.
+
+
+////
+[[resources-organization-employees]]
+== Get Organization Employee
+A `GET` request is used to access this endpoint
+=== Example request
+include::{snippets}/get-organization-employees/curl-request.adoc[]
+=== Path parameters
+include::{snippets}/get-organization-employees/path-parameters.adoc[]
+=== Example response
+include::{snippets}/get-organization-employees/http-response.adoc[]
+==== Response structure
+List of Employees in the organization
+////
+
+[[resources-create-employee]]
+== Create and invite a new employee
+A `POST` request is used to access this endpoint
+
+=== Example request
+include::{snippets}/create-employee/curl-request.adoc[]
+=== Path Parameter
+include::{snippets}/create-employee/path-parameters.adoc[]
+=== Request Strurcture
+include::{snippets}/create-employee/request-fields.adoc[]
+=== Example response
+include::{snippets}/create-employee/http-response.adoc[]
+
+[[resources-update-employee]]
+== Update an employee
+A `PUT` request is used to access this endpoint
+
+=== Example request
+include::{snippets}/update-employee/curl-request.adoc[]
+=== Path Parameter
+include::{snippets}/update-employee/path-parameters.adoc[]
+=== Request Strurcture
+include::{snippets}/update-employee/request-fields.adoc[]
+=== Example response
+include::{snippets}/update-employee/http-response.adoc[]
+
+[[resources-show-employee]]
+== Get an Employee
+A `GET` request is used to access this endpoint
+
+=== Example request
+include::{snippets}/show-employee/curl-request.adoc[]
+=== Path Parameter
+include::{snippets}/show-employee/path-parameters.adoc[]
+=== Example response
+include::{snippets}/show-employee/http-response.adoc[]
+
+
+[[resources-convert-employee-to-attorney]]
+== Registers Employee as an Attorney
+A `POST` request is used to access this endpoint. These changes will be applied to current user only
+
+=== Example request
+include::{snippets}/convert-employee-to-attorney/curl-request.adoc[]
+=== Request Structure
+include::{snippets}/convert-employee-to-attorney/request-fields.adoc[]
+=== Example response
+include::{snippets}/convert-employee-to-attorney/http-response.adoc[]
+
+
+[[resources-organization-representatives]]
+== Get Organization Representatives (Attorneys and Partners)
+A `GET` request is used to access this endpoint
+
+=== Example request
+include::{snippets}/get-organization-representatives/curl-request.adoc[]
+=== Path parameters
+include::{snippets}/get-organization-representatives/path-parameters.adoc[]
+=== Request Parameters
+include::{snippets}/get-organization-representatives/request-parameters.adoc[]
+=== Example response
+include::{snippets}/get-organization-representatives/http-response.adoc[]
+==== Response structure
+List of Representatives in the organization
+
+
+[[resources-join-organization-request]]
+== Send a request to join an organization
+=== Example request
+include::{snippets}/join-organization-request/curl-request.adoc[]
+=== Request structure
+include::{snippets}/join-organization-request/path-parameters.adoc[]
+=== Example response
+include::{snippets}/join-organization-request/http-response.adoc[]
+
+
+[[resources-withdraw-join-organization-request]]
+== Withdraws a request to join an Organization
+=== Example request
+include::{snippets}/withdraw-request-to-join-organization/curl-request.adoc[]
+=== Request structure
+include::{snippets}/withdraw-request-to-join-organization/path-parameters.adoc[]
+=== Example response
+include::{snippets}/withdraw-request-to-join-organization/http-response.adoc[]
+
+[[resources-join-organization-invite]]
+== Invite a member to join an organization
+=== Example request
+include::{snippets}/join-organization-invite/curl-request.adoc[]
+=== Request structure
+include::{snippets}/join-organization-invite/path-parameters.adoc[]
+=== Example response
+include::{snippets}/join-organization-invite/http-response.adoc[]
+
+
+[[resources-leave-organization]]
+== Leave an organization
+=== Example request
+include::{snippets}/leave-organization/curl-request.adoc[]
+=== Request structure
+include::{snippets}/leave-organization/path-parameters.adoc[]
+=== Example response
+include::{snippets}/leave-organization/http-response.adoc[]
+
+[[resources-create-review]]
+== Create a new Review
+A `POST` request is used to access this endpoint
+
+=== Example request
+include::{snippets}/create-review/curl-request.adoc[]
+=== Request Structure
+include::{snippets}/create-review/request-fields.adoc[]
+=== Example response
+include::{snippets}/create-review/http-response.adoc[]
+
+[[resources-get-package-attorney-review]]
+== Get review of a representative for a package
+A `GET` request is used to access this endpoint
+
+=== Example request
+include::{snippets}/get-package-attorney-review/curl-request.adoc[]
+=== Request Structure
+include::{snippets}/get-package-attorney-review/path-parameters.adoc[]
+=== Example response
+include::{snippets}/get-package-attorney-review/http-response.adoc[]
+
+[[resources-update-read-reply-review]]
+== Update Read and Reply to the Review
+A `PATCH` request is used to access this endpoint
+
+=== Example request
+include::{snippets}/update-read-reply-review/curl-request.adoc[]
+=== Path Parameter
+include::{snippets}/update-read-reply-review/path-parameters.adoc[]
+=== Request Structure
+include::{snippets}/update-read-reply-review/request-fields.adoc[]
+=== Example response
+include::{snippets}/update-read-reply-review/http-response.adoc[]
+
+[[resources-list-of-reviews]]
+== Getting a list of Reviews
+A `GET` request is used to access this endpoint
+
+=== Example request
+include::{snippets}/list-of-reviews/curl-request.adoc[]
+=== Request Parameters
+include::{snippets}/list-of-reviews/request-parameters.adoc[]
+=== Example response
+include::{snippets}/list-of-reviews/http-response.adoc[]
+
+
+[[resources-attorney-public-reviews]]
+== Getting a list of Attorney Reviews for public usage
+A `GET` request is used to access this endpoint
+
+=== Example request
+include::{snippets}/attorney-public-reviews/curl-request.adoc[]
+=== Path Parameters
+include::{snippets}/attorney-public-reviews/path-parameters.adoc[]
+=== Request Parameters
+include::{snippets}/attorney-public-reviews/request-parameters.adoc[]
+=== Example response
+include::{snippets}/attorney-public-reviews/http-response.adoc[]
+=== Response Parameters
+include::{snippets}/attorney-public-reviews/response-fields.adoc[]
+
+
+[[resources-create-article]]
+== Create a new Article
+A `POST` request is used to access this endpoint
+
+=== Example request
+include::{snippets}/create-user-article/curl-request.adoc[]
+=== Request Structure
+include::{snippets}/create-user-article/request-fields.adoc[]
+=== Example response
+include::{snippets}/create-user-article/http-response.adoc[]
+
+[[resources-get-attorneys-articles]]
+== Getting articles of a representative
+A `GET` request is used to access this endpoint
+
+=== Example request
+include::{snippets}/get-attorney-articles/curl-request.adoc[]
+=== Path Parameter
+include::{snippets}/get-attorney-articles/request-parameters.adoc[]
+=== Example response
+include::{snippets}/get-attorney-articles/http-response.adoc[]
+
+[[resources-get-a-review]]
+== Get a Review
+A `GET` request is used to access this endpoint
+
+=== Example request
+include::{snippets}/get-a-review/curl-request.adoc[]
+=== Request Structure
+include::{snippets}/get-a-review/path-parameters.adoc[]
+=== Example response
+include::{snippets}/get-a-review/http-response.adoc[]
+
+[[resources-update-a-review]]
+== Update a Review
+A `PUT` request is used to access this endpoint
+
+=== Example request
+include::{snippets}/update-a-review/curl-request.adoc[]
+=== Path Parameter
+include::{snippets}/update-a-review/path-parameters.adoc[]
+=== Request Structure
+include::{snippets}/update-a-review/request-fields.adoc[]
+=== Example response
+include::{snippets}/update-a-review/http-response.adoc[]
+
+[[resources-organization-employee-permissions]]
+== Get Organization Employee Detail
+A `GET` request is used to access this endpoint
+
+=== Example request
+include::{snippets}/organization-employee-permissions/curl-request.adoc[]
+=== Request Parameters
+include::{snippets}/organization-employee-permissions/request-parameters.adoc[]
+=== Example response
+include::{snippets}/organization-employee-permissions/http-response.adoc[]
+
+
+[[invite-attorney-to-create-new-legal-practice]]
+== Invite an Attorney to create new Legal practice
+A `PUT` request is used to access this endpoint
+
+=== Path Parameters
+include::{snippets}/invite-attorney-to-create-new-legal-practice/path-parameters.adoc[]
+=== Response Structure
+include::{snippets}/invite-attorney-to-create-new-legal-practice/response-fields.adoc[]
+=== Example request
+include::{snippets}/invite-attorney-to-create-new-legal-practice/curl-request.adoc[]
+=== Example response
+include::{snippets}/invite-attorney-to-create-new-legal-practice/http-response.adoc[]
+
+
+[[withdraw-invite-to-create-new-legal-practice]]
+== Withdraw an invite sent to create new Legal practice
+A `DELETE` request is used to access this endpoint
+
+=== Request Parameters
+No extra parameters are required for this request
+=== Response Structure
+include::{snippets}/invite-attorney-to-create-new-legal-practice/response-fields.adoc[]
+=== Example request
+include::{snippets}/invite-attorney-to-create-new-legal-practice/curl-request.adoc[]
+=== Example response
+include::{snippets}/invite-attorney-to-create-new-legal-practice/http-response.adoc[]
+
+
+[[resources-search-attorney-config]]
+=== Getting search config for Attorneys
+
+A `GET` request is used to access this resource.
+Endpoint is - /api/public/marketing-config
+
+==== Example request
+
+include::{snippets}/search-attorney-config/curl-request.adoc[]
+
+==== Response structure
+
+include::{snippets}/search-attorney-config/response-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/search-attorney-config/http-response.adoc[]
+
+[[resources-search-attorney]]
+=== Search Attorneys
+
+A `GET` request is used to access this resource.
+Endpoint is - /api/public/attorneys/search. It returns a list of Attorneys
+
+==== Example request
+
+include::{snippets}/search-representatives/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/search-representatives/request-parameters.adoc[]
+
+==== Response structure
+
+include::{snippets}/search-representatives/response-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/search-representatives/http-response.adoc[]
+
+
+[[resources-get-attorney-contact-info]]
+=== Get Attorney Contact Info
+
+A `GET` request is used to access this resource.
+Endpoint is - /api/public/attorneys/:id/contact-info.
+
+==== Example request
+
+include::{snippets}/get-representative-contact-info/curl-request.adoc[]
+
+==== Response structure
+
+include::{snippets}/get-representative-contact-info/response-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/get-representative-contact-info/http-response.adoc[]
+
+[[resources-get-attorney-profile-info]]
+=== Get Attorney Profile Info
+
+A `GET` request is used to access this resource.
+Endpoint is - /api/public/attorneys/:id
+
+==== Example request
+
+include::{snippets}/get-representative-profile-info/curl-request.adoc[]
+
+==== Response structure
+
+include::{snippets}/get-representative-profile-info/response-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/get-representative-profile-info/http-response.adoc[]
+
+
+[[resources-get-attorney-ratings]]
+=== Get Attorney Detailed ratings
+
+A `GET` request is used to access this resource.
+Endpoint is - /api/public/attorneys/:id/ratings.
+
+==== Example request
+
+include::{snippets}/get-representative-ratings-info/curl-request.adoc[]
+
+==== Response structure
+
+include::{snippets}/get-representative-ratings-info/response-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/get-representative-ratings-info/http-response.adoc[]
+
+
+[[resources-organization-list]]
+=== Get Organization List
+
+A `GET` request is used to access this resource.
+Endpoint is - /api/organizations.
+
+==== Example request
+include::{snippets}/organization-list/curl-request.adoc[]
+
+=== Request Parameters
+include::{snippets}/organization-list/request-parameters.adoc[]
+
+==== Example response
+include::{snippets}/organization-list/http-response.adoc[]
+
+[[withdraw-invitation-to-join-organization]]
+== Withdraw Invitation To Join Organization
+A `DELETE` request is used to access this endpoint
+
+=== Example request
+include::{snippets}/withdraw-invitation-to-join-organization/curl-request.adoc[]
+=== Path Parameter
+include::{snippets}/withdraw-invitation-to-join-organization/path-parameters.adoc[]
+=== Example response
+include::{snippets}/withdraw-invitation-to-join-organization/http-response.adoc[]
+
+[[get-fee-schedule]]
+== Get Fee Schedule
+A `GET` request is used to access this endpoint
+
+=== Example request
+include::{snippets}/get-fee-schedule/curl-request.adoc[]
+
+=== Path Parameter
+include::{snippets}/get-fee-schedule/path-parameters.adoc[]
+
+=== Example response
+include::{snippets}/get-fee-schedule/http-response.adoc[]
+
+[[get-marketing-data]]
+== Get Attorney's Marketing Info
+A `GET` request is used to access this endpoint
+
+=== Example request
+include::{snippets}/get-marketing-data/curl-request.adoc[]
+
+=== Path Parameter
+include::{snippets}/get-marketing-data/path-parameters.adoc[]
+
+=== Request Parameter
+include::{snippets}/get-marketing-data/request-parameters.adoc[]
+
+=== Example response
+include::{snippets}/get-marketing-data/http-response.adoc[]
+
+=== Response structure
+include::{snippets}/get-marketing-data/response-fields.adoc[]
+
+[[get-attorney-financial-data]]
+== Get Attorney's financial dashboard data
+A `GET` request is used to access this endpoint
+
+=== Example request
+include::{snippets}/get-attorney-financial-data/curl-request.adoc[]
+
+=== Path Parameter
+include::{snippets}/get-attorney-financial-data/path-parameters.adoc[]
+
+=== Request Parameter
+include::{snippets}/get-attorney-financial-data/request-parameters.adoc[]
+
+=== Example response
+include::{snippets}/get-attorney-financial-data/http-response.adoc[]
+
+=== Response structure
+include::{snippets}/get-attorney-financial-data/response-fields.adoc[]
+
+
+[[resources-send-bill]]
+== Send Bill
+
+A `POST` request is used to send bill
+
+=== Request Example
+include::{snippets}/send-bill/curl-request.adoc[]
+
+==== Path parameters
+include::{snippets}/send-bill/path-parameters.adoc[]
+
+==== Request Fields
+include::{snippets}/send-bill/request-fields.adoc[]
+
+==== Example response
+include::{snippets}/send-bill/http-response.adoc[]
+
+
+[[resources-register-redir]]
+== Register Redirect
+
+A `GET` request is used to access this endpoint
+
+=== Request Example
+include::{snippets}/register-redir/curl-request.adoc[]
+
+==== Path parameters
+include::{snippets}/register-redir/path-parameters.adoc[]
+
+==== Example response
+include::{snippets}/register-redir/http-response.adoc[]
+
+
+[[resources-get-estimated-taxes]]
+== Get estimated taxes
+
+A `GET` request is used to access this endpoint.
+It gets EV fees based on type value.
+Goes to Avalara for getting estimated taxes.
+
+=== Request Example
+include::{snippets}/get-estimated-taxes/curl-request.adoc[]
+
+==== Request Fields
+include::{snippets}/get-estimated-taxes/request-fields.adoc[]
+
+==== Example response
+include::{snippets}/get-estimated-taxes/http-response.adoc[]
+
+
+
+[[resources-get-document-portal-progress]]
+== Get package document upload progress
+
+`GET` request to get document upload progress for all document panels
+
+=== Example request
+
+include::{snippets}/get-document-portal-progress/curl-request.adoc[]
+
+=== Path parameters
+
+include::{snippets}/get-document-portal-progress/path-parameters.adoc[]
+
+=== Example response
+
+include::{snippets}/get-document-portal-progress/http-response.adoc[]
+
+=== Response structure
+
+include::{snippets}/get-document-portal-progress/response-fields.adoc[]
+
+
+
+
+[[resources-get-package-required-documents]]
+== Get package required documents
+
+`GET` request to get required documents for all applicants in a package
+
+=== Example request
+
+include::{snippets}/get-package-required-documents/curl-request.adoc[]
+
+=== Path parameters
+
+include::{snippets}/get-package-required-documents/path-parameters.adoc[]
+
+=== Example response
+
+include::{snippets}/get-package-required-documents/http-response.adoc[]
+
+=== Response structure
+
+include::{snippets}/get-package-required-documents/response-fields.adoc[]
+
+
+
+[[resources-get-package-sentdocuments]]
+== Get package sent documents
+
+`GET` request to get sent documents for all applicants (Beneficiary and Derivative Beneficiary) in a package
+
+=== Example request
+
+include::{snippets}/get-package-sentdocuments/curl-request.adoc[]
+
+=== Path parameters
+
+include::{snippets}/get-package-sentdocuments/path-parameters.adoc[]
+
+=== Example response
+
+include::{snippets}/get-package-sentdocuments/http-response.adoc[]
+
+=== Response structure
+
+include::{snippets}/get-package-sentdocuments/response-fields.adoc[]
+
+
+
+[[resources-get-package-received-documents]]
+== Get package received documents
+
+`GET` request to get received documents for all applicants (Beneficiary and Derivative Beneficiary) in a package
+
+=== Example request
+
+include::{snippets}/get-package-received-documents/curl-request.adoc[]
+
+=== Path parameters
+
+include::{snippets}/get-package-received-documents/path-parameters.adoc[]
+
+=== Example response
+
+include::{snippets}/get-package-received-documents/http-response.adoc[]
+
+=== Response structure
+
+include::{snippets}/get-package-received-documents/response-fields.adoc[]
+
+
+
+[[resources-get-package-document-milestones]]
+== Get package document milestones
+
+`GET` request to get document milestones of a package
+
+=== Example request
+
+include::{snippets}/get-package-document-milestones/curl-request.adoc[]
+
+=== Example response
+
+include::{snippets}/get-package-document-milestones/http-response.adoc[]
+
+=== Response structure
+
+include::{snippets}/get-package-document-milestones/response-fields.adoc[]
+
+
+
+[[resources-post-package-document-milestones]]
+== Post package document milestones
+
+`POST` request to save document milestone of a package
+
+=== Example request
+
+include::{snippets}/post-package-document-milestones/curl-request.adoc[]
+
+=== Example response
+
+include::{snippets}/post-package-document-milestones/http-response.adoc[]
+
+=== Response structure
+
+include::{snippets}/post-package-document-milestones/response-fields.adoc[]
+
+
+
+[[resources-get-package-uscis-data]]
+== Get package USCIS data
+
+`GET` request to fetch USCIS data (List of Forms & ContinuationSheets) of a given Package
+
+=== Example request
+
+include::{snippets}/get-package-uscis-data/curl-request.adoc[]
+
+=== Example response
+
+include::{snippets}/get-package-uscis-data/http-response.adoc[]
+
+=== Response structure
+
+include::{snippets}/get-package-uscis-data/response-fields.adoc[]
+
+
+
+[[resources-get-package-uscis-notes]]
+== Get package USCIS Notes
+
+`GET` request to fetch a list of document notes of a given Package
+
+=== Example request
+
+include::{snippets}/get-package-uscis-notes/curl-request.adoc[]
+
+=== Example response
+
+include::{snippets}/get-package-uscis-notes/http-response.adoc[]
+
+=== Response structure
+
+include::{snippets}/get-package-uscis-notes/response-fields.adoc[]
+
+
+[[resources-delete-package-document-note]]
+== Delete package document note
+
+`DELETE` request to remove a document note of a given Package
+
+=== Example request
+
+include::{snippets}/delete-package-document-note/curl-request.adoc[]
+
+=== Example response
+
+include::{snippets}/delete-package-document-note/http-response.adoc[]
+
+=== Response structure
+
+include::{snippets}/delete-package-document-note/response-fields.adoc[]

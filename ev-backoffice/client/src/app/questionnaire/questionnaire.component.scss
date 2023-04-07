@@ -1,0 +1,112 @@
+@import '../../variables';
+
+/*Questionnaire Colors*/
+$applicant-name: #58595b;
+$section-label: #069fD0;
+$active-section: #808285;
+$section-hover: #bcbec0;
+$tick-icon: #003466;
+
+.questionnaire-wrapper {
+  margin-top: 15px;
+  .package-section-menus {
+    padding-top: 10px;
+    border-right: 1px solid $dark-gray;
+    ul {
+      list-style: none;
+      padding-left: 0;
+      li {
+        .applicant-details{
+          font-size: 18px;
+          font-weight: bold;
+          color: $applicant-name;
+          line-height: 20px;
+          .applicant-name{
+            word-break: break-word;
+          }
+          .applicant-type{
+            font-size: 14px;
+          }
+        }
+        ul {
+          list-style: none;
+          padding: 2px 0 20px 0;
+          li {
+            clear: both;
+            a {
+              cursor: pointer;
+              color: $section-label;
+              font-weight: 600;
+              line-height: 18px;
+              font-size: 14px;
+              &:hover{
+                color: $section-hover;
+                text-decoration: none;
+              }
+            }
+            .left-icon {
+              float: left;
+              font-size: 14px;
+              margin-left: -12px;
+              margin-top: 4px;
+            }
+            .completed-sec-percentage{
+              width: 40px;
+              display: inline-block;
+              padding: 0.25em 0.4em;
+              font-size: 80%;
+              font-weight: bolder;
+              text-align: center;
+              white-space: nowrap;
+              vertical-align: baseline;
+              color: $tick-icon;
+              float: right;
+              .right-icon {
+                &.tick-icon{
+                  font-family: Wingdings;
+                  font-size: 15px;
+                  color: $tick-icon;
+                  font-weight: bolder;
+                }
+              }
+            }
+            &.active-link {
+              a, .left-icon {
+                color: $active-section;
+                font-weight: bolder;
+              }
+              .right-icon{
+                &.tick-icon{
+                  font-family: Wingdings;
+                  font-size: 15px;
+                  color: $tick-icon;
+                  font-weight: bolder;
+                }
+              }
+            }
+            &.no-question-text{
+              color: $b8-gray;
+            }
+          }
+        }
+        .completed-weightage{
+          border-radius: 4px!important;
+          width: 40px;
+          font-weight: bolder!important;
+        }
+        .package-section-full-percentage{
+          background-color: $light;
+          width: 80%;
+          height: 5px;
+          margin: 5px 0;
+          .package-section-completed-percentage{
+            background-color: $primary;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+

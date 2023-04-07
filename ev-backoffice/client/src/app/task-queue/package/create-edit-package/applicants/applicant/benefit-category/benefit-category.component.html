@@ -1,0 +1,98 @@
+<div class="row col align-items-center px-0">
+  <div class="col d-md-flex pr-0 align-items-center">
+    <div
+      class="d-md-flex justify-content-start col-7 align-items-center pr-4 pl-0 border-secondary border-dark-grey "
+      [ngClass]="index > 0 || citizenshipStatusForm.value ? 'border-right' : ''">
+      <div class="column-number bg-primary mr-2">
+        {{ index === 0 ? 'c' : 'b' }}
+      </div>
+      <h5 class="m-0 col-3 px-0 mr-4 text-nowrap">
+        {{index === 0 ?
+          ('TEMPLATE.TASK_QUEUE.APPLICANT.PETITIONER_BENEFIT_CATEGORY' | translate) :
+          ('TEMPLATE.TASK_QUEUE.APPLICANT.BENEFIT_CATEGORY' | translate)
+        }}
+      </h5>
+      <div class="text-center mt-2 mt-md-0 px-0">
+        <button
+          class="btn btn-primary px-4"
+          [class.border-danger]="(isSubmittedForm$ | async) && !feeFormControl.value && index !== 0"
+          (click)="openBenefitCategory()"
+          type="button"
+        >
+          {{'FORM.LABELS.SELECT' | translate }}
+        </button>
+      </div>
+      <div
+        *ngIf="isShowSelectLegalStatusWarningSubject$ | async"
+        class="col text-danger font-weight-bold text-nowrap small pl-2">
+        {{'TEMPLATE.TASK_QUEUE.APPLICANT.FIRST_SELECT_LEGAL_STATUS' | translate}}
+      </div>
+      <div class="d-flex flex-row col pr-0 small align-items-center text-a6a6a6 ">
+        <div class="font-weight-bold pr-2 text-nowrap"
+             [innerHTML] = "selectedBenefitCategory | benefitCategoryName
+            : citizenshipStatus
+            : (this.benefits$ | async)
+            : applicantTypeFormValue
+            : index
+            : secondApplicantBenefitCategory
+            :false
+            |translate">
+        </div>
+        <div
+          [innerHTML]="selectedBenefitCategory | benefitCategoryName
+            : citizenshipStatus
+            : (this.benefits$ | async)
+            : applicantTypeFormValue
+            : index
+            : secondApplicantBenefitCategory
+            | translate"
+        >
+        </div>
+      </div>
+    </div>
+    <div
+      class="d-flex col-5 flex-column text-danger pl-3 small px-0 ml-1"
+    >
+      <div
+        class="row pl-2"
+        *ngIf="isShowWarningNotGranted$ | async"
+      >
+        <img src="../../../../../../../assets/images/warn-icon.svg" class="mr-1 warn-icon">
+        <div
+          class="font-weight-bold col pl-0"
+        >
+          {{'TEMPLATE.TASK_QUEUE.APPLICANT.BENEFIT_WARNING_NOT_GRANTED' | translate}}
+        </div>
+      </div>
+      <div
+        class="row pl-2"
+        *ngIf="isShowNotRegister$ | async"
+      >
+        <img src="../../../../../../../assets/images/warn-icon.svg" class="mr-1 warn-icon">
+        <div
+          class="font-weight-bold col pl-0"
+        >
+          {{'TEMPLATE.TASK_QUEUE.APPLICANT.BENEFIT_WARNING_NOT_REGISTERED' | translate}}
+        </div>
+      </div>
+      <div
+        class="row pl-2"
+        *ngIf="isShowInOpenBlocked$ | async"
+      >
+        <img src="../../../../../../../assets/images/warn-icon.svg" class="mr-1 warn-icon">
+        <div
+          class="font-weight-bold col pl-0"
+        >
+          {{'TEMPLATE.TASK_QUEUE.APPLICANT.BENEFIT_WARNING_IN_OPEN_BLOCKED' | translate}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #petitionerNotSelectedModal>
+  <app-petitioner-not-selected-modal></app-petitioner-not-selected-modal>
+</ng-template>
+<ng-template #immigrationBenefitModal>
+  <app-immigration-benefit-modal></app-immigration-benefit-modal>
+</ng-template>

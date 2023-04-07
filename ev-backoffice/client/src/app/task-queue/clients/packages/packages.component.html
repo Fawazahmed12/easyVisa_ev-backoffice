@@ -1,0 +1,127 @@
+<div class="d-flex">
+  <app-spinner *ngIf="(getPackagesRequest$ | async).loading" class="d-flex full-page-min-height col-12 justify-content-center align-items-center"></app-spinner>
+  <form
+    class="d-flex flex-grow-1 flex-column"
+    [formGroup]="formGroup"
+    *ngIf="!(getPackagesRequest$ | async).loading"
+  >
+    <div class="d-flex justify-content-between text-right">
+      <div class="text-left pl-1">
+        <a
+          *ngIf="!showDefaultViewFormControl.value; else currentDefaultView"
+          class="cursor-pointer text-blue small"
+         (click)="resetSearchFilters()"
+        >
+          {{ 'TEMPLATE.TASK_QUEUE.CLIENTS.SHOW_DEFAULT_VIEW' | translate }}
+        </a>
+      </div>
+      <div class="text-blue mr-1">
+        <a
+          (click)="searchForClients()"
+          [attr.disabled]="!(packages$ | async)"
+          class="cursor-pointer"
+        >
+          {{ 'TEMPLATE.TASK_QUEUE.CLIENTS.SEARCH_FOR_CLIENTS' | translate }}
+        </a>
+      </div>
+      <div class="text-right">
+        {{'TEMPLATE.TASK_QUEUE.CLIENTS.CLIENTS_FOR_SELECTED_REPRESENTATIVE' | translate:
+          ({representativeType: (activeOrganization$ | async)?.organizationType | representativeType | translate})}}:<span class="font-weight-bold pl-1">{{(total$ | async)}}</span>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between my-2 small">
+      <div class=" text-blue px-1">
+        <a *ngIf="!(showAllStatusesFormControlValue$ | async)" (click)="showOnlyDefaultClients()"
+           class="cursor-pointer">
+          {{ 'TEMPLATE.TASK_QUEUE.CLIENTS.SHOW_DEFAULT_PACKAGES' | translate }}
+        </a>
+        <a *ngIf="(showAllStatusesFormControlValue$ | async)" (click)="showAllClients()" class="cursor-pointer">
+          {{ 'TEMPLATE.TASK_QUEUE.CLIENTS.SHOW_ALL_PACKAGES' | translate }}
+        </a>
+      </div>
+      <div class="mx-1 text-b32" [innerHTML]=" 'TEMPLATE.TASK_QUEUE.CLIENTS.SHOWING' | translate:({
+        count: (packages$ | async).length,
+        total: (total$ | async)}) ">
+      </div>
+      <a class="text-blue mx-1 cursor-pointer" (click)="setActivePackage()">
+        {{ 'TEMPLATE.TASK_QUEUE.CLIENTS.CLEAR_ACTIVE_PACKAGE' | translate }}
+      </a>
+      <a class="text-blue mx-1 cursor-pointer" (click)="deleteOldLeadPackages()"
+         *appHideByPosition=[EmployeePosition.TRAINEE]>
+        {{ 'TEMPLATE.TASK_QUEUE.CLIENTS.DELETE_OLD_LEADS' | translate }}
+      </a>
+      <div class="ml-1">
+        {{ 'TEMPLATE.PAGINATION.RESULTS_PER_PAGE' | translate }}
+        <select formControlName="max">
+          <option value="25">25</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+          <option value="200">200</option>
+        </select>
+      </div>
+    </div>
+    <app-table
+      noDataText="TEMPLATE.TASK_QUEUE.CLIENTS.NO_PACKAGES"
+      [header]="tableHeader$ | async"
+      [tableData]="tableData$ | async"
+      [tableSortCol]="sortFormControl.value"
+      [tableSortOrder]="orderFormControl.value"
+      [selectedItemsFormControl]="selectedPackagesIds"
+      [smallCells]="true"
+      [stickyTable]="true"
+      [packagesTable]="true"
+      [noDataCustomShowing]="true"
+      (sortParams)="sortBy($event)"
+      (pageParams)="pageChange($event)"
+      (actionItem)="openChangeStatusModal($event)"
+      (rowClick)="setActivePackage($event)"
+      class="small d-flex flex-grow-1"
+      style="flex-basis: 600px"
+    ></app-table>
+    <div class="d-flex flex-row justify-content-center align-items-center">
+      <div class="col-4 text-left" *appHideByPosition=[EmployeePosition.TRAINEE]>
+        <button type="button" class="btn btn-primary" (click)="deleteLeads()"
+                [disabled]="hasDisableDeleteLeads() | async">
+          {{'TEMPLATE.TASK_QUEUE.CLIENTS.DELETE_LEADS' | translate}}
+        </button>
+
+        <button type="button" class="btn btn-primary ml-2" (click)="deleteTransfers()"
+                [disabled]="hasDisableDeleteTransfers() | async">
+          {{'TEMPLATE.TASK_QUEUE.CLIENTS.DELETE_TRANSFERS' | translate}}
+        </button>
+      </div>
+      <ngb-pagination
+        *ngIf="total$ | async"
+        [collectionSize]="total$ | async"
+        [pageSize]="maxFormControl.value"
+        [page]="page"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="pageChange($event)"
+        class="col-4 d-flex justify-content-center small pagination-bg-none"
+      >
+        <ng-template ngbPaginationFirst>{{'FORM.PAGINATION_LABELS.FIRST' | translate}}</ng-template>
+        <ng-template ngbPaginationLast>{{'FORM.PAGINATION_LABELS.LAST' | translate}}</ng-template>
+        <ng-template ngbPaginationPrevious>{{'FORM.PAGINATION_LABELS.PREVIOUS' | translate}}</ng-template>
+        <ng-template ngbPaginationNext>{{'FORM.PAGINATION_LABELS.NEXT' | translate}}</ng-template>
+      </ngb-pagination>
+      <div class="col-4 text-right" *appHideByPosition=[EmployeePosition.TRAINEE]>
+        <button type="button" class="btn btn-primary" (click)="openTransferCasesModal()"
+                [disabled]="!(isTransferCasesEnable$ | async)">
+          {{'TEMPLATE.TASK_QUEUE.CLIENTS.TRANSFER_CASES' | translate}}
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<ng-template #noResults>
+  <div class="mt-4 text-center">{{'TEMPLATE.TASK_QUEUE.CLIENTS.NO_RESULTS_MODAL.DESCRIPTION_P_1' | translate}}</div>
+  <div
+    class="mt-4 mb-5 text-center">{{'TEMPLATE.TASK_QUEUE.CLIENTS.NO_RESULTS_MODAL.DESCRIPTION_P_2' | translate}}</div>
+</ng-template>
+
+<ng-template #currentDefaultView>
+  <div class="text-left text-b2-gray font-weight-bold small">{{'TEMPLATE.TASK_QUEUE.CLIENTS.CURRENT_DEFAULT_VIEW' | translate}}</div>
+</ng-template>

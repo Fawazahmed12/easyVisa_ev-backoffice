@@ -1,0 +1,126 @@
+<div
+  [ngClass]="stickyTable || selectionStickyTable ? 'mb-3' : null"
+  [class.table-sticky-body--full-height]="packagesTable"
+  [class.selection-table-sticky-body]="selectionStickyTable"
+  [class.table-sticky-body]="stickyTable"
+>
+  <table
+    class="table border-gray-ccc"
+    [class.h-50]="!stickyTable && !selectionStickyTable"
+    [class.table-scroll-body]="!stickyTable && !selectionStickyTable && scrolledTableBody"
+    [class.table-permissions-body]="permissionsTableBody"
+    [class.table-bordered]="!permissionsTableBody && !packagesTable"
+    [class.border-0]="borderNone"
+    [class.small-cells]="smallCells"
+  >
+    <thead class="bg-primary text-white">
+    <tr *ngIf="overHeader.length">
+      <th *ngFor="let name of overHeader"
+          [class.cursor-pointer]="name.sortColBy"
+          [class.bg-blue]="tableSortCol === name.sortColBy"
+          [class.small]="name.smallHeader"
+          (click)="name.sortColBy ? sortByHeaderCol(name.sortColBy) : ''"
+          [ngClass]="name.colClass"
+          [attr.colSpan]="name.colSpan"
+          [attr.rowSpan]="name.rowSpan"
+          [class.d-none]="name.hideHeader"
+          class="text-center">
+        <div class="text-nowrap">
+          {{ name.title | translate }}
+          <span
+            *ngIf="name.sortColBy && (tableSortCol === name.sortColBy && tableSortOrder !== 'asc' || tableSortCol !== name.sortColBy)">
+          &#9660;
+          </span>
+          <span *ngIf="name.sortColBy && tableSortCol === name.sortColBy && tableSortOrder === 'asc'">
+          &#9650;
+          </span>
+        </div>
+      </th>
+    </tr>
+    <tr>
+      <th *ngFor="let name of header"
+          [class.cursor-pointer]="name.sortBy && !(name.colName === 'rating' && disableSortingStarColumn)"
+          [class.bg-blue]="(tableSortCol === name.colName) && !name.bgMiddleBlue && !(name.colName === 'rating' && disableSortingStarColumn)"
+          [class.bg-middle-blue]="name.bgMiddleBlue"
+          [class.bg-dark-blue-header]="name.bgDarkBlueHeader"
+          [class.small]="name.smallHeader"
+          (click)="name.sortBy && !(name.colName === 'rating' && disableSortingStarColumn) ? sortByHeaderCol(name.colName) : ''"
+          [ngClass]="name.colClass"
+          [class.d-none]="name.hideHeader"
+          class="text-center">
+        <div
+          [class.text-nowrap]="!name.textWrap"
+        >
+          {{ name.title | translate }}
+          <span
+            *ngIf="name.sortBy && (tableSortCol === name.colName && tableSortOrder !== 'asc' || tableSortCol !== name.colName) && !(name.colName === 'rating' && disableSortingStarColumn)">
+          &#9660;
+          </span>
+          <span
+            *ngIf="name.sortBy && tableSortCol === name.colName && tableSortOrder === 'asc' && !(name.colName === 'rating' && disableSortingStarColumn)">
+          &#9650;
+          </span>
+        </div>
+        <input *ngIf="name.colName === 'checkbox'" type="checkbox" [formControl]="selectAllFormControl"
+               class="cursor-pointer">
+      </th>
+
+    </tr>
+    </thead>
+    <tbody class="bg-white" *ngIf="tableData?.length">
+    <tr *ngFor="let item of tableData"
+        [class.bg-b8-gray]="item.active"
+        [class.text-d8-gray]="item.active"
+        [class.text-dark-gray]="item.viewed"
+        [class.cursor-pointer]="item.pointer"
+        [class.cursor-default]="!item.pointer"
+    >
+      <td *ngFor="let col of result"
+          (click)="col.action ? openModal(item) : col.colName !== 'checkbox' && 'admin' ? onRowClick(item) : ''"
+          [classList]="col.colClass"
+          [class.cursor-pointer]="col.colName !== 'checkbox' &&  col.colName !== 'admin'"
+          [ngClass]="col.colName === 'head' ? 'd-none' : ''"
+      >
+        <span
+          *ngIf="col.colName !== 'checkbox' && col.colName !== 'owed' &&  col.colName !== 'admin' && col.colName !== 'head'"
+          [ngClass]="item[col.colName]?.class"
+          class="text-break">
+        {{ item[col.colName]?.data | translate}}
+        </span>
+        <span *ngIf="col.colName == 'owed'">
+        {{ item[col.colName]?.data | currency}}
+        </span>
+        <input *ngIf="col.colName === 'checkbox'"
+               type="checkbox"
+               [formControl]="item[col.colName]"
+               (click)="updateCheckedItems(item)"
+               class="cursor-pointer"
+        >
+        <input *ngIf="col.colName === 'admin'"
+               type="checkbox"
+               [formControl]="item[col.colName]"
+               class="pt-2"
+               (click)="updateAdminCheckedItems(item)"
+        >
+        <span *ngIf="col.colName === 'rating'">
+          <app-stars-rating
+            [rate]="item[col.colName]"
+            [readonly]="true"
+          ></app-stars-rating>
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="(!tableData?.length && !noDataCustomShowing); else noDataTemp" class="no-data-wrapper">
+  {{ noDataText | translate}}</div>
+</div>
+
+<ng-template #noDataTemp>
+  <div
+    *ngIf="!tableData?.length"
+    [ngClass]="packagesTable ? 'no-packages-data-wrapper' : 'no-alerts-data-wrapper'"
+    class="mb-0 text-gray-ccc d-flex justify-content-center align-items-center">
+  {{ noDataText | translate}}
+  </div>
+</ng-template>

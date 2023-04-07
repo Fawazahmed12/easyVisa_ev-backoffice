@@ -1,0 +1,33 @@
+<div class="container-fluid p-0 border border-secondary">
+  <div class="modal-header align-items-center bg-primary text-white">
+    <h6 class="modal-title w-100 text-center">{{ documentFileData.fileName }}</h6>
+    <button
+      type="button"
+      class="btn btn-secondary close-btn p-0"
+      aria-label="Close"
+      (click)="activeModal.dismiss('Cross click')"
+    ><span aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="modal-body p-0">
+    <div class="d-flex justify-content-center file-preview-container">
+      <img [src]="documentFileData.fileURL | safeUrl"
+           *ngIf="!hasPdfFileType(documentFileData.fileContentType) && hasImageSourceByFileType(documentFileData.fileContentType)"/>
+
+      <img [src]="getFileTypeIcon(documentFileData.fileType)" class="icon-preview"
+           *ngIf="!hasPdfFileType(documentFileData.fileContentType) && !hasImageSourceByFileType(documentFileData.fileContentType)"/>
+
+    </div>
+    <div>
+      <div class="text-center p-2">{{ documentFileData.fileName }}</div>
+      <div class="d-flex justify-content-between p-3">
+        <button type="button" class="btn btn-primary mr-1 min-w-100" [style.visibility]="'hidden'"></button>
+        <button type="button" class="btn btn-primary mr-1 min-w-100" [disabled]="readOnlyAccess"
+                (click)="onDocumentAttachmentDownload()">
+          Download
+        </button>
+        <button type="button" class="btn btn-primary min-w-100" (click)="activeModal.dismiss('Cross click')">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,49 @@
+<div class="mt-1 pr-2">
+  <h6 class="offset-md-2 col-md-10 mb-1 text-center mb-0 p-0 font-weight-bold">
+    {{ 'TEMPLATE.ACCOUNT.PROFILE.SOCIAL_MEDIA' | translate }}
+  </h6>
+  <div class="no-gutters d-flex justify-content-center">
+    <label class="col-md-2 text-md-right text-center text-dark-gray mb-0 pr-2 fa fa-facebook-square social-icon">
+    </label>
+    <div class="col-md mr-md-2 d-flex justify-content-center flex-column">
+      <input
+        class="form-control form-control-sm"
+        type="text"
+        [formControl]="facebookUrlFormControl"
+      >
+    </div>
+  </div>
+  <div class="no-gutters d-flex justify-content-center">
+    <label class="col-md-2 text-md-right text-center text-dark-gray mb-0 pr-2 fa fa-linkedin-square social-icon">
+    </label>
+    <div class="col-md mr-md-2 d-flex justify-content-center flex-column">
+      <input
+        class="form-control form-control-sm"
+        type="text"
+        [formControl]="linkedinUrlFormControl"
+      >
+    </div>
+  </div>
+  <div class="no-gutters d-flex justify-content-center">
+    <label class="col-md-2 text-md-right text-center text-dark-gray mb-0 pr-2 fa fa-youtube-square social-icon">
+    </label>
+    <div class="col-md mr-md-2 d-flex justify-content-center flex-column">
+      <input
+        class="form-control form-control-sm"
+        type="text"
+        [formControl]="youtubeUrlFormControl"
+      >
+    </div>
+  </div>
+  <div class="no-gutters d-flex justify-content-center">
+    <label class="col-md-2 text-md-right text-center text-dark-gray mb-0 pr-2 fa fa-twitter-square social-icon">
+    </label>
+    <div class="col-md mr-md-2 d-flex justify-content-center flex-column">
+      <input
+        class="form-control form-control-sm"
+        type="text"
+        [formControl]="twitterUrlFormControl"
+      >
+    </div>
+  </div>
+</div>

@@ -1,0 +1,328 @@
+<div class="mb-4 bg-white border border-top-0">
+  <div class="container-fluid col col-md-9">
+
+    <h3 class="text-center p-2 mb-0 pl-4">
+      {{ this.addEditUserTitle$ | async | translate }}
+    </h3>
+    <div class="border my-2"></div>
+    <app-spinner *ngIf="(getPermissionGetState$| async).loading"></app-spinner>
+    <form
+      *ngIf="!(employeeId$ | async) || (getPermissionGetState$| async).loaded"
+      [formGroup]="formGroup"
+      (submit)="formSubmit()"
+    >
+      <div class="row no-gutters">
+        <div class="column-number bg-primary">1</div>
+        <h4
+          class="col text-center">{{ 'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.ADD_EDIT_USER.INFORMATION' | translate }}</h4>
+      </div>
+      <div class="d-flex flex-column flex-md-row justify-content-between mt-3 mb-4">
+        <div class="col-md-5 mb-3 mb-md-0">
+          <h4
+            class="col text-center offset-md-1">{{'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.ADD_EDIT_USER.NAME' | translate}}</h4>
+          <app-name-form-group
+            [firstFormControl]="firstFormControl"
+            [middleFormControl]="middleFormControl"
+            [lastFormControl]="lastFormControl"
+          ></app-name-form-group>
+          <div
+            class="text-danger text-center offset-2 mt-3">{{'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.ADD_EDIT_USER.REQUIRED' | translate}}</div>
+        </div>
+        <div class="col-md-6">
+          <h4
+            class="col text-center offset-md-1">{{'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.ADD_EDIT_USER.CONTACT_INFO' | translate}}</h4>
+          <app-phone-field
+            [formControl]="mobilePhoneControl"
+            label="FORM.LABELS.MOBILE"
+            [smallMarginStyle]="true"
+            [col3Label]="true"
+            [textAlignRight]="true"
+          ></app-phone-field>
+          <app-phone-field
+            [formControl]="officePhoneControl"
+            label="FORM.LABELS.HOME"
+            [smallMarginStyle]="true"
+            [col3Label]="true"
+            [textAlignRight]="true"
+          ></app-phone-field>
+
+          <div class="form-group row no-gutters mb-2">
+            <label class="col-md-3 pr-2 col-form-label col-form-label-sm text-right">
+              {{"FORM.LABELS.EMAIL" | translate}}
+            </label>
+            <div class="d-flex col-md mr-2 position-relative">
+              <input
+                class="form-control form-control-sm"
+                type="email"
+                [formControl]="emailControl"
+              >
+              <span class="text-danger">*</span>
+            </div>
+          </div>
+          <div class="text-danger small offset-md-3 position-absolute">
+            <div *ngIf="emailControl.dirty && emailControl.hasError('required')">
+              {{ 'FORM.ERROR.REQUIRED_WITH_PARAM' | translate: ({field: 'FORM.LABELS.EMAIL' | translate})}}
+            </div>
+            <div *ngIf="emailControl.hasError('pattern') || emailControl.hasError('email')">
+              {{ 'FORM.ERROR.INVALID' | translate: ({field: 'FORM.LABELS.EMAIL' | translate})}}
+            </div>
+            <div *ngIf="emailControl.hasError('reqValidator')">
+              {{ emailControl.getError('invalidMessage') || 'FORM.ERROR.INVALID' | translate: ({field: 'FORM.LABELS.EMAIL' | translate})}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="border my-2"></div>
+      <div class="row no-gutters">
+        <div class="column-number bg-primary">2</div>
+      </div>
+      <div class="d-flex flex-column flex-md-row my-3">
+        <div
+          class="col-md-3 offset-1">
+          <h4
+            class="col text-left p-0">{{'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.ADD_EDIT_USER.ADMIN_STATUS' | translate}}</h4>
+          <div class="radio-group mb-3 mb-md-0">
+            <div
+              class="form-check"
+            >
+              <label
+                class="form-check-label"
+                [class.text-gray]=" !(employeeId$ | async) || isTrainee || isPartner || (isInactive$ | async)"
+              >
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  name="admin"
+                  [value]="true"
+                  [formControl]="isAdminControl"
+                  [attr.disabled]="!(employeeId$ | async) || isTrainee || isPartner || (isInactive$ | async) ? 'disabled' : null"
+                >
+                {{ 'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.TABLE.ADMIN' | translate }}
+              </label>
+            </div>
+            <div
+              class="form-check"
+            >
+              <label
+                class="form-check-label"
+                [class.text-gray]="!(employeeId$ | async) || isTrainee || isPartner || (isInactive$ | async)"
+              >
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  name="admin"
+                  [value]="false"
+                  [formControl]="isAdminControl"
+                  [attr.disabled]="!(employeeId$ | async)  || isTrainee || isPartner || (isInactive$ | async) ? 'disabled' : null"
+                >
+                {{ 'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.ADD_EDIT_USER.NON_ADMIN' | translate }}
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <h4
+            class="col text-left p-0">{{'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.ADD_EDIT_USER.POSITION' | translate}}</h4>
+          <div class="radio-group mb-3 mb-md-0">
+            <div
+              *ngIf="!(this.isAccreditedRepresentative$ | async)"
+              class="form-check"
+            >
+              <label
+                class="form-check-label"
+                [class.text-gray]="!(employeeId$ | async) || !(isLawFirm$ | async) || !(disableChangePosition$ | async) || formGroup.disabled"
+              >
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  name="position"
+                  [value]="employeePosition.PARTNER"
+                  [formControl]="positionControl"
+                  [attr.disabled]="((employeeId$ | async) && (disableChangePosition$ | async)) && !(isInactive$ | async) && (isLawFirm$ | async) ? null : 'disabled'"
+                >
+                {{ 'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.TABLE.PARTNER_OWNER' | translate }}
+              </label>
+            </div>
+            <div
+              *ngIf="!(this.isAccreditedRepresentative$ | async)"
+              class="form-check"
+            >
+              <label
+                class="form-check-label"
+                [class.text-gray]="!(employeeId$ | async) || !(isLawFirm$ | async) || !(disableChangePosition$ | async) || formGroup.disabled"
+              >
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  name="position"
+                  [value]="employeePosition.ATTORNEY"
+                  [formControl]="positionControl"
+                  [attr.disabled]="((employeeId$ | async) && (disableChangePosition$ | async)) && !(isInactive$ | async) && (isLawFirm$ | async) ? null : 'disabled'"
+                >
+                {{ 'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.TABLE.ATTORNEY' | translate }}
+              </label>
+            </div>
+            <div class="form-check">
+              <label
+                class="form-check-label"
+                [class.text-gray]="formGroup.disabled">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  name="position"
+                  [value]="employeePosition.MANAGER"
+                  [formControl]="positionControl"
+                >
+                {{ 'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.TABLE.MANAGER' | translate }}
+              </label>
+            </div>
+            <div class="form-check">
+              <label
+                class="form-check-label"
+                [class.text-gray]="formGroup.disabled"
+              >
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  name="position"
+                  [value]="employeePosition.EMPLOYEE"
+                  [formControl]="positionControl"
+                >
+                {{ 'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.TABLE.EMPLOYEE' | translate }}
+              </label>
+            </div>
+            <div class="form-check">
+              <label
+                class="form-check-label"
+                [class.text-gray]="formGroup.disabled"
+              >
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  name="position"
+                  [value]="employeePosition.TRAINEE"
+                  [formControl]="positionControl"
+                >
+                {{ 'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.TABLE.TRAINEE' | translate }}
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 no-gutters mb-3 mb-md-0">
+          <h4 class="col text-left">{{'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.TABLE.STATUS' | translate}}</h4>
+
+          <div class="radio-group">
+            <div class="form-check">
+              <label
+                class="form-check-label"
+                [class.text-gray]="formGroup.disabled"
+              >
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  [value]="employeeStatusValues.ACTIVE"
+                  [checked]="!(employeeId$ | async) || (this.employeeStatus$ | async) === employeeStatusValues.ACTIVE"
+                  [formControl]="statusControl"
+                >
+                {{ 'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.ADD_EDIT_USER.ACTIVE' | translate }}
+              </label>
+            </div>
+            <div class="form-check">
+              <label
+                class="form-check-label"
+                [class.text-gray]="!(employeeId$ | async) || formGroup.disabled"
+              >
+                <input
+                  type="radio"
+                  class="form-check-input position-relative"
+                  [value]="employeeStatusValues.INACTIVE"
+                  [checked]="(this.employeeStatus$ | async) === employeeStatusValues.INACTIVE"
+                  [attr.disabled]="!(this.employeeId$ | async) || formGroup.disabled ? 'disabled': null"
+                  [formControl]="statusControl"
+                >
+                {{ 'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.ADD_EDIT_USER.INACTIVE' | translate }}
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-md-3"
+          *ngIf="(activeOrganizationEmployee$ | async)"
+        >
+          <h4 class="text-center">{{'TEMPLATE.TABLES.EV_ID' | translate}}</h4>
+          <div class="text-center">{{(activeOrganizationEmployee$ | async).profile?.easyVisaId}}</div>
+        </div>
+      </div>
+      <div class="row justify-content-md-end">
+        <div class="col-md-4 d-flex justify-content-center justify-content-md-end">
+          <button
+            class="btn btn-primary m-3 min-w-100"
+            type="button"
+            routerLink="/account/permissions"
+          >
+            {{'FORM.BUTTON.CANCEL' | translate}}
+          </button>
+          <button
+            class="btn btn-primary m-3 min-w-100"
+            type="submit"
+            *ngIf="(employeeId$ | async)"
+            [disabled]="formGroup.invalid || (updateEmployeeLoading$ | async)"
+          >
+            {{'FORM.BUTTON.SAVE' | translate}}
+          </button>
+          <button
+            class="btn btn-primary m-3 min-w-100"
+            type="submit"
+            *ngIf="!(employeeId$ | async)"
+            [disabled]="formGroup.invalid || (createEmployeeLoading$ | async)"
+          >
+            {{'FORM.BUTTON.INVITE' | translate}}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<ng-template #permissionsLevel>
+  <div class="container-fluid my-4">
+    <div class="mb-2">
+      {{'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.ADD_EDIT_USER.MODALS.DESCRIPTION_P1' | translate: ({
+        representativeType: (activeOrganization$ | async)?.organizationType | representativeType | translate,
+        organizationType: (activeOrganization$ | async)?.organizationType | organizationType | translate
+    })}}
+    </div>
+    <div>
+      {{'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.ADD_EDIT_USER.MODALS.DESCRIPTION_P2' | translate: ({
+        representativeType: (activeOrganization$ | async)?.organizationType | representativeType | translate
+    })}}
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #lawPracticeWillBeDeleted>
+  <div class="container-fluid my-2">
+    <div class="row align-items-start justify-content-center">
+      <div class="mb-3 mb-lg-0 mr-lg-4">
+        <img src="/assets/images/warn-icon.png" alt="warn-icon">
+      </div>
+      <div class="col-md">
+        <div class="mb-2">
+          {{'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.ADD_EDIT_USER.LAW_PRACTICE_ACCOUNT_WILL_BE_DELETED.DESCRIPTION_P1' | translate }}
+        </div>
+        <div class="mb-2">
+          {{'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.ADD_EDIT_USER.LAW_PRACTICE_ACCOUNT_WILL_BE_DELETED.DESCRIPTION_P2' | translate }}
+        </div>
+        <div class="mb-2">
+          {{'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.ADD_EDIT_USER.LAW_PRACTICE_ACCOUNT_WILL_BE_DELETED.DESCRIPTION_P3' | translate }}
+        </div>
+        <div class="mb-2">
+          {{'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.ADD_EDIT_USER.LAW_PRACTICE_ACCOUNT_WILL_BE_DELETED.DESCRIPTION_P4' | translate }}
+        </div>
+        <div>
+          {{'TEMPLATE.ACCOUNT.PROFILE.PERMISSIONS.ADD_EDIT_USER.LAW_PRACTICE_ACCOUNT_WILL_BE_DELETED.DESCRIPTION_P5' | translate }}
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

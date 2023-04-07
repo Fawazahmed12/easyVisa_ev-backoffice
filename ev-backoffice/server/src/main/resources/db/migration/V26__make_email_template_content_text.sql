@@ -1,0 +1,1 @@
+ALTER TABLE email_template ALTER COLUMN content TYPE TEXT;

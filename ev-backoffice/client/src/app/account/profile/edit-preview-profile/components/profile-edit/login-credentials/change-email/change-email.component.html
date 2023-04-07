@@ -1,0 +1,48 @@
+<h5 class="text-center mb-3 font-weight-bold">
+  {{'TEMPLATE.ACCOUNT.LOGIN_CREDENTIALS.CHANGE_EMAIL_ADDRESS' | translate}}
+</h5>
+<div class="form-group row no-gutters mb-2 mt-2">
+  <div class="d-flex col-md mr-2 position-relative">
+    <input
+      class="form-control form-control-sm"
+      type="email"
+      [formControl]="emailFormControl"
+    >
+  </div>
+</div>
+<div class="text-danger small offset-md-3 position-absolute">
+  <div *ngIf="emailFormControl.dirty && emailFormControl.hasError('required')">
+    {{
+      'FORM.ERROR.REQUIRED_WITH_PARAM' | translate:
+      ({field: 'FORM.LABELS.EMAIL' | translate})
+    }}
+  </div>
+  <div *ngIf="emailFormControl.hasError('pattern') || emailFormControl.hasError('email')">
+    {{ 'FORM.ERROR.INVALID' | translate:
+      ({field: 'FORM.LABELS.EMAIL' | translate})
+    }}
+  </div>
+  <div *ngIf="emailFormControl.hasError('reqValidator')">
+    {{
+      emailFormControl.getError('invalidMessage') || 'FORM.ERROR.INVALID' | translate:
+          ({field: 'FORM.LABELS.EMAIL' | translate})
+    }}
+  </div>
+</div>
+
+<div class="row justify-content-around submit-button-wrapper mt-5">
+  <button
+    class="btn btn-primary col-3"
+    [disabled]="(sameEmails$ | async)"
+    (click)="resetEmail()"
+  >
+    {{ 'FORM.BUTTON.DEFAULT' | translate }}
+  </button>
+  <button
+    class="btn btn-primary col-3"
+    [disabled]="emailFormControl.invalid || (sameEmails$ | async)"
+    (click)="changeEmail()"
+  >
+     {{ 'FORM.BUTTON.SAVE' | translate }}
+  </button>
+</div>

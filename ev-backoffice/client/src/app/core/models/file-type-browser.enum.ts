@@ -1,0 +1,16 @@
+export enum FileTypeBrowser {
+  PDF = 'application/pdf',
+  DOC = 'application/msword',
+  DOCX = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+  RTF = 'text/rtf',
+  TXT = 'text/plain',
+  JPG = 'image/jpeg',
+  JPG1 = 'image/pjpeg',
+  JPEG = 'image/jpeg',
+  JPEG1 = 'image/pjpeg',
+  PNG = 'image/png',
+  TIFF = 'image/tiff',
+  TIFF1 = 'image/x-tiff',
+  BMP = 'image/bmp',
+  BMP1 = 'image/x-windows-bmp',
+}

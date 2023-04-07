@@ -1,0 +1,4 @@
+model {
+    List employeeList = []
+}
+json tmpl.'/employee/permission'('row', employeeList)

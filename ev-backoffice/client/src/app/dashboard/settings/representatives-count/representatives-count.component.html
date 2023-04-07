@@ -1,0 +1,18 @@
+<app-block [title]="'TEMPLATE.DASHBOARD.FINANCIAL.SETTINGS.REPRESENTATIVES.HEADER' | translate">
+  <div class="d-flex justify-content-center">
+    <table class="col-6 table table-bordered text-center">
+      <thead>
+      <tr class="text-white bg-dark-gray">
+        <th width=33% [innerHTML]="'TEMPLATE.DASHBOARD.FINANCIAL.SETTINGS.REPRESENTATIVES.REGISTERED_ATTORNEYS' | translate"></th>
+        <th width=33% [innerHTML]="'TEMPLATE.DASHBOARD.FINANCIAL.SETTINGS.REPRESENTATIVES.REGISTERED_ACC_REPS' | translate"></th>
+        <th width=33% [innerHTML]="'TEMPLATE.DASHBOARD.FINANCIAL.SETTINGS.REPRESENTATIVES.TOTAL_REGISTERED_REPS' | translate"></th>
+      </tr>
+      </thead>
+      <tr>
+        <td class="p-1">{{(representativesCount$ | async)?.registeredAttorneys}}</td>
+        <td class="p-1">{{(representativesCount$ | async)?.registeredAccReps}}</td>
+        <td class="p-1">{{(representativesCount$ | async)?.totalRegisteredReps}}</td>
+      </tr>
+    </table>
+  </div>
+</app-block>

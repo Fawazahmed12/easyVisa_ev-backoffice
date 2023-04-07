@@ -1,0 +1,39 @@
+<div class="d-flex flex-row align-items-start justify-content-between font-weight-bold">
+  <div class="col-3 ml-4 pl-1">
+    {{'TEMPLATE.PRINT_FORMS.APPLICANT_TYPE' | translate}}
+  </div>
+  <div class="col-3">
+    {{'TEMPLATE.PRINT_FORMS.APPLICANT_NAME' | translate}}
+  </div>
+  <div class="col-2">
+    {{'TEMPLATE.PRINT_FORMS.BENEFIT' | translate}}
+  </div>
+  <div class="col-3">
+    {{'TEMPLATE.PRINT_FORMS.EASY_VISA_ID' | translate}}
+  </div>
+</div>
+<div
+  *ngFor="let item of (packageApplicants$ | async)">
+  <label
+    class="d-flex flex-row align-items-center mt-1 justify-content-between"
+  >
+    <input
+      type="checkbox"
+      [checked]="ids.includes(item.applicantId)"
+      [value]="item.id"
+      (change)="onCheckChange(item.applicantId)"
+      [disabled]="disabled">
+    <div class="col-3 pl-1">
+      {{item.applicantType}}
+    </div>
+    <div class="col-3">
+      {{item.applicantName}}
+    </div>
+    <div class="col-2">
+      {{item.benefitCategory}}
+    </div>
+    <div class="col-3">
+      {{item.easyVisaId}}
+    </div>
+  </label>
+</div>

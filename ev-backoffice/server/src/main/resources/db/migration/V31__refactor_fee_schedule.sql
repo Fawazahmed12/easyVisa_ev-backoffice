@@ -1,0 +1,5 @@
+ALTER TABLE fee_schedule RENAME TO fee;
+ALTER TABLE fee RENAME COLUMN fee TO amount;
+ALTER TABLE fee DROP COLUMN organization_id;
+UPDATE fee SET amount = 0.00 WHERE amount IS NULL;
+ALTER TABLE fee ALTER COLUMN amount SET NOT NULL;

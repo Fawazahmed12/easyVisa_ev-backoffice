@@ -1,0 +1,17 @@
+<app-block [title]="'TEMPLATE.DASHBOARD.SETTINGS.JOBS.TITLE' | translate">
+  <ng-template [ngIf]="batchJob$ | async">
+    <div class="custom-control custom-switch">
+      <input
+        id="batchJobs"
+        type="checkbox"
+        class="custom-control-input"
+        [checked]="(batchJob$ | async)?.enable"
+        [disabled]="isBatchJobLoading$ | async"
+        (change)="batchJobEnabledChange($event)"
+      >
+      <label class="custom-control-label" for="batchJobs">
+        {{'TEMPLATE.DASHBOARD.SETTINGS.JOBS.BATCH_JOBS_LABEL' | translate}}
+      </label>
+    </div>
+  </ng-template>
+</app-block>

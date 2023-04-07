@@ -1,0 +1,24 @@
+<div class="uscis-dates-table-container">
+  <app-table
+    [header]="USCISEditionDatesTableHeader$ | async"
+    [tableData]="USCISEditionDatesTableData$ | async"
+    [tableSortCol]="sortFormControl.value"
+    [tableSortOrder]="orderFormControl.value"
+    [scrolledTableBody]="true"
+    [smallCells]="true"
+    (sortParams)="sortBy($event)"
+  ></app-table>
+</div>
+
+<div class="row">
+  <div class="col-12 font-weight-bold">
+    <p class="text-danger">{{'TEMPLATE.DASHBOARD.USCIS_EDITION_DATES.PARA_1' | translate}}</p>
+    <p>{{'TEMPLATE.DASHBOARD.USCIS_EDITION_DATES.PARA_2' | translate}}</p>
+    <ul>
+      <li class="mb-2">{{'TEMPLATE.DASHBOARD.USCIS_EDITION_DATES.POINT_1' | translate}}</li>
+      <li class="mb-2">{{'TEMPLATE.DASHBOARD.USCIS_EDITION_DATES.POINT_2' | translate}}</li>
+      <li class="text-danger">{{'TEMPLATE.DASHBOARD.USCIS_EDITION_DATES.POINT_3' | translate}}</li>
+    </ul>
+    <p>{{'TEMPLATE.DASHBOARD.USCIS_EDITION_DATES.PARA_3' | translate}}</p>
+  </div>
+</div>

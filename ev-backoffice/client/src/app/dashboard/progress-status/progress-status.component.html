@@ -1,0 +1,24 @@
+<div class="mb-4 bg-white border border-top-0 container-fluid">
+  <div class="mx-5 py-2 py-lg-4 d-flex flex-column flex-md-row align-items-center border-bottom">
+    <label class="col-form-label text-nowrap p-0 mr-2">
+      {{ 'TEMPLATE.DASHBOARD.PROGRESS_STATUS.SELECT_PACKAGE' | translate }}
+    </label>
+    <div class="col pl-0">
+      <app-select-package
+        [formControl]="packageFormControl"
+        [withBlockedPackages]="true"
+        [showPackageCategories]="true"
+      ></app-select-package>
+    </div>
+  </div>
+  <div class="row mt-3" *ngIf="activePackageId$ | async">
+    <ng-container *ngIf="!(isLoading$ | async); else spinner">
+      <app-questionnaire-progress class="col-6"></app-questionnaire-progress>
+      <app-document-portal-progress class="col-6"></app-document-portal-progress>
+    </ng-container>
+  </div>
+</div>
+
+<ng-template #spinner>
+  <app-spinner class="col"></app-spinner>
+</ng-template>

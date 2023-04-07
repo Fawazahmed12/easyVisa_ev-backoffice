@@ -1,0 +1,14 @@
+.profile-languages {
+  max-height: 70px;
+  min-height: 70px;
+  overflow-y: scroll;
+}
+
+.language-columns {
+  column-count: 3;
+}
+@media (max-width: 991px) {
+  .language-columns {
+    column-count: 1;
+  }
+}

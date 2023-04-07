@@ -1,0 +1,26 @@
+.nav-item, .nav-item .nav-link {
+  border-top-left-radius: 2rem 5rem;
+  border-top-right-radius: 2rem 5rem;
+}
+.custom-min-tab-height {
+  min-height: 75vh;
+}
+
+.custom-min-tab-width-110 {
+  min-width: 110px !important;
+}
+
+.custom-min-tab-width-140 {
+  min-width: 140px;
+}
+
+.nav-link {
+  padding: .3em 1em;
+  &:hover{
+    color: white;
+  }
+}
+
+.clients-tab{
+  min-width: 200px;
+}

@@ -1,0 +1,49 @@
+<div class="d-flex flex-row align-items-center font-weight-bold text-center mt-1 pr-3">
+  <div class="col-2">
+    {{'TEMPLATE.REPRESENTATIVE_NOTES.CREATOR' | translate}}
+  </div>
+  <div class="col-5">
+    {{'TEMPLATE.REPRESENTATIVE_NOTES.SUBJECT' | translate}}
+  </div>
+  <div class="col-2 p-0">
+    {{'TEMPLATE.REPRESENTATIVE_NOTES.DATE' | translate}}
+  </div>
+  <div class="col-2 p-0">
+    {{'TEMPLATE.REPRESENTATIVE_NOTES.TIME' | translate}}
+  </div>
+  <div
+    *ngIf="disableRemove"
+    class="col-1">
+    {{'TEMPLATE.REPRESENTATIVE_NOTES.DELETE' | translate}}
+  </div>
+</div>
+<div
+  class="border scrolled-list scrolled-list--additional-fee small"
+>
+  <div class="d-flex flex-row pt-2"
+    *ngFor="let note of notes"
+  >
+    <div class="col-2 text-left">
+      {{note?.creator.firstName}}, {{note?.creator.lastName}}
+    </div>
+    <div class="col-5">
+      {{note?.subject}}
+    </div>
+    <div class="col-2 text-center p-0">
+      {{note?.createdDate}}
+    </div>
+    <div class="col-2 text-center p-0">
+      {{note?.createdTime}}
+    </div>
+    <div
+      *ngIf="disableRemove"
+      class="col-1 text-center">
+      <button
+        class="btn btn-link text-decoration-none text-danger close-btn p-2 cursor-pointer fa fa-close mx-1"
+        [disabled]="readOnlyAccess"
+        (click)="removeNote(note?.id)"
+      >
+      </button>
+    </div>
+  </div>
+</div>

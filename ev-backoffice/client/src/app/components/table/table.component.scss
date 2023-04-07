@@ -1,0 +1,106 @@
+@import '../../../_variables.scss';
+
+:host {
+  overflow-x: auto;
+  display: block;
+}
+
+tbody tr {
+  color: #323232;
+
+  &:hover {
+    color: #ffffff;
+    background: #e5e5e5;
+  }
+}
+
+thead {
+  z-index: 999;
+}
+
+th {
+  font-size: 14px;
+}
+
+@media (max-width: 991px) {
+  th {
+    font-size: 10px;
+  }
+}
+
+.width-5 {
+  width: 5%;
+}
+
+.width-10 {
+  width: 10%;
+}
+
+.width-15 {
+  width: 15%;
+}
+
+.width-20 {
+  width: 20%;
+}
+
+.width-25 {
+  width: 25%;
+}
+
+.width-30 {
+  width: 30%;
+}
+
+.width-35 {
+  width: 35%;
+}
+
+.width-40 {
+  width: 40%;
+}
+
+.width-45 {
+  width: 45%;
+}
+
+.small-cells {
+  th, td {
+    padding: .1em .7em;
+
+    input[type='checkbox'] {
+      vertical-align: middle;
+      margin-bottom: 2px;
+    }
+  }
+
+  td, tbody + tbody {
+    border: 0;
+  }
+}
+
+.no-packages-data-wrapper {
+  width: 100%;
+  margin-bottom: 14px;
+  text-align: center;
+  font-size: 14px;
+  font-style: italic;
+  background: #fff;
+  color: $gray-cb;
+  min-height: calc(74vh - 170px) !important;
+  max-height: calc(74vh - 170px) !important;
+  @media (min-height: 800px) {
+    height: calc(78vh - 175px) !important;
+    max-height: calc(78vh - 175px) !important;
+  }
+}
+
+.no-alerts-data-wrapper {
+  width: 100%;
+  margin-bottom: 14px;
+  text-align: center;
+  font-size: 14px;
+  font-style: italic;
+  height: 125px;
+  background: #fff;
+}

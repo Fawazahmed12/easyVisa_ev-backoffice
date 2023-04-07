@@ -1,0 +1,39 @@
+import com.easyvisa.InviteToCreateOrganizationRequest
+import com.easyvisa.JoinOrganizationRequest
+import com.easyvisa.LegalRepresentative
+import groovy.transform.Field
+
+@Field LegalRepresentative legalRepresentative
+@Field InviteToCreateOrganizationRequest newFirmJoinDetails
+@Field JoinOrganizationRequest firmRequestDetailsObj
+@Field Boolean canIncludeUserName
+inherits template: '/user/profile', model: [profile: legalRepresentative.profile, canIncludeUserName: canIncludeUserName]
+
+json {
+    officeEmail legalRepresentative.profile.email
+    officeAddress legalRepresentative.officeAddress ? g.render(template: '/address', model: [address: legalRepresentative.officeAddress]) : null
+    registrationStatus legalRepresentative.registrationStatus
+    attorneyType legalRepresentative.attorneyType
+    representativeType legalRepresentative.representativeType
+    practiceName legalRepresentative.profile.practiceName
+    id legalRepresentative.id
+    faxNumber legalRepresentative.faxNumber
+    officePhone legalRepresentative.officePhone
+    mobilePhone legalRepresentative.mobilePhone
+    websiteUrl legalRepresentative.websiteUrl
+    facebookUrl legalRepresentative.facebookUrl
+    linkedinUrl legalRepresentative.linkedinUrl
+    twitterUrl legalRepresentative.twitterUrl
+    youtubeUrl legalRepresentative.youtubeUrl
+    organizations tmpl.'/organizationEmployee'('organizationEmployee', legalRepresentative.organizationEmployees)
+    feeSchedule(legalRepresentative.currentOrganizationFeeSchedule ?
+            tmpl.'/attorney/feeBase'('fee', legalRepresentative.feeScheduleForUI) : [])
+    creditBalance legalRepresentative.creditBalance
+    newFirmInviteDetails(newFirmJoinDetails ?
+            g.render(template: '/user/firmJoinDetails', model: [id: newFirmJoinDetails.id, profile: newFirmJoinDetails.representative.profile]) : null)
+    newFirmJoinRequestDetails(firmRequestDetailsObj ?
+            g.render(template: '/user/firmJoinRequestDetails', model: [id          : firmRequestDetailsObj.id,
+                                                                       organization: firmRequestDetailsObj.organization,
+                                                                       profile     : legalRepresentative.profile]) : null)
+
+}

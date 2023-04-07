@@ -1,0 +1,11 @@
+import com.easyvisa.Profile
+
+inherits template: '/user/profile', model: [profile: profile]
+
+model {
+    Profile profile
+}
+json {
+    userId profile.user?.id
+    profilePhoto profile.profilePhoto
+}

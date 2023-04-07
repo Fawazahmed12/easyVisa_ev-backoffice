@@ -1,0 +1,16 @@
+<div class="container-fluid p-0 border border-secondary">
+  <app-modal-header [title]="'TEMPLATE.ACCOUNT.PROFILE.MODALS.MANDATORY_ADMIN.HEADER'"></app-modal-header>
+  <div class="m-md-4">
+    {{'TEMPLATE.ACCOUNT.PROFILE.MODALS.MANDATORY_ADMIN.DESCRIPTION_P1' | translate:
+      ({organizationType: (activeOrganization$ | async)?.organizationType | organizationType | translate})}}
+  </div>
+  <div class="text-right m-4">
+    <button
+      (click)="closeModal()"
+      class="btn btn-primary px-4 min-w-100"
+      type="button"
+    >
+      {{ 'FORM.BUTTON.OK' | translate}}
+    </button>
+  </div>
+</div>

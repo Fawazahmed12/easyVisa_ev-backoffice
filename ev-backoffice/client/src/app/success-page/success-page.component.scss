@@ -1,0 +1,11 @@
+:host::ng-deep {
+  .success {
+    .main-wrapper {
+      min-height: auto;
+      margin: 2rem auto !important;
+    }
+    .auth-header {
+      font-size: 1.5rem;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+import com.easyvisa.LegalRepresentative
+import groovy.transform.Field
+
+@Field LegalRepresentative legalRepresentative
+inherits template:'/user/profile', model:[profile:legalRepresentative.profile]
+
+json {
+    id legalRepresentative.id
+    officeAddress legalRepresentative.officeAddress ? g.render(template: '/address', model: [address: legalRepresentative.officeAddress]) : null
+    faxNumber legalRepresentative.faxNumber
+    officePhone legalRepresentative.officePhone
+    mobilePhone legalRepresentative.mobilePhone
+    officeEmail legalRepresentative.profile.email
+}

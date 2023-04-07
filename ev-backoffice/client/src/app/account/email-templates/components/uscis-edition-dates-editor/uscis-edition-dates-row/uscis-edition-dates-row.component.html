@@ -1,0 +1,37 @@
+<td width="70%" class="d-flex align-items-center">
+  {{ uscisFormsDateFormGroup.getRawValue().displayText }}
+</td>
+<td width="15%">
+  <app-datepicker-group
+    [dateFormControl]="editionDateFormControl"
+  ></app-datepicker-group>
+  <div
+    *ngIf="editionDateFormControl.hasError('required') && (editionDateFormControl.dirty || submitted)"
+    class="small text-center text-danger"
+  >
+    {{ 'FORM.ERROR.REQUIRED' | translate }}
+  </div>
+  <div
+    *ngIf="editionDateFormControl.hasError('pattern') || editionDateFormControl.hasError('ngbDate')"
+    class="small text-danger text-center"
+  >
+    {{ 'FORM.ERROR.INVALID_DATE_FORMAT' | translate }}
+  </div>
+</td>
+<td width="15%">
+  <app-datepicker-group
+    [dateFormControl]="expirationDateFormControl"
+  ></app-datepicker-group>
+  <div
+    *ngIf="expirationDateFormControl.hasError('required') && (expirationDateFormControl.dirty || submitted)"
+    class="small text-center text-danger"
+  >
+    {{ 'FORM.ERROR.REQUIRED' | translate }}
+  </div>
+  <div
+    *ngIf="expirationDateFormControl.hasError('pattern') || expirationDateFormControl.hasError('ngbDate')"
+    class="small text-danger text-center"
+  >
+    {{ 'FORM.ERROR.INVALID_DATE_FORMAT' | translate }}
+  </div>
+</td>

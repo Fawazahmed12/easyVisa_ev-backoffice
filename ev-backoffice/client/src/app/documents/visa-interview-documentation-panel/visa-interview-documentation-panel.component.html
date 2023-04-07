@@ -1,0 +1,54 @@
+<div class="document-panel">
+  <ngb-accordion #requiredDocumentPanel="ngbAccordion">
+    <ngb-panel>
+      <ng-template ngbPanelHeader let-opened="opened">
+        <div class="document-panel-header">
+          <div class="d-flex align-items-center justify-content-between">
+            <button ngbPanelToggle class="btn">
+              <i class="fa toggle-icon" *ngIf="!opened">&#9656;</i>
+              <i class="fa toggle-icon" *ngIf="opened">&#9662;</i>
+              {{'TEMPLATE.VISA_INTERVIEW.HEADER' | translate}}
+            </button>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <div class="document-panel-content">
+          <div class="row px-2 pt-2 mb-2">
+            <div class="offset-md-4 col col-md-4 text-center font-weight-bold h5">{{'TEMPLATE.VISA_INTERVIEW.DESCRIPTION_1' | translate:
+              ({clientName: currentUserName$ | async})}}</div>
+            <a class="col col-md-4 text-md-right text-primary">{{'TEMPLATE.VISA_INTERVIEW.DOWNLOAD_CHECKLIST' | translate}}</a>
+          </div>
+          <div class="col-8 offset-2 text-center mb-4 font-weight-bold">
+            {{'TEMPLATE.VISA_INTERVIEW.DESCRIPTION_2' | translate}}
+            <a class="cursor-pointer text-primary">{{'TEMPLATE.VISA_INTERVIEW.HELP' | translate }}</a>
+            {{'TEMPLATE.VISA_INTERVIEW.DESCRIPTION_3' | translate}}
+          </div>
+          <ol class="pb-4">
+            <li>{{'TEMPLATE.VISA_INTERVIEW.APPOINTMENT_LETTER' | translate}} </li>
+            <li>{{'TEMPLATE.VISA_INTERVIEW.DS-160' | translate}} </li>
+            <li>{{'TEMPLATE.VISA_INTERVIEW.DS-260' | translate}} <app-document-help [documentHelpText]="'TEMPLATE.VISA_INTERVIEW.DS-260_HELP' | translate"></app-document-help></li>
+            <li>{{'TEMPLATE.VISA_INTERVIEW.PASSPORTS' | translate}} <app-document-help [documentHelpText]="'TEMPLATE.VISA_INTERVIEW.PASSPORTS_HELP' | translate"></app-document-help></li>
+            <li>{{'TEMPLATE.VISA_INTERVIEW.PHOTOGRAPHS' | translate}} </li>
+            <li>{{'TEMPLATE.VISA_INTERVIEW.BIRTH_CERTIFICATES' | translate}} <app-document-help [documentHelpText]="'TEMPLATE.VISA_INTERVIEW.BIRTH_CERTIFICATES_HELP' | translate"></app-document-help></li>
+            <li>{{'TEMPLATE.VISA_INTERVIEW.MARITAL_STATUS_CERTIFICATES' | translate}} </li>
+            <li>{{'TEMPLATE.VISA_INTERVIEW.POLICE_CERTIFICATES' | translate}} </li>
+            <li>{{'TEMPLATE.VISA_INTERVIEW.MEDICAL_EXAMINATION' | translate}} <app-document-help [documentHelpText]="'TEMPLATE.VISA_INTERVIEW.MEDICAL_EXAMINATION_HELP' | translate"></app-document-help></li>
+            <li>{{'TEMPLATE.VISA_INTERVIEW.COURT_PRISON_RECORDS' | translate}} <app-document-help [documentHelpText]="'TEMPLATE.VISA_INTERVIEW.COURT_PRISON_RECORDS_HELP' | translate"></app-document-help></li>
+            <li>{{'TEMPLATE.VISA_INTERVIEW.MILITARY_RECORDS' | translate}} <app-document-help [documentHelpText]="'TEMPLATE.VISA_INTERVIEW.MILITARY_RECORDS_HELP' | translate"></app-document-help></li>
+            <li>{{'TEMPLATE.VISA_INTERVIEW.AFFIDAVIT' | translate}} </li>
+            <li>{{'TEMPLATE.VISA_INTERVIEW.EVIDENCE' | translate}} <app-document-help [documentHelpText]="'TEMPLATE.VISA_INTERVIEW.EVIDENCE_HELP' | translate"></app-document-help></li>
+            <li>{{'TEMPLATE.VISA_INTERVIEW.ADOPTION' | translate}} <app-document-help [documentHelpText]="'TEMPLATE.VISA_INTERVIEW.ADOPTION_HELP' | translate"></app-document-help></li>
+            <li>{{'TEMPLATE.VISA_INTERVIEW.RESUME' | translate}} </li>
+            <li>{{'TEMPLATE.VISA_INTERVIEW.VISA_EXTENSION_NOTICE' | translate}} </li>
+            <li>{{'TEMPLATE.VISA_INTERVIEW.RECORDS_PREVIOUS_IMMIGRATION' | translate}} </li>
+            <li>{{'TEMPLATE.VISA_INTERVIEW.TRANSLATIONS' | translate}} </li>
+            <li>{{'TEMPLATE.VISA_INTERVIEW.VISA_FEE_PROOF' | translate}} </li>
+            <li>{{'TEMPLATE.VISA_INTERVIEW.FORM_I-864' | translate}} <app-document-help [documentHelpText]="'TEMPLATE.VISA_INTERVIEW.FORM_I-864_HELP' | translate"></app-document-help></li>
+            <li>{{'TEMPLATE.VISA_INTERVIEW.DOMICILE' | translate}} <app-document-help [documentHelpText]="'TEMPLATE.VISA_INTERVIEW.DOMICILE_HELP' | translate"></app-document-help></li>
+          </ol>
+        </div>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+</div>

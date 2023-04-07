@@ -1,0 +1,13 @@
+@import "../../../variables";
+
+.text-b2b2b2 {
+  color: $b2-gray;
+}
+
+.click-here {
+  color: #3384d3;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

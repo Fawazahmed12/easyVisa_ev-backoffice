@@ -1,0 +1,1 @@
+ALTER TABLE sent_document ADD COLUMN is_approved boolean NULL;

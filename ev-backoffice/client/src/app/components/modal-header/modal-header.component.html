@@ -1,0 +1,10 @@
+<div class="modal-header align-items-center bg-primary text-white">
+  <h4 class="modal-title w-100 text-center">{{ title | translate }}</h4>
+  <button
+    *ngIf="showCloseIcon"
+    type="button"
+    class="d-flex align-items-center btn btn-secondary justify-content-center close-btn p-0"
+    aria-label="Close"
+    (click)="onCloseIconClick()"
+  ><i class="fa fa-times" aria-hidden="true"></i></button>
+</div>

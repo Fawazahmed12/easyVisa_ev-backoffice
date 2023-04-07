@@ -1,0 +1,14 @@
+<div class="wrapper d-flex flex-column">
+  <app-header></app-header>
+
+  <app-navigation></app-navigation>
+  <div class="position-relative flex-grow-1">
+    <app-spinner class="position-absolute wrapper-spinner col bg-white d-flex align-items-center justify-content-center" *appIfTabLoading></app-spinner>
+    <div class="page-container" [ngClass]="(isLoggedIn$ | async) ? 'logged-in' :  ''">
+      <div class="container-fluid global-page-wrapper">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

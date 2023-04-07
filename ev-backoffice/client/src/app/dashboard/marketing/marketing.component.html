@@ -1,0 +1,105 @@
+<div *appIfNoRepresentativeSelected="selectRep">
+  <div class="row justify-content-end mb-3">
+    <app-select-affiliation
+      class="col-md-6 mb-2 mb-md-0"
+      [formControl]="organizationIdFormControl"
+      [toolTipTemplate]="tipContent"
+    >
+    </app-select-affiliation>
+  </div>
+  <div class="d-flex flex-column flex-md-row justify-content-center cards-space">
+    <app-time-frame
+      [title]="'TEMPLATE.DASHBOARD.ARTICLES.MARKETING.ACTIVE_CLIENTS' | translate"
+      [indicators]="(marketingDetails$ | async)?.activeClients"
+      class="p-0 mt-3 mt-md-0 flex-1"
+    >
+      <div class="position-relative px-3 mx-4">
+        <span class="position-absolute asterisk-position asterisk-font-size text-danger">*</span>
+        {{'TEMPLATE.DASHBOARD.ARTICLES.MARKETING.DESCRIPTION_1' | translate}}
+      </div>
+    </app-time-frame>
+    <app-time-frame
+      [title]="'TEMPLATE.DASHBOARD.ARTICLES.MARKETING.PROSPECTIVE_CLIENTS' | translate"
+      [indicators]="(marketingDetails$ | async)?.prospectiveClients"
+      *ngIf="canShowPhoneNumberClients"
+      class="p-0 mt-3 mt-md-0 flex-1"
+    >
+      <div class="position-relative px-3 mx-4">
+        <span class="position-absolute asterisk-position asterisk-font-size text-danger">*</span>
+        {{'TEMPLATE.DASHBOARD.ARTICLES.MARKETING.DESCRIPTION_2' | translate}}
+        <a
+          class="text-primary cursor-pointer"
+          (click)="openProspectiveClients()">
+          {{'TEMPLATE.DASHBOARD.ARTICLES.MARKETING.LEARN_MORE' | translate}}
+        </a>
+      </div>
+    </app-time-frame>
+    <app-time-frame
+      [title]="'TEMPLATE.DASHBOARD.ARTICLES.MARKETING.PHONE_NUMBERS_CLIENTS' | translate"
+      [indicators]="(marketingDetails$ | async)?.phoneNumberClients"
+      class="p-0 mt-3 mt-md-0 flex-1"
+      *ngIf="canShowProspectiveClients"
+    >
+      <div class="position-relative px-3 mx-4">
+        <span class="position-absolute asterisk-position asterisk-font-size text-danger">*</span>
+        {{'TEMPLATE.DASHBOARD.ARTICLES.MARKETING.DESCRIPTION_3' | translate}}
+        {{'TEMPLATE.DASHBOARD.ARTICLES.MARKETING.DESCRIPTION_4' | translate}}
+        <a
+          class="text-primary cursor-pointer"
+          (click)="openPhoneNumberClients()">
+          {{'TEMPLATE.DASHBOARD.ARTICLES.MARKETING.LEARN_MORE' | translate}}
+        </a>
+      </div>
+    </app-time-frame>
+  </div>
+</div>
+
+<ng-template #prospectiveClients>
+  <div class="container-fluid my-4">
+    <div class="mb-2">
+      {{'TEMPLATE.DASHBOARD.ARTICLES.MARKETING.PROSPECTIVE_CLIENTS_POP_UP.DESCRIPTION_P1' | translate }}
+    </div>
+    <div class="mb-2">
+      {{'TEMPLATE.DASHBOARD.ARTICLES.MARKETING.PROSPECTIVE_CLIENTS_POP_UP.DESCRIPTION_P2' | translate }}
+    </div>
+    <div class="mb-2">
+      {{'TEMPLATE.DASHBOARD.ARTICLES.MARKETING.PROSPECTIVE_CLIENTS_POP_UP.DESCRIPTION_P3' | translate }}
+    </div>
+    <div class="mb-2"
+         [innerHTML]="'TEMPLATE.DASHBOARD.ARTICLES.MARKETING.PROSPECTIVE_CLIENTS_POP_UP.DESCRIPTION_P4' | translate">
+    </div>
+    <div class="mb-2">
+      {{'TEMPLATE.DASHBOARD.ARTICLES.MARKETING.PROSPECTIVE_CLIENTS_POP_UP.DESCRIPTION_P5' | translate }}
+    </div>
+    <div class="mb-2 small position-relative mx-4 px-2">
+      <span class="text-danger position-absolute asterisk-position-left">*</span>
+      {{'TEMPLATE.DASHBOARD.ARTICLES.MARKETING.PROSPECTIVE_CLIENTS_POP_UP.DESCRIPTION_P6' | translate }}
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #phoneNumberClients>
+  <div class="container-fluid my-4">
+    <div class="mb-2">
+      {{'TEMPLATE.DASHBOARD.ARTICLES.MARKETING.PHONE_NUMBER_CLIENTS_POP_UP.DESCRIPTION_P1' | translate }}
+    </div>
+    <div class="mb-5">
+      {{'TEMPLATE.DASHBOARD.ARTICLES.MARKETING.PHONE_NUMBER_CLIENTS_POP_UP.DESCRIPTION_P2' | translate }}
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #selectRep>
+  <div class="d-flex align-items-center">
+    {{'TEMPLATE.DASHBOARD.FINANCIAL.SELECT_REPRESENTATIVE_MARKETING' | translate}}
+  </div>
+</ng-template>
+
+<ng-template #tipContent>
+  <div class="text-left">
+    <p [innerHTML]="'TEMPLATE.DASHBOARD.ARTICLES.MARKETING.SELECT_BY_AFF_DESCRIPTION.ATTORNEY_P_1' | translate"></p>
+    <p [innerHTML]="'TEMPLATE.DASHBOARD.ARTICLES.MARKETING.SELECT_BY_AFF_DESCRIPTION.ATTORNEY_P_2' | translate"></p>
+    <p [innerHTML]="'TEMPLATE.DASHBOARD.ARTICLES.MARKETING.SELECT_BY_AFF_DESCRIPTION.ATTORNEY_P_3' | translate"></p>
+  </div>
+</ng-template>
+

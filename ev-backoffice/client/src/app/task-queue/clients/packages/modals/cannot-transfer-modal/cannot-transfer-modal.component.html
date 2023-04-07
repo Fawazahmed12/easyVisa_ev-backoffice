@@ -1,0 +1,23 @@
+<div class="container-fluid p-0 border border-secondary">
+  <app-modal-header *ngIf="!representativeId" [title]="'TEMPLATE.TASK_QUEUE.CLIENTS.MULTIPLE_SELECTED_MODAL.TITLE' | translate:
+  ({representativeType: (activeOrganization$ | async)?.organizationType | representativeType | translate})">
+  </app-modal-header>
+  <app-modal-header *ngIf="representativeId" [title]="'TEMPLATE.TASK_QUEUE.CLIENTS.NO_CASES_SELECTED.TITLE' | translate">
+  </app-modal-header>
+  <div class="modal-body">
+    <div *ngIf="!representativeId">
+      <p>{{ 'TEMPLATE.TASK_QUEUE.CLIENTS.MULTIPLE_SELECTED_MODAL.DESCRIPTION_P_1' | translate:
+        ({representativeType: (activeOrganization$ | async)?.organizationType | representativeType | translate})}}
+      </p>
+      <p>{{ 'TEMPLATE.TASK_QUEUE.CLIENTS.MULTIPLE_SELECTED_MODAL.DESCRIPTION_P_2' | translate:
+        ({representativeType: (activeOrganization$ | async)?.organizationType | representativeType | translate})}}
+      </p>
+    </div>
+    <p *ngIf="representativeId">{{ 'TEMPLATE.TASK_QUEUE.CLIENTS.NO_CASES_SELECTED.DESCRIPTION' | translate}}</p>
+    <div class="text-right">
+      <button class="btn btn-primary min-w-100" type="button" (click)="closeModal()">
+        {{ 'FORM.BUTTON.OK' | translate }}
+      </button>
+    </div>
+  </div>
+</div>

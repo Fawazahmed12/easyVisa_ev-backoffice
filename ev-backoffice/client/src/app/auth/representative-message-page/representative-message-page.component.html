@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+
+      <div *ngIf="(isMemberOfLawFirm$ | async); else accreditedRepresentativeTitle">
+        <h3 class="text-center my-4">{{'TEMPLATE.AUTH.REPRESENTATIVE_MESSAGES.LAW_FIRM.TITLE' | translate}}</h3>
+      </div>
+      <ng-template #accreditedRepresentativeTitle>
+        <h3 class="text-center my-4">{{'TEMPLATE.AUTH.REPRESENTATIVE_MESSAGES.ACCREDITED_REPRESENTATIVE.TITLE' | translate}}</h3>
+      </ng-template>
+
+      <div class="d-flex flex-column flex-lg-row align-items-center mb-4">
+        <div class="mb-3 mb-lg-0 mr-lg-4">
+          <img src="/assets/images/warn-icon.png" alt="warn-icon">
+        </div>
+        <div class="d-flex flex-column">
+          <h2 class="text-center text-danger mb-0">{{'TEMPLATE.AUTH.REPRESENTATIVE_MESSAGES.WARNING_TITLE' | translate}}</h2>
+          <ng-container class="my-4" *ngIf="(isMemberOfLawFirm$ | async) === false">
+            <h5 class="text-center text-danger mt-2 mb-0">{{'TEMPLATE.AUTH.REPRESENTATIVE_MESSAGES.ACCREDITED_REPRESENTATIVE.WARNING_SUBTITLE' | translate}}</h5>
+          </ng-container>
+        </div>
+      </div>
+
+      <ng-container *ngIf="(isMemberOfLawFirm$ | async); else accreditedRepresentativeContent">
+        <div class="mb-2">{{'TEMPLATE.AUTH.REPRESENTATIVE_MESSAGES.LAW_FIRM.TEXT_1' | translate}}</div>
+        <div class="mb-2">{{'TEMPLATE.AUTH.REPRESENTATIVE_MESSAGES.LAW_FIRM.TEXT_2' | translate}}</div>
+        <div class="mb-2">{{'TEMPLATE.AUTH.REPRESENTATIVE_MESSAGES.LAW_FIRM.TEXT_3' | translate}}</div>
+      </ng-container>
+      <ng-template #accreditedRepresentativeContent>
+        <div class="mb-2">
+          <span class="font-weight-bold">{{'TEMPLATE.AUTH.REPRESENTATIVE_MESSAGES.ACCREDITED_REPRESENTATIVE.TEXT_1_TITLE' | translate}}</span>
+          <span> - </span>
+          <span [innerHTML]="'TEMPLATE.AUTH.REPRESENTATIVE_MESSAGES.ACCREDITED_REPRESENTATIVE.TEXT_1' | translate"></span>
+        </div>
+        <div>
+          <span class="font-weight-bold">{{'TEMPLATE.AUTH.REPRESENTATIVE_MESSAGES.ACCREDITED_REPRESENTATIVE.TEXT_2_TITLE' | translate}}</span>
+          <span> - </span>
+          <span [innerHTML]="'TEMPLATE.AUTH.REPRESENTATIVE_MESSAGES.ACCREDITED_REPRESENTATIVE.TEXT_2' | translate"></span>
+        </div>
+      </ng-template>
+
+      <div class="text-center my-5">
+        <button type="button" class="btn btn-primary px-4 min-w-100 mr-5" (click)="goToSelectRepresentativeType()">
+          {{'FORM.BUTTON.PREVIOUS' | translate}}
+        </button>
+        <button type="button" class="btn btn-primary px-4 min-w-100" (click)="goToStandartEvCharges()">
+          {{'FORM.BUTTON.NEXT' | translate}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

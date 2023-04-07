@@ -1,0 +1,34 @@
+.title {
+  min-height: 75px;
+}
+
+@media (min-width: 992px) {
+  .title {
+    min-height: 55px;
+  }
+}
+
+
+.max-height-block-300 {
+  height: 170px;
+}
+
+.w-150 {
+  width: 150px;
+}
+
+.border-skyblue {
+  border: 1px #89b7dc solid;
+}
+
+.background-bee1f9 {
+  background: #bee1f9;
+}
+
+.border-custom {
+  border: 3px #3381c1 solid;
+}
+
+.height-card {
+  min-height: 516px;
+}

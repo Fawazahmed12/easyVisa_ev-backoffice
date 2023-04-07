@@ -1,0 +1,1 @@
+ALTER TABLE email_template ADD CONSTRAINT fk_email_template_to_preference FOREIGN KEY (preference_id) REFERENCES email_preference(id);

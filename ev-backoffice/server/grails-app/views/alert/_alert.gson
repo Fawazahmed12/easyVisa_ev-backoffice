@@ -1,0 +1,11 @@
+import com.easyvisa.Alert
+import groovy.transform.Field
+
+@Field Alert alert
+
+inherits template: '/alert/evSystemMessage', model: [systemMessage: alert]
+
+json {
+    userId alert.recipient.id
+    recipientName alert.recipient?.profile?.name
+}

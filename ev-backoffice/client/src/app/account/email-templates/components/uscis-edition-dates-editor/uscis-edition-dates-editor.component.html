@@ -1,0 +1,45 @@
+
+<div class="row m-0 mb-3">
+  <div class="col-md-10 d-flex align-items-center">
+    <h5 class="mb-0">{{ 'TEMPLATE.ACCOUNT.USCIS_EDITION_DATES.SUBTITLE_1' | translate }}</h5>
+  </div>
+  <div class="col-md-2 text-right">
+    <button class="btn btn-primary px-4 min-w-100"
+            type="button"
+            [disabled]="(isLoading$ | async)"
+            (click)="saveUscisEditionDates()">
+      {{ 'FORM.BUTTON.SAVE' | translate }}
+    </button>
+  </div>
+</div>
+
+<div class="table-billing-info table-uscis-edition-dates">
+  <table class="table table-bordered mb-0">
+    <thead class="bg-primary text-white">
+      <tr>
+        <th scope="col" class="text-center" width="70%">{{ 'TEMPLATE.ACCOUNT.USCIS_EDITION_DATES.USCIS_FORM_NO_NAME' |
+          translate }}
+        </th>
+        <th scope="col" class="text-center" width="15%">{{ 'TEMPLATE.ACCOUNT.USCIS_EDITION_DATES.EDITION_DATE' | translate
+          }}
+        </th>
+        <th scope="col" class="text-center" width="15%">{{ 'TEMPLATE.ACCOUNT.USCIS_EDITION_DATES.EXPIRATION_DATE' |
+          translate }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of uscisFormsFormGroups; let i = index;">
+      <app-uscis-edition-dates-row
+        [uscisFormsDateFormGroup]="item"
+        [editionDateFormControl]="item.controls.editionDate"
+        [expirationDateFormControl]="item.controls.expirationDate"
+        [index]="i"
+        [submitted]="submitted"
+        class="d-flex"
+      >
+      </app-uscis-edition-dates-row>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,15 @@
+import com.easyvisa.Email
+import groovy.transform.Field
+
+@Field Email email
+@Field String message
+
+json {
+    content email.content
+    subject email.subject
+    templateType email.templateType
+    id email.id
+    packageId email?.aPackage?.id
+    representativeId email?.attorney?.id
+    responseMessage message
+}

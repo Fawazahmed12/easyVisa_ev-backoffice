@@ -1,0 +1,4 @@
+export enum NoteTypes {
+  PUBLIC_NOTE = 'PUBLIC_NOTE',
+  REPRESENTATIVE_NOTE = 'REPRESENTATIVE_NOTE',
+}

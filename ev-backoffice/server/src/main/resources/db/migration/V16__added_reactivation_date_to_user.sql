@@ -1,0 +1,1 @@
+ALTER TABLE ev_user ADD reactivation_date timestamp without time zone NULL;

@@ -1,0 +1,4582 @@
+[
+  {
+    "type": "yesNoRadioButton",
+    "values": [
+      {
+        "value": "yes",
+        "label": "Yes",
+        "printValue": "Yes"
+      },
+      {
+        "value": "no",
+        "label": "No",
+        "printValue": "No"
+      }
+    ]
+  },
+  {
+    "type": "yesUnknownRadioButton",
+    "values": [
+      {
+        "value": "yes",
+        "label": "Yes",
+        "printValue": "Yes"
+      },
+      {
+        "value": "unknown",
+        "label": "Unknown",
+        "printValue": "Unknown"
+      }
+    ]
+  },
+  {
+    "type": "relationshipRadioButton",
+    "values": [
+      {
+        "value": "fiance",
+        "label": "Fiancé(e)",
+        "printValue": "Fiancé(e)"
+      },
+      {
+        "value": "spouse",
+        "label": "Spouse",
+        "printValue": "Spouse"
+      },
+      {
+        "value": "parent",
+        "label": "Parent",
+        "printValue": "Parent"
+      },
+      {
+        "value": "sibling",
+        "label": "Sibling",
+        "printValue": "Sibling"
+      },
+      {
+        "value": "child",
+        "label": "Child",
+        "printValue": "Child"
+      },
+      {
+        "value": "substitutesponsor",
+        "label": "Substitute Sponsor",
+        "printValue": "Substitute Sponsor"
+      }
+    ]
+  },
+  {
+    "type": "parentOrChildRelationshipRadioButton",
+    "values": [
+      {
+        "value": "child_was_born_to_parents_who_were_married_to_each_other_at_the_time_of_the_childs_birth",
+        "label": "Child was born to parents who were married to each other at the time of the child's birth",
+        "printValue": "Child was born to parents who were married to each other at the time of the child's birth"
+      },
+      {
+        "value": "stepchild_stepparent",
+        "label": "Stepchild/Stepparent",
+        "printValue": "Stepchild/Stepparent"
+      },
+      {
+        "value": "child_was_born_to_parents_who_were_not_married_to_each_other_at_the_time_of_the_childs_birth",
+        "label": "Child was born to parents who were not married to each other at the time of the child's birth",
+        "printValue": "Child was born to parents who were not married to each other at the time of the child's birth"
+      },
+      {
+        "value": "child_was_adopted_not_an_orphan_or_hague_convention_adoptee",
+        "label": "Child was adopted (not an Orphan or Hague Convention adoptee)",
+        "printValue": "Child was adopted (not an Orphan or Hague Convention adoptee)"
+      }
+    ]
+  },
+  {
+    "type": "secondaryAddressDescRadioButton",
+    "values": [
+      {
+        "value": "apartment",
+        "label": "Apartment",
+        "printValue": "Apartment"
+      },
+      {
+        "value": "suite",
+        "label": "Suite",
+        "printValue": "Suite"
+      },
+      {
+        "value": "floor",
+        "label": "Floor",
+        "printValue": "Floor"
+      }
+    ]
+  },
+  {
+    "type": "usLegalStatusRadioButton",
+    "values": [
+      {
+        "value": "united_states_citizen",
+        "label": "United States Citizen",
+        "printValue": "United States Citizen"
+      },
+      {
+        "value": "us_national",
+        "label": "U.S. National",
+        "printValue": "U.S. National"
+      },
+      {
+        "value": "lawful_permanent_resident",
+        "label": "Lawful Permanent Resident/Green Card holder",
+        "printValue": "Lawful Permanent Resident/Green Card holder"
+      },
+      {
+        "value": "alien",
+        "label": "Alien",
+        "printValue": "Alien"
+      }
+    ]
+  },
+  {
+    "type": "genderRadioButton",
+    "values": [
+      {
+        "value": "male",
+        "label": "Male",
+        "printValue": "Male"
+      },
+      {
+        "value": "female",
+        "label": "Female",
+        "printValue": "Female"
+      }
+    ]
+  },
+  {
+    "type": "ethnicityRadioButton",
+    "values": [
+      {
+        "value": "hispanic_or_latino",
+        "label": "Hispanic or Latino",
+        "printValue": "Hispanic or Latino"
+      },
+      {
+        "value": "not_hispanic_or_latino",
+        "label": "Not Hispanic or Latino",
+        "printValue": "Not Hispanic or Latino"
+      }
+    ]
+  },
+  {
+    "type": "unitMeasureRadioButton",
+    "values": [
+      {
+        "value": "imperial",
+        "label": "Imperial",
+        "printValue": "Imperial"
+      },
+      {
+        "value": "metric",
+        "label": "Metric",
+        "printValue": "Metric"
+      }
+    ]
+  },
+  {
+    "type": "eyeColorRadioButton",
+    "values": [
+      {
+        "value": "black",
+        "label": "Black",
+        "printValue": "Black"
+      },
+      {
+        "value": "blue",
+        "label": "Blue",
+        "printValue": "Blue"
+      },
+      {
+        "value": "brown",
+        "label": "Brown",
+        "printValue": "Brown"
+      },
+      {
+        "value": "gray",
+        "label": "Gray",
+        "printValue": "Gray"
+      },
+      {
+        "value": "green",
+        "label": "Green",
+        "printValue": "Green"
+      },
+      {
+        "value": "hazel",
+        "label": "Hazel",
+        "printValue": "Hazel"
+      },
+      {
+        "value": "maroon",
+        "label": "Maroon",
+        "printValue": "Maroon"
+      },
+      {
+        "value": "pink",
+        "label": "Pink",
+        "printValue": "Pink"
+      },
+      {
+        "value": "unknown_other",
+        "label": "Unknown/Other",
+        "printValue": "Unknown/Other"
+      }
+    ]
+  },
+  {
+    "type": "hairColorRadioButton",
+    "values": [
+      {
+        "value": "bald_no_hair",
+        "label": "Bald (No hair)",
+        "printValue": "Bald (No hair)"
+      },
+      {
+        "value": "black",
+        "label": "Black",
+        "printValue": "Black"
+      },
+      {
+        "value": "blond",
+        "label": "Blond",
+        "printValue": "Blond"
+      },
+      {
+        "value": "gray",
+        "label": "Gray",
+        "printValue": "Gray"
+      },
+      {
+        "value": "red",
+        "label": "Red",
+        "printValue": "Red"
+      },
+      {
+        "value": "sandy",
+        "label": "Sandy",
+        "printValue": "Sandy"
+      },
+      {
+        "value": "white",
+        "label": "White",
+        "printValue": "White"
+      },
+      {
+        "value": "unknown_other",
+        "label": "Unknown/Other",
+        "printValue": "Unknown/Other"
+      }
+    ]
+  },
+  {
+    "type": "citizenshipAcquiredRadioButton",
+    "values": [
+      {
+        "value": "birth_in_the_united_states",
+        "label": "Birth in the United States",
+        "printValue": "Birth in the United States"
+      },
+      {
+        "value": "naturalization",
+        "label": "Naturalization",
+        "printValue": "Naturalization"
+      },
+      {
+        "value": "parents_marriage",
+        "label": "Parents/Marriage",
+        "printValue": "Parents/Marriage"
+      },
+      {
+        "value": "another_method",
+        "label": "Another Method",
+        "printValue": "Another Method"
+      }
+    ]
+  },
+  {
+    "type": "permanentResidenceRadioButton",
+    "values": [
+      {
+        "value": "marriage_to_a_uscitizen",
+        "label": "Marriage to a United States Citizen",
+        "printValue": "Marriage to a United States Citizen"
+      },
+      {
+        "value": "marriage_to_a_lpr",
+        "label": "Marriage to a Lawful Permanent Resident (LPR)",
+        "printValue": "Marriage to a Lawful Permanent Resident (LPR)"
+      },
+      {
+        "value": "through_adoption",
+        "label": "Through Adoption",
+        "printValue": "Through Adoption"
+      }
+    ]
+  },
+  {
+    "type": "employmentStatusRadioButton",
+    "values": [
+      {
+        "value": "employed",
+        "label": "Employed",
+        "printValue": "Employed"
+      },
+      {
+        "value": "unemployed",
+        "label": "Unemployed",
+        "printValue": "Unemployed"
+      },
+      {
+        "value": "retired",
+        "label": "Retired",
+        "printValue": "Retired"
+      }
+    ]
+  },
+  {
+    "type": "maritalStatusRadioButton",
+    "values": [
+      {
+        "value": "single_never_married",
+        "label": "Single (NEVER Married)",
+        "printValue": "Single (NEVER Married)"
+      },
+      {
+        "value": "married",
+        "label": "Married",
+        "printValue": "Married"
+      },
+      {
+        "value": "divorced",
+        "label": "Divorced",
+        "printValue": "Divorced"
+      },
+      {
+        "value": "widowed",
+        "label": "Widowed",
+        "printValue": "Widowed"
+      },
+      {
+        "value": "legallyseparated",
+        "label": "Legally Separated",
+        "printValue": "Legally Separated"
+      },
+      {
+        "value": "marriage_annulled",
+        "label": "Marriage Annulled",
+        "printValue": "Marriage Annulled"
+      }
+    ]
+  },
+  {
+    "type": "marriageEndRadioButton",
+    "values": [
+      {
+        "value": "divorce",
+        "label": "Divorce",
+        "printValue": "Divorce"
+      },
+      {
+        "value": "anullment",
+        "label": "Anullment",
+        "printValue": "Anullment"
+      },
+      {
+        "value": "death",
+        "label": "Death",
+        "printValue": "Death"
+      }
+    ]
+  },
+  {
+    "type": "degreeOfDependencyRadioButton",
+    "values": [
+      {
+        "value": "wholly_dependent",
+        "label": "Wholly Dependent",
+        "printValue": "Wholly Dependent"
+      },
+      {
+        "value": "partially_dependent",
+        "label": "Partially Dependent",
+        "printValue": "Partially Dependent"
+      }
+    ]
+  },
+  {
+    "type": "relationshipDropdown",
+    "values": [
+      {
+        "value": "Brother/Sister",
+        "label": "Brother/Sister",
+        "printValue": "Brother/Sister"
+      },
+      {
+        "value": "Parent",
+        "label": "Parent",
+        "printValue": "Parent"
+      },
+      {
+        "value": "Adult Child",
+        "label": "Adult Child",
+        "printValue": "Adult Child"
+      },
+      {
+        "value": "Intending Immigrant WITHOUT Dependents",
+        "label": "Intending Immigrant WITHOUT Dependents",
+        "printValue": "Intending Immigrant WITHOUT Dependents"
+      }
+    ]
+  },
+  {
+    "type": "relationshipToRelativeRadioButton1",
+    "values": [
+      {
+        "value": "uscitizen_parent",
+        "label": "U.S. Citizen Parent",
+        "printValue": "U.S. Citizen Parent"
+      },
+      {
+        "value": "uscitizen_child",
+        "label": "U.S. Citizen Child",
+        "printValue": "U.S. Citizen Child"
+      },
+      {
+        "value": "lpr_parent",
+        "label": "LPR Parent",
+        "printValue": "LPR Parent"
+      },
+      {
+        "value": "lpr_child",
+        "label": "LPR Child",
+        "printValue": "LPR Child"
+      }
+    ]
+  },
+  {
+    "type": "relationshipToRelativeRadioButton2",
+    "values": [
+      {
+        "value": "uscitizen_spouse",
+        "label": "U.S. Citizen Spouse",
+        "printValue": "U.S. Citizen Spouse"
+      },
+      {
+        "value": "uscitizen_parent",
+        "label": "U.S. Citizen Parent",
+        "printValue": "U.S. Citizen Parent"
+      },
+      {
+        "value": "lpr_spouse",
+        "label": "LPR Spouse",
+        "printValue": "LPR Spouse"
+      },
+      {
+        "value": "lpr_parent",
+        "label": "LPR Parent",
+        "printValue": "LPR Parent"
+      }
+    ]
+  },
+  {
+    "type": "uscisOfficesDropdown",
+    "values": [
+      {
+        "value": "CSC - California Service Center",
+        "label": "CSC - California Service Center",
+        "printValue": "CSC - California Service Center"
+      },
+      {
+        "value": "EAC - Eastern Adjudication Center",
+        "label": "EAC - Eastern Adjudication Center",
+        "printValue": "EAC - Eastern Adjudication Center"
+      },
+      {
+        "value": "IOE - USCIS ELIS (e-file)",
+        "label": "IOE - USCIS ELIS (e-file)",
+        "printValue": "IOE - USCIS ELIS (e-file)"
+      },
+      {
+        "value": "LIN - Lincoln Service Center",
+        "label": "LIN - Lincoln Service Center",
+        "printValue": "LIN - Lincoln Service Center"
+      },
+      {
+        "value": "MSC - Missouri Service Center",
+        "label": "MSC - Missouri Service Center",
+        "printValue": "MSC - Missouri Service Center"
+      },
+      {
+        "value": "NBC - National Benefits Center",
+        "label": "NBC - National Benefits Center",
+        "printValue": "NBC - National Benefits Center"
+      },
+      {
+        "value": "NSC - Nebraska Service Center",
+        "label": "NSC - Nebraska Service Center",
+        "printValue": "NSC - Nebraska Service Center"
+      },
+      {
+        "value": "SRC - Southern Regional Center",
+        "label": "SRC - Southern Regional Center",
+        "printValue": "SRC - Southern Regional Center"
+      },
+      {
+        "value": "TSC - Texas Service Center",
+        "label": "TSC - Texas Service Center",
+        "printValue": "TSC - Texas Service Center"
+      },
+      {
+        "value": "VSC - Vermont Service Center",
+        "label": "VSC - Vermont Service Center",
+        "printValue": "VSC - Vermont Service Center"
+      },
+      {
+        "value": "WAC - Western Adjudication Center",
+        "label": "WAC - Western Adjudication Center",
+        "printValue": "WAC - Western Adjudication Center"
+      },
+      {
+        "value": "YSC - Potomac Service Center",
+        "label": "YSC - Potomac Service Center",
+        "printValue": "YSC - Potomac Service Center"
+      }
+    ]
+  },
+  {
+    "type": "employmentAuthorizationRadioButton",
+    "values": [
+      {
+        "value": "apply_for_work_authorization",
+        "label": "Apply for Work Authorization",
+        "printValue": "Apply for Work Authorization"
+      },
+      {
+        "value": "replacement_of_work_authorization_card",
+        "label": "Replacement of Work Authorization Card",
+        "printValue": "Replacement of Work Authorization Card"
+      },
+      {
+        "value": "renewal_of_work_authorization_card_attach_a_copy_of_your_previous_employment_work_authorization_card",
+        "label": "Renewal of Work Authorization Card (attach a copy of your previous employment Work Authorization Card)",
+        "printValue": "Renewal of Work Authorization Card (attach a copy of your previous employment Work Authorization Card)"
+      }
+    ]
+  },
+  {
+    "type": "jointlyIndividuallyRadioButton",
+    "values": [
+      {
+        "value": "Jointly",
+        "label": "Jointly",
+        "printValue": "Jointly"
+      },
+      {
+        "value": "Individually",
+        "label": "Individually",
+        "printValue": "Individually"
+      }
+    ]
+  },
+  {
+    "type": "spouseParentsSpouseRadioButton",
+    "values": [
+      {
+        "value": "my_spouse",
+        "label": "My Spouse",
+        "printValue": "My Spouse"
+      },
+      {
+        "value": "my_parents_spouse",
+        "label": "My parent's spouse because you are unable to be included in the joint petition filed by my parent's spouse",
+        "printValue": "My parent's spouse because you are unable to be included in the joint petition filed by my parent's spouse"
+      }
+    ]
+  },
+  {
+    "type": "describeRelationshipToPetitionerRadioButton",
+    "values": [
+      {
+        "value": "Child was born to parents who were married to each other at the time of the child's birth",
+        "label": "Child was born to parents who were married to each other at the time of the child's birth",
+        "printValue": "Child was born to parents who were married to each other at the time of the child's birth"
+      },
+      {
+        "value": "Stepchild/Stepparent",
+        "label": "Stepchild/Stepparent",
+        "printValue": "Stepchild/Stepparent"
+      },
+      {
+        "value": "Child was born to parents who were not married to each other at the time of the child's birth",
+        "label": "Child was born to parents who were not married to each other at the time of the child's birth",
+        "printValue": "Child was born to parents who were not married to each other at the time of the child's birth"
+      },
+      {
+        "value": "Child was adopted (not an Orphan or Hague Convention adoptee)",
+        "label": "Child was adopted (not an Orphan or Hague Convention adoptee)",
+        "printValue": "Child was adopted (not an Orphan or Hague Convention adoptee)"
+      }
+    ]
+  },
+  {
+    "type": "approvedDeniedRadioButton",
+    "values": [
+      {
+        "value": "Approved",
+        "label": "Approved",
+        "printValue": "Approved"
+      },
+      {
+        "value": "Denied",
+        "label": "Denied",
+        "printValue": "Denied"
+      }
+    ]
+  },
+  {
+    "type": "applicationDecisionRadioButton",
+    "values": [
+      {
+        "value": "Approved",
+        "label": "Approved",
+        "printValue": "Approved"
+      },
+      {
+        "value": "Denied",
+        "label": "Denied",
+        "printValue": "Denied"
+      },
+      {
+        "value": "Refused",
+        "label": "Refused",
+        "printValue": "Refused"
+      },
+      {
+        "value": "Withdrawn",
+        "label": "Withdrawn",
+        "printValue": "Withdrawn"
+      }
+    ]
+  },
+  {
+    "type": "relationshipToPetitionerRadioButton",
+    "values": [
+      {
+        "value": "Spouse",
+        "label": "Spouse",
+        "printValue": "Spouse"
+      },
+      {
+        "value": "Parent",
+        "label": "Parent",
+        "printValue": "Parent"
+      },
+      {
+        "value": "Sibling",
+        "label": "Sibling",
+        "printValue": "Sibling"
+      },
+      {
+        "value": "Child",
+        "label": "Child",
+        "printValue": "Child"
+      }
+    ]
+  },
+  {
+    "type": "visaTypeRadioButton",
+    "values": [
+      {
+        "value": "k_1_k_2",
+        "label": "K-1/K-2",
+        "printValue": "K-1/K-2"
+      },
+      {
+        "value": "k_3_k_4",
+        "label": "K-3/K-4",
+        "printValue": "K-3/K-4"
+      }
+    ]
+  },
+  {
+    "type": "yesNoUnknownRadioButton",
+    "values": [
+      {
+        "value": "yes",
+        "label": "Yes",
+        "printValue": "Yes"
+      },
+      {
+        "value": "no",
+        "label": "No",
+        "printValue": "No"
+      },
+      {
+        "value": "unknown",
+        "label": "Unknown",
+        "printValue": "Unknown"
+      }
+    ]
+  },
+  {
+    "type": "bankDepositAccountLocationDropdown",
+    "values": [
+      {
+        "value": "Outside U.S",
+        "label": "Outside U.S",
+        "printValue": "Outside U.S"
+      },
+      {
+        "value": "Inside U.S",
+        "label": "Inside U.S",
+        "printValue": "Inside U.S"
+      }
+    ]
+  },
+  {
+    "type": "intendContributionListDropdown",
+    "values": [
+      {
+        "value": "Lump Sum",
+        "label": "Lump Sum",
+        "printValue": "Lump Sum"
+      },
+      {
+        "value": "Weekly",
+        "label": "Weekly",
+        "printValue": "Weekly"
+      },
+      {
+        "value": "Monthly",
+        "label": "Monthly",
+        "printValue": "Monthly"
+      },
+      {
+        "value": "Annually",
+        "label": "Annually",
+        "printValue": "Annually"
+      }
+    ]
+  },
+  {
+    "type": "intendContinueContributionRadioButton",
+    "values": [
+      {
+        "value": "One Time Only",
+        "label": "One Time Only",
+        "printValue": "One Time Only"
+      },
+      {
+        "value": "Months",
+        "label": "Months",
+        "printValue": "Months"
+      },
+      {
+        "value": "Years",
+        "label": "Years",
+        "printValue": "Years"
+      }
+    ]
+  },
+  {
+    "type": "fianceRadioButton",
+    "values": [
+      {
+        "value": "yes",
+        "label": "Yes",
+        "printValue": "Yes"
+      },
+      {
+        "value": "no",
+        "label": "No",
+        "printValue": "No"
+      },
+      {
+        "value": "beneficiary_is_my_spouse",
+        "label": "Beneficiary is my Spouse",
+        "printValue": "Beneficiary is my Spouse"
+      }
+    ]
+  },
+  {
+    "type": "legalStatusRadioButton",
+    "values": [
+      {
+        "value": "visitor",
+        "label": "Visitor",
+        "printValue": "Visitor"
+      },
+      {
+        "value": "student",
+        "label": "Student",
+        "printValue": "Student"
+      },
+      {
+        "value": "exchange_alien",
+        "label": "Exchange Alien",
+        "printValue": "Exchange Alien"
+      },
+      {
+        "value": "crewman",
+        "label": "Crewman",
+        "printValue": "Crewman"
+      },
+      {
+        "value": "stowaway",
+        "label": "Stowaway",
+        "printValue": "Stowaway"
+      },
+      {
+        "value": "temporary_worker",
+        "label": "Temporary Worker",
+        "printValue": "Temporary Worker"
+      },
+      {
+        "value": "without_inspection",
+        "label": "Without Inspection",
+        "printValue": "Without Inspection"
+      },
+      {
+        "value": "waived_through",
+        "label": "Waived Through",
+        "printValue": "Waived Through"
+      },
+      {
+        "value": "other",
+        "label": "Other",
+        "printValue": "Other"
+      }
+    ]
+  },
+  {
+    "type": "classOfAdmissionCodesDropdown",
+    "values": [
+      {
+        "value": "1B1 - H-1B1 SPECIALITY OCCUPATION",
+        "label": "1B1 - H-1B1 SPECIALITY OCCUPATION",
+        "printValue": "1B1 - H-1B1 SPECIALITY OCCUPATION"
+      },
+      {
+        "value": "1B2 - H-1B2 DoD SPECIALITY",
+        "label": "1B2 - H-1B2 DoD SPECIALITY",
+        "printValue": "1B2 - H-1B2 DoD SPECIALITY"
+      },
+      {
+        "value": "1B3 - H-1B3 FASHION MODEL",
+        "label": "1B3 - H-1B3 FASHION MODEL",
+        "printValue": "1B3 - H-1B3 FASHION MODEL"
+      },
+      {
+        "value": "1B4 - H-1B4 UNIQUE PGM ARTIST-ENT",
+        "label": "1B4 - H-1B4 UNIQUE PGM ARTIST-ENT",
+        "printValue": "1B4 - H-1B4 UNIQUE PGM ARTIST-ENT"
+      },
+      {
+        "value": "1B5 - H-1B5 ALIEN ATHLETE",
+        "label": "1B5 - H-1B5 ALIEN ATHLETE",
+        "printValue": "1B5 - H-1B5 ALIEN ATHLETE"
+      },
+      {
+        "value": "1BS - SUPPORT PERSON OF H-1",
+        "label": "1BS - SUPPORT PERSON OF H-1",
+        "printValue": "1BS - SUPPORT PERSON OF H-1"
+      },
+      {
+        "value": "A1 - AMBASSADOR, DIPLOMAT",
+        "label": "A1 - AMBASSADOR, DIPLOMAT",
+        "printValue": "A1 - AMBASSADOR, DIPLOMAT"
+      },
+      {
+        "value": "A2 - OTHER DIPLOMATIC OFFICIALS",
+        "label": "A2 - OTHER DIPLOMATIC OFFICIALS",
+        "printValue": "A2 - OTHER DIPLOMATIC OFFICIALS"
+      },
+      {
+        "value": "A3 - ATTENDANTS OF A-1, A-2",
+        "label": "A3 - ATTENDANTS OF A-1, A-2",
+        "printValue": "A3 - ATTENDANTS OF A-1, A-2"
+      },
+      {
+        "value": "AS - ASYLUM",
+        "label": "AS - ASYLUM",
+        "printValue": "AS - ASYLUM"
+      },
+      {
+        "value": "ASD - ASYLUM STATUS DENIED",
+        "label": "ASD - ASYLUM STATUS DENIED",
+        "printValue": "ASD - ASYLUM STATUS DENIED"
+      },
+      {
+        "value": "AW - RAW APPLIED FOR AT A PORT",
+        "label": "AW - RAW APPLIED FOR AT A PORT",
+        "printValue": "AW - RAW APPLIED FOR AT A PORT"
+      },
+      {
+        "value": "B1 - TEMPORARY VISITOR FOR BUSINESS",
+        "label": "B1 - TEMPORARY VISITOR FOR BUSINESS",
+        "printValue": "B1 - TEMPORARY VISITOR FOR BUSINESS"
+      },
+      {
+        "value": "B1A - NI PERSNL-DOM SRVANT OF NI EMP",
+        "label": "B1A - NI PERSNL-DOM SRVANT OF NI EMP",
+        "printValue": "B1A - NI PERSNL-DOM SRVANT OF NI EMP"
+      },
+      {
+        "value": "B1B - NI DOMESTIC SERVANT OF USC",
+        "label": "B1B - NI DOMESTIC SERVANT OF USC",
+        "printValue": "B1B - NI DOMESTIC SERVANT OF USC"
+      },
+      {
+        "value": "B1C - NI EMPLOYED BY FOREIGN AIRLINE",
+        "label": "B1C - NI EMPLOYED BY FOREIGN AIRLINE",
+        "printValue": "B1C - NI EMPLOYED BY FOREIGN AIRLINE"
+      },
+      {
+        "value": "B1D - NI - MISSIONARIES",
+        "label": "B1D - NI - MISSIONARIES",
+        "printValue": "B1D - NI - MISSIONARIES"
+      },
+      {
+        "value": "B2 - TEMPORARY VISITOR FOR PLEASURE",
+        "label": "B2 - TEMPORARY VISITOR FOR PLEASURE",
+        "printValue": "B2 - TEMPORARY VISITOR FOR PLEASURE"
+      },
+      {
+        "value": "BE - BERING STRAIT ENTRIES",
+        "label": "BE - BERING STRAIT ENTRIES",
+        "printValue": "BE - BERING STRAIT ENTRIES"
+      },
+      {
+        "value": "C1 - ALIEN IN TRANSIT THROUGH U.S.",
+        "label": "C1 - ALIEN IN TRANSIT THROUGH U.S.",
+        "printValue": "C1 - ALIEN IN TRANSIT THROUGH U.S."
+      },
+      {
+        "value": "C2 - ALIEN IN TRANSIT TO UN HQ",
+        "label": "C2 - ALIEN IN TRANSIT TO UN HQ",
+        "printValue": "C2 - ALIEN IN TRANSIT TO UN HQ"
+      },
+      {
+        "value": "C3 - FRN GOV OFF IN TRANSIT THRU US",
+        "label": "C3 - FRN GOV OFF IN TRANSIT THRU US",
+        "printValue": "C3 - FRN GOV OFF IN TRANSIT THRU US"
+      },
+      {
+        "value": "C4 - TRANSIT WITHOUT A VISA",
+        "label": "C4 - TRANSIT WITHOUT A VISA",
+        "printValue": "C4 - TRANSIT WITHOUT A VISA"
+      },
+      {
+        "value": "CC - CUBAN MASS MIGRATION PROJECT",
+        "label": "CC - CUBAN MASS MIGRATION PROJECT",
+        "printValue": "CC - CUBAN MASS MIGRATION PROJECT"
+      },
+      {
+        "value": "CH - PAROLEE (HUMANITARIAN-HQ AUTH)",
+        "label": "CH - PAROLEE (HUMANITARIAN-HQ AUTH)",
+        "printValue": "CH - PAROLEE (HUMANITARIAN-HQ AUTH)"
+      },
+      {
+        "value": "CP - PAROLEE (PUBLIC INT-HQ AUTH)",
+        "label": "CP - PAROLEE (PUBLIC INT-HQ AUTH)",
+        "printValue": "CP - PAROLEE (PUBLIC INT-HQ AUTH)"
+      },
+      {
+        "value": "CW1 - PRINCIPAL TRANSITIONAL WORKERS",
+        "label": "CW1 - PRINCIPAL TRANSITIONAL WORKERS",
+        "printValue": "CW1 - PRINCIPAL TRANSITIONAL WORKERS"
+      },
+      {
+        "value": "CW2 - DEPENDENT OF CW1",
+        "label": "CW2 - DEPENDENT OF CW1",
+        "printValue": "CW2 - DEPENDENT OF CW1"
+      },
+      {
+        "value": "D1 - ALIEN CREW DEPART SAME VESSEL",
+        "label": "D1 - ALIEN CREW DEPART SAME VESSEL",
+        "printValue": "D1 - ALIEN CREW DEPART SAME VESSEL"
+      },
+      {
+        "value": "D2 - ALIEN CREW DEPART OTHER VESSEL",
+        "label": "D2 - ALIEN CREW DEPART OTHER VESSEL",
+        "printValue": "D2 - ALIEN CREW DEPART OTHER VESSEL"
+      },
+      {
+        "value": "DA - ADVANCE PAROLE (DISTRICT AUTH)",
+        "label": "DA - ADVANCE PAROLE (DISTRICT AUTH)",
+        "printValue": "DA - ADVANCE PAROLE (DISTRICT AUTH)"
+      },
+      {
+        "value": "DE - PAROLEE (DEFERRED INSPECTION)",
+        "label": "DE - PAROLEE (DEFERRED INSPECTION)",
+        "printValue": "DE - PAROLEE (DEFERRED INSPECTION)"
+      },
+      {
+        "value": "DT - PAROLEE (DISTRICT-POE AUTH)",
+        "label": "DT - PAROLEE (DISTRICT-POE AUTH)",
+        "printValue": "DT - PAROLEE (DISTRICT-POE AUTH)"
+      },
+      {
+        "value": "DX - CREW ARRIVING DETAINED ON SHIP",
+        "label": "DX - CREW ARRIVING DETAINED ON SHIP",
+        "printValue": "DX - CREW ARRIVING DETAINED ON SHIP"
+      },
+      {
+        "value": "E1 - TREATY TRADER-SPOUSE-CHILDREN",
+        "label": "E1 - TREATY TRADER-SPOUSE-CHILDREN",
+        "printValue": "E1 - TREATY TRADER-SPOUSE-CHILDREN"
+      },
+      {
+        "value": "E2 - TREATY INVESTOR-SPOUSE-CHILD",
+        "label": "E2 - TREATY INVESTOR-SPOUSE-CHILD",
+        "printValue": "E2 - TREATY INVESTOR-SPOUSE-CHILD"
+      },
+      {
+        "value": "E2C - CNMI INVESTOR",
+        "label": "E2C - CNMI INVESTOR",
+        "printValue": "E2C - CNMI INVESTOR"
+      },
+      {
+        "value": "E3 - AUSTRALIA FREE TRADE AGREEMENT",
+        "label": "E3 - AUSTRALIA FREE TRADE AGREEMENT",
+        "printValue": "E3 - AUSTRALIA FREE TRADE AGREEMENT"
+      },
+      {
+        "value": "EAO - EMPLOYMENT ADVISORY OPTION",
+        "label": "EAO - EMPLOYMENT ADVISORY OPTION",
+        "printValue": "EAO - EMPLOYMENT ADVISORY OPTION"
+      },
+      {
+        "value": "EWI - ENTRY WITHOUT INSPECTION",
+        "label": "EWI - ENTRY WITHOUT INSPECTION",
+        "printValue": "EWI - ENTRY WITHOUT INSPECTION"
+      },
+      {
+        "value": "F1 - STUDENT - ACADEMIC",
+        "label": "F1 - STUDENT - ACADEMIC",
+        "printValue": "F1 - STUDENT - ACADEMIC"
+      },
+      {
+        "value": "F2 - SPOUSE-CHILD OF F-1",
+        "label": "F2 - SPOUSE-CHILD OF F-1",
+        "printValue": "F2 - SPOUSE-CHILD OF F-1"
+      },
+      {
+        "value": "FSM - CFA ADM FED STATES MICRONESIA",
+        "label": "FSM - CFA ADM FED STATES MICRONESIA",
+        "printValue": "FSM - CFA ADM FED STATES MICRONESIA"
+      },
+      {
+        "value": "FUG - FAMILY UNITY GRANTED",
+        "label": "FUG - FAMILY UNITY GRANTED",
+        "printValue": "FUG - FAMILY UNITY GRANTED"
+      },
+      {
+        "value": "G1 - PRINCIPAL REP. FOREIGN GOVT",
+        "label": "G1 - PRINCIPAL REP. FOREIGN GOVT",
+        "printValue": "G1 - PRINCIPAL REP. FOREIGN GOVT"
+      },
+      {
+        "value": "G2 - OTHER REP FOREIGN GOVT",
+        "label": "G2 - OTHER REP FOREIGN GOVT",
+        "printValue": "G2 - OTHER REP FOREIGN GOVT"
+      },
+      {
+        "value": "G3 - REP NON-RECOGNIZED FOREIGN GOV",
+        "label": "G3 - REP NON-RECOGNIZED FOREIGN GOV",
+        "printValue": "G3 - REP NON-RECOGNIZED FOREIGN GOV"
+      },
+      {
+        "value": "G4 - OFFICER-EMPLOYEE INTL. ORG.",
+        "label": "G4 - OFFICER-EMPLOYEE INTL. ORG.",
+        "printValue": "G4 - OFFICER-EMPLOYEE INTL. ORG."
+      },
+      {
+        "value": "G5 - ATTENDANTS OF G1, G2, G3, G4",
+        "label": "G5 - ATTENDANTS OF G1, G2, G3, G4",
+        "printValue": "G5 - ATTENDANTS OF G1, G2, G3, G4"
+      },
+      {
+        "value": "GB - VISITOR WITHOUT A VISA 15 DAYS",
+        "label": "GB - VISITOR WITHOUT A VISA 15 DAYS",
+        "printValue": "GB - VISITOR WITHOUT A VISA 15 DAYS"
+      },
+      {
+        "value": "GT - VISITOR WITHOUT A VISA 15 DAYS",
+        "label": "GT - VISITOR WITHOUT A VISA 15 DAYS",
+        "printValue": "GT - VISITOR WITHOUT A VISA 15 DAYS"
+      },
+      {
+        "value": "H1 - ALIEN OF DIST MERIT & ABILITY",
+        "label": "H1 - ALIEN OF DIST MERIT & ABILITY",
+        "printValue": "H1 - ALIEN OF DIST MERIT & ABILITY"
+      },
+      {
+        "value": "H1A - REGISTERED NURSE",
+        "label": "H1A - REGISTERED NURSE",
+        "printValue": "H1A - REGISTERED NURSE"
+      },
+      {
+        "value": "H1B - SPECIALITY OCCUPATION",
+        "label": "H1B - SPECIALITY OCCUPATION",
+        "printValue": "H1B - SPECIALITY OCCUPATION"
+      },
+      {
+        "value": "H1C - NURSE RELIEF",
+        "label": "H1C - NURSE RELIEF",
+        "printValue": "H1C - NURSE RELIEF"
+      },
+      {
+        "value": "H2 - TEMPORARY LABOR CERTIFICATION",
+        "label": "H2 - TEMPORARY LABOR CERTIFICATION",
+        "printValue": "H2 - TEMPORARY LABOR CERTIFICATION"
+      },
+      {
+        "value": "H2A - TEMPORARY AGRICULTURAL WORKER",
+        "label": "H2A - TEMPORARY AGRICULTURAL WORKER",
+        "printValue": "H2A - TEMPORARY AGRICULTURAL WORKER"
+      },
+      {
+        "value": "H2B - TEMPORARY NON-AG WORKER",
+        "label": "H2B - TEMPORARY NON-AG WORKER",
+        "printValue": "H2B - TEMPORARY NON-AG WORKER"
+      },
+      {
+        "value": "H2R - RET(H2B)WRKR NOT SUBJCT TO CAP",
+        "label": "H2R - RET(H2B)WRKR NOT SUBJCT TO CAP",
+        "printValue": "H2R - RET(H2B)WRKR NOT SUBJCT TO CAP"
+      },
+      {
+        "value": "H3 - ALIEN TRAINEE",
+        "label": "H3 - ALIEN TRAINEE",
+        "printValue": "H3 - ALIEN TRAINEE"
+      },
+      {
+        "value": "H3A - TRAINEE",
+        "label": "H3A - TRAINEE",
+        "printValue": "H3A - TRAINEE"
+      },
+      {
+        "value": "H3B - SPECIAL EDUCATION TRAINING",
+        "label": "H3B - SPECIAL EDUCATION TRAINING",
+        "printValue": "H3B - SPECIAL EDUCATION TRAINING"
+      },
+      {
+        "value": "H4 - SPS OR CHLD OF H1,H2,H3 OR H2R",
+        "label": "H4 - SPS OR CHLD OF H1,H2,H3 OR H2R",
+        "printValue": "H4 - SPS OR CHLD OF H1,H2,H3 OR H2R"
+      },
+      {
+        "value": "HSC - FREE TRADE H1B1",
+        "label": "HSC - FREE TRADE H1B1",
+        "printValue": "HSC - FREE TRADE H1B1"
+      },
+      {
+        "value": "I - FOREIGN PRESS",
+        "label": "I - FOREIGN PRESS",
+        "printValue": "I - FOREIGN PRESS"
+      },
+      {
+        "value": "IMM - IMMIGRANT",
+        "label": "IMM - IMMIGRANT",
+        "printValue": "IMM - IMMIGRANT"
+      },
+      {
+        "value": "IN - INDEFINITE PAROLE",
+        "label": "IN - INDEFINITE PAROLE",
+        "printValue": "IN - INDEFINITE PAROLE"
+      },
+      {
+        "value": "J1 - EXCHANGE VISITOR - OTHERS",
+        "label": "J1 - EXCHANGE VISITOR - OTHERS",
+        "printValue": "J1 - EXCHANGE VISITOR - OTHERS"
+      },
+      {
+        "value": "J1S - EXCHANGE VISITOR - STUDENT",
+        "label": "J1S - EXCHANGE VISITOR - STUDENT",
+        "printValue": "J1S - EXCHANGE VISITOR - STUDENT"
+      },
+      {
+        "value": "J2 - SPOUSE-CHILD OF J-1",
+        "label": "J2 - SPOUSE-CHILD OF J-1",
+        "printValue": "J2 - SPOUSE-CHILD OF J-1"
+      },
+      {
+        "value": "J2S - SPOUSE-CHILD OF J-1S",
+        "label": "J2S - SPOUSE-CHILD OF J-1S",
+        "printValue": "J2S - SPOUSE-CHILD OF J-1S"
+      },
+      {
+        "value": "K1 - ALIEN FIANCE(E) OF USC",
+        "label": "K1 - ALIEN FIANCE(E) OF USC",
+        "printValue": "K1 - ALIEN FIANCE(E) OF USC"
+      },
+      {
+        "value": "K2 - CHILD OF K1",
+        "label": "K2 - CHILD OF K1",
+        "printValue": "K2 - CHILD OF K1"
+      },
+      {
+        "value": "K3 - SPOUSE OF USC",
+        "label": "K3 - SPOUSE OF USC",
+        "printValue": "K3 - SPOUSE OF USC"
+      },
+      {
+        "value": "K4 - CHILD OF USC",
+        "label": "K4 - CHILD OF USC",
+        "printValue": "K4 - CHILD OF USC"
+      },
+      {
+        "value": "L1 - INTRA-COMPANY TRANSFEREE",
+        "label": "L1 - INTRA-COMPANY TRANSFEREE",
+        "printValue": "L1 - INTRA-COMPANY TRANSFEREE"
+      },
+      {
+        "value": "L1A - MANAGER OR EXECUTIVE",
+        "label": "L1A - MANAGER OR EXECUTIVE",
+        "printValue": "L1A - MANAGER OR EXECUTIVE"
+      },
+      {
+        "value": "L1B - SPECIALIZED KNOWLEDGE ALIEN",
+        "label": "L1B - SPECIALIZED KNOWLEDGE ALIEN",
+        "printValue": "L1B - SPECIALIZED KNOWLEDGE ALIEN"
+      },
+      {
+        "value": "L2 - SPOUSE-CHILD OF L-1",
+        "label": "L2 - SPOUSE-CHILD OF L-1",
+        "printValue": "L2 - SPOUSE-CHILD OF L-1"
+      },
+      {
+        "value": "LZ - BLANKET L PETITION",
+        "label": "LZ - BLANKET L PETITION",
+        "printValue": "LZ - BLANKET L PETITION"
+      },
+      {
+        "value": "M1 - STUDENT - VOCATIONAL-NON-ACAD.",
+        "label": "M1 - STUDENT - VOCATIONAL-NON-ACAD.",
+        "printValue": "M1 - STUDENT - VOCATIONAL-NON-ACAD."
+      },
+      {
+        "value": "M2 - SPOUSE-CHILD OF M-1",
+        "label": "M2 - SPOUSE-CHILD OF M-1",
+        "printValue": "M2 - SPOUSE-CHILD OF M-1"
+      },
+      {
+        "value": "MIS - CFA ADM REP MARSHALL ISLANDS",
+        "label": "MIS - CFA ADM REP MARSHALL ISLANDS",
+        "printValue": "MIS - CFA ADM REP MARSHALL ISLANDS"
+      },
+      {
+        "value": "ML - PAROLEE-MEDICAL, LEGAL, HUMAN",
+        "label": "ML - PAROLEE-MEDICAL, LEGAL, HUMAN",
+        "printValue": "ML - PAROLEE-MEDICAL, LEGAL, HUMAN"
+      },
+      {
+        "value": "N1 - PRINCIPAL REP. OF NATO MEMBER",
+        "label": "N1 - PRINCIPAL REP. OF NATO MEMBER",
+        "printValue": "N1 - PRINCIPAL REP. OF NATO MEMBER"
+      },
+      {
+        "value": "N2 - OTHER REP. OF NATO MEMBER",
+        "label": "N2 - OTHER REP. OF NATO MEMBER",
+        "printValue": "N2 - OTHER REP. OF NATO MEMBER"
+      },
+      {
+        "value": "N3 - CLERICAL STAFF FOR N-1, N-2",
+        "label": "N3 - CLERICAL STAFF FOR N-1, N-2",
+        "printValue": "N3 - CLERICAL STAFF FOR N-1, N-2"
+      },
+      {
+        "value": "N4 - OFFICIALS OF NATO",
+        "label": "N4 - OFFICIALS OF NATO",
+        "printValue": "N4 - OFFICIALS OF NATO"
+      },
+      {
+        "value": "N5 - EXPERTS EMPLOYED BY NATO",
+        "label": "N5 - EXPERTS EMPLOYED BY NATO",
+        "printValue": "N5 - EXPERTS EMPLOYED BY NATO"
+      },
+      {
+        "value": "N6 - CIVILIAN COMPONENT OF NATO",
+        "label": "N6 - CIVILIAN COMPONENT OF NATO",
+        "printValue": "N6 - CIVILIAN COMPONENT OF NATO"
+      },
+      {
+        "value": "N7 - ATTENDANTS OF N-1 THROUGH N-6",
+        "label": "N7 - ATTENDANTS OF N-1 THROUGH N-6",
+        "printValue": "N7 - ATTENDANTS OF N-1 THROUGH N-6"
+      },
+      {
+        "value": "N8 - PARENT OF SPEC IMMIGRANT CHILD",
+        "label": "N8 - PARENT OF SPEC IMMIGRANT CHILD",
+        "printValue": "N8 - PARENT OF SPEC IMMIGRANT CHILD"
+      },
+      {
+        "value": "N9 - SPOUSE-CHILD OF N8",
+        "label": "N9 - SPOUSE-CHILD OF N8",
+        "printValue": "N9 - SPOUSE-CHILD OF N8"
+      },
+      {
+        "value": "O1 - ALIEN W-EXTRAORDINARY ABILITY",
+        "label": "O1 - ALIEN W-EXTRAORDINARY ABILITY",
+        "printValue": "O1 - ALIEN W-EXTRAORDINARY ABILITY"
+      },
+      {
+        "value": "O1A - EXTRAORDINARY ALIEN - NON-ARTS",
+        "label": "O1A - EXTRAORDINARY ALIEN - NON-ARTS",
+        "printValue": "O1A - EXTRAORDINARY ALIEN - NON-ARTS"
+      },
+      {
+        "value": "O1B - EXTRAORDINARY ALIEN IN ARTS",
+        "label": "O1B - EXTRAORDINARY ALIEN IN ARTS",
+        "printValue": "O1B - EXTRAORDINARY ALIEN IN ARTS"
+      },
+      {
+        "value": "O2 - ACCOMPANYING ALIEN TO O1",
+        "label": "O2 - ACCOMPANYING ALIEN TO O1",
+        "printValue": "O2 - ACCOMPANYING ALIEN TO O1"
+      },
+      {
+        "value": "O3 - SPOUSE-CHILD OF O-1, O-2",
+        "label": "O3 - SPOUSE-CHILD OF O-1, O-2",
+        "printValue": "O3 - SPOUSE-CHILD OF O-1, O-2"
+      },
+      {
+        "value": "OP - PAROLEE (OVERSEAS AUTHORIZED)",
+        "label": "OP - PAROLEE (OVERSEAS AUTHORIZED)",
+        "printValue": "OP - PAROLEE (OVERSEAS AUTHORIZED)"
+      },
+      {
+        "value": "P1 - ATHLETE OR ENTERTAINER",
+        "label": "P1 - ATHLETE OR ENTERTAINER",
+        "printValue": "P1 - ATHLETE OR ENTERTAINER"
+      },
+      {
+        "value": "P1A - ALIEN WITH ATHLETIC EVENT",
+        "label": "P1A - ALIEN WITH ATHLETIC EVENT",
+        "printValue": "P1A - ALIEN WITH ATHLETIC EVENT"
+      },
+      {
+        "value": "P1B - ALIEN WITH ENTERTAINMENT GROUP",
+        "label": "P1B - ALIEN WITH ENTERTAINMENT GROUP",
+        "printValue": "P1B - ALIEN WITH ENTERTAINMENT GROUP"
+      },
+      {
+        "value": "P1S - SUPPORT PERSON OF P-1",
+        "label": "P1S - SUPPORT PERSON OF P-1",
+        "printValue": "P1S - SUPPORT PERSON OF P-1"
+      },
+      {
+        "value": "P2 - EXHANGE ARTIST-ENTERTAINER",
+        "label": "P2 - EXHANGE ARTIST-ENTERTAINER",
+        "printValue": "P2 - EXHANGE ARTIST-ENTERTAINER"
+      },
+      {
+        "value": "P2S - SUPPORT PERSON OF P-2",
+        "label": "P2S - SUPPORT PERSON OF P-2",
+        "printValue": "P2S - SUPPORT PERSON OF P-2"
+      },
+      {
+        "value": "P3 - UNIQUE PGM ARTIST-ENTERTAINER",
+        "label": "P3 - UNIQUE PGM ARTIST-ENTERTAINER",
+        "printValue": "P3 - UNIQUE PGM ARTIST-ENTERTAINER"
+      },
+      {
+        "value": "P3S - SUPPORT PERSON OF P-3",
+        "label": "P3S - SUPPORT PERSON OF P-3",
+        "printValue": "P3S - SUPPORT PERSON OF P-3"
+      },
+      {
+        "value": "P4 - SPOUSE-CHILD OF P-1, P-2, P-3",
+        "label": "P4 - SPOUSE-CHILD OF P-1, P-2, P-3",
+        "printValue": "P4 - SPOUSE-CHILD OF P-1, P-2, P-3"
+      },
+      {
+        "value": "PAL - CFA ADMISSION PALAU",
+        "label": "PAL - CFA ADMISSION PALAU",
+        "printValue": "PAL - CFA ADMISSION PALAU"
+      },
+      {
+        "value": "PAR - PAROLEE",
+        "label": "PAR - PAROLEE",
+        "printValue": "PAR - PAROLEE"
+      },
+      {
+        "value": "PI - PACIFIC ISLANDER",
+        "label": "PI - PACIFIC ISLANDER",
+        "printValue": "PI - PACIFIC ISLANDER"
+      },
+      {
+        "value": "Q1 - INTL CULTURAL XCHG VISITORS",
+        "label": "Q1 - INTL CULTURAL XCHG VISITORS",
+        "printValue": "Q1 - INTL CULTURAL XCHG VISITORS"
+      },
+      {
+        "value": "Q2 - IRISH PEACE PROCESS PARTICPNTS",
+        "label": "Q2 - IRISH PEACE PROCESS PARTICPNTS",
+        "printValue": "Q2 - IRISH PEACE PROCESS PARTICPNTS"
+      },
+      {
+        "value": "Q3 - SPOUSE-CHILD OF Q2",
+        "label": "Q3 - SPOUSE-CHILD OF Q2",
+        "printValue": "Q3 - SPOUSE-CHILD OF Q2"
+      },
+      {
+        "value": "R1 - RELIGIOUS OCCUPATION",
+        "label": "R1 - RELIGIOUS OCCUPATION",
+        "printValue": "R1 - RELIGIOUS OCCUPATION"
+      },
+      {
+        "value": "R2 - SPOUSE-CHILD OF R-1",
+        "label": "R2 - SPOUSE-CHILD OF R-1",
+        "printValue": "R2 - SPOUSE-CHILD OF R-1"
+      },
+      {
+        "value": "RE - REFUGEE",
+        "label": "RE - REFUGEE",
+        "printValue": "RE - REFUGEE"
+      },
+      {
+        "value": "RE5 - HAITIAN W-GRANTED REFUGEE STAT",
+        "label": "RE5 - HAITIAN W-GRANTED REFUGEE STAT",
+        "printValue": "RE5 - HAITIAN W-GRANTED REFUGEE STAT"
+      },
+      {
+        "value": "RW - RAW APPLIED FOR AT A US CO",
+        "label": "RW - RAW APPLIED FOR AT A US CO",
+        "printValue": "RW - RAW APPLIED FOR AT A US CO"
+      },
+      {
+        "value": "S1 - SPECIAL AGRICULTURAL WORKER",
+        "label": "S1 - SPECIAL AGRICULTURAL WORKER",
+        "printValue": "S1 - SPECIAL AGRICULTURAL WORKER"
+      },
+      {
+        "value": "S2 - SPECIAL AGRICULTURAL WORKER",
+        "label": "S2 - SPECIAL AGRICULTURAL WORKER",
+        "printValue": "S2 - SPECIAL AGRICULTURAL WORKER"
+      },
+      {
+        "value": "S9 - EMERGENCY FARM WORKER",
+        "label": "S9 - EMERGENCY FARM WORKER",
+        "printValue": "S9 - EMERGENCY FARM WORKER"
+      },
+      {
+        "value": "SDF - SUSPECTED DOCUMENT FRAUD",
+        "label": "SDF - SUSPECTED DOCUMENT FRAUD",
+        "printValue": "SDF - SUSPECTED DOCUMENT FRAUD"
+      },
+      {
+        "value": "ST - STOWAWAY",
+        "label": "ST - STOWAWAY",
+        "printValue": "ST - STOWAWAY"
+      },
+      {
+        "value": "T1 - VICTIM OF SEVERE FORM OF TRAFK",
+        "label": "T1 - VICTIM OF SEVERE FORM OF TRAFK",
+        "printValue": "T1 - VICTIM OF SEVERE FORM OF TRAFK"
+      },
+      {
+        "value": "T2 - SPOUSE OF T1",
+        "label": "T2 - SPOUSE OF T1",
+        "printValue": "T2 - SPOUSE OF T1"
+      },
+      {
+        "value": "T3 - CHILD OF T1",
+        "label": "T3 - CHILD OF T1",
+        "printValue": "T3 - CHILD OF T1"
+      },
+      {
+        "value": "T4 - PARENT OF T1",
+        "label": "T4 - PARENT OF T1",
+        "printValue": "T4 - PARENT OF T1"
+      },
+      {
+        "value": "T5 - UNMARRIED UNDER 18 SIBLG T1 NI",
+        "label": "T5 - UNMARRIED UNDER 18 SIBLG T1 NI",
+        "printValue": "T5 - UNMARRIED UNDER 18 SIBLG T1 NI"
+      },
+      {
+        "value": "TB - SPOUSE OR CHILD OF CAN. FR",
+        "label": "TB - SPOUSE OR CHILD OF CAN. FR",
+        "printValue": "TB - SPOUSE OR CHILD OF CAN. FR"
+      },
+      {
+        "value": "TC - CANADIAN FREE TRADE AGREEMENT",
+        "label": "TC - CANADIAN FREE TRADE AGREEMENT",
+        "printValue": "TC - CANADIAN FREE TRADE AGREEMENT"
+      },
+      {
+        "value": "TD - NAFTA DEPENDENT",
+        "label": "TD - NAFTA DEPENDENT",
+        "printValue": "TD - NAFTA DEPENDENT"
+      },
+      {
+        "value": "TN1 - NAFTA PRINCIPAL (CANADA)",
+        "label": "TN1 - NAFTA PRINCIPAL (CANADA)",
+        "printValue": "TN1 - NAFTA PRINCIPAL (CANADA)"
+      },
+      {
+        "value": "TN2 - NAFTA PRINCIPAL (MEXICO)",
+        "label": "TN2 - NAFTA PRINCIPAL (MEXICO)",
+        "printValue": "TN2 - NAFTA PRINCIPAL (MEXICO)"
+      },
+      {
+        "value": "TWO - TRANSIT WITHOUT A VISA",
+        "label": "TWO - TRANSIT WITHOUT A VISA",
+        "printValue": "TWO - TRANSIT WITHOUT A VISA"
+      },
+      {
+        "value": "U1 - VICTIM OF CRIMINAL ACTIVITY",
+        "label": "U1 - VICTIM OF CRIMINAL ACTIVITY",
+        "printValue": "U1 - VICTIM OF CRIMINAL ACTIVITY"
+      },
+      {
+        "value": "U2 - SPOUSE OF U1",
+        "label": "U2 - SPOUSE OF U1",
+        "printValue": "U2 - SPOUSE OF U1"
+      },
+      {
+        "value": "U3 - CHILD OF U1",
+        "label": "U3 - CHILD OF U1",
+        "printValue": "U3 - CHILD OF U1"
+      },
+      {
+        "value": "U4 - PARENT OF U1",
+        "label": "U4 - PARENT OF U1",
+        "printValue": "U4 - PARENT OF U1"
+      },
+      {
+        "value": "U5 - UNMARRIED UNDER 18 SIBLG U1 NI",
+        "label": "U5 - UNMARRIED UNDER 18 SIBLG U1 NI",
+        "printValue": "U5 - UNMARRIED UNDER 18 SIBLG U1 NI"
+      },
+      {
+        "value": "UN - UNKNOWN",
+        "label": "UN - UNKNOWN",
+        "printValue": "UN - UNKNOWN"
+      },
+      {
+        "value": "UU - UNKNOWN",
+        "label": "UU - UNKNOWN",
+        "printValue": "UU - UNKNOWN"
+      },
+      {
+        "value": "V1 - SPOUSE OF LPR",
+        "label": "V1 - SPOUSE OF LPR",
+        "printValue": "V1 - SPOUSE OF LPR"
+      },
+      {
+        "value": "V2 - CHILD OF LPR",
+        "label": "V2 - CHILD OF LPR",
+        "printValue": "V2 - CHILD OF LPR"
+      },
+      {
+        "value": "V3 - CHILD OF V2",
+        "label": "V3 - CHILD OF V2",
+        "printValue": "V3 - CHILD OF V2"
+      },
+      {
+        "value": "WB - VISITOR FOR BUSINESS - VWPP/VWP",
+        "label": "WB - VISITOR FOR BUSINESS - VWPP/VWP",
+        "printValue": "WB - VISITOR FOR BUSINESS - VWPP/VWP"
+      },
+      {
+        "value": "WD - WITHDRAWL (I-275)",
+        "label": "WD - WITHDRAWL (I-275)",
+        "printValue": "WD - WITHDRAWL (I-275)"
+      },
+      {
+        "value": "admission_code_without_inspection",
+        "label": "WI - WITHOUT INSPECTION",
+        "printValue": "WI - WITHOUT INSPECTION"
+      },
+      {
+        "value": "WT - VISITOR FOR PLEASURE - VWPP",
+        "label": "WT - VISITOR FOR PLEASURE - VWPP",
+        "printValue": "WT - VISITOR FOR PLEASURE - VWPP"
+      },
+      {
+        "value": "X - EOIR",
+        "label": "X - EOIR",
+        "printValue": "X - EOIR"
+      }
+    ]
+  },
+  {
+    "type": "optionDescribingLastEntryToUSRadioButton",
+    "values": [
+      {
+        "value": "inspected_and_admitted",
+        "label": "Inspected and Admitted",
+        "printValue": "Inspected and Admitted"
+      },
+      {
+        "value": "inspected_and_paroled",
+        "label": "Inspected and paroled",
+        "printValue": "Inspected and paroled"
+      },
+      {
+        "value": "entered_without_admission_or_parole",
+        "label": "Entered without admission or parole",
+        "printValue": "Entered without admission or parole"
+      },
+      {
+        "value": "other",
+        "label": "Other",
+        "printValue": "Other"
+      }
+    ]
+  },
+  {
+    "type": "dependentRelationshipDropdown",
+    "values": [
+      {
+        "value": "Fiancé(e) or girlfriend/boyfriend of U.S. citizen",
+        "label": "Fiancé(e) or girlfriend/boyfriend of U.S. citizen",
+        "printValue": "Fiancé(e) or girlfriend/boyfriend of U.S. citizen"
+      },
+      {
+        "value": "Spouse of a U.S. Citizen",
+        "label": "Spouse of a U.S. Citizen",
+        "printValue": "Spouse of a U.S. Citizen"
+      },
+      {
+        "value": "Unmarried Child(ren) Under 21 Years of Age of a U.S. Citizen",
+        "label": "Unmarried Child(ren) Under 21 Years of Age of a U.S. Citizen",
+        "printValue": "Unmarried Child(ren) Under 21 Years of Age of a U.S. Citizen"
+      },
+      {
+        "value": "Unmarried Child(ren) Under 21 Years of Age of Fiancé(e)/girlfriend/boyfriend of Foreign Beneficiary",
+        "label": "Unmarried Child(ren) Under 21 Years of Age of Fiancé(e)/girlfriend/boyfriend of Foreign Beneficiary",
+        "printValue": "Unmarried Child(ren) Under 21 Years of Age of Fiancé(e)/girlfriend/boyfriend of Foreign Beneficiary"
+      },
+      {
+        "value": "Orphan adopted abroad by a U.S. Citizen",
+        "label": "Orphan adopted abroad by a U.S. Citizen",
+        "printValue": "Orphan adopted abroad by a U.S. Citizen"
+      },
+      {
+        "value": "Orphan to be adopted in the U.S. by a U.S. citizen",
+        "label": "Orphan to be adopted in the U.S. by a U.S. citizen",
+        "printValue": "Orphan to be adopted in the U.S. by a U.S. citizen"
+      },
+      {
+        "value": "Parent of a U.S. Citizen who is at least 21 years old",
+        "label": "Parent of a U.S. Citizen who is at least 21 years old",
+        "printValue": "Parent of a U.S. Citizen who is at least 21 years old"
+      },
+      {
+        "value": "Unmarried son or daughter of U.S. citizen",
+        "label": "Unmarried son or daughter of U.S. citizen",
+        "printValue": "Unmarried son or daughter of U.S. citizen"
+      },
+      {
+        "value": "Minor child of an unmarried son or daughter of U.S. citizen",
+        "label": "Minor child of an unmarried son or daughter of U.S. citizen",
+        "printValue": "Minor child of an unmarried son or daughter of U.S. citizen"
+      },
+      {
+        "value": "Spouse of of LPR (Lawful Permanent Resident, also called Green Card Holder)",
+        "label": "Spouse of of LPR (Lawful Permanent Resident, also called Green Card Holder)",
+        "printValue": "Spouse of of LPR (Lawful Permanent Resident, also called Green Card Holder)"
+      },
+      {
+        "value": "Minor child (under 21 years of age) of LPR",
+        "label": "Minor child (under 21 years of age) of LPR",
+        "printValue": "Minor child (under 21 years of age) of LPR"
+      },
+      {
+        "value": "Unmarried son or daughter (age 21 and over) of LPR (Lawful Permanent Resident, also called Green Card Holder)",
+        "label": "Unmarried son or daughter (age 21 and over) of LPR (Lawful Permanent Resident, also called Green Card Holder)",
+        "printValue": "Unmarried son or daughter (age 21 and over) of LPR (Lawful Permanent Resident, also called Green Card Holder)"
+      },
+      {
+        "value": "Married son or daughter of U.S. citizen",
+        "label": "Married son or daughter of U.S. citizen",
+        "printValue": "Married son or daughter of U.S. citizen"
+      },
+      {
+        "value": "Spouse of married son or daughter of U.S. citizen",
+        "label": "Spouse of married son or daughter of U.S. citizen",
+        "printValue": "Spouse of married son or daughter of U.S. citizen"
+      },
+      {
+        "value": "Minor child (under 21 years of age) of married son or daughter of U.S. citizen",
+        "label": "Minor child (under 21 years of age) of married son or daughter of U.S. citizen",
+        "printValue": "Minor child (under 21 years of age) of married son or daughter of U.S. citizen"
+      },
+      {
+        "value": "Brother or sister of U.S. citizen, provided the U.S. citizen is at least 21 years of age",
+        "label": "Brother or sister of U.S. citizen, provided the U.S. citizen is at least 21 years of age",
+        "printValue": "Brother or sister of U.S. citizen, provided the U.S. citizen is at least 21 years of age"
+      },
+      {
+        "value": "Spouses of U.S. citizen, provided the U.S. citizen is at least 21 years of age",
+        "label": "Spouses of U.S. citizen, provided the U.S. citizen is at least 21 years of age",
+        "printValue": "Spouses of U.S. citizen, provided the U.S. citizen is at least 21 years of age"
+      },
+      {
+        "value": "Minor child (under 21 years of age) of U.S. citizen, provided the U.S. citizen is at least 21 years of age",
+        "label": "Minor child (under 21 years of age) of U.S. citizen, provided the U.S. citizen is at least 21 years of age",
+        "printValue": "Minor child (under 21 years of age) of U.S. citizen, provided the U.S. citizen is at least 21 years of age"
+      }
+    ]
+  },
+  {
+    "type": "immigrationProceedingsRadioButton",
+    "values": [
+      {
+        "value": "removal",
+        "label": "Removal",
+        "printValue": "Removal"
+      },
+      {
+        "value": "exclusion_deportation",
+        "label": "Exclusion/Deportation",
+        "printValue": "Exclusion/Deportation"
+      },
+      {
+        "value": "rescission",
+        "label": "Rescission",
+        "printValue": "Rescission"
+      },
+      {
+        "value": "other_judicial_proceedings",
+        "label": "Other Judicial Proceedings",
+        "printValue": "Other Judicial Proceedings"
+      }
+    ]
+  },
+  {
+    "type": "beneficiaryRadioButton",
+    "values": [
+      {
+        "value": "principle_beneficiary",
+        "label": "Principle Beneficiary",
+        "printValue": "Principle Beneficiary"
+      },
+      {
+        "value": "derivative_beneficiary",
+        "label": "Derivative Beneficiary",
+        "printValue": "Derivative Beneficiary"
+      }
+    ]
+  },
+  {
+    "type": "usEmbassiesListDropdown",
+    "values": [
+      {
+        "value": "Afghanistan",
+        "label": "Afghanistan",
+        "printValue": "Afghanistan"
+      },
+      {
+        "value": "Albania",
+        "label": "Albania",
+        "printValue": "Albania"
+      },
+      {
+        "value": "Algeria",
+        "label": "Algeria",
+        "printValue": "Algeria"
+      },
+      {
+        "value": "Angola",
+        "label": "Angola",
+        "printValue": "Angola"
+      },
+      {
+        "value": "Argentina",
+        "label": "Argentina",
+        "printValue": "Argentina"
+      },
+      {
+        "value": "Armenia",
+        "label": "Armenia",
+        "printValue": "Armenia"
+      },
+      {
+        "value": "Australia",
+        "label": "Australia",
+        "printValue": "Australia"
+      },
+      {
+        "value": "Austria",
+        "label": "Austria",
+        "printValue": "Austria"
+      },
+      {
+        "value": "Azerbaijan",
+        "label": "Azerbaijan",
+        "printValue": "Azerbaijan"
+      },
+      {
+        "value": "U.S. Mission to ASEAN",
+        "label": "U.S. Mission to ASEAN",
+        "printValue": "U.S. Mission to ASEAN"
+      },
+      {
+        "value": "U.S. Mission to the African Union",
+        "label": "U.S. Mission to the African Union",
+        "printValue": "U.S. Mission to the African Union"
+      },
+      {
+        "value": "Bahamas",
+        "label": "Bahamas",
+        "printValue": "Bahamas"
+      },
+      {
+        "value": "Bahrain",
+        "label": "Bahrain",
+        "printValue": "Bahrain"
+      },
+      {
+        "value": "Bangladesh",
+        "label": "Bangladesh",
+        "printValue": "Bangladesh"
+      },
+      {
+        "value": "Barbados",
+        "label": "Barbados",
+        "printValue": "Barbados"
+      },
+      {
+        "value": "Belarus",
+        "label": "Belarus",
+        "printValue": "Belarus"
+      },
+      {
+        "value": "Belgium",
+        "label": "Belgium",
+        "printValue": "Belgium"
+      },
+      {
+        "value": "Belize",
+        "label": "Belize",
+        "printValue": "Belize"
+      },
+      {
+        "value": "Benin",
+        "label": "Benin",
+        "printValue": "Benin"
+      },
+      {
+        "value": "Bermuda",
+        "label": "Bermuda",
+        "printValue": "Bermuda"
+      },
+      {
+        "value": "Bolivia",
+        "label": "Bolivia",
+        "printValue": "Bolivia"
+      },
+      {
+        "value": "Bosnia & Herzegovina",
+        "label": "Bosnia & Herzegovina",
+        "printValue": "Bosnia & Herzegovina"
+      },
+      {
+        "value": "Botswana",
+        "label": "Botswana",
+        "printValue": "Botswana"
+      },
+      {
+        "value": "Brazil",
+        "label": "Brazil",
+        "printValue": "Brazil"
+      },
+      {
+        "value": "Brunei",
+        "label": "Brunei",
+        "printValue": "Brunei"
+      },
+      {
+        "value": "Bulgaria",
+        "label": "Bulgaria",
+        "printValue": "Bulgaria"
+      },
+      {
+        "value": "Burkina Faso",
+        "label": "Burkina Faso",
+        "printValue": "Burkina Faso"
+      },
+      {
+        "value": "Burma",
+        "label": "Burma",
+        "printValue": "Burma"
+      },
+      {
+        "value": "Burundi",
+        "label": "Burundi",
+        "printValue": "Burundi"
+      },
+      {
+        "value": "Cabo Verde",
+        "label": "Cabo Verde",
+        "printValue": "Cabo Verde"
+      },
+      {
+        "value": "Cambodia",
+        "label": "Cambodia",
+        "printValue": "Cambodia"
+      },
+      {
+        "value": "Cameroon",
+        "label": "Cameroon",
+        "printValue": "Cameroon"
+      },
+      {
+        "value": "Canada",
+        "label": "Canada",
+        "printValue": "Canada"
+      },
+      {
+        "value": "Central African Republic",
+        "label": "Central African Republic",
+        "printValue": "Central African Republic"
+      },
+      {
+        "value": "Chad",
+        "label": "Chad",
+        "printValue": "Chad"
+      },
+      {
+        "value": "Chile",
+        "label": "Chile",
+        "printValue": "Chile"
+      },
+      {
+        "value": "China",
+        "label": "China",
+        "printValue": "China"
+      },
+      {
+        "value": "Colombia",
+        "label": "Colombia",
+        "printValue": "Colombia"
+      },
+      {
+        "value": "Costa Rica",
+        "label": "Costa Rica",
+        "printValue": "Costa Rica"
+      },
+      {
+        "value": "Côte d’Ivoire",
+        "label": "Côte d’Ivoire",
+        "printValue": "Côte d’Ivoire"
+      },
+      {
+        "value": "Croatia",
+        "label": "Croatia",
+        "printValue": "Croatia"
+      },
+      {
+        "value": "Cuba",
+        "label": "Cuba",
+        "printValue": "Cuba"
+      },
+      {
+        "value": "Curacao",
+        "label": "Curacao",
+        "printValue": "Curacao"
+      },
+      {
+        "value": "Cyprus",
+        "label": "Cyprus",
+        "printValue": "Cyprus"
+      },
+      {
+        "value": "Czech Republic",
+        "label": "Czech Republic",
+        "printValue": "Czech Republic"
+      },
+      {
+        "value": "Democratic Republic of the Congo",
+        "label": "Democratic Republic of the Congo",
+        "printValue": "Democratic Republic of the Congo"
+      },
+      {
+        "value": "Denmark",
+        "label": "Denmark",
+        "printValue": "Denmark"
+      },
+      {
+        "value": "Djibouti",
+        "label": "Djibouti",
+        "printValue": "Djibouti"
+      },
+      {
+        "value": "Dominican Republic",
+        "label": "Dominican Republic",
+        "printValue": "Dominican Republic"
+      },
+      {
+        "value": "Ecuador",
+        "label": "Ecuador",
+        "printValue": "Ecuador"
+      },
+      {
+        "value": "Egypt",
+        "label": "Egypt",
+        "printValue": "Egypt"
+      },
+      {
+        "value": "El Salvador",
+        "label": "El Salvador",
+        "printValue": "El Salvador"
+      },
+      {
+        "value": "Equatorial Guinea",
+        "label": "Equatorial Guinea",
+        "printValue": "Equatorial Guinea"
+      },
+      {
+        "value": "Eritrea",
+        "label": "Eritrea",
+        "printValue": "Eritrea"
+      },
+      {
+        "value": "Estonia",
+        "label": "Estonia",
+        "printValue": "Estonia"
+      },
+      {
+        "value": "Ethiopia",
+        "label": "Ethiopia",
+        "printValue": "Ethiopia"
+      },
+      {
+        "value": "U.S. Mission to the EU",
+        "label": "U.S. Mission to the EU",
+        "printValue": "U.S. Mission to the EU"
+      },
+      {
+        "value": "Fiji",
+        "label": "Fiji",
+        "printValue": "Fiji"
+      },
+      {
+        "value": "Finland",
+        "label": "Finland",
+        "printValue": "Finland"
+      },
+      {
+        "value": "France",
+        "label": "France",
+        "printValue": "France"
+      },
+      {
+        "value": "Gabon",
+        "label": "Gabon",
+        "printValue": "Gabon"
+      },
+      {
+        "value": "Georgia",
+        "label": "Georgia",
+        "printValue": "Georgia"
+      },
+      {
+        "value": "Germany",
+        "label": "Germany",
+        "printValue": "Germany"
+      },
+      {
+        "value": "Ghana",
+        "label": "Ghana",
+        "printValue": "Ghana"
+      },
+      {
+        "value": "Greece",
+        "label": "Greece",
+        "printValue": "Greece"
+      },
+      {
+        "value": "Guatemala",
+        "label": "Guatemala",
+        "printValue": "Guatemala"
+      },
+      {
+        "value": "Guinea",
+        "label": "Guinea",
+        "printValue": "Guinea"
+      },
+      {
+        "value": "Guinea Bissau",
+        "label": "Guinea Bissau",
+        "printValue": "Guinea Bissau"
+      },
+      {
+        "value": "Guyana",
+        "label": "Guyana",
+        "printValue": "Guyana"
+      },
+      {
+        "value": "The Gambia",
+        "label": "The Gambia",
+        "printValue": "The Gambia"
+      },
+      {
+        "value": "Haiti",
+        "label": "Haiti",
+        "printValue": "Haiti"
+      },
+      {
+        "value": "Holy See",
+        "label": "Holy See",
+        "printValue": "Holy See"
+      },
+      {
+        "value": "Honduras",
+        "label": "Honduras",
+        "printValue": "Honduras"
+      },
+      {
+        "value": "Hong Kong and Macau",
+        "label": "Hong Kong and Macau",
+        "printValue": "Hong Kong and Macau"
+      },
+      {
+        "value": "Hungary",
+        "label": "Hungary",
+        "printValue": "Hungary"
+      },
+      {
+        "value": "Iceland",
+        "label": "Iceland",
+        "printValue": "Iceland"
+      },
+      {
+        "value": "India",
+        "label": "India",
+        "printValue": "India"
+      },
+      {
+        "value": "Indonesia",
+        "label": "Indonesia",
+        "printValue": "Indonesia"
+      },
+      {
+        "value": "Iran",
+        "label": "Iran",
+        "printValue": "Iran"
+      },
+      {
+        "value": "Iraq",
+        "label": "Iraq",
+        "printValue": "Iraq"
+      },
+      {
+        "value": "Ireland",
+        "label": "Ireland",
+        "printValue": "Ireland"
+      },
+      {
+        "value": "Israel",
+        "label": "Israel",
+        "printValue": "Israel"
+      },
+      {
+        "value": "Italy",
+        "label": "Italy",
+        "printValue": "Italy"
+      },
+      {
+        "value": "U.S. Mission to the ICAO",
+        "label": "U.S. Mission to the ICAO",
+        "printValue": "U.S. Mission to the ICAO"
+      },
+      {
+        "value": "Jamaica",
+        "label": "Jamaica",
+        "printValue": "Jamaica"
+      },
+      {
+        "value": "Japan",
+        "label": "Japan",
+        "printValue": "Japan"
+      },
+      {
+        "value": "Jerusalem",
+        "label": "Jerusalem",
+        "printValue": "Jerusalem"
+      },
+      {
+        "value": "Jordan",
+        "label": "Jordan",
+        "printValue": "Jordan"
+      },
+      {
+        "value": "Kazakhstan",
+        "label": "Kazakhstan",
+        "printValue": "Kazakhstan"
+      },
+      {
+        "value": "Kenya",
+        "label": "Kenya",
+        "printValue": "Kenya"
+      },
+      {
+        "value": "Korea",
+        "label": "Korea",
+        "printValue": "Korea"
+      },
+      {
+        "value": "Kosovo",
+        "label": "Kosovo",
+        "printValue": "Kosovo"
+      },
+      {
+        "value": "Kuwait",
+        "label": "Kuwait",
+        "printValue": "Kuwait"
+      },
+      {
+        "value": "Kyrgyz Republic",
+        "label": "Kyrgyz Republic",
+        "printValue": "Kyrgyz Republic"
+      },
+      {
+        "value": "Laos",
+        "label": "Laos",
+        "printValue": "Laos"
+      },
+      {
+        "value": "Latvia",
+        "label": "Latvia",
+        "printValue": "Latvia"
+      },
+      {
+        "value": "Lebanon",
+        "label": "Lebanon",
+        "printValue": "Lebanon"
+      },
+      {
+        "value": "Lesotho",
+        "label": "Lesotho",
+        "printValue": "Lesotho"
+      },
+      {
+        "value": "Liberia",
+        "label": "Liberia",
+        "printValue": "Liberia"
+      },
+      {
+        "value": "Libya",
+        "label": "Libya",
+        "printValue": "Libya"
+      },
+      {
+        "value": "Lithuania",
+        "label": "Lithuania",
+        "printValue": "Lithuania"
+      },
+      {
+        "value": "Luxembourg",
+        "label": "Luxembourg",
+        "printValue": "Luxembourg"
+      },
+      {
+        "value": "Macedonia",
+        "label": "Macedonia",
+        "printValue": "Macedonia"
+      },
+      {
+        "value": "Madagascar & Comoros",
+        "label": "Madagascar & Comoros",
+        "printValue": "Madagascar & Comoros"
+      },
+      {
+        "value": "Malawi",
+        "label": "Malawi",
+        "printValue": "Malawi"
+      },
+      {
+        "value": "Malaysia",
+        "label": "Malaysia",
+        "printValue": "Malaysia"
+      },
+      {
+        "value": "Maldives",
+        "label": "Maldives",
+        "printValue": "Maldives"
+      },
+      {
+        "value": "Mali",
+        "label": "Mali",
+        "printValue": "Mali"
+      },
+      {
+        "value": "Malta",
+        "label": "Malta",
+        "printValue": "Malta"
+      },
+      {
+        "value": "Marshall Islands",
+        "label": "Marshall Islands",
+        "printValue": "Marshall Islands"
+      },
+      {
+        "value": "Mauritania",
+        "label": "Mauritania",
+        "printValue": "Mauritania"
+      },
+      {
+        "value": "Mauritius",
+        "label": "Mauritius",
+        "printValue": "Mauritius"
+      },
+      {
+        "value": "Mexico",
+        "label": "Mexico",
+        "printValue": "Mexico"
+      },
+      {
+        "value": "Micronesia",
+        "label": "Micronesia",
+        "printValue": "Micronesia"
+      },
+      {
+        "value": "Moldova",
+        "label": "Moldova",
+        "printValue": "Moldova"
+      },
+      {
+        "value": "Mongolia",
+        "label": "Mongolia",
+        "printValue": "Mongolia"
+      },
+      {
+        "value": "Montenegro",
+        "label": "Montenegro",
+        "printValue": "Montenegro"
+      },
+      {
+        "value": "Morocco",
+        "label": "Morocco",
+        "printValue": "Morocco"
+      },
+      {
+        "value": "Mozambique",
+        "label": "Mozambique",
+        "printValue": "Mozambique"
+      },
+      {
+        "value": "Namibia",
+        "label": "Namibia",
+        "printValue": "Namibia"
+      },
+      {
+        "value": "Nepal",
+        "label": "Nepal",
+        "printValue": "Nepal"
+      },
+      {
+        "value": "Netherlands",
+        "label": "Netherlands",
+        "printValue": "Netherlands"
+      },
+      {
+        "value": "Netherlands Antilles",
+        "label": "Netherlands Antilles",
+        "printValue": "Netherlands Antilles"
+      },
+      {
+        "value": "New Zealand",
+        "label": "New Zealand",
+        "printValue": "New Zealand"
+      },
+      {
+        "value": "Nicaragua",
+        "label": "Nicaragua",
+        "printValue": "Nicaragua"
+      },
+      {
+        "value": "Niger",
+        "label": "Niger",
+        "printValue": "Niger"
+      },
+      {
+        "value": "Nigeria",
+        "label": "Nigeria",
+        "printValue": "Nigeria"
+      },
+      {
+        "value": "Norway",
+        "label": "Norway",
+        "printValue": "Norway"
+      },
+      {
+        "value": "U.S. Mission to NATO",
+        "label": "U.S. Mission to NATO",
+        "printValue": "U.S. Mission to NATO"
+      },
+      {
+        "value": "Oman",
+        "label": "Oman",
+        "printValue": "Oman"
+      },
+      {
+        "value": "U.S. Mission to OSCE",
+        "label": "U.S. Mission to OSCE",
+        "printValue": "U.S. Mission to OSCE"
+      },
+      {
+        "value": "U.S. Mission to the OAS",
+        "label": "U.S. Mission to the OAS",
+        "printValue": "U.S. Mission to the OAS"
+      },
+      {
+        "value": "U.S. Mission to the OECD",
+        "label": "U.S. Mission to the OECD",
+        "printValue": "U.S. Mission to the OECD"
+      },
+      {
+        "value": "Pakistan",
+        "label": "Pakistan",
+        "printValue": "Pakistan"
+      },
+      {
+        "value": "Palau",
+        "label": "Palau",
+        "printValue": "Palau"
+      },
+      {
+        "value": "Panama",
+        "label": "Panama",
+        "printValue": "Panama"
+      },
+      {
+        "value": "Papua New Guinea",
+        "label": "Papua New Guinea",
+        "printValue": "Papua New Guinea"
+      },
+      {
+        "value": "Paraguay",
+        "label": "Paraguay",
+        "printValue": "Paraguay"
+      },
+      {
+        "value": "Peru",
+        "label": "Peru",
+        "printValue": "Peru"
+      },
+      {
+        "value": "Philippines",
+        "label": "Philippines",
+        "printValue": "Philippines"
+      },
+      {
+        "value": "Poland",
+        "label": "Poland",
+        "printValue": "Poland"
+      },
+      {
+        "value": "Portugal",
+        "label": "Portugal",
+        "printValue": "Portugal"
+      },
+      {
+        "value": "Qatar",
+        "label": "Qatar",
+        "printValue": "Qatar"
+      },
+      {
+        "value": "Republic of Congo",
+        "label": "Republic of Congo",
+        "printValue": "Republic of Congo"
+      },
+      {
+        "value": "Romania",
+        "label": "Romania",
+        "printValue": "Romania"
+      },
+      {
+        "value": "Russia",
+        "label": "Russia",
+        "printValue": "Russia"
+      },
+      {
+        "value": "Rwanda",
+        "label": "Rwanda",
+        "printValue": "Rwanda"
+      },
+      {
+        "value": "Samoa",
+        "label": "Samoa",
+        "printValue": "Samoa"
+      },
+      {
+        "value": "San Marino",
+        "label": "San Marino",
+        "printValue": "San Marino"
+      },
+      {
+        "value": "Saudi Arabia",
+        "label": "Saudi Arabia",
+        "printValue": "Saudi Arabia"
+      },
+      {
+        "value": "Senegal",
+        "label": "Senegal",
+        "printValue": "Senegal"
+      },
+      {
+        "value": "Serbia",
+        "label": "Serbia",
+        "printValue": "Serbia"
+      },
+      {
+        "value": "Sierra Leone",
+        "label": "Sierra Leone",
+        "printValue": "Sierra Leone"
+      },
+      {
+        "value": "Singapore",
+        "label": "Singapore",
+        "printValue": "Singapore"
+      },
+      {
+        "value": "Slovakia",
+        "label": "Slovakia",
+        "printValue": "Slovakia"
+      },
+      {
+        "value": "Slovenia",
+        "label": "Slovenia",
+        "printValue": "Slovenia"
+      },
+      {
+        "value": "Somalia",
+        "label": "Somalia",
+        "printValue": "Somalia"
+      },
+      {
+        "value": "South Africa",
+        "label": "South Africa",
+        "printValue": "South Africa"
+      },
+      {
+        "value": "South Sudan",
+        "label": "South Sudan",
+        "printValue": "South Sudan"
+      },
+      {
+        "value": "Spain",
+        "label": "Spain",
+        "printValue": "Spain"
+      },
+      {
+        "value": "Sri Lanka",
+        "label": "Sri Lanka",
+        "printValue": "Sri Lanka"
+      },
+      {
+        "value": "Sudan",
+        "label": "Sudan",
+        "printValue": "Sudan"
+      },
+      {
+        "value": "Suriname",
+        "label": "Suriname",
+        "printValue": "Suriname"
+      },
+      {
+        "value": "Swaziland",
+        "label": "Swaziland",
+        "printValue": "Swaziland"
+      },
+      {
+        "value": "Sweden",
+        "label": "Sweden",
+        "printValue": "Sweden"
+      },
+      {
+        "value": "Switzerland",
+        "label": "Switzerland",
+        "printValue": "Switzerland"
+      },
+      {
+        "value": "Syria",
+        "label": "Syria",
+        "printValue": "Syria"
+      },
+      {
+        "value": "American Institute in Taiwan",
+        "label": "American Institute in Taiwan",
+        "printValue": "American Institute in Taiwan"
+      },
+      {
+        "value": "Tajikistan",
+        "label": "Tajikistan",
+        "printValue": "Tajikistan"
+      },
+      {
+        "value": "Tanzania",
+        "label": "Tanzania",
+        "printValue": "Tanzania"
+      },
+      {
+        "value": "Thailand",
+        "label": "Thailand",
+        "printValue": "Thailand"
+      },
+      {
+        "value": "Timor-Leste",
+        "label": "Timor-Leste",
+        "printValue": "Timor-Leste"
+      },
+      {
+        "value": "Togo",
+        "label": "Togo",
+        "printValue": "Togo"
+      },
+      {
+        "value": "Tonga",
+        "label": "Tonga",
+        "printValue": "Tonga"
+      },
+      {
+        "value": "Trinidad and Tobago",
+        "label": "Trinidad and Tobago",
+        "printValue": "Trinidad and Tobago"
+      },
+      {
+        "value": "Tunisia",
+        "label": "Tunisia",
+        "printValue": "Tunisia"
+      },
+      {
+        "value": "Turkey",
+        "label": "Turkey",
+        "printValue": "Turkey"
+      },
+      {
+        "value": "Turkmenistan",
+        "label": "Turkmenistan",
+        "printValue": "Turkmenistan"
+      },
+      {
+        "value": "U.S. Mission to the UN-Geneva",
+        "label": "U.S. Mission to the UN-Geneva",
+        "printValue": "U.S. Mission to the UN-Geneva"
+      },
+      {
+        "value": "U.S. Mission to the UN-Rome",
+        "label": "U.S. Mission to the UN-Rome",
+        "printValue": "U.S. Mission to the UN-Rome"
+      },
+      {
+        "value": "U.S. Mission to the United Nations",
+        "label": "U.S. Mission to the United Nations",
+        "printValue": "U.S. Mission to the United Nations"
+      },
+      {
+        "value": "U.S. Mission to UNESCO",
+        "label": "U.S. Mission to UNESCO",
+        "printValue": "U.S. Mission to UNESCO"
+      },
+      {
+        "value": "Uganda",
+        "label": "Uganda",
+        "printValue": "Uganda"
+      },
+      {
+        "value": "Ukraine",
+        "label": "Ukraine",
+        "printValue": "Ukraine"
+      },
+      {
+        "value": "United Arab Emirates",
+        "label": "United Arab Emirates",
+        "printValue": "United Arab Emirates"
+      },
+      {
+        "value": "United Kingdom",
+        "label": "United Kingdom",
+        "printValue": "United Kingdom"
+      },
+      {
+        "value": "Uruguay",
+        "label": "Uruguay",
+        "printValue": "Uruguay"
+      },
+      {
+        "value": "Uzbekistan",
+        "label": "Uzbekistan",
+        "printValue": "Uzbekistan"
+      },
+      {
+        "value": "U.S. Mission to International Organizations in Vienna",
+        "label": "U.S. Mission to International Organizations in Vienna",
+        "printValue": "U.S. Mission to International Organizations in Vienna"
+      },
+      {
+        "value": "Venezuela",
+        "label": "Venezuela",
+        "printValue": "Venezuela"
+      },
+      {
+        "value": "Vietnam",
+        "label": "Vietnam",
+        "printValue": "Vietnam"
+      },
+      {
+        "value": "Yemen",
+        "label": "Yemen",
+        "printValue": "Yemen"
+      },
+      {
+        "value": "Zambia",
+        "label": "Zambia",
+        "printValue": "Zambia"
+      },
+      {
+        "value": "Zimbabwe",
+        "label": "Zimbabwe",
+        "printValue": "Zimbabwe"
+      }
+    ]
+  },
+  {
+    "type": "eligibilityCategoryDropDown",
+    "values": [
+      {
+        "value": "a_2",
+        "label": "Lawful temporary resident",
+        "printValue": "Lawful temporary resident"
+      },
+      {
+        "value": "a_3",
+        "label": "Refugee",
+        "printValue": "Refugee"
+      },
+      {
+        "value": "a_4",
+        "label": "Paroled refugee",
+        "printValue": "Paroled refugee"
+      },
+      {
+        "value": "a_5",
+        "label": "Asylee",
+        "printValue": "Asylee"
+      },
+      {
+        "value": "a_6",
+        "label": "Fiancé(e) (K-1 or K-2 nonimmigrant)",
+        "printValue": "Fiancé(e) (K-1 or K-2 nonimmigrant)"
+      },
+      {
+        "value": "a_7",
+        "label": "N-8 or N-9",
+        "printValue": "N-8 or N-9"
+      },
+      {
+        "value": "a_8",
+        "label": "Citizen of Micronesia, Marshall Islands, or Palau",
+        "printValue": "Citizen of Micronesia, Marshall Islands, or Palau"
+      },
+      {
+        "value": "a_9",
+        "label": "K-3 or K-4",
+        "printValue": "K-3 or K-4"
+      },
+      {
+        "value": "a_10",
+        "label": "Withholding of deportation or removal granted",
+        "printValue": "Withholding of deportation or removal granted"
+      },
+      {
+        "value": "a_11",
+        "label": "Deferred Enforced Departure",
+        "printValue": "Deferred Enforced Departure"
+      },
+      {
+        "value": "a_12",
+        "label": "Temporary Protected Status granted",
+        "printValue": "Temporary Protected Status granted"
+      },
+      {
+        "value": "a_13",
+        "label": "Family Unity Program (Section 301 of the Immigration Act of 1990)",
+        "printValue": "Family Unity Program (Section 301 of the Immigration Act of 1990)"
+      },
+      {
+        "value": "a_14",
+        "label": "LIFE Legalization (Section 1504 of the Legal Immigrant Family Equity (LIFE) Act Amendments)",
+        "printValue": "LIFE Legalization (Section 1504 of the Legal Immigrant Family Equity (LIFE) Act Amendments)"
+      },
+      {
+        "value": "a_15",
+        "label": "V visa nonimmigrant",
+        "printValue": "V visa nonimmigrant"
+      },
+      {
+        "value": "a_16",
+        "label": "T-1 nonimmigrant",
+        "printValue": "T-1 nonimmigrant"
+      },
+      {
+        "value": "a_17",
+        "label": "Spouse of an E nonimmigrant",
+        "printValue": "Spouse of an E nonimmigrant"
+      },
+      {
+        "value": "a_18",
+        "label": "Spouse of an L nonimmigrant",
+        "printValue": "Spouse of an L nonimmigrant"
+      },
+      {
+        "value": "a_19",
+        "label": "U-1 nonimmigrant",
+        "printValue": "U-1 nonimmigrant"
+      },
+      {
+        "value": "a_20",
+        "label": "U-2, U-3, U-4, or U-5 nonimmigrant",
+        "printValue": "U-2, U-3, U-4, or U-5 nonimmigrant"
+      },
+      {
+        "value": "c_1",
+        "label": "Spouse/dependent of A-1 or A-2 visa nonimmigrant",
+        "printValue": "Spouse/dependent of A-1 or A-2 visa nonimmigrant"
+      },
+      {
+        "value": "c_2",
+        "label": "Spouse/dependent of Coordination Council for North American Affairs (E‑1)/ Taipei Economic and Cultural Representative Office (TECRO)",
+        "printValue": "Spouse/dependent of Coordination Council for North American Affairs (E‑1)/ Taipei Economic and Cultural Representative Office (TECRO)"
+      },
+      {
+        "value": "c_3_A",
+        "label": "F-1 student, pre-completion Optional Practical Training",
+        "printValue": "F-1 student, pre-completion Optional Practical Training"
+      },
+      {
+        "value": "c_3_B",
+        "label": "F-1 student, post-completion Optional Practical Training",
+        "printValue": "F-1 student, post-completion Optional Practical Training"
+      },
+      {
+        "value": "c_3_C",
+        "label": "F-1 student, 24-month extension for STEM students",
+        "printValue": "F-1 student, 24-month extension for STEM students"
+      },
+      {
+        "value": "c_3_ii",
+        "label": "F-1 student, off-campus employment sponsored by a qualifying international organization",
+        "printValue": "F-1 student, off-campus employment sponsored by a qualifying international organization"
+      },
+      {
+        "value": "c_3_iii",
+        "label": "F-1 student, off-campus employment due to severe economic hardship",
+        "printValue": "F-1 student, off-campus employment due to severe economic hardship"
+      },
+      {
+        "value": "c_4",
+        "label": "Spouse/dependent of G-1, G-3, or G-4",
+        "printValue": "Spouse/dependent of G-1, G-3, or G-4"
+      },
+      {
+        "value": "c_5",
+        "label": "J-2 spouse or child of J-1 exchange visitor",
+        "printValue": "J-2 spouse or child of J-1 exchange visitor"
+      },
+      {
+        "value": "c_6",
+        "label": "M-1 student, Practical Training",
+        "printValue": "M-1 student, Practical Training"
+      },
+      {
+        "value": "c_7",
+        "label": "Dependent of NATO-1 through NATO-6",
+        "printValue": "Dependent of NATO-1 through NATO-6"
+      },
+      {
+        "value": "c_8|0",
+        "label": "Asylum application pending filed on/after Jan. 4, 1995",
+        "printValue": "Asylum application pending filed on/after Jan. 4, 1995"
+      },
+      {
+        "value": "c_8|1",
+        "label": "Asylum application pending filed before Jan. 4, 1995 and applicant is not in exclusion/deportation proceedings",
+        "printValue": "Asylum application pending filed before Jan. 4, 1995 and applicant is not in exclusion/deportation proceedings"
+      },
+      {
+        "value": "c_8|2",
+        "label": "Asylum application pending filed before Jan. 4, 1995 and applicant is in exclusion/deportation proceedings",
+        "printValue": "Asylum application pending filed before Jan. 4, 1995 and applicant is in exclusion/deportation proceedings"
+      },
+      {
+        "value": "c_8|3",
+        "label": "Asylum application under ABC Agreement,",
+        "printValue": "Asylum application under ABC Agreement,"
+      },
+      {
+        "value": "c_9",
+        "label": "Pending adjustment of status under Section 245 of the Act",
+        "printValue": "Pending adjustment of status under Section 245 of the Act"
+      },
+      {
+        "value": "c_10",
+        "label": "Suspension of deportation applicants (filed before April 1, 1997) Cancellation of Removal applicants Cancellation applicants under NACARA",
+        "printValue": "Suspension of deportation applicants (filed before April 1, 1997) Cancellation of Removal applicants Cancellation applicants under NACARA"
+      },
+      {
+        "value": "c_11",
+        "label": "Public Interest parolee",
+        "printValue": "Public Interest parolee"
+      },
+      {
+        "value": "c_12",
+        "label": "Spouse of an E-2 CNMI investor",
+        "printValue": "Spouse of an E-2 CNMI investor"
+      },
+      {
+        "value": "c_14",
+        "label": "Deferred action",
+        "printValue": "Deferred action"
+      },
+      {
+        "value": "c_15",
+        "label": "Not in use",
+        "printValue": "Not in use"
+      },
+      {
+        "value": "c_16",
+        "label": "Creation of record (adjustment based on continuous residence since Jan. 1, 1972)",
+        "printValue": "Creation of record (adjustment based on continuous residence since Jan. 1, 1972)"
+      },
+      {
+        "value": "c_17_i",
+        "label": "B-1 domestic servant of certain nonimmigrants",
+        "printValue": "B-1 domestic servant of certain nonimmigrants"
+      },
+      {
+        "value": "c_17_ii",
+        "label": "B-1 domestic servant of certain U.S. citizens who are in the United States on a temporary basis.",
+        "printValue": "B-1 domestic servant of certain U.S. citizens who are in the United States on a temporary basis."
+      },
+      {
+        "value": "c_17_iii",
+        "label": "Certain B-1 nonimmigrant employees of a foreign airline",
+        "printValue": "Certain B-1 nonimmigrant employees of a foreign airline"
+      },
+      {
+        "value": "c_18",
+        "label": "Order of supervision",
+        "printValue": "Order of supervision"
+      },
+      {
+        "value": "c_19",
+        "label": "Certain pending TPS applicants whom USCIS has determined are prima facie eligible for TPS and who may then receive an EAD as a ”temporary treatment benefit” under 8 C.F.R. 244.10(a).",
+        "printValue": "Certain pending TPS applicants whom USCIS has determined are prima facie eligible for TPS and who may then receive an EAD as a ”temporary treatment benefit” under 8 C.F.R. 244.10(a)."
+      },
+      {
+        "value": "c_20",
+        "label": "Section 210 legalization (pending I-700)",
+        "printValue": "Section 210 legalization (pending I-700)"
+      },
+      {
+        "value": "c_21",
+        "label": "S visa nonimmigrant",
+        "printValue": "S visa nonimmigrant"
+      },
+      {
+        "value": "c_22",
+        "label": "Section 245A legalization (pending I-687)",
+        "printValue": "Section 245A legalization (pending I-687)"
+      },
+      {
+        "value": "c_23",
+        "label": "Irish peace process (Q-2)",
+        "printValue": "Irish peace process (Q-2)"
+      },
+      {
+        "value": "c_24",
+        "label": "LIFE legalization",
+        "printValue": "LIFE legalization"
+      },
+      {
+        "value": "c_25",
+        "label": "T-2, T-3, T-4, T-5, or T-6 nonimmigrant",
+        "printValue": "T-2, T-3, T-4, T-5, or T-6 nonimmigrant"
+      },
+      {
+        "value": "c_26",
+        "label": "Spouse of an H-1B nonimmigrant",
+        "printValue": "Spouse of an H-1B nonimmigrant"
+      },
+      {
+        "value": "c_31",
+        "label": "VAWA self-petitioners with an approved Form I-360",
+        "printValue": "VAWA self-petitioners with an approved Form I-360"
+      },
+      {
+        "value": "c_33",
+        "label": "Consideration of Deferred Action for Childhood Arrivals (DACA)",
+        "printValue": "Consideration of Deferred Action for Childhood Arrivals (DACA)"
+      },
+      {
+        "value": "c_35",
+        "label": "Principal beneficiary of an approved employment-based immigrant petition facing compelling circumstances",
+        "printValue": "Principal beneficiary of an approved employment-based immigrant petition facing compelling circumstances"
+      },
+      {
+        "value": "c_36",
+        "label": "Spouse or unmarried child of a principal beneficiary of an approved employment-based immigrant petition facing compelling circumstances",
+        "printValue": "Spouse or unmarried child of a principal beneficiary of an approved employment-based immigrant petition facing compelling circumstances"
+      }
+    ]
+  },
+  {
+    "type": "countryListDropdown",
+    "values": [
+      {
+        "value": "Abkhazia – Republic of Abkhazia",
+        "label": "Abkhazia – Republic of Abkhazia",
+        "printValue": "Abkhazia – Republic of Abkhazia"
+      },
+      {
+        "value": "Afghanistan",
+        "label": "Afghanistan",
+        "printValue": "Afghanistan"
+      },
+      {
+        "value": "Albania",
+        "label": "Albania",
+        "printValue": "Albania"
+      },
+      {
+        "value": "Algeria",
+        "label": "Algeria",
+        "printValue": "Algeria"
+      },
+      {
+        "value": "American Samoa",
+        "label": "American Samoa",
+        "printValue": "American Samoa"
+      },
+      {
+        "value": "Andorra",
+        "label": "Andorra",
+        "printValue": "Andorra"
+      },
+      {
+        "value": "Angola",
+        "label": "Angola",
+        "printValue": "Angola"
+      },
+      {
+        "value": "Anguilla",
+        "label": "Anguilla",
+        "printValue": "Anguilla"
+      },
+      {
+        "value": "Antigua and Barbuda",
+        "label": "Antigua and Barbuda",
+        "printValue": "Antigua and Barbuda"
+      },
+      {
+        "value": "Argentina",
+        "label": "Argentina",
+        "printValue": "Argentina"
+      },
+      {
+        "value": "Armenia",
+        "label": "Armenia",
+        "printValue": "Armenia"
+      },
+      {
+        "value": "Aruba",
+        "label": "Aruba",
+        "printValue": "Aruba"
+      },
+      {
+        "value": "Australia",
+        "label": "Australia",
+        "printValue": "Australia"
+      },
+      {
+        "value": "Austria",
+        "label": "Austria",
+        "printValue": "Austria"
+      },
+      {
+        "value": "Azerbaijan",
+        "label": "Azerbaijan",
+        "printValue": "Azerbaijan"
+      },
+      {
+        "value": "Bahamas",
+        "label": "Bahamas",
+        "printValue": "Bahamas"
+      },
+      {
+        "value": "Bahrain",
+        "label": "Bahrain",
+        "printValue": "Bahrain"
+      },
+      {
+        "value": "Bangladesh",
+        "label": "Bangladesh",
+        "printValue": "Bangladesh"
+      },
+      {
+        "value": "Barbados",
+        "label": "Barbados",
+        "printValue": "Barbados"
+      },
+      {
+        "value": "Belarus",
+        "label": "Belarus",
+        "printValue": "Belarus"
+      },
+      {
+        "value": "Belgium",
+        "label": "Belgium",
+        "printValue": "Belgium"
+      },
+      {
+        "value": "Belize",
+        "label": "Belize",
+        "printValue": "Belize"
+      },
+      {
+        "value": "Benin",
+        "label": "Benin",
+        "printValue": "Benin"
+      },
+      {
+        "value": "Bermuda",
+        "label": "Bermuda",
+        "printValue": "Bermuda"
+      },
+      {
+        "value": "Bhutan",
+        "label": "Bhutan",
+        "printValue": "Bhutan"
+      },
+      {
+        "value": "Bolivia",
+        "label": "Bolivia",
+        "printValue": "Bolivia"
+      },
+      {
+        "value": "Bosnia-Herzegovina",
+        "label": "Bosnia-Herzegovina",
+        "printValue": "Bosnia-Herzegovina"
+      },
+      {
+        "value": "Botswana",
+        "label": "Botswana",
+        "printValue": "Botswana"
+      },
+      {
+        "value": "Bouvet Island",
+        "label": "Bouvet Island",
+        "printValue": "Bouvet Island"
+      },
+      {
+        "value": "Brazil",
+        "label": "Brazil",
+        "printValue": "Brazil"
+      },
+      {
+        "value": "Brunei",
+        "label": "Brunei",
+        "printValue": "Brunei"
+      },
+      {
+        "value": "Bulgaria",
+        "label": "Bulgaria",
+        "printValue": "Bulgaria"
+      },
+      {
+        "value": "Burkina Faso",
+        "label": "Burkina Faso",
+        "printValue": "Burkina Faso"
+      },
+      {
+        "value": "Burundi",
+        "label": "Burundi",
+        "printValue": "Burundi"
+      },
+      {
+        "value": "Cambodia",
+        "label": "Cambodia",
+        "printValue": "Cambodia"
+      },
+      {
+        "value": "Cameroon",
+        "label": "Cameroon",
+        "printValue": "Cameroon"
+      },
+      {
+        "value": "Canada",
+        "label": "Canada",
+        "printValue": "Canada"
+      },
+      {
+        "value": "Cape Verde",
+        "label": "Cape Verde",
+        "printValue": "Cape Verde"
+      },
+      {
+        "value": "Cayman Islands",
+        "label": "Cayman Islands",
+        "printValue": "Cayman Islands"
+      },
+      {
+        "value": "Central African Republic",
+        "label": "Central African Republic",
+        "printValue": "Central African Republic"
+      },
+      {
+        "value": "Chad",
+        "label": "Chad",
+        "printValue": "Chad"
+      },
+      {
+        "value": "Chile",
+        "label": "Chile",
+        "printValue": "Chile"
+      },
+      {
+        "value": "China",
+        "label": "China",
+        "printValue": "China"
+      },
+      {
+        "value": "Christmas Island",
+        "label": "Christmas Island",
+        "printValue": "Christmas Island"
+      },
+      {
+        "value": "Cocos (Keeling) Islands",
+        "label": "Cocos (Keeling) Islands",
+        "printValue": "Cocos (Keeling) Islands"
+      },
+      {
+        "value": "Colombia",
+        "label": "Colombia",
+        "printValue": "Colombia"
+      },
+      {
+        "value": "Comoros",
+        "label": "Comoros",
+        "printValue": "Comoros"
+      },
+      {
+        "value": "Congo, Democratic Republic of the (Zaire)",
+        "label": "Congo, Democratic Republic of the (Zaire)",
+        "printValue": "Congo, Democratic Republic of the (Zaire)"
+      },
+      {
+        "value": "Congo, Republic of",
+        "label": "Congo, Republic of",
+        "printValue": "Congo, Republic of"
+      },
+      {
+        "value": "Cook Islands",
+        "label": "Cook Islands",
+        "printValue": "Cook Islands"
+      },
+      {
+        "value": "Costa Rica",
+        "label": "Costa Rica",
+        "printValue": "Costa Rica"
+      },
+      {
+        "value": "Croatia",
+        "label": "Croatia",
+        "printValue": "Croatia"
+      },
+      {
+        "value": "Cuba",
+        "label": "Cuba",
+        "printValue": "Cuba"
+      },
+      {
+        "value": "Cyprus",
+        "label": "Cyprus",
+        "printValue": "Cyprus"
+      },
+      {
+        "value": "Czech Republic",
+        "label": "Czech Republic",
+        "printValue": "Czech Republic"
+      },
+      {
+        "value": "Denmark",
+        "label": "Denmark",
+        "printValue": "Denmark"
+      },
+      {
+        "value": "Djibouti",
+        "label": "Djibouti",
+        "printValue": "Djibouti"
+      },
+      {
+        "value": "Dominica",
+        "label": "Dominica",
+        "printValue": "Dominica"
+      },
+      {
+        "value": "Dominican Republic",
+        "label": "Dominican Republic",
+        "printValue": "Dominican Republic"
+      },
+      {
+        "value": "East Timor (Timor-Leste)",
+        "label": "East Timor (Timor-Leste)",
+        "printValue": "East Timor (Timor-Leste)"
+      },
+      {
+        "value": "Ecuador",
+        "label": "Ecuador",
+        "printValue": "Ecuador"
+      },
+      {
+        "value": "Egypt",
+        "label": "Egypt",
+        "printValue": "Egypt"
+      },
+      {
+        "value": "El Salvador",
+        "label": "El Salvador",
+        "printValue": "El Salvador"
+      },
+      {
+        "value": "Equatorial Guinea",
+        "label": "Equatorial Guinea",
+        "printValue": "Equatorial Guinea"
+      },
+      {
+        "value": "Eritrea",
+        "label": "Eritrea",
+        "printValue": "Eritrea"
+      },
+      {
+        "value": "Estonia",
+        "label": "Estonia",
+        "printValue": "Estonia"
+      },
+      {
+        "value": "Ethiopia",
+        "label": "Ethiopia",
+        "printValue": "Ethiopia"
+      },
+      {
+        "value": "Falkland Islands",
+        "label": "Falkland Islands",
+        "printValue": "Falkland Islands"
+      },
+      {
+        "value": "Faroe Islands",
+        "label": "Faroe Islands",
+        "printValue": "Faroe Islands"
+      },
+      {
+        "value": "Fiji",
+        "label": "Fiji",
+        "printValue": "Fiji"
+      },
+      {
+        "value": "Finland",
+        "label": "Finland",
+        "printValue": "Finland"
+      },
+      {
+        "value": "France",
+        "label": "France",
+        "printValue": "France"
+      },
+      {
+        "value": "French Guiana",
+        "label": "French Guiana",
+        "printValue": "French Guiana"
+      },
+      {
+        "value": "Gabon",
+        "label": "Gabon",
+        "printValue": "Gabon"
+      },
+      {
+        "value": "Gambia",
+        "label": "Gambia",
+        "printValue": "Gambia"
+      },
+      {
+        "value": "Georgia",
+        "label": "Georgia",
+        "printValue": "Georgia"
+      },
+      {
+        "value": "Germany",
+        "label": "Germany",
+        "printValue": "Germany"
+      },
+      {
+        "value": "Ghana",
+        "label": "Ghana",
+        "printValue": "Ghana"
+      },
+      {
+        "value": "Gibraltar",
+        "label": "Gibraltar",
+        "printValue": "Gibraltar"
+      },
+      {
+        "value": "Greece",
+        "label": "Greece",
+        "printValue": "Greece"
+      },
+      {
+        "value": "Greenland",
+        "label": "Greenland",
+        "printValue": "Greenland"
+      },
+      {
+        "value": "Grenada",
+        "label": "Grenada",
+        "printValue": "Grenada"
+      },
+      {
+        "value": "Guadeloupe (French)",
+        "label": "Guadeloupe (French)",
+        "printValue": "Guadeloupe (French)"
+      },
+      {
+        "value": "Guam (USA)",
+        "label": "Guam (USA)",
+        "printValue": "Guam (USA)"
+      },
+      {
+        "value": "Guatemala",
+        "label": "Guatemala",
+        "printValue": "Guatemala"
+      },
+      {
+        "value": "Guinea",
+        "label": "Guinea",
+        "printValue": "Guinea"
+      },
+      {
+        "value": "Guinea Bissau",
+        "label": "Guinea Bissau",
+        "printValue": "Guinea Bissau"
+      },
+      {
+        "value": "Guyana",
+        "label": "Guyana",
+        "printValue": "Guyana"
+      },
+      {
+        "value": "Haiti",
+        "label": "Haiti",
+        "printValue": "Haiti"
+      },
+      {
+        "value": "Holy See",
+        "label": "Holy See",
+        "printValue": "Holy See"
+      },
+      {
+        "value": "Honduras",
+        "label": "Honduras",
+        "printValue": "Honduras"
+      },
+      {
+        "value": "Hong Kong",
+        "label": "Hong Kong",
+        "printValue": "Hong Kong"
+      },
+      {
+        "value": "Hungary",
+        "label": "Hungary",
+        "printValue": "Hungary"
+      },
+      {
+        "value": "Iceland",
+        "label": "Iceland",
+        "printValue": "Iceland"
+      },
+      {
+        "value": "India",
+        "label": "India",
+        "printValue": "India"
+      },
+      {
+        "value": "Indonesia",
+        "label": "Indonesia",
+        "printValue": "Indonesia"
+      },
+      {
+        "value": "Iran",
+        "label": "Iran",
+        "printValue": "Iran"
+      },
+      {
+        "value": "Iraq",
+        "label": "Iraq",
+        "printValue": "Iraq"
+      },
+      {
+        "value": "Ireland",
+        "label": "Ireland",
+        "printValue": "Ireland"
+      },
+      {
+        "value": "Israel",
+        "label": "Israel",
+        "printValue": "Israel"
+      },
+      {
+        "value": "Italy",
+        "label": "Italy",
+        "printValue": "Italy"
+      },
+      {
+        "value": "Ivory Coast (Cote D`Ivoire)",
+        "label": "Ivory Coast (Cote D`Ivoire)",
+        "printValue": "Ivory Coast (Cote D`Ivoire)"
+      },
+      {
+        "value": "Jamaica",
+        "label": "Jamaica",
+        "printValue": "Jamaica"
+      },
+      {
+        "value": "Japan",
+        "label": "Japan",
+        "printValue": "Japan"
+      },
+      {
+        "value": "Jordan",
+        "label": "Jordan",
+        "printValue": "Jordan"
+      },
+      {
+        "value": "Kazakhstan",
+        "label": "Kazakhstan",
+        "printValue": "Kazakhstan"
+      },
+      {
+        "value": "Kenya",
+        "label": "Kenya",
+        "printValue": "Kenya"
+      },
+      {
+        "value": "Kiribati",
+        "label": "Kiribati",
+        "printValue": "Kiribati"
+      },
+      {
+        "value": "Kosovo – Republic of Kosovo",
+        "label": "Kosovo – Republic of Kosovo",
+        "printValue": "Kosovo – Republic of Kosovo"
+      },
+      {
+        "value": "Kuwait",
+        "label": "Kuwait",
+        "printValue": "Kuwait"
+      },
+      {
+        "value": "Kyrgyzstan",
+        "label": "Kyrgyzstan",
+        "printValue": "Kyrgyzstan"
+      },
+      {
+        "value": "Laos",
+        "label": "Laos",
+        "printValue": "Laos"
+      },
+      {
+        "value": "Latvia",
+        "label": "Latvia",
+        "printValue": "Latvia"
+      },
+      {
+        "value": "Lebanon",
+        "label": "Lebanon",
+        "printValue": "Lebanon"
+      },
+      {
+        "value": "Lesotho",
+        "label": "Lesotho",
+        "printValue": "Lesotho"
+      },
+      {
+        "value": "Liberia",
+        "label": "Liberia",
+        "printValue": "Liberia"
+      },
+      {
+        "value": "Libya",
+        "label": "Libya",
+        "printValue": "Libya"
+      },
+      {
+        "value": "Liechtenstein",
+        "label": "Liechtenstein",
+        "printValue": "Liechtenstein"
+      },
+      {
+        "value": "Lithuania",
+        "label": "Lithuania",
+        "printValue": "Lithuania"
+      },
+      {
+        "value": "Luxembourg",
+        "label": "Luxembourg",
+        "printValue": "Luxembourg"
+      },
+      {
+        "value": "Macau",
+        "label": "Macau",
+        "printValue": "Macau"
+      },
+      {
+        "value": "Macedonia",
+        "label": "Macedonia",
+        "printValue": "Macedonia"
+      },
+      {
+        "value": "Madagascar",
+        "label": "Madagascar",
+        "printValue": "Madagascar"
+      },
+      {
+        "value": "Malawi",
+        "label": "Malawi",
+        "printValue": "Malawi"
+      },
+      {
+        "value": "Malaysia",
+        "label": "Malaysia",
+        "printValue": "Malaysia"
+      },
+      {
+        "value": "Maldives",
+        "label": "Maldives",
+        "printValue": "Maldives"
+      },
+      {
+        "value": "Mali",
+        "label": "Mali",
+        "printValue": "Mali"
+      },
+      {
+        "value": "Malta",
+        "label": "Malta",
+        "printValue": "Malta"
+      },
+      {
+        "value": "Marshall Islands",
+        "label": "Marshall Islands",
+        "printValue": "Marshall Islands"
+      },
+      {
+        "value": "Martinique (French)",
+        "label": "Martinique (French)",
+        "printValue": "Martinique (French)"
+      },
+      {
+        "value": "Mauritania",
+        "label": "Mauritania",
+        "printValue": "Mauritania"
+      },
+      {
+        "value": "Mauritius",
+        "label": "Mauritius",
+        "printValue": "Mauritius"
+      },
+      {
+        "value": "Mayotte",
+        "label": "Mayotte",
+        "printValue": "Mayotte"
+      },
+      {
+        "value": "Mexico",
+        "label": "Mexico",
+        "printValue": "Mexico"
+      },
+      {
+        "value": "Micronesia",
+        "label": "Micronesia",
+        "printValue": "Micronesia"
+      },
+      {
+        "value": "Moldova",
+        "label": "Moldova",
+        "printValue": "Moldova"
+      },
+      {
+        "value": "Monaco",
+        "label": "Monaco",
+        "printValue": "Monaco"
+      },
+      {
+        "value": "Mongolia",
+        "label": "Mongolia",
+        "printValue": "Mongolia"
+      },
+      {
+        "value": "Montenegro",
+        "label": "Montenegro",
+        "printValue": "Montenegro"
+      },
+      {
+        "value": "Montserrat",
+        "label": "Montserrat",
+        "printValue": "Montserrat"
+      },
+      {
+        "value": "Morocco",
+        "label": "Morocco",
+        "printValue": "Morocco"
+      },
+      {
+        "value": "Mozambique",
+        "label": "Mozambique",
+        "printValue": "Mozambique"
+      },
+      {
+        "value": "Myanmar",
+        "label": "Myanmar",
+        "printValue": "Myanmar"
+      },
+      {
+        "value": "Nagorno-Karabakh – Nagorno-Karabakh Republic",
+        "label": "Nagorno-Karabakh – Nagorno-Karabakh Republic",
+        "printValue": "Nagorno-Karabakh – Nagorno-Karabakh Republic"
+      },
+      {
+        "value": "Namibia",
+        "label": "Namibia",
+        "printValue": "Namibia"
+      },
+      {
+        "value": "Nauru",
+        "label": "Nauru",
+        "printValue": "Nauru"
+      },
+      {
+        "value": "Nepal",
+        "label": "Nepal",
+        "printValue": "Nepal"
+      },
+      {
+        "value": "Netherlands",
+        "label": "Netherlands",
+        "printValue": "Netherlands"
+      },
+      {
+        "value": "Netherlands Antilles",
+        "label": "Netherlands Antilles",
+        "printValue": "Netherlands Antilles"
+      },
+      {
+        "value": "New Caledonia (French)",
+        "label": "New Caledonia (French)",
+        "printValue": "New Caledonia (French)"
+      },
+      {
+        "value": "New Zealand",
+        "label": "New Zealand",
+        "printValue": "New Zealand"
+      },
+      {
+        "value": "Nicaragua",
+        "label": "Nicaragua",
+        "printValue": "Nicaragua"
+      },
+      {
+        "value": "Niger",
+        "label": "Niger",
+        "printValue": "Niger"
+      },
+      {
+        "value": "Nigeria",
+        "label": "Nigeria",
+        "printValue": "Nigeria"
+      },
+      {
+        "value": "Niue",
+        "label": "Niue",
+        "printValue": "Niue"
+      },
+      {
+        "value": "Norfolk Island",
+        "label": "Norfolk Island",
+        "printValue": "Norfolk Island"
+      },
+      {
+        "value": "North Korea",
+        "label": "North Korea",
+        "printValue": "North Korea"
+      },
+      {
+        "value": "Northern Cyprus – Turkish Republic of Northern Cyprus",
+        "label": "Northern Cyprus – Turkish Republic of Northern Cyprus",
+        "printValue": "Northern Cyprus – Turkish Republic of Northern Cyprus"
+      },
+      {
+        "value": "Northern Mariana Islands",
+        "label": "Northern Mariana Islands",
+        "printValue": "Northern Mariana Islands"
+      },
+      {
+        "value": "Norway",
+        "label": "Norway",
+        "printValue": "Norway"
+      },
+      {
+        "value": "Oman",
+        "label": "Oman",
+        "printValue": "Oman"
+      },
+      {
+        "value": "Pakistan",
+        "label": "Pakistan",
+        "printValue": "Pakistan"
+      },
+      {
+        "value": "Palau",
+        "label": "Palau",
+        "printValue": "Palau"
+      },
+      {
+        "value": "Panama",
+        "label": "Panama",
+        "printValue": "Panama"
+      },
+      {
+        "value": "Papua New Guinea",
+        "label": "Papua New Guinea",
+        "printValue": "Papua New Guinea"
+      },
+      {
+        "value": "Paraguay",
+        "label": "Paraguay",
+        "printValue": "Paraguay"
+      },
+      {
+        "value": "Peru",
+        "label": "Peru",
+        "printValue": "Peru"
+      },
+      {
+        "value": "Philippines",
+        "label": "Philippines",
+        "printValue": "Philippines"
+      },
+      {
+        "value": "Pitcairn Island",
+        "label": "Pitcairn Island",
+        "printValue": "Pitcairn Island"
+      },
+      {
+        "value": "Poland",
+        "label": "Poland",
+        "printValue": "Poland"
+      },
+      {
+        "value": "Polynesia (French)",
+        "label": "Polynesia (French)",
+        "printValue": "Polynesia (French)"
+      },
+      {
+        "value": "Portugal",
+        "label": "Portugal",
+        "printValue": "Portugal"
+      },
+      {
+        "value": "Puerto Rico",
+        "label": "Puerto Rico",
+        "printValue": "Puerto Rico"
+      },
+      {
+        "value": "Qatar",
+        "label": "Qatar",
+        "printValue": "Qatar"
+      },
+      {
+        "value": "Reunion",
+        "label": "Reunion",
+        "printValue": "Reunion"
+      },
+      {
+        "value": "Romania",
+        "label": "Romania",
+        "printValue": "Romania"
+      },
+      {
+        "value": "Russia",
+        "label": "Russia",
+        "printValue": "Russia"
+      },
+      {
+        "value": "Rwanda",
+        "label": "Rwanda",
+        "printValue": "Rwanda"
+      },
+      {
+        "value": "Sahrawi Arab Democratic Republic",
+        "label": "Sahrawi Arab Democratic Republic",
+        "printValue": "Sahrawi Arab Democratic Republic"
+      },
+      {
+        "value": "Saint Helena",
+        "label": "Saint Helena",
+        "printValue": "Saint Helena"
+      },
+      {
+        "value": "Saint Kitts and Nevis",
+        "label": "Saint Kitts and Nevis",
+        "printValue": "Saint Kitts and Nevis"
+      },
+      {
+        "value": "Saint Lucia",
+        "label": "Saint Lucia",
+        "printValue": "Saint Lucia"
+      },
+      {
+        "value": "Saint Pierre and Miquelon",
+        "label": "Saint Pierre and Miquelon",
+        "printValue": "Saint Pierre and Miquelon"
+      },
+      {
+        "value": "Saint Vincent and Grenadines",
+        "label": "Saint Vincent and Grenadines",
+        "printValue": "Saint Vincent and Grenadines"
+      },
+      {
+        "value": "Samoa",
+        "label": "Samoa",
+        "printValue": "Samoa"
+      },
+      {
+        "value": "San Marino",
+        "label": "San Marino",
+        "printValue": "San Marino"
+      },
+      {
+        "value": "Sao Tome and Principe",
+        "label": "Sao Tome and Principe",
+        "printValue": "Sao Tome and Principe"
+      },
+      {
+        "value": "Saudi Arabia",
+        "label": "Saudi Arabia",
+        "printValue": "Saudi Arabia"
+      },
+      {
+        "value": "Senegal",
+        "label": "Senegal",
+        "printValue": "Senegal"
+      },
+      {
+        "value": "Serbia",
+        "label": "Serbia",
+        "printValue": "Serbia"
+      },
+      {
+        "value": "Seychelles",
+        "label": "Seychelles",
+        "printValue": "Seychelles"
+      },
+      {
+        "value": "Sierra Leone",
+        "label": "Sierra Leone",
+        "printValue": "Sierra Leone"
+      },
+      {
+        "value": "Singapore",
+        "label": "Singapore",
+        "printValue": "Singapore"
+      },
+      {
+        "value": "Slovakia",
+        "label": "Slovakia",
+        "printValue": "Slovakia"
+      },
+      {
+        "value": "Slovenia",
+        "label": "Slovenia",
+        "printValue": "Slovenia"
+      },
+      {
+        "value": "Solomon Islands",
+        "label": "Solomon Islands",
+        "printValue": "Solomon Islands"
+      },
+      {
+        "value": "Somalia",
+        "label": "Somalia",
+        "printValue": "Somalia"
+      },
+      {
+        "value": "Somaliland – Republic of Somaliland",
+        "label": "Somaliland – Republic of Somaliland",
+        "printValue": "Somaliland – Republic of Somaliland"
+      },
+      {
+        "value": "South Africa",
+        "label": "South Africa",
+        "printValue": "South Africa"
+      },
+      {
+        "value": "South Georgia and South Sandwich Islands",
+        "label": "South Georgia and South Sandwich Islands",
+        "printValue": "South Georgia and South Sandwich Islands"
+      },
+      {
+        "value": "South Korea",
+        "label": "South Korea",
+        "printValue": "South Korea"
+      },
+      {
+        "value": "South Ossetia – Republic of South Ossetia",
+        "label": "South Ossetia – Republic of South Ossetia",
+        "printValue": "South Ossetia – Republic of South Ossetia"
+      },
+      {
+        "value": "South Sudan",
+        "label": "South Sudan",
+        "printValue": "South Sudan"
+      },
+      {
+        "value": "Spain",
+        "label": "Spain",
+        "printValue": "Spain"
+      },
+      {
+        "value": "Sri Lanka",
+        "label": "Sri Lanka",
+        "printValue": "Sri Lanka"
+      },
+      {
+        "value": "Sudan",
+        "label": "Sudan",
+        "printValue": "Sudan"
+      },
+      {
+        "value": "Suriname",
+        "label": "Suriname",
+        "printValue": "Suriname"
+      },
+      {
+        "value": "Svalbard and Jan Mayen Islands",
+        "label": "Svalbard and Jan Mayen Islands",
+        "printValue": "Svalbard and Jan Mayen Islands"
+      },
+      {
+        "value": "Swaziland",
+        "label": "Swaziland",
+        "printValue": "Swaziland"
+      },
+      {
+        "value": "Sweden",
+        "label": "Sweden",
+        "printValue": "Sweden"
+      },
+      {
+        "value": "Switzerland",
+        "label": "Switzerland",
+        "printValue": "Switzerland"
+      },
+      {
+        "value": "Syria",
+        "label": "Syria",
+        "printValue": "Syria"
+      },
+      {
+        "value": "Taiwan – Republic of China",
+        "label": "Taiwan – Republic of China",
+        "printValue": "Taiwan – Republic of China"
+      },
+      {
+        "value": "Tajikistan",
+        "label": "Tajikistan",
+        "printValue": "Tajikistan"
+      },
+      {
+        "value": "Tanzania",
+        "label": "Tanzania",
+        "printValue": "Tanzania"
+      },
+      {
+        "value": "Thailand",
+        "label": "Thailand",
+        "printValue": "Thailand"
+      },
+      {
+        "value": "Togo",
+        "label": "Togo",
+        "printValue": "Togo"
+      },
+      {
+        "value": "Tokelau",
+        "label": "Tokelau",
+        "printValue": "Tokelau"
+      },
+      {
+        "value": "Tonga",
+        "label": "Tonga",
+        "printValue": "Tonga"
+      },
+      {
+        "value": "Transnistria – Pridnestrovian Moldavian Republic",
+        "label": "Transnistria – Pridnestrovian Moldavian Republic",
+        "printValue": "Transnistria – Pridnestrovian Moldavian Republic"
+      },
+      {
+        "value": "Trinidad and Tobago",
+        "label": "Trinidad and Tobago",
+        "printValue": "Trinidad and Tobago"
+      },
+      {
+        "value": "Tunisia",
+        "label": "Tunisia",
+        "printValue": "Tunisia"
+      },
+      {
+        "value": "Turkey",
+        "label": "Turkey",
+        "printValue": "Turkey"
+      },
+      {
+        "value": "Turkmenistan",
+        "label": "Turkmenistan",
+        "printValue": "Turkmenistan"
+      },
+      {
+        "value": "Turks and Caicos Islands",
+        "label": "Turks and Caicos Islands",
+        "printValue": "Turks and Caicos Islands"
+      },
+      {
+        "value": "Tuvalu",
+        "label": "Tuvalu",
+        "printValue": "Tuvalu"
+      },
+      {
+        "value": "Uganda",
+        "label": "Uganda",
+        "printValue": "Uganda"
+      },
+      {
+        "value": "Ukraine",
+        "label": "Ukraine",
+        "printValue": "Ukraine"
+      },
+      {
+        "value": "United Arab Emirates",
+        "label": "United Arab Emirates",
+        "printValue": "United Arab Emirates"
+      },
+      {
+        "value": "United Kingdom",
+        "label": "United Kingdom",
+        "printValue": "United Kingdom"
+      },
+      {
+        "value": "United States",
+        "label": "United States",
+        "printValue": "United States"
+      },
+      {
+        "value": "Uruguay",
+        "label": "Uruguay",
+        "printValue": "Uruguay"
+      },
+      {
+        "value": "Uzbekistan",
+        "label": "Uzbekistan",
+        "printValue": "Uzbekistan"
+      },
+      {
+        "value": "Vanuatu",
+        "label": "Vanuatu",
+        "printValue": "Vanuatu"
+      },
+      {
+        "value": "Vatican City State",
+        "label": "Vatican City State",
+        "printValue": "Vatican City State"
+      },
+      {
+        "value": "Venezuela",
+        "label": "Venezuela",
+        "printValue": "Venezuela"
+      },
+      {
+        "value": "Vietnam",
+        "label": "Vietnam",
+        "printValue": "Vietnam"
+      },
+      {
+        "value": "Virgin Islands",
+        "label": "Virgin Islands",
+        "printValue": "Virgin Islands"
+      },
+      {
+        "value": "Wallis and Futuna Islands",
+        "label": "Wallis and Futuna Islands",
+        "printValue": "Wallis and Futuna Islands"
+      },
+      {
+        "value": "Yemen",
+        "label": "Yemen",
+        "printValue": "Yemen"
+      },
+      {
+        "value": "Zambia",
+        "label": "Zambia",
+        "printValue": "Zambia"
+      },
+      {
+        "value": "Zimbabwe",
+        "label": "Zimbabwe",
+        "printValue": "Zimbabwe"
+      }
+    ]
+  },
+  {
+    "type": "stateListDropdown",
+    "values": [
+      {
+        "value": "Alabama",
+        "label": "Alabama",
+        "printValue": "Alabama"
+      },
+      {
+        "value": "Alaska",
+        "label": "Alaska",
+        "printValue": "Alaska"
+      },
+      {
+        "value": "Arizona",
+        "label": "Arizona",
+        "printValue": "Arizona"
+      },
+      {
+        "value": "Arkansas",
+        "label": "Arkansas",
+        "printValue": "Arkansas"
+      },
+      {
+        "value": "California",
+        "label": "California",
+        "printValue": "California"
+      },
+      {
+        "value": "Colorado",
+        "label": "Colorado",
+        "printValue": "Colorado"
+      },
+      {
+        "value": "Connecticut",
+        "label": "Connecticut",
+        "printValue": "Connecticut"
+      },
+      {
+        "value": "Delaware",
+        "label": "Delaware",
+        "printValue": "Delaware"
+      },
+      {
+        "value": "D.C.",
+        "label": "D.C.",
+        "printValue": "D.C."
+      },
+      {
+        "value": "Florida",
+        "label": "Florida",
+        "printValue": "Florida"
+      },
+      {
+        "value": "Georgia",
+        "label": "Georgia",
+        "printValue": "Georgia"
+      },
+      {
+        "value": "Hawaii",
+        "label": "Hawaii",
+        "printValue": "Hawaii"
+      },
+      {
+        "value": "Idaho",
+        "label": "Idaho",
+        "printValue": "Idaho"
+      },
+      {
+        "value": "Illinois",
+        "label": "Illinois",
+        "printValue": "Illinois"
+      },
+      {
+        "value": "Indiana",
+        "label": "Indiana",
+        "printValue": "Indiana"
+      },
+      {
+        "value": "Iowa",
+        "label": "Iowa",
+        "printValue": "Iowa"
+      },
+      {
+        "value": "Kansas",
+        "label": "Kansas",
+        "printValue": "Kansas"
+      },
+      {
+        "value": "Kentucky",
+        "label": "Kentucky",
+        "printValue": "Kentucky"
+      },
+      {
+        "value": "Louisiana",
+        "label": "Louisiana",
+        "printValue": "Louisiana"
+      },
+      {
+        "value": "Maine",
+        "label": "Maine",
+        "printValue": "Maine"
+      },
+      {
+        "value": "Maryland",
+        "label": "Maryland",
+        "printValue": "Maryland"
+      },
+      {
+        "value": "Massachusetts",
+        "label": "Massachusetts",
+        "printValue": "Massachusetts"
+      },
+      {
+        "value": "Michigan",
+        "label": "Michigan",
+        "printValue": "Michigan"
+      },
+      {
+        "value": "Minnesota",
+        "label": "Minnesota",
+        "printValue": "Minnesota"
+      },
+      {
+        "value": "Mississippi",
+        "label": "Mississippi",
+        "printValue": "Mississippi"
+      },
+      {
+        "value": "Missouri",
+        "label": "Missouri",
+        "printValue": "Missouri"
+      },
+      {
+        "value": "Montana",
+        "label": "Montana",
+        "printValue": "Montana"
+      },
+      {
+        "value": "Nebraska",
+        "label": "Nebraska",
+        "printValue": "Nebraska"
+      },
+      {
+        "value": "Nevada",
+        "label": "Nevada",
+        "printValue": "Nevada"
+      },
+      {
+        "value": "New Hampshire",
+        "label": "New Hampshire",
+        "printValue": "New Hampshire"
+      },
+      {
+        "value": "New Jersey",
+        "label": "New Jersey",
+        "printValue": "New Jersey"
+      },
+      {
+        "value": "New Mexico",
+        "label": "New Mexico",
+        "printValue": "New Mexico"
+      },
+      {
+        "value": "New York",
+        "label": "New York",
+        "printValue": "New York"
+      },
+      {
+        "value": "North Carolina",
+        "label": "North Carolina",
+        "printValue": "North Carolina"
+      },
+      {
+        "value": "North Dakota",
+        "label": "North Dakota",
+        "printValue": "North Dakota"
+      },
+      {
+        "value": "Ohio",
+        "label": "Ohio",
+        "printValue": "Ohio"
+      },
+      {
+        "value": "Oklahoma",
+        "label": "Oklahoma",
+        "printValue": "Oklahoma"
+      },
+      {
+        "value": "Oregon",
+        "label": "Oregon",
+        "printValue": "Oregon"
+      },
+      {
+        "value": "Pennsylvania",
+        "label": "Pennsylvania",
+        "printValue": "Pennsylvania"
+      },
+      {
+        "value": "Rhode Island",
+        "label": "Rhode Island",
+        "printValue": "Rhode Island"
+      },
+      {
+        "value": "South Carolina",
+        "label": "South Carolina",
+        "printValue": "South Carolina"
+      },
+      {
+        "value": "South Dakota",
+        "label": "South Dakota",
+        "printValue": "South Dakota"
+      },
+      {
+        "value": "Tennessee",
+        "label": "Tennessee",
+        "printValue": "Tennessee"
+      },
+      {
+        "value": "Texas",
+        "label": "Texas",
+        "printValue": "Texas"
+      },
+      {
+        "value": "Utah",
+        "label": "Utah",
+        "printValue": "Utah"
+      },
+      {
+        "value": "Vermont",
+        "label": "Vermont",
+        "printValue": "Vermont"
+      },
+      {
+        "value": "Virginia",
+        "label": "Virginia",
+        "printValue": "Virginia"
+      },
+      {
+        "value": "Washington",
+        "label": "Washington",
+        "printValue": "Washington"
+      },
+      {
+        "value": "West Virginia",
+        "label": "West Virginia",
+        "printValue": "West Virginia"
+      },
+      {
+        "value": "Wisconsin",
+        "label": "Wisconsin",
+        "printValue": "Wisconsin"
+      },
+      {
+        "value": "Wyoming",
+        "label": "Wyoming",
+        "printValue": "Wyoming"
+      },
+      {
+        "value": "American Samoa",
+        "label": "American Samoa",
+        "printValue": "American Samoa"
+      },
+      {
+        "value": "Guam",
+        "label": "Guam",
+        "printValue": "Guam"
+      },
+      {
+        "value": "Northern Mariana Islands",
+        "label": "Northern Mariana Islands",
+        "printValue": "Northern Mariana Islands"
+      },
+      {
+        "value": "Puerto Rico",
+        "label": "Puerto Rico",
+        "printValue": "Puerto Rico"
+      },
+      {
+        "value": "U.S. Virgin Islands",
+        "label": "U.S. Virgin Islands",
+        "printValue": "U.S. Virgin Islands"
+      },
+      {
+        "value": "Federated States of Micronesia",
+        "label": "Federated States of Micronesia",
+        "printValue": "Federated States of Micronesia"
+      },
+      {
+        "value": "Marshall Islands",
+        "label": "Marshall Islands",
+        "printValue": "Marshall Islands"
+      },
+      {
+        "value": "Palau",
+        "label": "Palau",
+        "printValue": "Palau"
+      },
+      {
+        "value": "Armed Forces Africa",
+        "label": "Armed Forces Africa",
+        "printValue": "Armed Forces Africa"
+      },
+      {
+        "value": "Armed Forces Americas",
+        "label": "Armed Forces Americas",
+        "printValue": "Armed Forces Americas"
+      },
+      {
+        "value": "Armed Forces Canada",
+        "label": "Armed Forces Canada",
+        "printValue": "Armed Forces Canada"
+      },
+      {
+        "value": "Armed Forces Europe",
+        "label": "Armed Forces Europe",
+        "printValue": "Armed Forces Europe"
+      },
+      {
+        "value": "Armed Forces Middle East",
+        "label": "Armed Forces Middle East",
+        "printValue": "Armed Forces Middle East"
+      },
+      {
+        "value": "Armed Forces Pacific",
+        "label": "Armed Forces Pacific",
+        "printValue": "Armed Forces Pacific"
+      }
+    ]
+  }
+]

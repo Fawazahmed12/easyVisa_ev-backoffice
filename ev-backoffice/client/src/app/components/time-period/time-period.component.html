@@ -1,0 +1,27 @@
+<div class="d-flex align-items-center">
+  <div class="position-relative">
+    <app-datepicker-group
+      [dateFormControl]="startDateControl"
+    ></app-datepicker-group>
+    <div
+      *ngIf="startDateControl.hasError('pattern') || startDateControl.hasError('ngbDate')"
+      [ngStyle]="{top: '40px'}"
+      class="small text-danger text-center position-absolute"
+    >
+      {{ 'FORM.ERROR.INVALID_DATE_FORMAT' | translate }}
+    </div>
+  </div>
+  <div class="mx-2">{{ 'TEMPLATE.TASK_QUEUE.CLIENTS.CLIENT_SEARCH_MODAL.TO' | translate }}</div>
+  <div class="position-relative">
+    <app-datepicker-group
+      [dateFormControl]="endDateControl"
+    ></app-datepicker-group>
+    <div
+      *ngIf="endDateControl.hasError('pattern') || endDateControl.hasError('ngbDate')"
+      [ngStyle]="{top: '40px'}"
+      class="small text-danger text-center position-absolute"
+    >
+      {{ 'FORM.ERROR.INVALID_DATE_FORMAT' | translate }}
+    </div>
+  </div>
+</div>

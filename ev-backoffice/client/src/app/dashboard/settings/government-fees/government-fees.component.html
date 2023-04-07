@@ -1,0 +1,132 @@
+<app-block [title]="'TEMPLATE.GOVERNMENT_FEES.TITLE' | translate">
+  <form [formGroup]="governmentFeesFormGroup" (ngSubmit)="onSubmit()">
+    <div class="row my-1">
+      <div class="col-lg-1 col-md-2 offset-lg-1 text-nowrap mr-4">{{'TEMPLATE.GOVERNMENT_FEES.I129F' | translate}}</div>
+      <label for="i129f" class="col-md-7 ml-md-3">{{'TEMPLATE.GOVERNMENT_FEES.I129F_DESCRIPTION' | translate}}</label>
+      <div class="col-md-2 d-flex align-items-start">
+        <div class="pr-1">$</div>
+        <input class="form-control form-control-sm text-right" type="number" id="i129f" formControlName="i129f">
+      </div>
+    </div>
+
+    <div class="row my-1">
+      <div class="col-lg-1 col-md-2 offset-lg-1 text-nowrap mr-4">{{'TEMPLATE.GOVERNMENT_FEES.I130' | translate}}</div>
+      <label for="i130" class="col-md-7 ml-md-3">{{'TEMPLATE.GOVERNMENT_FEES.I130_DESCRIPTION' | translate}}</label>
+      <div class="col-md-2 d-flex align-items-start">
+        <div class="pr-1">$</div>
+        <input class="form-control form-control-sm text-right" type="number" id="i130" formControlName="i130">
+      </div>
+    </div>
+
+    <div class="row my-1">
+      <div class="col-lg-1 col-md-2 offset-lg-1 text-nowrap mr-4">{{'TEMPLATE.GOVERNMENT_FEES.I360' | translate}}</div>
+      <label for="i360" class="col-md-7 ml-md-3">{{'TEMPLATE.GOVERNMENT_FEES.I360_DESCRIPTION' | translate}}</label>
+      <div class="col-md-2 d-flex align-items-start">
+        <div class="pr-1">$</div>
+        <input class="form-control form-control-sm text-right" type="number" id="i360" formControlName="i360">
+      </div>
+    </div>
+
+    <div class="row my-1">
+      <div class="col-lg-1 col-md-2 offset-lg-1 text-nowrap mr-4">{{'TEMPLATE.GOVERNMENT_FEES.I485' | translate}}</div>
+      <label for="i485" class="col-md-7 ml-md-3">{{'TEMPLATE.GOVERNMENT_FEES.I485_DESCRIPTION' | translate}}</label>
+      <div class="col-md-2 d-flex align-items-start">
+        <div class="pr-1">$</div>
+        <input class="form-control form-control-sm text-right" type="number" id="i485" formControlName="i485">
+      </div>
+    </div>
+
+    <div class="row my-1">
+      <div class="col-lg-1 col-md-2 offset-lg-1 text-nowrap mr-4">{{'TEMPLATE.GOVERNMENT_FEES.I485_14' | translate}}</div>
+      <label for="i485_14" class="col-md-7 ml-md-3">{{'TEMPLATE.GOVERNMENT_FEES.I485_14_DESCRIPTION' | translate}}</label>
+      <div class="col-md-2 d-flex align-items-start">
+        <div class="pr-1">$</div>
+        <input class="form-control form-control-sm text-right" type="number" id="i485_14" formControlName="i485_14">
+      </div>
+    </div>
+
+    <div class="row my-1">
+      <div class="col-lg-1 col-md-2 offset-lg-1 text-nowrap mr-4">{{'TEMPLATE.GOVERNMENT_FEES.I600_600A' | translate}}</div>
+      <label for="i600_600a" class="col-md-7 ml-md-3">{{'TEMPLATE.GOVERNMENT_FEES.I600_600A_DESCRIPTION' | translate}}</label>
+      <div class="col-md-2 d-flex align-items-start">
+        <div class="pr-1">$</div>
+        <input class="form-control form-control-sm text-right" type="number" id="i600_600a" formControlName="i600_600a">
+      </div>
+    </div>
+
+    <div class="row my-1">
+      <div class="col-lg-1 col-md-2 offset-lg-1 text-nowrap mr-4">{{'TEMPLATE.GOVERNMENT_FEES.I601' | translate}}</div>
+      <label for="i601" class="col-md-7 ml-md-3">{{'TEMPLATE.GOVERNMENT_FEES.I601_DESCRIPTION' | translate}}</label>
+      <div class="col-md-2 d-flex align-items-start">
+        <div class="pr-1">$</div>
+        <input class="form-control form-control-sm text-right" type="number" id="i601" formControlName="i601">
+      </div>
+    </div>
+
+    <div class="row my-1">
+      <div class="col-lg-1 col-md-2 offset-lg-1 text-nowrap mr-4">{{'TEMPLATE.GOVERNMENT_FEES.I601A' | translate}}</div>
+      <label for="i601a" class="col-md-7 ml-md-3">{{'TEMPLATE.GOVERNMENT_FEES.I601A_DESCRIPTION' | translate}}</label>
+      <div class="col-md-2 d-flex align-items-start">
+        <div class="pr-1">$</div>
+        <input class="form-control form-control-sm text-right" type="number" id="i601a" formControlName="i601a">
+      </div>
+    </div>
+
+    <div class="row my-1">
+      <div class="col-lg-1 col-md-2 offset-lg-1 text-nowrap mr-4">{{'TEMPLATE.GOVERNMENT_FEES.I751' | translate}}</div>
+      <label for="i751" class="col-md-7 ml-md-3">{{'TEMPLATE.GOVERNMENT_FEES.I751_DESCRIPTION' | translate}}</label>
+      <div class="col-md-2 d-flex align-items-start">
+        <div class="pr-1">$</div>
+        <input class="form-control form-control-sm text-right" type="number" id="i751" formControlName="i751">
+      </div>
+    </div>
+
+    <div class="row my-1">
+      <div class="col-lg-1 col-md-2 offset-lg-1 text-nowrap mr-4">{{'TEMPLATE.GOVERNMENT_FEES.I765' | translate}}</div>
+      <label for="i765" class="col-md-7 ml-md-3">{{'TEMPLATE.GOVERNMENT_FEES.I765_DESCRIPTION' | translate}}</label>
+      <div class="col-md-2 d-flex align-items-start">
+        <div class="pr-1">$</div>
+        <input class="form-control form-control-sm text-right" type="number" id="i765" formControlName="i765">
+      </div>
+    </div>
+    <div class="row my-1">
+      <div class="col-lg-1 col-md-2 offset-lg-1 text-nowrap mr-4">{{'TEMPLATE.GOVERNMENT_FEES.N400' | translate}}</div>
+      <label for="n400" class="col-md-7 ml-md-3">{{'TEMPLATE.GOVERNMENT_FEES.N400_DESCRIPTION' | translate}}</label>
+      <div class="col-md-2 d-flex align-items-start">
+        <div class="pr-1">$</div>
+        <input class="form-control form-control-sm text-right" type="number" id="n400" formControlName="n400">
+      </div>
+    </div>
+    <div class="row my-1">
+      <div class="col-lg-1 col-md-2 offset-lg-1 text-nowrap mr-4">{{'TEMPLATE.GOVERNMENT_FEES.N600_N600K' | translate}}</div>
+      <label for="n600_n600k" class="col-md-7 ml-md-3">{{'TEMPLATE.GOVERNMENT_FEES.N600_N600K_DESCRIPTION' | translate}}</label>
+      <div class="col-md-2 d-flex align-items-start">
+        <div class="pr-1">$</div>
+        <input class="form-control form-control-sm text-right" type="number" id="n600_n600k" formControlName="n600_n600k">
+      </div>
+    </div>
+    <div class="row my-1">
+      <div class="col-lg-1 col-md-2 offset-lg-1 text-nowrap mr-4"></div>
+      <label for="biometricServiceFee" class="col-md-7 ml-md-3">{{'TEMPLATE.GOVERNMENT_FEES.BIOMETRIC_SERVICES_FEE' | translate}}</label>
+      <div class="col-md-2 d-flex align-items-start">
+        <div class="pr-1">$</div>
+        <input class="form-control form-control-sm text-right" type="number" id="biometricServiceFee" formControlName="biometricServiceFee">
+      </div>
+    </div>
+    <div class="col-12 d-flex justify-content-end mt-4">
+      <button
+        type="button"
+        class="btn btn-primary px-4 mx-3"
+        [disabled]="isCancelButtonDisabled$ | async"
+        (click)="resetForm()"
+      >{{ 'FORM.BUTTON.CANCEL' | translate }}
+      </button>
+      <button
+        type="submit"
+        class="btn btn-primary px-4 mx-3"
+        [disabled]="isGovernmentFeePostLoading$ | async"
+      >{{ 'FORM.BUTTON.SAVE' | translate }}
+      </button>
+    </div>
+  </form>
+</app-block>

@@ -1,0 +1,6 @@
+import com.easyvisa.Package
+
+model {
+    List<Package> packageList = []
+}
+json tmpl.'/shrunkPackage'('aPackage', packageList)

@@ -1,0 +1,36 @@
+<div class="col">
+  <div>
+    <div class="font-weight-bold text-center mb-2">
+      {{mainTitle | translate}}
+    </div>
+    <div class="text-center mb-0">
+      {{title}}
+    </div>
+  </div>
+  <div class="d-flex flex-column justify-content-center text-center no-gutters">
+    <div class="text-center small font-weight-bold">
+      <span *ngIf="finalInterval">
+        {{'TEMPLATE.ACCOUNT.NOTIFICATIONS_REMINDERS.DEADLINE_REMINDERS.FINAL' | translate}}
+      </span>
+      {{'TEMPLATE.ACCOUNT.NOTIFICATIONS_REMINDERS.DEADLINE_REMINDERS.EMAIL_REPEATING_INTERVAL' | translate}}
+    </div>
+    <div class="small text-center font-weight-bold pl-1">
+      {{'TEMPLATE.ACCOUNT.NOTIFICATIONS_REMINDERS.DEADLINE_REMINDERS.EMAIL_REPEATING_INTERVAL_DESC' | translate}}
+    </div>
+  </div>
+  <div class="d-flex justify-content-center mt-2">
+    <div>
+      <select
+        class="form-control form-control-sm"
+        [formControl]="repeatIntervalFormControl"
+      >
+        <option hidden [ngValue]="null">
+          {{ 'FORM.LABELS.SELECT' | translate }}
+        </option>
+        <option [ngValue]="option.value" *ngFor="let option of (selectorOptions$ | async)">
+          {{ option.label | translate }}
+        </option>
+      </select>
+    </div>
+  </div>
+</div>

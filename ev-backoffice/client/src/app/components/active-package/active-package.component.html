@@ -1,0 +1,15 @@
+<div class="pl-sm-3" *ngIf="(activePackageId$ | async)">
+  <div class="active-package-attorney">
+    {{(activePackage$ | async)?.representative.firstName}}
+    {{(activePackage$ | async)?.representative.lastName}}
+    - {{'TEMPLATE.REPRESENTATIVE_TYPES.ATTORNEY' | translate}}
+  </div>
+  <div class="active-package-applicants">
+    <span>
+      {{(packageTitle$ | async)}}
+    </span>
+    <span *ngIf="(activePackage$ | async)?.applicants.length > 2">
+     + {{(activePackage$ | async)?.applicants.length - 2}}
+    </span>
+  </div>
+</div>

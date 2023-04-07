@@ -1,0 +1,302 @@
+@import '../variables';
+.wrapper-spinner{
+  z-index: 1000;
+  opacity: 0.9;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.wrapper {
+  height: 100%;
+  margin: 0 auto;
+  .page-container{
+    overflow-y: auto;
+    min-height: calc(100% - 374px); // exclude the header and footer height
+    &.logged-in{
+      min-height: calc(100% - 434px); // exclude the header, navbar and footer height
+    }
+  }
+}
+
+:host::ng-deep {
+  .ml-3-4 {
+    margin-left: 1.25rem !important;
+  }
+
+  .column-number {
+    border-radius: 50%;
+    background-color: #40678C;
+    color: white;
+    width: 1.5em;
+    min-width: 1.5em;
+    height: 1.5em;
+    text-align: center;
+  }
+
+  .table-scroll-body {
+    thead, tbody tr {
+      display: table;
+      width: 100%;
+    }
+
+    tbody {
+      display: block;
+      max-height: 150px;
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
+
+    td {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 0.50rem;
+    }
+  }
+
+  .table-billing-info {
+    thead, tbody tr {
+      display: table;
+      width: 100%;
+    }
+
+    tr {
+      display: flex;
+    }
+
+    thead {
+      display: table-cell;
+      position: sticky;
+      top: 0;
+    }
+
+    td {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 0.50rem;
+    }
+  }
+
+  .table-uscis-edition-dates{
+    height: auto;
+    thead{
+      th{
+        padding: 0.50rem;
+      }
+    }
+    .datepicker-group {
+      .input-group-append,
+      .form-control {
+        height: 28px;
+      }
+    }
+  }
+
+  .table-sticky-body {
+    overflow-y: auto;
+    max-height: 150px;
+    &--full-height {
+      max-height: none;
+      flex-grow: 1;
+      background: #fff;
+      border: 1px solid $gray-ccc;
+      overflow-x: hidden;
+    }
+    table {
+      border-top: 0;
+      margin-bottom: 0;
+      &--full-height {
+        border: none !important;
+      }
+    }
+    thead, tbody tr {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
+
+    thead {
+      position: sticky;
+      top: 0;
+    }
+
+    td {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 0.50rem;
+    }
+
+    th, td {
+      border: none;
+      border-right: 1px solid #dee2e6;
+
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+
+  .uscis-dates-table-container {
+    .table-sticky-body{
+      min-height:  360px;
+      max-height:  360px;
+      overflow-y: hidden;
+    }
+  }
+
+  .selection-table-sticky-body {
+    overflow-y: auto;
+    max-height: 150px;
+    min-height: 150px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-top: 0;
+    &--full-height{
+      height:  calc(74vh - 142px) !important;
+      max-height:  calc(74vh - 142px) !important;
+      @media (min-height: 800px) {
+        height: calc(78vh - 165px) !important;
+        max-height: calc(78vh - 165px) !important;
+      }
+    }
+    table {
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      margin-bottom: 0;
+    }
+    thead, tbody tr {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
+
+    table {
+      border-bottom: none !important;
+    }
+
+    thead {
+      position: sticky;
+      top: 0;
+    }
+
+    td {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 0.50rem;
+    }
+
+    th, td {
+      border: none;
+      border-right: 1px solid #ccc;
+
+      &:last-child {
+        border: none;
+      }
+    }
+
+    tbody tr {
+      cursor: pointer;
+    }
+  }
+
+
+  .table-permissions-body {
+    thead, tbody tr {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
+
+    tbody {
+      display: block;
+      max-height: 450px;
+      height: 450px;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      border: 1px solid #dee2e6;
+
+
+      &::-webkit-scrollbar {
+        display: none !important;
+      }
+    }
+
+    td {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 0.50rem;
+    }
+
+    th, td {
+      border: none;
+      border-right: 1px solid #dee2e6;
+
+      &:last-child {
+        border-right: none !important;
+      }
+
+    }
+    tr {
+      &:last-child {
+        border-bottom: 1px solid #dee2e6;
+      }
+    }
+  }
+
+  .global-page-wrapper {
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .position-btm--1 {
+    bottom: -1rem;
+  }
+
+  .position-top-left {
+    top: 0;
+    left: 0;
+  }
+
+  ngb-pagination ::ng-deep ul > li > a {
+    border: none;
+    background: none !important;
+  }
+
+  ngb-pagination ::ng-deep .pagination .page-item.active .page-link {
+    background: #fff;
+    color: #40678C;
+    border: 1px solid #333;
+  }
+
+  .remove-document-icon {
+    top: -5px;
+    font-size: 1.5rem;
+    left: 45px;
+  }
+
+  .min-height-70vh {
+    min-height: 70vh;
+  }
+
+  ::-webkit-input-placeholder {
+    color: #b2b2b2;
+    font-style: italic;
+  }
+
+  ::-moz-placeholder {
+    color: #b2b2b2;
+    font-style: italic;
+  }
+
+  :-ms-input-placeholder {
+    color: #b2b2b2;
+    font-style: italic;
+  }
+
+  :-moz-placeholder {
+    color: #b2b2b2;
+    font-style: italic;
+  }
+}

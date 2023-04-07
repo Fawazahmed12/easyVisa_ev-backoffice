@@ -1,0 +1,41 @@
+<div class="row justify-content-center mb-2">
+  <h4 class="text-center">
+    {{ 'TEMPLATE.CREDIT_CARD_INFO_FORM.CREDIT_CARD_INFO' | translate }}
+  </h4>
+</div>
+<div class="row justify-content-center mt-1">
+    <div
+      class="text-md-left col-md-4  p-0">
+      {{ 'TEMPLATE.CREDIT_CARD_INFO_FORM.CARD_HOLDER' | translate }}
+    </div>
+    <div class="col-md d-flex">
+      {{paymentMethod?.cardHolder}}
+    </div>
+</div>
+<div class="row mt-2">
+  <div
+    class="text-md-left col-md-4  d-flex align-items-center p-0">
+    {{ 'TEMPLATE.CREDIT_CARD_INFO_FORM.CARD_NUMBER' | translate }}
+  </div>
+  <div class="col-md-5 d-flex align-items-center">
+    **** **** **** {{paymentMethod?.cardLastFour}}
+  </div>
+  <div class="d-flex align-items-center mr-3" *ngIf="paymentMethod?.cardType">
+          <span
+            class="fa logo-fa-size"
+            [ngClass]="getFaCardLogo()"
+          >
+          </span>
+  </div>
+</div>
+<div class="row mt-2">
+  <div
+    class="text-md-left col-md-4  p-0">
+    {{ 'TEMPLATE.CREDIT_CARD_INFO_FORM.EXPIRATION' | translate }}
+  </div>
+  <div class="col-md d-flex">
+    {{paymentMethod?.cardExpiration}}
+  </div>
+</div>
+
+

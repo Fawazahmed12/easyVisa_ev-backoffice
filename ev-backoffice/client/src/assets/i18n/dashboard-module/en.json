@@ -1,0 +1,270 @@
+{
+  "TEMPLATE": {
+    "DASHBOARD": {
+      "NAV": {
+        "FINANCIAL": "Financial",
+        "MARKETING": "Marketing",
+        "ARTICLES": "Articles",
+        "METRICS": "Metrics",
+        "PROCESSING_TIMES": "Processing Times",
+        "TUTORIALS": "Tutorials",
+        "NEWS_FEED": "News Feed",
+        "SETTINGS": "Settings",
+        "PROGRESS_STATUS": "Progress Status",
+        "ALERTS": "Alerts",
+        "PROCESS_LINKS": "Process Links",
+        "USCIS_EDITION_DATES": "USCIS Edition Dates"
+      },
+      "PROGRESS_STATUS": {
+        "SELECT_PACKAGE": "Select Package",
+        "QUESTIONNAIRE": "Questionnaire",
+        "STARTED": "Started",
+        "COMPLETED": "Completed",
+        "INCOMPLETE": "Incomplete",
+        "TOTAL_DAYS": "Total Days",
+        "ELAPSED_DAYS": "Elapsed Days",
+        "DOCUMENT_PORTAL": "Document Portal"
+      },
+      "ACCOUNT_ADJUSTMENT_REFUNDS": {
+        "HEADER": "Account Adjustment Refunds (Credits)",
+        "REPRESENTATIVE_ID": "Representative ID",
+        "CURRENT_BALANCE": "Current Balance",
+        "EVID": "EasyVisa ID",
+        "DESCRIPTION_LABEL": "Description",
+        "DESCRIPTION_1": "Enter package ID, if applicable",
+        "AMOUNT_LABEL": "Adjustment Amount",
+        "NEW_BALANCE_LABEL": "New Balance"
+      },
+      "SETTINGS": {
+        "CUSTOMER_FEES": {
+          "TITLE": "Customer Fees and Discounts",
+          "EACH": "Each",
+          "FEES_CHARGED": "Fees Charged",
+          "SIGN_UP_FEE": "Sign-Up Fee (One-Time Only)",
+          "MAINTENANCE_FEE": "Maintenance Fee (Monthly)",
+          "CLOUD_STORAGE_FEE": "Cloud Storage Fee (Monthly/package)",
+          "PER_APPLICANT_FEE": "Per Applicant Fee",
+          "MEMBERSHIP_REACTIVATION_FEE": "Membership Reactivation Fee",
+          "DISCOUNTS": "Discounts",
+          "COLLEAGUE_REFERRAL_FEE": "Colleague Referral Fee (for Referror)",
+          "SIGN_UP_DISCOUNT": "Sign Up Discount (Referred Colleague)",
+          "ARTICLE_BONUS": "Article Bonus",
+          "MISCELLANEOUS": "Miscellaneous",
+          "SUPPORT_EMAIL": "Support email",
+          "CONTACT_PHONE": "Contact Phone",
+          "FEE_SCHEDULE_CHARGED_TO_REP": "Immigration Benefit Category Fee Schedule (Charged to Legal Representatives)",
+          "UPDATE_SUCCESS_TITLE": "Update Success",
+          "UPDATE_FEES_SUCCESS_BODY": "Customer Fees and Discounts were updated successfully"
+        },
+        "JOBS": {
+          "TITLE": "Site Jobs",
+          "BATCH_JOBS_LABEL": "Run batch jobs"
+        }
+      },
+      "ARTICLES": {
+        "TITLE": "Title",
+        "LOCATION": "Location (Immigration)",
+        "VIEWS": "Views",
+        "WORDS": "Words",
+        "DATE_SUBMITTED": "Date Submitted",
+        "DATE_POSTED": "Date Posted:",
+        "APPROVED": "Approved",
+        "DISPLAY_BY_AFFILIATION": "Display by Affiliation",
+        "SELECT_AFFILIATION_SOURCE": "Select Affiliation Source",
+        "HELP": "Help",
+        "SUBMIT_AN_ARTICLE": "Submit an Article",
+        "CHOOSE_THE_APPROPRIATE_CATEGORY": "Choose the appropriate category",
+        "ARTICLE_TITLE": "Article title",
+        "ARTICLE_BODY_TEXT": "Article body text",
+        "SUBMIT_NEW_ARTICLE": "Submit New Article",
+        "DISPOSITION": "Disposition",
+        "SELECT_IMMIGRATION_CATEGORY": "Select Immigration Category",
+        "ARTICLE_GUIDELINES": "Article Guidelines",
+        "REMAINING_CHARACTERS": "Remaining Characters",
+        "MINIMUM_WORDS_REQUIRED": "Minimum words required:",
+        "WORDS_ENTERED": "Words entered:",
+        "ACCREDITED_REPRESENTATIVE_P_1": "<span class='font-weight-bold'>All Recognized Organizations</span> - This means the 3 panels will display all Article information earned\non EasyVisa while you worked at any Recognized Organization.",
+        "ACCREDITED_REPRESENTATIVE_P_2": "<span class='font-weight-bold'>Recognized Organizations</span> - If you select a Recognized Orgnization that you worked (or are currently working) at, then the 3 panels will only display Article information earned on EasyVisa while you worked at that specific Recognized Orgnization.",
+        "ATTORNEY_P_1": "<span class='font-weight-bold'>All Sources</span> - This means the 3 panels will display all Article information earned on EasyVisa\nwhile you were either a Solo Practitioner or while affiliated with any law firm.",
+        "ATTORNEY_P_2": "<span class='font-weight-bold'>Solo Practitioner</span> - This means the 3 panels will display all Article information earned on\nEasyVisa while you were a Solo Practitioner.",
+        "ATTORNEY_P_3": "<span class='font-weight-bold'>Law Firm Listing</span> - If you select a law firm that you worked at, then the 3 panels will only\ndisplay Article information earned on EasyVisa while you worked at that specific law firm.",
+        "ARTICLE_BONUSES_MODAL": {
+          "HEADER": "Article Bonuses & Guidelines",
+          "P_1": "EasyVisa pays a bonus for each approved and posted article that you submit on EasyVisa.",
+          "P_2": "Your account will be credited these bonuses which will offset future EasyVisa charges, equivalent to {{articleBonus}}, for each\napproved article that you submit.",
+          "P_3": "Whenever one of your articles is posted on EasyVisa, your profile appears<span class='text-danger'>*</span> in the Top Contributor section, which is located above\nyour competitors in the search results, giving you free increased marketing exposure as well.",
+          "P_4": "EasyVisa may edit any submitted articles for content, length, format, spelling, grammar, structure, etc.",
+          "P_5": "Any article submitted to EasyVisa becomes the sole property of EasyVisa and may not be published, re-printed or distributed to\nany other entity without the expressed written permission of EasyVisa.",
+          "P_6": "with your basic contact information appears at the bottom each of your posted articles on EasyVisa. The\nquantity of approved articles you have written also appears within your profile, boosting your reputation on EasyVisa as an\nexpert and ‘Top Contributor’ in the immigration field.",
+          "P_7": "or go to the ‘Articles’ tab in the Dashboard menu.",
+          "P_8": "The appearance frequency of your profile in the Top Contributor section of the search results is based on several factors\ndetermined by the EasyVisa search engine.",
+          "TITLE_1": "Article Requirements",
+          "TIP_1": "Each article must be a minimum of 600 words, however, the longer and more comprehensive the article, the more likely it is to be\napproved.",
+          "TIP_2": "Article MUST be your original work and cannot include text or materials from any source unless properly accredited. You may\nsubmit articles you have already published on a website or a blog, but the article cannot be a verbatim copy of that prior\npublication and must be re-worked/re-written before submitting to EasyVisa for approval.",
+          "TIP_3": "If article(s) are not related to a listed category and you want to add a new category, then contact us at: support@easyvisa.com",
+          "TIP_4": "If you have any questions about what might be a good topic or if you are wondering whether your topic is acceptable to qualify for\nthe free monthly maintenance adjustment, then just drop us a note here: support@easyvisa.com or call us at: 800-390-VISA",
+          "A": "A",
+          "MINI_PROFILE": "mini-profile",
+          "CLICKING_HERE": "clicking here",
+          "SUBMIT_ARTICLE": "Submit an article by going to:",
+          "DASHBOARD_ARTICLES": "Dashboard > Articles.",
+          "HELP": "Help",
+          "NO_ARTICLE_SELECTED": "No Article Selected",
+          "NO_ARTICLES": "No Articles",
+          "STEP_INCOMPLETE": "Step {{stepCount}}: Incomplete",
+          "ARTICLES_WARNING_1": "In Step 1, you must select a category where your article will appear on the EasyVisa website so that it gets categorized properly.",
+          "ARTICLES_WARNING_2": "In Step 2, you must select a name for your article.",
+          "ARTICLES_WARNING_3": "Your article must contain a minimum of 600 words. For your convenience, you can refer to the word counter above and to the right of the field (box) where you entered your article text."
+
+        },
+        "ARTICLE_CHANGES_DETECTED": {
+          "HEADER": "Warning",
+          "WARNING": "You have unsaved changes that will be lost if you leave this page."
+        },
+        "MINI_PROFILE_MODAL": {
+          "HEADER": "Mini-Profile Sample",
+          "P_1": "Dec",
+          "P_2": "US appeals court rules against Trump on DACA...",
+          "P_3": "Yes, absolutly! However, in order for you to use the Easy Visa platform, you must be invited to the platform from a...\n",
+          "P_4": "Read More",
+          "P_5": "Jack Smith, Esq | Dewey, Cheatem & Howe",
+          "BY": "By"
+        },
+        "MARKETING": {
+          "ACTIVE_CLIENTS": "Active Clients",
+          "PROSPECTIVE_CLIENTS": "Prospective Clients",
+          "PHONE_NUMBERS_CLIENTS": "Phone Number Clients",
+          "MONTH": "Month",
+          "QUARTER": "Quarter",
+          "YTD": "YTD",
+          "LIFETIME": "Lifetime",
+          "DESCRIPTION_1": "We define an active client as someone who\nlogged into EasyVisa at least once during\none of the above listed specific time frames.",
+          "DESCRIPTION_2": "Generate marketing leads on EasyVisa with your free profile.",
+          "DESCRIPTION_3": "Your phone number is hidden and is only\nrevealed when the user clicks on the button\ncovering your phone number.",
+          "DESCRIPTION_4": "These leads are totally free and we do not\ncharge for these highly targeted potential\nclients.",
+          "LEARN_MORE": "Learn More",
+          "PROSPECTIVE_CLIENTS_POP_UP": {
+            "DESCRIPTION_P1": "Prospective clients are people who viewed your profile on the EasyVisa platform. These are totally free\nmarketing leads for your practice.",
+            "DESCRIPTION_P2": "One of the easiest ways to generate free marketing leads is to have a complete profile, so take a a couple\nof minutes and make your profile really shine!",
+            "DESCRIPTION_P3": "However, one of the primary factors that potential clients look for in a profile is attorneys and\nrepresentatives who are experts in the field of immigration and contribute regularly to the community.",
+            "DESCRIPTION_P4": "The best way to to boost your reputation as an expert is by regularly contributing articles to the EasyVisa\nplatform. This show of expertise is a great way to make prospective clients feel confident about choosing\nyou to represent them with their immigration needs. Your posted articles that get published on the\nEasyVisa site are prominently displayed on your profile. Additionally, whenever one of your articles is\nposted on EasyVisa, your profile appears<span class='text-danger'>*</span> in the Top Contributor section, which is located above your\ncompetitors in the search results, giving you free increased marketing exposure as well. Click the ‘Articles’\ntab to learn more about how to post articles.",
+            "DESCRIPTION_P5": "Additionally, whenever someone searches for immigration information on the EasyVisa site, if one of your\narticles comes up in the search results, then a mini-profile for you is also displayed in the search results\npanel as the author of that article, further widening your prospective client pool.",
+            "DESCRIPTION_P6": "The appearance frequency of your profile in the Top Contributor section of the search results is based on several factors\ndetermined by the EasyVisa search engine, but will normally appear regularly for at least 30 days after your article is posted."
+          },
+          "PHONE_NUMBER_CLIENTS_POP_UP": {
+            "DESCRIPTION_P1": "To prevent spam, internet bots, and unauthorized users gathering your contact information, your phone\nnumber is hidden and is only revealed when the user clicks on the button covering your phone number. This\nvirtually guarantees that every user who clicks and opens your phone number is a potential customer who\nis interested in calling your practice. We do this so that you can more easily track how many clients you get\ndirectly from the EasyVisa site.",
+            "DESCRIPTION_P2": "These leads are totally free and we do not charge for these highly targeted potential clients."
+          },
+          "SELECT_BY_AFF_DESCRIPTION": {
+            "ATTORNEY_P_1": "<span class='font-weight-bold'>All Sources</span> - This means the 3 panels will display all Marketing information earned on\nEasyVisa while you were either a Solo Practitioner or while affiliated with any law firm.",
+            "ATTORNEY_P_2": "<span class='font-weight-bold'>Solo Practitioner</span> - This means the 3 panels will display all Marketing information earned on EasyVisa while you were a Solo Practitioner.",
+            "ATTORNEY_P_3": "<span class='font-weight-bold'>Law Firm Listing</span> - If you select a law firm that you worked at, then the 3 panels will only\ndisplay Marketing information earned on EasyVisa while you worked at that specific law firm."
+          }
+        }
+      },
+      "FINANCIAL": {
+        "CLIENT_REVENUE": "Client Revenue",
+        "ARTICLE_BONUSES": "Article Bonuses",
+        "REFERRAL_BONUSES": "Referral Bonuses",
+        "DESCRIPTION_1": "Client revenue refers to the total revenue earned from all of your clients using the\nEasyVisa platform.",
+        "DESCRIPTION_2": "EasyVisa pays a bonus for each article that you submit that is approved and\nposted on EasyVisa.",
+        "DESCRIPTION_3": "EasyVisa pays you a referral bonus for each colleague that you refer to the EasyVisa platform.",
+        "REFER_COLLEAGUES": "Refer Colleagues",
+        "SUBMIT_NEW_ARTICLE": "Submit New Article",
+        "SELECT_REPRESENTATIVE_FINANCIAL": "Select Representative to see his Finances info",
+        "SELECT_REPRESENTATIVE_MARKETING": "Select Representative to see his Marketing info",
+        "SELECT_BY_AFF_DESCRIPTION": {
+          "ATTORNEY_P_1": "<span class='font-weight-bold'>All Sources</span> - This means the 3 panels will display all Financial information earned on\nEasyVisa while you were either a Solo Practitioner or while affiliated with any law firm.",
+          "ATTORNEY_P_2": "<span class='font-weight-bold'>Solo Practitioner</span> - This means the 3 panels will display all Financial information earned on\nEasyVisa while you were a Solo Practitioner.",
+          "ATTORNEY_P_3": "<span class='font-weight-bold'>Law Firm Listing</span> - If you select a law firm that you worked at, then the 3 panels will only\ndisplay Financial information earned on EasyVisa while you worked at that specific law firm."
+        },
+        "CLIENT_REVENUE_MODAL": {
+          "DESCRIPTION_1": "When you create a package for your clients (or add new applicants to an existing package), you set the\npricing for each applicant in the package in the ‘Create/Edit Package’ tab within the Task Queue.",
+          "DESCRIPTION_2": "Client revenue refers to the total revenue that you billed to all of your clients using the EasyVisa platform.\nHowever, the revenue is only calculated for packages that you converted from ‘Lead’ to ‘Open’ status.",
+          "DESCRIPTION_3": "We realize that not all of your clients completed their immigration process, and therefore most likely some\nof your clients did not pay you all the fees that you had billed them. Therefore, these revenue figures are\nonly estimates."
+        },
+        "REFERRAL_BONUSES_MODAL": {
+          "DESCRIPTION_1_TITLE": "EasyVisa pays you a referral bonus for each colleague that you refer to the EasyVisa platform!",
+          "DESCRIPTION_1": " The bonus is equivalent to a {{referralBonus}} credit for each colleague that you refer to the EasyVisa\nplatform. You will receive this credit after your colleague joins EasyVisa and creates their first package on\nthe platform. These credits have no cash value and can ONLY be used to offset future EasyVisa charges.\nThere is no limit on the amount of referral bonuses you can earn!",
+          "DESCRIPTION_2_TITLE": "Your colleague will also receive a sign-up discount of {{signUpDiscount}}",
+          "DESCRIPTION_2": "Your colleague(s) MUST sign up for EasyVisa using the Promo Code, as well as your email address (that\nyou use on the EasyVisa platform), in order for each of you to receive these bonuses.",
+          "DESCRIPTION_3_TITLE": "There is no limit to the amount of bonuses you can earn by referring colleagues!",
+          "DESCRIPTION_3": "to enter your colleague(s) email addresses and invite them to join this incredible platform that is\ntruly revolutionizing the practice of family immigration law!",
+          "CLICK_HERE": "Click here"
+        },
+        "INVITE_COLLEAGUES": {
+          "HEADER": "Invite Colleagues to EasyVisa",
+          "LABEL_1": "Enter your colleagues’ email addresses separated by commas, semi-colons, or spaces.",
+          "LABEL_2": "Subject Line",
+          "LABEL_3": "Email template that will go to all your colleagues in the above list.",
+          "WARNING_1": "Missing Invitees",
+          "WARNING_2": "Missing Subject",
+          "WARNING_3": "Missing Email Template",
+          "LABEL_BTN": "Invite Colleagues"
+        },
+        "TUTORIALS": {
+          "TASK_QUEUE": "Task Queue",
+          "ALERTS": "Alerts",
+          "WARNINGS": "Warnings",
+          "CLIENT_SEARCH": "Client Search",
+          "CREATE_EDIT_MESSAGE": "Create/Edit Package",
+          "ADDITIONAL_FEES": "Additional Fees",
+          "MY_ACCOUNT": "My Account",
+          "PROFILE": "Profile",
+          "PAYMENT_FEE_SCHEDULE": "Payment & Fee Schedule",
+          "NOTIFICATIONS_REMINDERS": "Notifications & Reminders",
+          "EMAIL_TEMPLATES": "email Templates",
+          "PERMISSIONS": "Permissions",
+          "LOG": "Log",
+          "ADMIN": "Admin",
+          "QUESTIONNAIRE": "Questionnaire",
+          "DOCUMENTS": "Documents"
+        },
+        "SETTINGS": {
+          "SEARCH_RESULT_PANEL": {
+            "HEADER": "Search Result Panel Rankings (Articles)",
+            "RECENT_CONTRIBUTOR": "Recent Contributor",
+            "TOP_CONTRIBUTOR": "Top Contributor",
+            "ALL_REPS_RESULT": "All Reps Results",
+            "RANKING_FACTOR_DESCRIPTION": "Ranking Factor Description",
+            "POINTS": "Points",
+            "POINTS_ARTICLE": "Points/Article",
+            "ARTICLES_WITHIN_30": "Articles Within 30 Days",
+            "ARTICLES_WITHIN_1_3_MONTH": "Articles Within 1 to 3 Months",
+            "ARTICLES_WITHIN_3_6_MONTH": "Articles Within 3 to 6 Months"
+          },
+          "REPRESENTATIVES": {
+            "HEADER": "Representatives",
+            "REGISTERED_ATTORNEYS": "Registered<br>Attorneys",
+            "REGISTERED_ACC_REPS": "Registered<br>Accredited Reps",
+            "TOTAL_REGISTERED_REPS": "Total Registered<br>Representatives"
+          }
+        }
+      },
+      "PROCESS_LINKS": {
+        "TITLE": "Process Links",
+        "VISA_PROCESSING_TIME": "Visa Processing Time",
+        "LINKS_GOES_HERE": "Link",
+        "VISA_INTERVIEW": "Visa Interview Scheduling Wait Time",
+        "VISA_WAIT_TIME": "Visa Wait Time",
+        "AOS_INTERVIEW": "AOS Interview Wait Time",
+        "VISA_AVAILABILITY": "Visa Availability Dates",
+        "US_EMBASSY": "U.S. Embassy, Consulate, and Diplomatic Mission Locations",
+        "VISA_PRIORITY_DATES": "Visa Priority Dates (Based on Immigration Benefit Category and Country)",
+        "LINK_GOES_HERE": "Link goes here",
+        "CLICK_HERE": "Click Here:"
+      },
+      "USCIS_EDITION_DATES": {
+        "USCIS_FORM_NO_NAME":"USCIS Form Number & Name",
+        "EDITION_DATE":"Edition Date",
+        "EXPIRATION_DATE":"Expiration Date",
+        "PARA_1":"Before mailing any packages to the USCIS:",
+        "PARA_2":"Please review the edition dates of the forms that your client has sent you and compare them to the above chart. If the edition dates that you see here in this sub tab are newer than any USCIS forms in the package that your client has (signed and) sent to you, then you must do the following 2 things:",
+        "PARA_3":"As a reminder, if the Questionnaire is incomplete, then clients CANNOT print out any forms, although legal representatives can print out USCIS forms at any time (whether they are complete or not)!",
+        "POINT_1":"Instruct your client(s) to go to the Questionnaire first. If any new questions have been added to the Questionnaire or if any responses have changed within any forms associated with the package, then one (or more) Questionnaire sections will no longer have a checkmark indicating that they are now incomplete. Your client should then (re)complete the Questionnaire.",
+        "POINT_2":"After your client has completed the Questionnaire, instruct them to reprint the USCIS forms, resign them, and resend them to you.",
+        "POINT_3":"DO NOT CLOSE ANY PACKAGE (TASK QUEUE > CLIENTS) UNTIL YOU ARE CERTAIN THAT ALL USICS FORMS ARE CURRENT! ON THE DATE THAT A PACKAGE IS CLOSED ALL USCIS FORMS ARE ‘LOCKED’ INTO THE EDITION DATE FOR EACH USCIS FORM WITHIN THAT PACKAGE AND CAN NO LONGER BE MODIFIED. WE RECOMMEND THAT YOU ONLY CLOSE THE PACKAGE WHEN YOU ARE SURE THAT THE IMMIGRATION PROCESS IS COMPLETE."
+      }
+    }
+  }
+}

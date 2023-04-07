@@ -1,0 +1,146 @@
+{
+  "TEMPLATE": {
+    "DOCUMENT_PORTAL": {
+      "TITLE": "All documents submitted in foreign languages MUST be accompanied by certified English translations.",
+      "SUB_TITLE": "Certification by translator MUST state that the translation is complete and correct and that he/she is competent to translate the foreign language into English."
+    },
+    "VISA_INTERVIEW": {
+      "HEADER": "Visa Interview - Documentation Types",
+      "DESCRIPTION_1": "Documents for {{clientName}}",
+      "DESCRIPTION_2": "Not all of these documents may be required for your application. Please open the",
+      "DESCRIPTION_3": "and/or consult with your Attorney if you have questions about a particular document.",
+      "APPOINTMENT_LETTER": "Copy of Appointment Letter",
+      "DS-160": "DS-160 Proof of Payment Printout",
+      "DS-260": "DS-260 Proof",
+      "PASSPORTS": "Passports",
+      "PHOTOGRAPHS": "Photographs",
+      "BIRTH_CERTIFICATES": "Birth Certificates",
+      "MARITAL_STATUS_CERTIFICATES": "Marital Status Certificates",
+      "POLICE_CERTIFICATES": "Police Certificates",
+      "MEDICAL_EXAMINATION": "Medical Examination",
+      "COURT_PRISON_RECORDS": "Court and Prison Records",
+      "MILITARY_RECORDS": "Military Records",
+      "AFFIDAVIT": "Affidavit of Support (I-134) and Evidence of Income",
+      "EVIDENCE": "Evidence of Relationship",
+      "ADOPTION": "Adoption Certificates (If Applicable)",
+      "RESUME": "Resume",
+      "VISA_EXTENSION_NOTICE": "Visa Extension Notice",
+      "RECORDS_PREVIOUS_IMMIGRATION": "Records of Previous Immigration Proceedings",
+      "TRANSLATIONS": "Translations",
+      "VISA_FEE_PROOF": "Visa Application Fee Proof of Payment",
+      "FORM_I-864": "Form I-864 Affidavit(s) of Support",
+      "DOMICILE": "Proof of Domicile  Help",
+      "DOWNLOAD_CHECKLIST": "Download Checklist",
+      "HELP": "Help",
+      "DS-260_HELP": "Confirmation page that you submitted online at ceac.state.gov",
+      "PASSPORTS_HELP": "Unexpired passport valid for six months beyond your intended date of entry to the United States and a photocopy of the biographic page (where your name and photo are located). Two (2) color passport-size photographs of each person applying for a visa (5 cm x 5 cm, or 2 inch x 2 inch). Please see our Photo Requirements.",
+      "BIRTH_CERTIFICATES_HELP": "Your original birth certificate, English translation and a photocopy.",
+      "MEDICAL_EXAMINATION_HELP": "Medical examination results in a sealed envelope (if the physician gives you these results). ",
+      "COURT_PRISON_RECORDS_HELP": "If you have ever been convicted of a crime: Court / criminal records and a photocopy. ",
+      "MILITARY_RECORDS_HELP": "If you have served in any country’s military: Military records and photocopy. ",
+      "EVIDENCE_HELP": "Evidence of the relationship between the petitioner and visa applicant (for example, photographs and letters). If you are married: Your original marriage certificate, English translation and a photocopy. If you were previously married: Your original divorce or spouse’s death certificate, English translation and a photocopy. If you are older than 16 years of age: The original police certificate from your country of current residence and countries of previous residence. If these three items are all true, you must bring a more recent police certificate to the interview: He or she is older than 16 years; He or she obtained a police certificate more than one year ago; and He or she still lives in the country that issued the police certificate. If you are the petitioner’s stepchild: The original marriage certificate of the petitioner and your biological parent, English translation and a photocopy. ",
+      "ADOPTION_HELP": "If you are adopted: Adoption papers or custody documents, English translation and a photocopy. ",
+      "FORM_I-864_HELP": "The appropriate Form I-864 Affidavit of Support for each financial sponsor along with a photocopy of the sponsor’s IRS transcript or most recent U.S. federal income tax return, and any relevant W-2s. ",
+      "DOMICILE_HELP": "Proof of your U.S. petitioner’s status and domicile in the United States. (photocopy of a U.S. passport, naturalization certificate, or legal permanent resident card). "
+    },
+    "REPRESENTATIVE_NOTES": {
+      "TITLE": "{{representativeType}} Notes",
+      "NEW_PUBLIC_NOTE_BTN": "New Public Note",
+      "NEW_REPRESENTATIVE_NOTE_BTN": "New Representative Note",
+      "NEW_PUBLIC_NOTE_TITLE": "Add a New Public Note",
+      "NEW_REPRESENTATIVE_NOTE_TITLE": "Add a New Representative Note",
+      "P_1": "Visible to Client(s)",
+      "P_2": "Visible ONLY to {{organizationType}}",
+      "CREATOR": "Creator",
+      "SUBJECT": "Subject",
+      "DATE": "Date",
+      "TIME": "Time",
+      "DELETE": "Delete"
+    },
+    "MILESTONE_DATES": {
+      "TITLE": "Milestone Dates",
+      "P_1": "Package sent to USCIS",
+      "P_2": "Visa Interview",
+      "P_3": "Visa Stamp in Passport",
+      "P_4": "Arrival Date in U.S.",
+      "P_5": "Marriage Date",
+      "P_6": "AOS Interview",
+      "P_7": "Green Card - Conditional",
+      "P_8": "Green Card - Permanent",
+      "P_9": "Citizenship",
+      "DATE_LABEL_1": "Date Sent",
+      "DATE_LABEL_2": "Interview Date",
+      "DATE_LABEL_3": "Date Received",
+      "DATE_LABEL_4": "Arrival Date",
+      "DATE_LABEL_5": "Marriage Date",
+      "DATE_LABEL_6": "Interview Date",
+      "DATE_LABEL_7": "Resident Since Date",
+      "DATE_LABEL_8": "Resident Since Date",
+      "DATE_LABEL_9": "Date Oath Taken",
+      "DESCRIPTION": "Description",
+      "ENTER_DATE": "Enter Date"
+    },
+    "PRINT_FORMS": {
+      "TITLE": "Print/Download USCIS Forms/Continuation Sheets",
+      "SELECT_APPLICANT": "Select Applicant",
+      "APPLICANT_TYPE": "Applicant Type",
+      "APPLICANT_NAME": "Applicant Name",
+      "BENEFIT": "Benefit",
+      "EASY_VISA_ID": "EasyVisa ID",
+      "SELECT_USCIS_FORMS": "Select USCIS Forms for",
+      "FORM": "Form",
+      "FORM_NAME": "Form Name",
+      "CONTINUATION_SHEET_NAME":"Continuation Sheet Name",
+      "APPLICANT": "Applicant",
+      "FORM_SIGNER": "(Form) Signer",
+      "SELECT_CONTINUATION_SHEETS": "Select Continuation Sheets for",
+      "DOWNLOAD": "Download",
+      "PRINT": "Print",
+      "PRINT_DOWNLOAD_BLANK_FORMS": "Print Blank Forms",
+      "NOTE": "* Note:",
+      "NOTE_DESCRIPTION": "You can only print one (1) USCIS form or\nContinuation Sheet at a time, but you can\ndownload multiple items simultaneously.",
+      "WARNING": "* Applicant forms may, or may not, be complete.",
+      "DOWNLOADING_STATUS": "Downloading...",
+      "DOWNLOAD_PRINT_POP_UP_TITLE": "Download or Print Blank USCIS Form(s)",
+      "NATIVE_ALPHABET_POP_UP_TITLE": "Important - Native Alphabet",
+      "NATIVE_ALPHABET_POP_UP_CONTENT": "You MUST complete every question on this <em>{{form}}</em> form before signing and submitting it to your <em>{{representativeType}}</em>. Generally, the following languages are the only languages that use the Roman alphabet: English, French, Spanish, German, Portuguese, Dutch, Turkish, Vietnamese, Bahasa Malay, Bahasa Indonesia, Tagalog. <br/><br/> If your native alphabet does not use Roman characters, but you do not know how to switch languages on your computer’s keyboard, then after you print out this form please complete the section <strong>'If your native alphabet does not use Roman characters'</strong> requesting your basic information in your native alphabet in black ink in <em>{{page}}</em> of that form."
+    },
+    "REQUIRED_DOCUMENTS": {
+      "HEADER": "Documents Required Prior to Application Submission",
+      "DOWNLOAD_ALL": "Download All"
+    },
+    "SENT_DOCUMENTS": {
+      "HEADER": "Signed Documents Sent To U.S. Government",
+      "SUBMITTED": "Submitted",
+      "DATE_SENT": "Date Sent",
+      "DOWNLOAD_ALL": "Download All",
+      "OPEN_ALL_PANELS": "Open All Panels",
+      "CLOSE_ALL_PANELS": "Close All Panels",
+      "NO_DOCUMENTS":"No signed documents need to be uploaded for this beneficiary"
+    },
+    "ATTACHMENTS":{
+      "ADD": "Add",
+      "DELETE": "Delete",
+      "HELP": "Help"
+    },
+    "RECEIVED_DOCUMENTS": {
+      "HEADER": "Documents Received From U.S. (or local) Government For {{beneficiaryName}}",
+      "DATE_RECEIVED": "Date Received",
+      "DOWNLOAD_ALL": "Download All",
+      "OPEN_ALL_PANELS": "Open All Panels",
+      "CLOSE_ALL_PANELS": "Close All Panels"
+    },
+    "MODALS": {
+      "QUESTIONNAIRE_INCOMPLETE": {
+        "HEADER": "Questionnaire Incomplete",
+        "DESCRIPTION_1": "Attorney's and their employees can print USCIS forms\nand Continuation Sheets out at any time, whether complete or not.",
+        "DESCRIPTION_2": "However, to ensure that packages have the highest quality control, and\ntherefore the highest chances for approval by the USCIS, EasyVisa requires\nthat every question in the Questionnaire is answered before any USCIS\nforms or Continuation Sheets can be printed by your clients. This prevents\nyour clients from accidentally printing, signing, and sending incomplete\nforms to their Attorneys, which then might accidentally get get\nsubmitted to the USCIS!",
+        "DESCRIPTION_3": "To ensure that packages have the highest quality control, and\ntherefore the highest chances for approval by the USCIS, EasyVisa\nrequires that every question in the Questionnaire is answered before\nany USCIS forms or Continuation Sheets can be printed. This\nprevents accidental submission of incomplete forms to your\nAttorneys or to the USCIS."
+      },
+      "QUESTION_RESPONSE_CONFLICT": {
+        "HEADER": "Question Response Conflict",
+        "DESCRIPTION": "There is a conflict with the response <span class='text-danger'>{{responseLabel}}</span> to the question <span class='text-info'> Family Information > \n Marital Status > What is your current marital status?</span> for <span class='text-danger'>{{applicantName}}</span>. \n The selected response is not available as an option on form <span class='text-danger'>{{formName}}</span> which would \n make that question unanswered on that form when it is downloaded or printed. <br/><br/> To reduce the potential for errors, EasyVisa does not allow applicants to print or download any \n forms unless every form in the package is complete (every question has been answered).<br/><br/> Form <span class='text-danger'>{{formName}}</span> only has the marital status options of: 'Single, never Married', 'Married', \n 'Divorced', and 'Widowed'. We recommend that you discuss with your <span class='text-danger'>{{representativeType}}</span> to \n see if one of these four options is more applicable to your situation. Below is the contact \n information for your <span class='text-danger'>{{representativeType}} {{representativeName}}</span> <br/><br/> Office Number: <span class='text-danger'>{{officeNumber}}</span> <br/><br/> Mobile Number: <span class='text-danger'>{{mobileNumber}}</span>"
+      }
+    }
+  }
+}

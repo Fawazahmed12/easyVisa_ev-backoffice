@@ -1,0 +1,59 @@
+dataSource:
+  username: easyvisa
+  password: easyvisa
+  url: jdbc:postgresql://localhost:5432/easyvisa_db
+  dbCreate: none
+
+grails:
+  mail:
+    host: ''
+    port: ''
+    username: ''
+    password: ''
+#    overrideAddress should be used for local development only. All upcoming emails will be sent to this address
+    overrideAddress: ''
+    props:
+      mail.smtp.auth: true
+      mail.smtp.socketFactory.port: 465
+      mail.smtp.socketFactory.class: javax.net.ssl.SSLSocketFactory
+      mail.smtp.socketFactory.fallback: false
+  plugin:
+    springsecurity:
+      rest:
+        token:
+          storage:
+            jwt:
+              secret: "qrD6h8K6S9503Q06Y6Rfk21TErImPYqa"
+              expiration: 3600
+
+spring:
+  data:
+    neo4j:
+      uri: bolt://localhost
+      username: neo4j
+      password: easyvisa
+
+payment:
+  url: https://apiprod.fattlabs.com
+  api.key: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZXJjaGFudCI6IjUxOWU4ZjFlLTM1ZjEtNDgyNC1hYTJiLTI0YzU5ZGIyMzkwYSIsImdvZFVzZXIiOmZhbHNlLCJzdWIiOiJlZDQ1M2ZlOS1hNGZhLTQ4NmUtYTY4Yy00ODYzMGE0NTg4MzEiLCJpc3MiOiJodHRwOi8vYXBpcHJvZC5mYXR0bGFicy5jb20vdGVhbS9hcGlrZXkiLCJpYXQiOjE1NjkxOTU5OTUsImV4cCI6NDcyMjc5NTk5NSwibmJmIjoxNTY5MTk1OTk1LCJqdGkiOiJqeHJuUTJvZG1MQkFZQWR6In0.PVo7sIMRY8SEwKJuIoRUSqsfPN-KZ_wRvYGT1EdJKgg
+
+easyvisa:
+  uploadDirectory: /path/to/upload/dir
+#uncomment these properties if article submitting/checking process should be working. Production values will be different.
+#  marketing.site:
+#    url: http://45.40.138.118:8159
+#    authorization: Basic ZGV2X2FwaToxMjM0NTY=
+#    article.path: /node
+
+avalara:
+  accountId: in DropBox
+  key: in DropBox
+  companyCode: in DropBox
+  shipFrom:
+    street: in DropBox
+    city: in DropBox
+    state: in DropBox
+    postalCode: in DropBox
+  taxCode: in DropBox
+  url: in DropBox
+  machineName: localhost

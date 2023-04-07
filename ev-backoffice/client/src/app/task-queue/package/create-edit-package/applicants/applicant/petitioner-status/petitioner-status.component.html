@@ -1,0 +1,36 @@
+<div class="row align-items-center">
+  <div class="col-lg-12 d-md-flex">
+    <div class="row m-0">
+      <div class="d-flex align-items-center col col-md-2 mb-2 mb-md-0 p-0 pr-1">
+        <div class="column-number bg-primary mr-2">b</div>
+        <h5 class="mb-0 mr-3">
+          {{ 'TEMPLATE.TASK_QUEUE.APPLICANT.LEGAL_STATUS' | translate }}
+        </h5>
+      </div>
+      <div class="col">
+        <select
+          class="form-control form-control-sm"
+          [class.border-danger]="!citizenshipStatusFormControl.value && (isSubmittedFormGroup$ | async)"
+          [formControl]="citizenshipStatusFormControl"
+        >
+          <option [ngValue]="null" disabled>
+            {{ 'TEMPLATE.TASK_QUEUE.APPLICANT.SELECT_LEGAL_STATUS' | translate }}
+          </option>
+          <option
+            [value]="citizenshipStatusValue.value"
+            *ngFor="let citizenshipStatusValue of citizenshipStatusValues"
+          >
+            {{citizenshipStatusValue.fullLabel | translate}}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center w-100 m-3">
+    <div class="col border-bottom border-secondary mx-3"></div>
+  </div>
+</div>
+
+<ng-template #statusChangeWarningModal>
+  <app-status-change-warning-modal></app-status-change-warning-modal>
+</ng-template>

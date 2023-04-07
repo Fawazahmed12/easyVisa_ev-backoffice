@@ -1,0 +1,20 @@
+import com.easyvisa.Article
+import groovy.transform.Field
+
+@Field Article article
+
+json {
+    id article.id
+    author article.author.profile.fullName
+    organizationName article.organization.name
+    locationId article.categoryId
+    locationName article.categoryName
+    title article.title
+    content article.body
+    views article.views
+    words article.wordsCount
+    approved article.isApproved
+    url article.url
+    dateSubmitted article.dateCreated
+    dateDispositioned article.dispositioned
+}

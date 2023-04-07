@@ -1,0 +1,12 @@
+<div
+  *ngIf="(balance$ | async) > 0"
+  class="text-center border border-danger border-secondary rounded-lg ml-3 mb-1">
+  <div class="border border-danger border-secondary rounded-lg">
+    <div class="font-weight-bold text-white text-center px-1 bg-danger ">{{'TEMPLATE.PAYMENT_WARNING.TITLE' | translate}}</div>
+    <div class="px-1 small">{{'TEMPLATE.PAYMENT_WARNING.GO' | translate}}
+      <a routerLink="/account/payment-fee-schedule" class="cursor-pointer text-primary pl-1">
+        {{'TEMPLATE.PAYMENT_WARNING.LINK' | translate}}
+      </a>
+    </div>
+  </div>
+</div>

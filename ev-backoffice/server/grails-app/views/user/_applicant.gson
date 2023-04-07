@@ -1,0 +1,24 @@
+import com.easyvisa.Package
+import com.easyvisa.dto.PackageApplicantResponseDto
+import com.easyvisa.questionnaire.model.ApplicantType
+import groovy.transform.Field
+
+inherits template:'/user/applicantInPackages', model:[applicant:packageApplicant.applicant, aPackage:aPackage]
+
+@Field PackageApplicantResponseDto packageApplicant
+@Field Package aPackage
+
+json {
+    if (packageApplicant.applicantType != ApplicantType.Petitioner.uiValue) {
+        fee packageApplicant.fee
+        benefitCategory packageApplicant.category
+    }
+    inviteApplicant packageApplicant.applicant.inviteApplicant
+    citizenshipStatus packageApplicant.citizenshipStatus
+    optIn packageApplicant.optIn
+    register packageApplicant.applicant.user != null
+    applicantType packageApplicant.applicantType
+    if (packageApplicant.applicantType == ApplicantType.Derivative_Beneficiary.uiValue) {
+        relationshipToPrincipal packageApplicant.relationshipToPrincipal
+    }
+}

@@ -1,0 +1,72 @@
+<div class="container-fluid p-0 border border-secondary">
+  <app-modal-header [title]="'TEMPLATE.ACCOUNT.PROFILE.IMPORTANT_MESSAGE.TITLE'"></app-modal-header>
+  <div class="m-4">
+    <div class="d-flex justify-content-center mt-2">
+      <div><img src="/assets/images/warn-icon.png"/></div>
+      <div class="text-center flex-grow-1">
+        <h2 class="text-danger font-weight-bolder">{{'TEMPLATE.ACCOUNT.PROFILE.IMPORTANT_MESSAGE.VERY_IMPORTANT_TITLE' | translate}}</h2>
+        <h4 class="text-danger font-weight-bolder">{{'TEMPLATE.ACCOUNT.PROFILE.IMPORTANT_MESSAGE.VERY_IMPORTANT_SUBTITLE' | translate}}</h4>
+      </div>
+    </div>
+    <div class="m-4">
+      <p>{{'TEMPLATE.ACCOUNT.PROFILE.IMPORTANT_MESSAGE.DESCRIPTION_P1' | translate}}</p>
+      <p>{{'TEMPLATE.ACCOUNT.PROFILE.IMPORTANT_MESSAGE.DESCRIPTION_P2' | translate}}</p>
+      <p>{{'TEMPLATE.ACCOUNT.PROFILE.IMPORTANT_MESSAGE.DESCRIPTION_P3' | translate}}</p>
+      <p>
+        <span>{{'TEMPLATE.ACCOUNT.PROFILE.IMPORTANT_MESSAGE.DESCRIPTION_P4_1' | translate: ({
+          credit: (feeDetails$ | async).referralBonus | currency:'USD' : 'symbol' : '1.0',
+          discount: (feeDetails$ | async).signupDiscount | currency:'USD' : 'symbol' : '1.0'
+        })}}</span>
+        (<a class="text-blue cursor-pointer" (click)="redirectToDashboard()">{{'TEMPLATE.ACCOUNT.PROFILE.IMPORTANT_MESSAGE.CLICK_HERE_FOR_DETAILS' | translate}}</a>)
+        <span>{{'TEMPLATE.ACCOUNT.PROFILE.IMPORTANT_MESSAGE.DESCRIPTION_P4_2' | translate}}</span>
+        (<a class="text-blue cursor-pointer" (click)="redirectToInviteColleagues()">{{'TEMPLATE.ACCOUNT.PROFILE.IMPORTANT_MESSAGE.CLICK_HERE_TO_REFER_PARTNERS' | translate}}</a>)
+        <span>{{'TEMPLATE.ACCOUNT.PROFILE.IMPORTANT_MESSAGE.DESCRIPTION_P4_3' | translate}}</span>
+      </p>
+      <p class="text-danger font-weight-bolder">{{'TEMPLATE.ACCOUNT.PROFILE.IMPORTANT_MESSAGE.DESCRIPTION_P5' | translate}}</p>
+      <p>{{'TEMPLATE.ACCOUNT.PROFILE.IMPORTANT_MESSAGE.DESCRIPTION_P6' | translate}}</p>
+      <p>{{'TEMPLATE.ACCOUNT.PROFILE.IMPORTANT_MESSAGE.DESCRIPTION_P7' | translate}}</p>
+    </div>
+  </div>
+  <div class="text-right m-4">
+    <button class="btn btn-primary px-4 mr-4 min-w-100" type="button" (click)="modalDismiss()">
+      {{ 'FORM.BUTTON.CANCEL' | translate }}
+    </button>
+    <button
+      routerLink="/account/profile/invite-attorney-to-create-new-law-firm"
+      (click)="modalDismiss()"
+      class="btn btn-primary px-4 min-w-100"
+      type="button"
+    >
+      {{ 'TEMPLATE.ACCOUNT.PROFILE.IMPORTANT_MESSAGE.INVITE_PARTNER_BUTTON' | translate}}
+    </button>
+  </div>
+</div>
+
+
+<ng-template #referralBonus>
+  <div class="container-fluid my-4">
+    <div class="mb-2 font-weight-bold">
+      {{'TEMPLATE.DASHBOARD.FINANCIAL.REFERRAL_BONUSES_MODAL.DESCRIPTION_1_TITLE' | translate }}
+    </div>
+    <div class="mb-2">
+      {{'TEMPLATE.DASHBOARD.FINANCIAL.REFERRAL_BONUSES_MODAL.DESCRIPTION_1' | translate : (
+      {referralBonus: (feeDetails$ | async)?.referralBonus | currency:'USD' : 'symbol' : '1.0'})}}
+    </div>
+    <div class="mb-2 font-weight-bold">
+      {{'TEMPLATE.DASHBOARD.FINANCIAL.REFERRAL_BONUSES_MODAL.DESCRIPTION_2_TITLE' | translate: (
+      {signUpDiscount: (feeDetails$ | async)?.signupDiscount | currency:'USD' : 'symbol' : '1.0'})}}
+    </div>
+    <div class="mb-2">
+      {{'TEMPLATE.DASHBOARD.FINANCIAL.REFERRAL_BONUSES_MODAL.DESCRIPTION_2' | translate }}
+    </div>
+    <div class="mb-2 font-weight-bold">
+      {{'TEMPLATE.DASHBOARD.FINANCIAL.REFERRAL_BONUSES_MODAL.DESCRIPTION_3_TITLE' | translate }}
+    </div>
+    <div class="mb-5">
+      <a class="cursor-pointer text-primary" (click)="gotoInviteColleagues()">
+        {{'TEMPLATE.DASHBOARD.FINANCIAL.REFERRAL_BONUSES_MODAL.CLICK_HERE' | translate}}
+      </a>
+      {{'TEMPLATE.DASHBOARD.FINANCIAL.REFERRAL_BONUSES_MODAL.DESCRIPTION_3' | translate }}
+    </div>
+  </div>
+</ng-template>

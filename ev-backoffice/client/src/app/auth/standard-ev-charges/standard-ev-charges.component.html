@@ -1,0 +1,71 @@
+<div class="container-fluid mb-5">
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <h3 class="text-center my-3">{{'TEMPLATE.AUTH.STANDARD_CHARGES.TITLE' | translate}}</h3>
+      <h5 class="font-weight-bold mb-3 text-center">{{'TEMPLATE.AUTH.STANDARD_CHARGES.FOLLOWING_CHARGES' | translate}}</h5>
+      <div class="row">
+        <div class="col-10">
+          <div class="font-weight-bold float-left pr-1">{{'TEMPLATE.AUTH.STANDARD_CHARGES.SIGN_UP_FEE' | translate}}</div>
+          <div
+            [innerHTML]="'TEMPLATE.AUTH.STANDARD_CHARGES.SIGN_UP_FEE_DESCRIPTION' | translate:({preApplicantFee: (feeDetails$ | async)?.signupFee | currency: 'USD' : 'symbol' : '1.0'})" class="ml-3">
+          </div>
+        </div>
+        <div class="font-weight-bold col-2">{{(feeDetails$ | async)?.signupFee | currency: 'USD' : 'symbol' : '1.0'}}</div>
+      </div>
+      <div class="d-flex align-items-center mt-3">
+        <span class="pr-3 text-nowrap">{{'TEMPLATE.AUTH.STANDARD_CHARGES.ADD_REFERRAL_TITLE' | translate }}</span>
+        <input class="form-control form-control-sm mr-3" [formControl]="referralFormControl">
+        <button
+          type="button"
+          class="btn btn-primary px-4 min-w-100"
+          [disabled]="(isEqualReferral$ | async) || referralFormControl.invalid"
+          (click)="applyReferral()"
+        >
+          {{'TEMPLATE.AUTH.STANDARD_CHARGES.APPLY' | translate}}
+        </button>
+      </div>
+      <h3 class="text-center mb-3 mt-4">{{'TEMPLATE.AUTH.STANDARD_CHARGES.SUBTITLE' | translate}}</h3>
+      <div class="row my-3" *ngFor="let charge of (recurringCharges$ | async)">
+        <div class="col-10">
+          <div class="font-weight-bold float-left pr-1" [innerHTML]="charge.title | translate"></div>
+          <div [innerHTML]="charge.description | translate" class="ml-3"></div>
+        </div>
+        <div class="font-weight-bold col-2" [class.pr-1]="!charge.note">
+          <span *ngIf="charge.priceRange">{{minApplicantFee | currency: 'USD' : 'symbol' : '1.0'}} - {{maxApplicantFee | currency: 'USD' : 'symbol' : '1.0'}}</span>
+          <span *ngIf="charge.price">{{charge.price | currency: 'USD' : 'symbol' : '1.0'}}</span>
+          <span *ngIf="!charge.price && !charge.priceRange" class="text-danger font-weight-bold">{{'TEMPLATE.AUTH.STANDARD_CHARGES.FREE'| translate}}</span>
+          <span *ngIf="charge.note" class="text-danger">*</span>
+          <span *ngIf="charge.doubleNote" class="text-danger">**</span>
+        </div>
+      </div>
+      <div class="text-center text-md-right my-5">
+        <button type="button" class="btn btn-primary px-4 min-w-100" (click)="goToRepBasicInfo()">
+          {{'FORM.BUTTON.I_AGREE' | translate}}
+        </button>
+      </div>
+      <div class="row">
+        <div class="col-10 text-b2b2b2">
+          <div class="small d-flex my-2 font-weight-bold">
+            <span class="pl-1 pr-1">*</span>
+            <div>
+              {{'TEMPLATE.AUTH.STANDARD_CHARGES.FOOTNOTE_1' | translate :({minApplicantFee: minApplicantFee | currency: 'USD' : 'symbol' : '1.0', maxApplicantFee: maxApplicantFee | currency: 'USD' : 'symbol' : '1.0'})}}
+              <span class="click-here cursor-pointer" (click)="openPerApplicantChargesModal()">{{'TEMPLATE.AUTH.STANDARD_CHARGES.CLICK_HERE' | translate}}</span>
+              <span>{{'TEMPLATE.AUTH.STANDARD_CHARGES.FEES_FOR_EACH_CATEGORY' | translate}}</span>
+            </div>
+          </div>
+          <div class="small d-flex my-2 font-weight-bold">
+            <span class="pl-1 pr-1">**</span>
+            <div>{{'TEMPLATE.AUTH.STANDARD_CHARGES.FOOTNOTE_2' | translate}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #perApplicantChargesModal>
+  <app-per-applicant-charges-modal
+    [feeSchedules]="feeSchedules">
+  </app-per-applicant-charges-modal>
+</ng-template>

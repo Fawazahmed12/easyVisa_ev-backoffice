@@ -1,0 +1,17 @@
+<div class="container-fluid p-0 border border-secondary">
+  <app-modal-header [title]="'TEMPLATE.ACTIVE_PACKAGE_MODAL.TITLE'"></app-modal-header>
+  <div class="modal-body">
+    {{'TEMPLATE.ACTIVE_PACKAGE_MODAL.TEXT' | translate}}
+    <a (click)="gotoProgressStatus()" class="cursor-pointer text-primary" *ngIf="(isUser$ | async)">
+      {{'TEMPLATE.ACTIVE_PACKAGE_MODAL.USER_LINK' | translate}}
+    </a>
+    <a (click)="gotoClients()" class="cursor-pointer text-primary" *ngIf="!(isUser$ | async)">
+      {{'TEMPLATE.ACTIVE_PACKAGE_MODAL.ATTORNEY_LINK' | translate}}
+    </a>
+  </div>
+  <div class="modal-footer border-top-0">
+    <button class="btn btn-primary min-w-100 mr-2" type="button" (click)="modalDismiss()">
+      {{ 'FORM.BUTTON.OK' | translate }}
+    </button>
+  </div>
+</div>

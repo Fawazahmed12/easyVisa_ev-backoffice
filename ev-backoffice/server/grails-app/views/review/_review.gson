@@ -1,0 +1,16 @@
+import com.easyvisa.Review
+import groovy.transform.Field
+
+@Field Review reviewInstance
+
+json {
+    id reviewInstance.id
+    reviewerId reviewInstance.reviewer.id
+    packageId reviewInstance.aPackage.id
+    representativeId reviewInstance.representative.id
+    rating reviewInstance.rating
+    title reviewInstance.title
+    read reviewInstance.read
+    review reviewInstance.review
+    reply reviewInstance.reply
+}

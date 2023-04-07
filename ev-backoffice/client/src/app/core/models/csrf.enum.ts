@@ -1,0 +1,4 @@
+export enum CSRF {
+  COOKIE_NAME = 'CSRF-TOKEN',
+  HEADER_NAME = 'X-CSRF-TOKEN'
+}

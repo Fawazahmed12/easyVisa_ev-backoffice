@@ -1,0 +1,8 @@
+import org.apache.http.HttpStatus
+
+response.status HttpStatus.SC_NOT_FOUND
+
+json {
+    message 'Not Found'
+    error HttpStatus.SC_NOT_FOUND
+}

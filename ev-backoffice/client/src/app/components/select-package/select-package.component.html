@@ -1,0 +1,14 @@
+<select
+  class="form-control form-control-sm col"
+  [formControl]="formControl"
+  (select)="onTouched()"
+>
+  <option [ngValue]="null">
+    {{ 'TEMPLATE.SELECT_NAME.SELECT_PACKAGE' | translate }}
+  </option>
+  <option [value]="item.id" *ngFor="let item of (packages$ | async)">
+    <span *ngIf="showPackageStatus">{{item.status | packageStatus | translate}} {{'TEMPLATE.PACKAGE_STATUS.CASE' | translate}} - </span>
+    <span *ngIf=showPackageCategories>{{item.categories}}: </span>
+    <span>{{item.title}}</span>
+  </option>
+</select>
